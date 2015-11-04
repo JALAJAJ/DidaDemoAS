@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/lv_mine_personal_address"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#000000"
+        android:dividerHeight="0dp"
+        android:listSelector="#00000000" />
+    
+<!--     <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btn_personal_address_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_btn_red"
+        android:minHeight="0dp"
+        android:padding="8dp"
+        android:text="新增收货地址"
+        android:textColor="@color/white" /> -->
+
+</RelativeLayout><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/activity_mine_personal_address.xml -->

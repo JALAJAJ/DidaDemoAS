@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ListView
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/lv_attention_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/list_attention.xml -->

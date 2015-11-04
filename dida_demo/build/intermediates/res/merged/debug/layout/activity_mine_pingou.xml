@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        
+
+        
+
+        <LinearLayout
+            android:id="@+id/ll_pingou_group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                     android:id="@+id/tv_pingou_group"
+                    style="@style/black_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="团购拼购" />
+
+                <View
+                     android:id="@+id/iv_pingou_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/red" />
+            </LinearLayout>
+        </LinearLayout>
+ <View
+     android:layout_marginTop="16dp"
+     android:layout_marginBottom="16dp"
+                  style="@style/divider_nomal_vertical" />
+        <LinearLayout
+            android:id="@+id/ll_pingou_aa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                     android:id="@+id/tv_pingou_aa"
+                    style="@style/black_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="AA拼购" />
+
+                <View
+                    android:visibility="invisible"
+                     android:id="@+id/iv_pingou_aa"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/red" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_mine_pingou"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/activity_mine_pingou.xml -->

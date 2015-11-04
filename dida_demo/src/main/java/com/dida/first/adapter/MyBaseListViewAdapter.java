@@ -1,0 +1,45 @@
+package com.dida.first.adapter;
+
+import java.util.List;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public abstract class MyBaseListViewAdapter<T> extends BaseAdapter {
+//	public Context context;
+	protected List<T> list;
+	public View view;
+	public MyBaseListViewAdapter(List<T>list) {
+//		this.context=context;
+		this.list=list;
+	}
+	public void setNotyfyData(List<T> list){
+		this.list=list;
+		this.notifyDataSetChanged();
+	}
+	@Override
+	public int getCount() {
+		return list.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		view=getItemView(position,convertView,parent);
+		return view;
+	}
+
+	public abstract View getItemView(int position, View convertView, ViewGroup parent);
+
+}

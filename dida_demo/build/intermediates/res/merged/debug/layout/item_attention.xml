@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp"
+    android:background="#ffffff"
+  >
+     <com.meg7.widget.CircleImageView
+         android:layout_centerVertical="true"
+         android:id="@+id/iv_attention_list_icon"
+            android:scaleType="centerCrop"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/group_icon" />
+     <TextView 
+         android:layout_marginLeft="8dp"
+          android:layout_centerVertical="true"
+         android:layout_toRightOf="@id/iv_attention_list_icon"
+         android:text="名侦探柯北"
+           android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+         />
+     
+     <CheckBox 
+         android:id="@+id/cb_attention"
+           android:layout_centerVertical="true"
+           android:layout_alignParentRight="true"
+         style="@style/style_attention_checkbox"
+         android:layout_width="60dp"
+            android:layout_height="28dp"
+         
+         />
+
+</RelativeLayout>
+<!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/item_attention.xml -->

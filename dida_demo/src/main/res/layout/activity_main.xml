@@ -1,0 +1,29 @@
+
+<android.support.v4.widget.DrawerLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<!-- 主界面布局 -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<!-- 左侧拉布局 -->
+<fragment 
+        android:id="@+id/ft_left_slidingmenu"
+        android:name="com.dida.first.fragment.LeftMenuFragment"
+         android:layout_width="240dp"
+        android:layout_height="match_parent"
+         android:layout_gravity="left"
+        />
+<!-- 右侧拉布局 -->
+<fragment 
+        android:id="@+id/ft_right_slidingmenu"
+        android:name="com.dida.first.fragment.RightMenuFragment"
+         android:layout_width="240dp"
+        android:layout_height="match_parent"
+         android:layout_gravity="right"
+        />
+    
+</android.support.v4.widget.DrawerLayout>

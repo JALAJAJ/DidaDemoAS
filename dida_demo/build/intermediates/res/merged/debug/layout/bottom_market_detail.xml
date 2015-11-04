@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:background="@color/tab_color_nomal"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_market_detail_addcar"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/add_shopcar_sel" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#212529" >
+    </View>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_market_detail_store"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/store_sel" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#212529" >
+    </View>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_market_detail_addorder"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/add_order_sel" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_group_detail_join"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/tab_color_selected" >
+
+        <TextView
+            style="@style/selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="立即购买" />
+    </RelativeLayout>
+
+</LinearLayout><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/bottom_market_detail.xml -->
