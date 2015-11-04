@@ -1,12 +1,12 @@
 package com.dida.first.factory;
 
-import com.dida.first.R;
-import com.dida.first.fragment.ShaidanFragment;
-import com.dida.first.fragment.PingGouFragment_bak;
-import com.dida.first.fragment.WodeFragment;
-import com.dida.first.fragment.JiShiFragment;
-
 import android.support.v4.app.FragmentManager;
+
+import com.dida.first.R;
+import com.dida.first.fragment.Index_Market_Fragment;
+import com.dida.first.fragment.Index_Mine_Fragment;
+import com.dida.first.fragment.PingGouFragment_bak;
+import com.dida.first.fragment.Index_Show_Fragment;
 
 /**
  * @author KingJA
@@ -17,9 +17,9 @@ import android.support.v4.app.FragmentManager;
 
 public class FragmentFactory {
 	public static PingGouFragment_bak yaoyueFragment;
-	public static JiShiFragment xianggouFragment;
-	public static ShaidanFragment ShaidanFragment;
-	public static WodeFragment wodeFragment;
+	public static Index_Market_Fragment xianggouFragment;
+	public static Index_Show_Fragment Index_Show_Fragment;
+	public static Index_Mine_Fragment indexMineFragment;
 	private static FragmentManager supportFragmentManager = ActivityFactory.mainActivity.getSupportFragmentManager();
 
 	public static<T> void showFragment(T fragment){
@@ -31,27 +31,27 @@ public class FragmentFactory {
 		.replace(R.id.fl_main_content, (PingGouFragment_bak) yaoyueFragment, "SHARE")
 		.commit();
 		
-	}else if(fragment instanceof JiShiFragment){
+	}else if(fragment instanceof Index_Market_Fragment){
 		if (xianggouFragment==null) {
-			xianggouFragment=(JiShiFragment) new JiShiFragment();
+			xianggouFragment=(Index_Market_Fragment) new Index_Market_Fragment();
 		}
 		supportFragmentManager.beginTransaction()
 		.replace(R.id.fl_main_content, xianggouFragment, "WANT")
 		.commit();
 		
-	}else if(fragment instanceof ShaidanFragment){
-		if (ShaidanFragment==null) {
-			ShaidanFragment=(ShaidanFragment) new ShaidanFragment();
+	}else if(fragment instanceof Index_Show_Fragment){
+		if (Index_Show_Fragment ==null) {
+			Index_Show_Fragment =(Index_Show_Fragment) new Index_Show_Fragment();
 		}
 		supportFragmentManager.beginTransaction()
-		.replace(R.id.fl_main_content, (ShaidanFragment) ShaidanFragment, "INTEREST")
+		.replace(R.id.fl_main_content, (Index_Show_Fragment) Index_Show_Fragment, "INTEREST")
 		.commit();
 	}else {
-		if (wodeFragment==null) {
-			wodeFragment=(WodeFragment) new WodeFragment();
+		if (indexMineFragment ==null) {
+			indexMineFragment =(Index_Mine_Fragment) new Index_Mine_Fragment();
 		}
 		supportFragmentManager.beginTransaction()
-		.replace(R.id.fl_main_content, (WodeFragment) wodeFragment, "SHOW")
+		.replace(R.id.fl_main_content, (Index_Mine_Fragment) indexMineFragment, "SHOW")
 		.commit();
 	}
 	}

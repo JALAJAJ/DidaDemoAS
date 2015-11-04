@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.fragment.Fragment_PinGou_AA;
-import com.dida.first.fragment.Fragment_PinGou_Group;
+import com.dida.first.fragment.My_PinGou_AA_Fr_Bak;
+import com.dida.first.fragment.My_PinGou_Group_Fr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +55,8 @@ public class Mine_PinGou_Activity extends BackTitleActivity {
 
 	@Override
 	public void initDoNet() {
-		fragmentList.add(new Fragment_PinGou_Group());
-		fragmentList.add(new Fragment_PinGou_AA());
+		fragmentList.add(new My_PinGou_Group_Fr());
+		fragmentList.add(new My_PinGou_AA_Fr_Bak());
 	}
 
 	@Override

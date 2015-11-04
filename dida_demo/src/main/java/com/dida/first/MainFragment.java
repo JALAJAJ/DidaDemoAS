@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.activity.MainActivity;
-import com.dida.first.fragment.JiShiFragment;
-import com.dida.first.fragment.PingGouFragment;
-import com.dida.first.fragment.ShaidanFragment;
-import com.dida.first.fragment.WodeFragment;
+import com.dida.first.fragment.Index_Market_Fragment;
+import com.dida.first.fragment.Index_Pingou_Fragment;
+import com.dida.first.fragment.Index_Show_Fragment;
+import com.dida.first.fragment.Index_Mine_Fragment;
 
 /**
  * @author KingJA
@@ -35,10 +35,10 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 	private TextView tv_tab_xianggou;
 	private TextView tv_tab_saidan;
 	private TextView tv_tab_wode;
-	private PingGouFragment yaoyueFragment;
-	private JiShiFragment xianggouFragment;
-	private ShaidanFragment ShaidanFragment;
-	private WodeFragment wodeFragment;
+	private Index_Pingou_Fragment yaoyueFragment;
+	private Index_Market_Fragment xianggouFragment;
+	private Index_Show_Fragment Index_Show_Fragment;
+	private Index_Mine_Fragment indexMineFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -138,7 +138,7 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 					R.color.red));
 			if (yaoyueFragment == null) {
 				// 如果yaoyueFragment为空，则创建一个并添加到界面上
-				yaoyueFragment = new PingGouFragment();
+				yaoyueFragment = new Index_Pingou_Fragment();
 				transaction.add(R.id.fl_main_content, yaoyueFragment);
 			} else {
 				// 如果yaoyueFragment不为空，则直接将它显示出来
@@ -150,7 +150,7 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 			tv_tab_xianggou.setTextColor(getResources().getColor(
 					R.color.red));
 			if (xianggouFragment == null) {
-				xianggouFragment = new JiShiFragment();
+				xianggouFragment = new Index_Market_Fragment();
 				transaction.add(R.id.fl_main_content, xianggouFragment);
 			} else {
 				transaction.show(xianggouFragment);
@@ -160,24 +160,24 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 			iv_tab_saidan.setBackgroundResource(R.drawable.saidan_sel);
 			tv_tab_saidan.setTextColor(getResources().getColor(
 					R.color.red));
-			if (ShaidanFragment == null) {
+			if (Index_Show_Fragment == null) {
 				// 如果ShaidanFragment为空，则创建一个并添加到界面上
-				ShaidanFragment = new ShaidanFragment();
-				transaction.add(R.id.fl_main_content, ShaidanFragment);
+				Index_Show_Fragment = new Index_Show_Fragment();
+				transaction.add(R.id.fl_main_content, Index_Show_Fragment);
 			} else {
 				// 如果ShaidanFragment不为空，则直接将它显示出来
-				transaction.show(ShaidanFragment);
+				transaction.show(Index_Show_Fragment);
 			}
 			break;
 		case 3:
 			iv_tab_wode.setBackgroundResource(R.drawable.wode_sel);
 			tv_tab_wode.setTextColor(getResources().getColor(
 					R.color.red));
-			if (wodeFragment == null) {
-				wodeFragment = new WodeFragment();
-				transaction.add(R.id.fl_main_content, wodeFragment);
+			if (indexMineFragment == null) {
+				indexMineFragment = new Index_Mine_Fragment();
+				transaction.add(R.id.fl_main_content, indexMineFragment);
 			} else {
-				transaction.show(wodeFragment);
+				transaction.show(indexMineFragment);
 			}
 			break;
 		}
@@ -210,11 +210,11 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 		if (xianggouFragment != null) {
 			transaction.hide(xianggouFragment);
 		}
-		if (ShaidanFragment != null) {
-			transaction.hide(ShaidanFragment);
+		if (Index_Show_Fragment != null) {
+			transaction.hide(Index_Show_Fragment);
 		}
-		if (wodeFragment != null) {
-			transaction.hide(wodeFragment);
+		if (indexMineFragment != null) {
+			transaction.hide(indexMineFragment);
 		}
 	}
 

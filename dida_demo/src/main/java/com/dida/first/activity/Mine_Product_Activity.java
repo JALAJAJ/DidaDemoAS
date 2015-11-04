@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dida.first.R;
-import com.dida.first.fragment.Fragment_product_AA;
-import com.dida.first.fragment.Fragment_product_Group;
-import com.dida.first.fragment.Fragment_product_Real;
-import com.dida.first.fragment.Fragment_product_Service;
+import com.dida.first.fragment.Fav_Product_AA_Bak;
+import com.dida.first.fragment.Fav_Product_Group;
+import com.dida.first.fragment.Fav_Product_Real;
+import com.dida.first.fragment.Fav_Product_Service;
 import com.dida.first.utils.UIUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +20,6 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
@@ -66,10 +65,10 @@ public class Mine_Product_Activity extends BackTitleActivity {
 	@Override
 	public void initDoNet() {
 		initTab();
-		fragmentList.add(new Fragment_product_Real());
-		fragmentList.add(new Fragment_product_Service());
-		fragmentList.add(new Fragment_product_Group());
-		fragmentList.add(new Fragment_product_AA());
+		fragmentList.add(new Fav_Product_Real());
+		fragmentList.add(new Fav_Product_Service());
+		fragmentList.add(new Fav_Product_Group());
+		fragmentList.add(new Fav_Product_AA_Bak());
 
 	}
 

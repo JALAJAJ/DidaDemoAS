@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dida.first.R;
-import com.dida.first.fragment.Fragment_Foot_AA;
-import com.dida.first.fragment.Fragment_Foot_Group;
-import com.dida.first.fragment.Fragment_Foot_Real;
-import com.dida.first.fragment.Fragment_Foot_Service;
-import com.dida.first.utils.ToastUtil;
+import com.dida.first.fragment.Footprint_Service_Fr;
+import com.dida.first.fragment.Footprint_AA_Fr_Bak;
+import com.dida.first.fragment.Footprint_Group_Fr;
+import com.dida.first.fragment.Footprint_Real_Fr;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,7 +18,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 
 /**
@@ -59,10 +57,10 @@ public class Mine_FootPrint_Activity extends BackTitleActivity {
 	}
 
 	private void initFragmentList() {
-		fragmentList.add(new Fragment_Foot_Real());
-		fragmentList.add(new Fragment_Foot_Service());
-		fragmentList.add(new Fragment_Foot_Group());
-		fragmentList.add(new Fragment_Foot_AA());
+		fragmentList.add(new Footprint_Real_Fr());
+		fragmentList.add(new Footprint_Service_Fr());
+		fragmentList.add(new Footprint_Group_Fr());
+		fragmentList.add(new Footprint_AA_Fr_Bak());
 		
 	}
 

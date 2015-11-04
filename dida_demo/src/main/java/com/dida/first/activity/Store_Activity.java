@@ -16,9 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.dida.first.R;
-import com.dida.first.fragment.Fragment_Store_All;
-import com.dida.first.fragment.Fragment_Store_Home;
-import com.dida.first.fragment.Fragment_Store_Sort;
+import com.dida.first.fragment.Store_All_Fr;
+import com.dida.first.fragment.Store_Home_Fr;
+import com.dida.first.fragment.Store_Sort_Fr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,9 +50,9 @@ public class Store_Activity extends AppCompatActivity {
         tab_layout.addTab(tab_layout.newTab().setText(tabList.get(0)));
         tab_layout.addTab(tab_layout.newTab().setText(tabList.get(1)));
         tab_layout.addTab(tab_layout.newTab().setText(tabList.get(2)));
-        fragmentList.add(new Fragment_Store_Home());
-        fragmentList.add(new Fragment_Store_All());
-        fragmentList.add(new Fragment_Store_Sort());
+        fragmentList.add(new Store_Home_Fr());
+        fragmentList.add(new Store_All_Fr());
+        fragmentList.add(new Store_Sort_Fr());
 
         FragmentAdapter fragmentAdapter=new FragmentAdapter(getSupportFragmentManager());
         view_pager.setAdapter(fragmentAdapter);
