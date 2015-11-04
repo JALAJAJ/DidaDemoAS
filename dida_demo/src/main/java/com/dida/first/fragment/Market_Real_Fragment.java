@@ -50,9 +50,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 	@Override
 	public View setFragmentView() {
 		view=View.inflate(context, R.layout.fragment_market_group, null);
-//		TextView textView = new TextView(context);
-//		textView.setText("jjjjjjj");
-		Log.i("Market_Real_Fragment","setFragmentView");
 		return view;
 	}
 
@@ -211,5 +208,11 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 			return itemView;
 		}
 
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Log.i("Market_Real_Fragment","onDestroy");
 	}
 }

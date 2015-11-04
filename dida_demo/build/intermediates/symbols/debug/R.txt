@@ -1360,6 +1360,7 @@ int id fl_group_detail_title 0x7f0d00cf
 int id fl_inner 0x7f0d0295
 int id fl_left_my_order 0x7f0d00e8
 int id fl_main_content 0x7f0d01b4
+int id fl_market 0x7f0d01b7
 int id fl_market_detail_comment 0x7f0d00fc
 int id fl_market_detail_head 0x7f0d00f8
 int id fl_market_detail_image 0x7f0d00ff
@@ -1974,7 +1975,6 @@ int id vioce_control_container 0x7f0d02aa
 int id volume_animation 0x7f0d02ff
 int id vp_footprint 0x7f0d0108
 int id vp_guide 0x7f0d00d5
-int id vp_market 0x7f0d01b7
 int id vp_mine_pingou 0x7f0d0132
 int id vp_mine_product 0x7f0d0138
 int id vp_pinggou 0x7f0d01c1

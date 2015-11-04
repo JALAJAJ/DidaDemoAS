@@ -3342,6 +3342,7 @@ containing a value of this type.
         public static final int fl_inner=0x7f0d0295;
         public static final int fl_left_my_order=0x7f0d00e8;
         public static final int fl_main_content=0x7f0d01b4;
+        public static final int fl_market=0x7f0d01b7;
         public static final int fl_market_detail_comment=0x7f0d00fc;
         public static final int fl_market_detail_head=0x7f0d00f8;
         public static final int fl_market_detail_image=0x7f0d00ff;
@@ -3956,7 +3957,6 @@ containing a value of this type.
         public static final int volume_animation=0x7f0d02ff;
         public static final int vp_footprint=0x7f0d0108;
         public static final int vp_guide=0x7f0d00d5;
-        public static final int vp_market=0x7f0d01b7;
         public static final int vp_mine_pingou=0x7f0d0132;
         public static final int vp_mine_product=0x7f0d0138;
         public static final int vp_pinggou=0x7f0d01c1;

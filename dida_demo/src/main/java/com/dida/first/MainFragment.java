@@ -3,6 +3,7 @@ package com.dida.first;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -44,6 +45,8 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		fragmentManager = ((MainActivity) context).getSupportFragmentManager();
+
+		Log.i("MainFragment", "onCreate");
 	}
 
 	@Override
@@ -88,6 +91,11 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 	public void initDate() {
 		inivListener();
 		setTab(0);
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
 	}
 
 	/**
@@ -216,6 +224,11 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 		if (indexMineFragment != null) {
 			transaction.hide(indexMineFragment);
 		}
+	}
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Log.i("MainFragment", "onDestroy");
 	}
 
 }

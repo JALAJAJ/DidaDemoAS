@@ -66,11 +66,6 @@ public abstract class BaseHeadFragment extends Fragment implements
 		fragmentManager = MainFragment.fragmentManager;
 	}
 
-	@Override
-	public void onStart() {
-
-		super.onStart();
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,

@@ -56,6 +56,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.i("MainActivity", "onCreate");
 		ActivityFactory.mainActivity = this;
 		setContentView(R.layout.activity_main);
 		registerDateTransReceiver();
