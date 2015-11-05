@@ -1,14 +1,14 @@
 package com.dida.first.holder;
 
+import android.view.View;
+
 import java.util.List;
 
 /**
- * @author		KingJA 
- * @data		2015-8-14 上午9:54:08 
- * @use			
- *
+ * @author KingJA
+ * @data 2015-8-14 上午9:54:08
+ * @use
  */
-import android.view.View;
 
 public abstract class BaseHolder<T>{
 	protected View view;

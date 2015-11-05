@@ -11,6 +11,35 @@ package com.dida.first.bean;
  */
 public class ShaiDanItemBean {
 
-	public boolean isChecked;
+	private boolean isChecked;
+	private int productId;
 
+	public boolean isChecked() {
+		return isChecked;
+	}
+
+	public void setIsChecked(boolean isChecked) {
+		this.isChecked = isChecked;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+
+	public ShaiDanItemBean(boolean isChecked, int productId) {
+		this.isChecked = isChecked;
+		this.productId = productId;
+	}
+
+	@Override
+	public String toString() {
+		return "ShaiDanItemBean{" +
+				"isChecked=" + isChecked +
+				", productId=" + productId +
+				'}';
+	}
 }

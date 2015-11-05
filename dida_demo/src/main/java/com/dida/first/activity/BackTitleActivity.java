@@ -1,10 +1,5 @@
 package com.dida.first.activity;
 
-import com.dida.first.R;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -13,8 +8,10 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.dida.first.R;
+import com.dida.first.utils.ToastUtil;
 
 /**
  * 
@@ -100,9 +97,9 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	}
 	
 	/**
-	 * 设置标题
+	 * 设置聊天秃瓢
 	 */
-	public void setRightClickVisibility() {
+	public void setChatClickVisibility() {
 		iv_top_back_right.setVisibility(View.VISIBLE);
 	}
 

@@ -17,7 +17,7 @@
 package com.dida.first.wheelview;
 
 /**
- * Wheel changed listener interface.
+ * Wheel changed listener interfaces.
  * <p>
  * The onChanged() method is called whenever current wheel positions is changed:
  * <li>New Wheel position is set

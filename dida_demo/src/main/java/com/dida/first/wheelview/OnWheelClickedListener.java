@@ -17,7 +17,7 @@
 package com.dida.first.wheelview;
 
 /**
- * Wheel clicked listener interface.
+ * Wheel clicked listener interfaces.
  * <p>
  * The onItemClicked() method is called whenever a wheel item is clicked
  * <li>New Wheel position is set

@@ -66,6 +66,12 @@ public class MainActivity extends FragmentActivity {
 		initConnection();
 	}
 
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		Log.i("MainActivity", "onSaveInstanceState");
+	}
+
 	private void initConnection() {
 		String token = SharedPreferencesUtils.getStringData("TOKEN", "");
 		Log.i("initConnection", "initConnection");

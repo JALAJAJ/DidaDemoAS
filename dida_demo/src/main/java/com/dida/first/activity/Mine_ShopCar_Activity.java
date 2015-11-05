@@ -8,16 +8,12 @@ import java.util.List;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.CommentBean;
 import com.dida.first.bean.ShopCarOutterBean;
 import com.dida.first.bean.ShopCarOutterBean.ShopCarInnerBean;
-import com.dida.first.bean.YaoYueBean;
-import com.dida.first.bean.CommentBean.ItemComment;
 import com.dida.first.holder.BaseHolder;
-import com.dida.first.holder.ShopCarInnerHolder;
 import com.dida.first.holder.ShopCarOutterHolder;
 import com.dida.first.utils.ToastUtil;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -116,7 +112,7 @@ public class Mine_ShopCar_Activity extends BackTitleActivity {
 	public void initData() {
 		setBackTitle("待购订单");
 		setBackNum(OutterBean.size() + "");
-		setRightClickVisibility();
+		setChatClickVisibility();
 	}
 
 	@Override

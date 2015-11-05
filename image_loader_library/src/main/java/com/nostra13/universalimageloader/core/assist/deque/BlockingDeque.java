@@ -96,7 +96,7 @@ import java.util.concurrent.TimeUnit;
  *
  * <p>A <tt>BlockingDeque</tt> implementation may be used directly as a FIFO
  * <tt>BlockingQueue</tt>. The methods inherited from the
- * <tt>BlockingQueue</tt> interface are precisely equivalent to
+ * <tt>BlockingQueue</tt> interfaces are precisely equivalent to
  * <tt>BlockingDeque</tt> methods as indicated in the following table:
  *
  * <p>
@@ -163,7 +163,7 @@ import java.util.concurrent.TimeUnit;
  * actions subsequent to the access or removal of that element from
  * the {@code BlockingDeque} in another thread.
  *
- * <p>This interface is a member of the
+ * <p>This interfaces is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  *
@@ -173,7 +173,7 @@ import java.util.concurrent.TimeUnit;
  */
 public interface BlockingDeque<E> extends BlockingQueue<E>, Deque<E> {
     /*
-     * We have "diamond" multiple interface inheritance here, and that
+     * We have "diamond" multiple interfaces inheritance here, and that
      * introduces ambiguities.  Methods might end up with different
      * specs depending on the branch chosen by javadoc.  Thus a lot of
      * methods specs here are copied from superinterfaces.

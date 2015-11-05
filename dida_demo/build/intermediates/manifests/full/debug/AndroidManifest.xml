@@ -222,6 +222,11 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:theme="@style/DesignTheme" />
+        <activity
+            android:name="com.dida.first.activity.Publish_Activity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/DesignTheme" />
 
         <!-- 融云 -->
         <!-- 会话列表 Activity -->

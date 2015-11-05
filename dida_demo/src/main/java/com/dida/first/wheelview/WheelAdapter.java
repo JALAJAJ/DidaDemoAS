@@ -17,7 +17,7 @@
 package com.dida.first.wheelview;
 
 /**
- * Wheel adapter interface
+ * Wheel adapter interfaces
  * 
  * @deprecated Use WheelViewAdapter
  */

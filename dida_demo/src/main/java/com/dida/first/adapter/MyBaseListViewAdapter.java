@@ -1,11 +1,10 @@
 package com.dida.first.adapter;
 
-import java.util.List;
-
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import java.util.List;
 
 public abstract class MyBaseListViewAdapter<T> extends BaseAdapter {
 //	public Context context;
@@ -15,9 +14,15 @@ public abstract class MyBaseListViewAdapter<T> extends BaseAdapter {
 //		this.context=context;
 		this.list=list;
 	}
+//	public MyBaseListViewAdapter() {
+//
+//	}
 	public void setNotyfyData(List<T> list){
 		this.list=list;
 		this.notifyDataSetChanged();
+	}
+	public List<T> getList(){
+			return list;
 	}
 	@Override
 	public int getCount() {

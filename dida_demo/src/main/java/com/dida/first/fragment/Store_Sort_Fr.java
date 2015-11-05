@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dida.first.OnClickSortListener;
+import com.dida.first.interfaces.OnClickSortListener;
 import com.dida.first.R;
 import com.dida.first.bean.BeanPinGouGroup;
 import com.dida.first.bean.BeanSortButton;

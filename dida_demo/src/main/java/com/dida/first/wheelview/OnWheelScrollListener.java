@@ -17,7 +17,7 @@
 package com.dida.first.wheelview;
 
 /**
- * Wheel scrolled listener interface.
+ * Wheel scrolled listener interfaces.
  */
 public interface OnWheelScrollListener {
 	/**

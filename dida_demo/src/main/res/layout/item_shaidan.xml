@@ -6,22 +6,29 @@
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="#ffffff"
     card_view:cardCornerRadius="5dp"
-    card_view:cardElevation="1dp" 
+    card_view:cardElevation="1dp"
+    android:descendantFocusability="blocksDescendants"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp" >
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingRight="16dp"
+        >
 
         <RelativeLayout
+            android:id="@+id/rl_show_select"
+            android:padding="12dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent" >
 
             <CheckBox
+              android:gravity="center"
                 android:id="@+id/cb_item_shaidan"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:layout_centerVertical="true"
                 android:button="@drawable/checkbox_checked_style" />
         </RelativeLayout>
@@ -30,13 +37,12 @@
             android:id="@+id/iv_item_shaidan_image"
             android:layout_width="76dp"
             android:layout_height="76dp"
-            android:layout_marginLeft="16dp"
             android:background="@drawable/shaidan_tu" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="13dp" >
+            android:layout_marginLeft="12dp" >
 
             <TextView
                 android:id="@+id/tv_item_shaidan_title"

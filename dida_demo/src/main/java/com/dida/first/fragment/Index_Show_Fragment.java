@@ -1,66 +1,55 @@
 package com.dida.first.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.dida.first.R;
-import com.dida.first.activity.ShaiDanSelectActivity;
-import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.adapter.MyBaseListViewAdapter;
-import com.dida.first.bean.ShaiDanItemBean;
-import com.dida.first.bean.YaoYueBean.Res;
-import com.dida.first.factory.ActivityFactory;
-import com.dida.first.holder.BaseHolder;
-import com.dida.first.holder.GroupHolder;
-
-import android.content.Context;
-import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.dida.first.R;
+import com.dida.first.activity.Detail_Market_Activity;
+import com.dida.first.activity.Publish_Activity;
+import com.dida.first.adapter.MyBaseListViewAdapter;
+import com.dida.first.bean.ShaiDanItemBean;
+import com.dida.first.interfaces.OnShowCheckListener;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.ToastUtil;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Index_Show_Fragment extends BaseHeadFragment implements
-		OnCheckedChangeListener {
-	private ListView lv_shaidan;
+		OnCheckedChangeListener,OnShowCheckListener ,AdapterView.OnItemClickListener{
+	private PullToRefreshListView prlv_show;
 	private List<ShaiDanItemBean> beanList;
 	private CheckBox cb_shaidan_checkall;
 	private ShaidanAdapter shaidanAdapter;
 	private RelativeLayout rl_shaidan_yaoyue;
+	private OnShowCheckListener onShowCheckListener;
+	private StringBuilder sb;
 
 	@Override
 	public View setContentView() {
-
 		contentView = View.inflate(context, R.layout.fragment_shaidan, null);
 		return contentView;
 	}
-
-	@Override
-	public void initFragmentNet() {
-
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		
-		cb_shaidan_checkall.setChecked(false);
-	}
-
 	@Override
 	public void initFragmentView() {
-		setTitle("晒单");
-		initBean();
-		rl_shaidan_yaoyue = (RelativeLayout) contentView.findViewById(R.id.rl_shaidan_yaoyue);
-		lv_shaidan = (ListView) contentView.findViewById(R.id.lv_shaidan);
+		rl_shaidan_yaoyue = (RelativeLayout) contentView.findViewById(R.id.rl_show_publish);
+		prlv_show = (PullToRefreshListView) contentView.findViewById(R.id.lv_shaidan);
 		cb_shaidan_checkall = (CheckBox) contentView
 				.findViewById(R.id.cb_shaidan_checkall);
 
+	}
+	@Override
+	public void initFragmentNet() {
+		initBean();
 	}
 
 	/**
@@ -69,7 +58,7 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 	private void initBean() {
 		beanList = new ArrayList<ShaiDanItemBean>();
 		for (int i = 0; i < 15; i++) {
-			ShaiDanItemBean bean = new ShaiDanItemBean();
+			ShaiDanItemBean bean = new ShaiDanItemBean(false,i);
 			beanList.add(bean);
 		}
 
@@ -80,10 +69,15 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 		cb_shaidan_checkall.setOnCheckedChangeListener(this);
 		rl_shaidan_yaoyue.setOnClickListener(this);
 		shaidanAdapter = new ShaidanAdapter(beanList);
-		lv_shaidan.setAdapter(shaidanAdapter);
+		shaidanAdapter.setOnShowCheckListener(this);
+		prlv_show.setAdapter(shaidanAdapter);
+		prlv_show.setOnItemClickListener(this);
 
 	}
-
+	@Override
+	public void initFragmentData() {
+		setTitle("晒单");
+	}
 	/**
 	 * 弹出搜索页面
 	 */
@@ -94,20 +88,54 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 
 	@Override
 	public void onChildClick(View v) {
-		if (v.getId()==R.id.rl_shaidan_yaoyue) {
-			Intent intent=new Intent(ActivityFactory.mainActivity,ShaiDanSelectActivity.class);
-			startActivity(intent);
+		if (v.getId()==R.id.rl_show_publish) {
+			String checkedIds = getCheckedIds(shaidanAdapter.getList());
+			if (TextUtils.isEmpty(checkedIds)){
+				ToastUtil.showMyToast("请选择要发起的商品");
+			}else{
+				ToastUtil.showMyToast(checkedIds);
+				/**
+				 * 跳转到发布Activity
+				 */
+				ActivityUtil.goActivity(getActivity(), Publish_Activity.class);
+			}
+
 		}
 
 	}
+
+	private String getCheckedIds(List<ShaiDanItemBean> list) {
+		sb=new StringBuilder();
+		for (ShaiDanItemBean bean: list) {
+
+            if (bean.isChecked()){
+                sb.append(bean.getProductId()+"#");
+            }
+        }
+		return sb.toString();
+	}
+
+	@Override
+	public void onShowCheck(ShaiDanItemBean shaiDanItemBean,boolean isChecked) {
+		shaiDanItemBean.setIsChecked(isChecked);
+		Log.i("onShowCheck",shaiDanItemBean.toString());
+	}
+
+
+
+
 	class ShaidanAdapter extends MyBaseListViewAdapter<ShaiDanItemBean> {
+
 		public ShaidanAdapter(List<ShaiDanItemBean> list) {
 			super(list);
-			// TODO Auto-generated constructor stub
+		}
+
+		public void setOnShowCheckListener(OnShowCheckListener onShowCheckListener){
+			Index_Show_Fragment.this.onShowCheckListener=onShowCheckListener;
 		}
 
 		@Override
-		public View getItemView(int position, View convertView, ViewGroup parent) {
+		public View getItemView(final int position, View convertView, ViewGroup parent) {
 			ViewHolder viewHolder = null;
 			if (convertView == null) {
 				viewHolder = new ViewHolder();
@@ -120,13 +148,19 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 				viewHolder = (ViewHolder) convertView.getTag();
 			}
 
-			viewHolder.cb_item_shaidan.setChecked(list.get(position).isChecked);
+			viewHolder.cb_item_shaidan.setChecked(list.get(position).isChecked());
+			viewHolder.cb_item_shaidan.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+				@Override
+				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+					onShowCheckListener.onShowCheck(list.get(position),isChecked);
+				}
+			});
 			return convertView;
 		}
 
 		public void checkAll(boolean checked) {
 			for (ShaiDanItemBean shaiDanItemBean : list) {
-				shaiDanItemBean.isChecked = checked;
+				shaiDanItemBean.setIsChecked(checked);
 			}
 			this.notifyDataSetChanged();
 		}
@@ -155,10 +189,11 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 			break;
 		}
 	}
-
 	@Override
-	public void initFragmentData() {
-		// TODO Auto-generated method stub
-		
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		/**
+		 * 跳转到发布Activity
+		 */
+		ActivityUtil.goActivity(getActivity(), Detail_Market_Activity.class);
 	}
 }

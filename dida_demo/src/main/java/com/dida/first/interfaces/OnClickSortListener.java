@@ -1,4 +1,4 @@
-package com.dida.first;
+package com.dida.first.interfaces;
 
 import com.dida.first.bean.BeanSortButton;
 
