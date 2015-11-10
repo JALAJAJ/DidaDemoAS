@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/bg_btn_red_line"
+            android:background="@drawable/bg_btn_red_line2"
             android:padding="4dp" >
 
             <ImageView
@@ -151,7 +151,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_btn_red_line"
+                    android:background="@drawable/bg_btn_red_line2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="1dp" >

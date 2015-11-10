@@ -1,4 +1,4 @@
-include ':iMKit'
+include ':iMKit', ':rangebar'
 include ':cardview'
 include ':iconlibrary'
 include ':image_loader_library'
