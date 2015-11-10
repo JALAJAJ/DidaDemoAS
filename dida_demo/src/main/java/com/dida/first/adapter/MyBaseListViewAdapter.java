@@ -7,16 +7,11 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 public abstract class MyBaseListViewAdapter<T> extends BaseAdapter {
-//	public Context context;
 	protected List<T> list;
-	public View view;
+	protected View view;
 	public MyBaseListViewAdapter(List<T>list) {
-//		this.context=context;
 		this.list=list;
 	}
-//	public MyBaseListViewAdapter() {
-//
-//	}
 	public void setNotyfyData(List<T> list){
 		this.list=list;
 		this.notifyDataSetChanged();

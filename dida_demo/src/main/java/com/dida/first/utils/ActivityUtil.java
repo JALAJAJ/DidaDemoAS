@@ -7,9 +7,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.dida.first.activity.NameActivity;
-import com.dida.first.activity.RegisterActivity;
-
 /**
  * @author		KingJA 
  * @data		2015-10-21 上午11:12:56 
@@ -33,6 +30,10 @@ public class ActivityUtil {
 				clazz);
 		intent.putExtras(bundle);
 		activity.startActivity(intent);
+	}public static void goActivityForResult(Activity activity,Class clazz,int requestID){
+		Intent intent = new Intent(activity,
+				clazz);
+		activity.startActivityForResult(intent,requestID);
 	}
 
 }

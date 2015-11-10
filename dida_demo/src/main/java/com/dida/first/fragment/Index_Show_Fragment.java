@@ -1,7 +1,6 @@
 package com.dida.first.fragment;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -16,7 +15,7 @@ import com.dida.first.activity.Detail_Market_Activity;
 import com.dida.first.activity.Publish_Activity;
 import com.dida.first.adapter.MyBaseListViewAdapter;
 import com.dida.first.bean.ShaiDanItemBean;
-import com.dida.first.interfaces.OnShowCheckListener;
+import com.dida.first.interfaces.OnCheckListener;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -25,13 +24,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Index_Show_Fragment extends BaseHeadFragment implements
-		OnCheckedChangeListener,OnShowCheckListener ,AdapterView.OnItemClickListener{
+		OnCheckedChangeListener,OnCheckListener<ShaiDanItemBean>,AdapterView.OnItemClickListener{
 	private PullToRefreshListView prlv_show;
 	private List<ShaiDanItemBean> beanList;
 	private CheckBox cb_shaidan_checkall;
 	private ShaidanAdapter shaidanAdapter;
 	private RelativeLayout rl_shaidan_yaoyue;
-	private OnShowCheckListener onShowCheckListener;
+	private OnCheckListener onCheckListener;
 	private StringBuilder sb;
 
 	@Override
@@ -91,7 +90,7 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 		if (v.getId()==R.id.rl_show_publish) {
 			String checkedIds = getCheckedIds(shaidanAdapter.getList());
 			if (TextUtils.isEmpty(checkedIds)){
-				ToastUtil.showMyToast("请选择要发起的商品");
+				ToastUtil.showMyToast("亲，请选择要发起的商品");
 			}else{
 				ToastUtil.showMyToast(checkedIds);
 				/**
@@ -115,10 +114,14 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 		return sb.toString();
 	}
 
+	/**
+	 * 单个选择/取消
+	 * @param shaiDanItemBean
+	 * @param isChecked
+	 */
 	@Override
-	public void onShowCheck(ShaiDanItemBean shaiDanItemBean,boolean isChecked) {
+	public void onCheck(ShaiDanItemBean shaiDanItemBean, boolean isChecked) {
 		shaiDanItemBean.setIsChecked(isChecked);
-		Log.i("onShowCheck",shaiDanItemBean.toString());
 	}
 
 
@@ -130,8 +133,8 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 			super(list);
 		}
 
-		public void setOnShowCheckListener(OnShowCheckListener onShowCheckListener){
-			Index_Show_Fragment.this.onShowCheckListener=onShowCheckListener;
+		public void setOnShowCheckListener(OnCheckListener onCheckListener){
+			Index_Show_Fragment.this.onCheckListener = onCheckListener;
 		}
 
 		@Override
@@ -152,12 +155,18 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 			viewHolder.cb_item_shaidan.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				@Override
 				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					onShowCheckListener.onShowCheck(list.get(position),isChecked);
+					if (!buttonView.isPressed())
+						return;
+					onCheckListener.onCheck(list.get(position), isChecked);
 				}
 			});
 			return convertView;
 		}
 
+		/**
+		 * 全选/全不选
+		 * @param checked
+		 */
 		public void checkAll(boolean checked) {
 			for (ShaiDanItemBean shaiDanItemBean : list) {
 				shaiDanItemBean.setIsChecked(checked);
@@ -176,6 +185,11 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 		}
 	}
 
+	/**
+	 * 全选/全不选
+	 * @param buttonView
+	 * @param isChecked
+	 */
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 		//屏蔽非点击设置触发，如sheChecked(boolean);
@@ -189,6 +203,14 @@ public class Index_Show_Fragment extends BaseHeadFragment implements
 			break;
 		}
 	}
+
+	/**
+	 * 点击跳转到集市详情页
+	 * @param parent
+	 * @param view
+	 * @param position
+	 * @param id
+	 */
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		/**
