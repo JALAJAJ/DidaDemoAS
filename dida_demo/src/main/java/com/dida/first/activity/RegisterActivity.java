@@ -1,22 +1,5 @@
 package com.dida.first.activity;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
-import com.android.volley.AuthFailureError;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
-import com.dida.first.R;
-import com.dida.first.application.App;
-import com.dida.first.bean.BeanSms;
-import com.dida.first.textwatcher.MyTextWatcher;
-import com.dida.first.utils.ActivityUtil;
-import com.dida.first.utils.HttpUtil;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.VolleyStringRequest;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnBtnClickListener;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -30,6 +13,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.VolleyError;
+import com.dida.first.R;
+import com.dida.first.application.App;
+import com.dida.first.bean.BeanSms;
+import com.dida.first.textwatcher.MyTextWatcher;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.HttpUtil;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.VolleyStringRequest;
+import com.dida.first.view.DialogDouble;
+import com.dida.first.view.DialogDouble.OnDoubleClickListener;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * @author KingJA
@@ -105,9 +107,9 @@ public class RegisterActivity extends BackTitleActivity {
 	 */
 	private void showDoubleDialog() {
 		DialogDouble doubleDialog = new DialogDouble(
-				RegisterActivity.this, "提示",
+				RegisterActivity.this,
 				"这个号码已经被注册过了，请换一个手机号码注册或者直接登录", "去登录", "换个手机");
-		doubleDialog.setOnBtnClickListener(new OnBtnClickListener() {
+		doubleDialog.setOnDoubleClickListener(new OnDoubleClickListener() {
 
 			@Override
 			public void onLeft() {

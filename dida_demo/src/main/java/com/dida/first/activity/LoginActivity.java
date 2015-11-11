@@ -7,22 +7,17 @@ import com.dida.first.textwatcher.MyTextWatcher;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.SharedPreferencesUtils;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnBtnClickListener;
 
 import android.content.Intent;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * 

@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    //编译版本
     compileSdkVersion 23
+    //运行版本
     buildToolsVersion "23.0.1"
 
     defaultConfig {
@@ -16,12 +18,14 @@ android {
 
     buildTypes {
         release {
+            //True混淆
             minifyEnabled false
+            //混淆器
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
 }
-
+//依赖库
 dependencies {
     compile project(':xutillibrary')
     compile project(':iMKit')

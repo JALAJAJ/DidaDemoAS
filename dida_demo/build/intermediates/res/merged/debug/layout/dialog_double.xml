@@ -4,31 +4,22 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:paddingTop="24dp" >
+    >
 
+<RelativeLayout
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <TextView
-        android:id="@+id/tv_doubledialog_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:gravity="left"
-        android:text="提示"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:visibility="gone" />
-
-    <TextView
+        android:gravity="center"
         android:id="@+id/tv_doubledialog_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
+       android:layout_centerInParent="true"
         android:text="提示信息"
-        android:textColor="#9c9c9c"
-        android:textSize="14sp" />
+        style="@style/black_14" />
+</RelativeLayout>
+    <View style="@style/divider_nomal_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,35 +28,34 @@
         android:orientation="horizontal" >
 
         <RelativeLayout
+            android:id="@+id/rl_doubledialog_left"
+            android:padding="12dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
 
-            <Button
-                android:id="@+id/btn_doubledialog_confirm"
+            <TextView
+                android:id="@+id/tv_doubledialog_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@null"
-                android:minHeight="0dp"
                 android:text="设置"
-                android:textSize="16sp" />
+                style="@style/black_16" />
         </RelativeLayout>
-
+        <View style="@style/divider_nomal_vertical" />
         <RelativeLayout
+            android:id="@+id/rl_doubledialog_right"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
 
-            <Button
-                android:id="@+id/btn_doubledialog_cancel"
+            <TextView
+                android:id="@+id/tv_doubledialog_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:background="@null"
-                android:minHeight="0dp"
                 android:text="取消"
-                android:textSize="16sp" />
+                style="@style/black_16" />
         </RelativeLayout>
     </LinearLayout>
 

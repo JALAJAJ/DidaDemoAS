@@ -10,18 +10,14 @@ import com.dida.first.utils.SharedPreferencesUtils;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnBtnClickListener;
+import com.dida.first.view.DialogDouble.OnDoubleClickListener;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.DialogInterface.OnClickListener;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -272,9 +268,9 @@ public class MainActivity extends FragmentActivity {
 		 */
 		private void setNetwork(Context context) {
 			final DialogDouble setNetDialog = new DialogDouble(
-					MainActivity.this, "", "网络不可用，请先设置网络！", "确定", "取消");
+					MainActivity.this, "网络不可用，请先设置网络！", "确定", "取消");
 			setNetDialog.show();
-			setNetDialog.setOnBtnClickListener(new OnBtnClickListener() {
+			setNetDialog.setOnDoubleClickListener(new OnDoubleClickListener() {
 
 				@Override
 				public void onLeft() {

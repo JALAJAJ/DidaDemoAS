@@ -11,4 +11,6 @@ package com.dida.first.bean;
  */
 public class MarketBean {
 
+
+
 }

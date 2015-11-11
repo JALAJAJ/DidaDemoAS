@@ -2,6 +2,7 @@
 
 buildscript {
     repositories {
+        //可以拿到网上添加的JAR包，是个仓库中心
         jcenter()
     }
     dependencies {

@@ -1,12 +1,5 @@
 package com.dida.first.activity;
 
-import java.util.regex.Pattern;
-import com.dida.first.R;
-import com.dida.first.textwatcher.MyTextWatcher;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnBtnClickListener;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -16,7 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import com.dida.first.R;
+import com.dida.first.textwatcher.MyTextWatcher;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.view.DialogDouble;
+import com.dida.first.view.DialogDouble.OnDoubleClickListener;
+
+import java.util.regex.Pattern;
 
 /**
  * @author		KingJA 
@@ -158,17 +158,18 @@ public class FindPsdCodeActivity extends BackTitleActivity {
 		}
 		// 判断手机号是否注册过
 		if ("18888888888".equals(phone)) {
-			final DialogDouble doubleDialog = new DialogDouble(FindPsdCodeActivity.this, "提示", "这个号码已经被注册过了，请换一个手机号码注册或者直接登录", "去登录", "换个手机");
+			final DialogDouble doubleDialog = new DialogDouble(FindPsdCodeActivity.this, "这个号码已经被注册过了，请换一个手机号码注册或者直接登录", "去登录", "换个手机");
 			doubleDialog.show();
-			doubleDialog.setOnBtnClickListener(new OnBtnClickListener() {
-				
+			doubleDialog.setOnDoubleClickListener(new OnDoubleClickListener() {
+
 				@Override
 				public void onLeft() {
-					
+
 					doubleDialog.dismiss();
 					finish();
-					
+
 				}
+
 				@Override
 				public void onRight() {
 					doubleDialog.dismiss();
