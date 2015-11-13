@@ -456,8 +456,10 @@
     <color name="tab_color_selected">#FE5B5F</color>
     <color name="tab_text_nomal">#677179</color>
     <color name="tab_text_selected">#ffffff</color>
+    <color name="transparency_70">#B3000000</color>
     <color name="white">#ffffff</color>
     <color name="window_background">#FFF5F5F5</color>
+    <color name="yellow">#FF992C</color>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
     <declare-styleable name="ActionBarLayout"><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ActionMenuItemView"><attr name="android:minWidth"/></declare-styleable>
@@ -2604,8 +2606,18 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/font_white</item>
     </style>
+    <style name="white_14_line1">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/font_white</item>
+    </style>
     <style name="white_16">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/font_white</item>
+    </style>
+    <style name="yellow_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/yellow</item>
     </style>
 </resources>
