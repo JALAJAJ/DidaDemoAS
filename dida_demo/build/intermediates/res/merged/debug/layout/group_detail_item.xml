@@ -8,8 +8,6 @@
     card_view:cardElevation="2px" 
     >
     <com.dida.first.view.MyListView 
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
         android:id="@+id/lv_group_detail_item"
          android:layout_width="match_parent"
     android:layout_height="wrap_content"

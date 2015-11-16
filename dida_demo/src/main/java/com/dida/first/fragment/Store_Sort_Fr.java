@@ -214,7 +214,7 @@ public class Store_Sort_Fr extends Fragment_Base_Nomal implements OnClickSortLis
             textView.setBackgroundResource(R.drawable.bg_btn_red_line12);
             textView.setTextColor(getResources().getColor(R.color.black));
         }
-        sortButton.getTextView().setBackgroundResource(R.drawable.bg_btn_red_back12);
+        sortButton.getTextView().setBackgroundResource(R.drawable.shape_bg12red);
         sortButton.getTextView().setTextColor(getResources().getColor(R.color.white));
         tv_sort.setText(sortsArr[sortButton.getIndex()]);
         expand();

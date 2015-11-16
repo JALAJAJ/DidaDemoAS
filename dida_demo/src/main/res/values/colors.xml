@@ -28,10 +28,10 @@
     <color name="yellow">#FF992C</color>
     <color name="half_transparency">#4A000000</color>
     <color name="transparency_70">#B3000000</color>
-    <color name="red_deep">#e8474c</color>
     <color name="gray_deep">#8e9397</color>
-    <color name="gray_light">#fcfcfc</color>
+    <color name="gray_light">#eeeeee</color>
     <color name="red">#e95a5e</color>
+    <color name="red_deep">#be4649</color>
     <color name="red_light">#e79d9f</color>
     <color name="black">#000000</color>
     <color name="black_light">#26292e</color>

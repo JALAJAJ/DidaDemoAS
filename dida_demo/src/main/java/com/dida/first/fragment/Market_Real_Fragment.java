@@ -64,7 +64,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 		initUrl();
 		int screenWidth = UIUtils.getScreenWidth();
 		itemWidth = (screenWidth - 3 * UIUtils.dip2px(4)) / 2;
-		param = new LinearLayout.LayoutParams(itemWidth, itemWidth);
+		param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, itemWidth);
 		Log.i("itemWidth", itemWidth + "");
 		for (int i = 0; i < 20; i++) {
 			marketBeanList.add(new MarketBean());

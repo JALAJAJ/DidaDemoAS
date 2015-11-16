@@ -3,19 +3,17 @@
  */
 package com.dida.first.activity;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.YaoYueBean.Res;
 import com.dida.first.holder.AttentionHolder;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.utils.UIUtils;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author KingJA
@@ -25,8 +23,7 @@ import android.widget.ListView;
  */
 public class AttentionActivity extends BackTitleActivity {
 
-	private View inflate;
-	private ListView lv_attention_list;
+	private PullToRefreshListView plv_attention_list;
 	private List<String> attentionList=new ArrayList<String>();
 
 	@Override
@@ -36,13 +33,13 @@ public class AttentionActivity extends BackTitleActivity {
 
 	@Override
 	public View setView() {
-		inflate = UIUtils.inflate(R.layout.list_attention);
-		return inflate;
+		view = UIUtils.inflate(R.layout.list_attention);
+		return view;
 	}
 
 	@Override
 	public void initView() {
-		lv_attention_list = (ListView) inflate.findViewById(R.id.lv_attention_list);
+		plv_attention_list = (PullToRefreshListView) view.findViewById(R.id.plv_attention_list);
 	}
 
 	@Override
@@ -50,11 +47,12 @@ public class AttentionActivity extends BackTitleActivity {
 		for (int i = 0; i < 20; i++) {
 			attentionList.add("别让我转回头"+i);
 		}
-		lv_attention_list.setAdapter(new AttentionAdapter(attentionList));
+		plv_attention_list.setAdapter(new AttentionAdapter(attentionList));
 	}
 
 	@Override
 	public void initData() {
+		setBackTitle("团员列表");
 
 	}
 
@@ -78,7 +76,7 @@ public class AttentionActivity extends BackTitleActivity {
 	}
 	@Override
 	public void setBackClick() {
-		// TODO Auto-generated method stub
+		finish();
 		
 	}
 }

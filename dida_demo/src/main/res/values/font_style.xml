@@ -114,6 +114,10 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/red</item>
     </style>
+    <style name="red_20">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
 
     <style name="white_14">
         <item name="android:textSize">14sp</item>
@@ -158,6 +162,10 @@
         <item name="android:textColor">@color/gray_deep</item>
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
+    </style>
+    <style name="gray_10">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/gray_deep</item>
     </style>
     <style name="black_14_line2">
         <item name="android:textSize">14sp</item>

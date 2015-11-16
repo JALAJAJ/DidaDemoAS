@@ -51,7 +51,7 @@
         android:padding="8dp"
         android:minHeight="0dp"
           android:id="@+id/btn_personal_editnick_confirm"
-      android:background="@drawable/selector_red2red_light"
+      android:background="@drawable/selector_red2red_deep"
          android:layout_marginTop="56dp"
         android:text="确认"
         android:textColor="@color/white"

@@ -233,7 +233,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:background="@drawable/selector_red2red_light"
+            android:background="@drawable/selector_red2red_deep"
             android:minHeight="0dp"
             android:padding="8dp"
             android:text="保存" />

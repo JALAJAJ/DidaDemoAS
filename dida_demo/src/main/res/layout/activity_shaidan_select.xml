@@ -296,7 +296,7 @@
                 android:id="@+id/btn_info_confirm"
                android:layout_marginLeft="12dp"
                android:layout_marginRight="12dp"
-               android:background="@drawable/selector_red2red_light"
+               android:background="@drawable/selector_red2red_deep"
                android:layout_marginBottom="48dp"
                android:textColor="@color/white"
                android:text="确认"

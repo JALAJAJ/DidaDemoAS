@@ -4,7 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <include layout="@layout/top_group_detail"/>
-   <ScrollView 
+    <RelativeLayout
+        android:id="@+id/rl_pingou_detail_pb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+   <ScrollView
+       android:overScrollMode="never"
+       android:scrollbars="none"
        android:fillViewport="true"
         android:layout_height="0dp"
          android:layout_weight="1"
@@ -15,31 +26,34 @@
     android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+       <!-- 标题-->
        <FrameLayout 
            android:id="@+id/fl_group_detail_title"
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
-           /> 
+           />
+        <!-- 列表-->
        <FrameLayout 
-            android:layout_marginTop="8dp"
            android:id="@+id/fl_group_detail_item"
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
-           /> 
+           />
+        <!-- 描述-->
        <FrameLayout 
-            android:layout_marginTop="8dp"
            android:id="@+id/fl_group_detail_des"
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
-           /> 
-       <FrameLayout 
+           />
+        <!-- 团员-->
+       <!--<FrameLayout
             android:layout_marginTop="8dp"
            android:id="@+id/fl_group_detail_team"
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
-           /> 
+           />-->
+        <include layout="@layout/include_open_right_team"/>
+        <!-- 评论-->
        <FrameLayout 
-            android:layout_marginTop="8dp"
            android:id="@+id/fl_group_detail_comment"
             android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -4,13 +4,14 @@
 package com.dida.first.holder;
 
 
-import com.dida.first.R;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.dida.first.R;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
 
 /**
  * @author		KingJA 
@@ -30,9 +31,11 @@ public class AttentionHolder extends BaseHolder {
 			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (!buttonView.isPressed())
+					return;
 				if (isChecked) {
 					//TODO
-					ToastUtil.showMyToast("关注");
+					ToastUtil.showMyToast("已关注");
 				}else {
 					ToastUtil.showMyToast("取消关注");
 				}
