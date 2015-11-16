@@ -606,7 +606,7 @@ public final class R {
 		public static final int RCTheme_TextView_Small = 0x7f0900c3;
 		public static final int RcDialog = 0x7f0900c4;
 		public static final int custom_checkbox = 0x7f090167;
-		public static final int preview_checkbox = 0x7f09017c;
+		public static final int preview_checkbox = 0x7f09017d;
 	}
 	public static final class styleable {
 		public static final int[] AsyncImageView = { 0x7f010028, 0x7f010029 };

@@ -3,59 +3,92 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="10dp"
-    >
-    
-<ImageView 
-    android:background="@drawable/group_detail_image"
-     android:layout_width="76dp"
-    android:layout_height="76dp"
-    
-    
-    />
-<RelativeLayout 
-    android:layout_marginLeft="12dp"
-      android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    
-    >
-    <TextView 
-        android:id="@+id/tv_item_group_detail_title"
-          android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        style="@style/item_title"
-        android:text="松拓3PEAK带GPS全球定位系统，运动手表，户外运动，骑行必备神器，可带心跳记录仪，GPS记录仪，随时记录你的运动状态"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:background="@drawable/group_detail_image"
+
+
         />
-    <TextView 
-        android:layout_marginTop="4dp"
-        android:layout_below="@id/tv_item_group_detail_title"
-         android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        style="@style/item_content_gray"
-        android:text="颜色分类 :T型蓝色"
-        />
-    
-    <LinearLayout 
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-         android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+
         >
-    <TextView 
-        android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        style="@style/item_price_black"
-        android:text="¥"
-        />
-    <TextView 
-        android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        style="@style/item_price_black"
-        android:text="158.00"
-        />
-    </LinearLayout>
-    
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_item_group_detail_title"
+            style="@style/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="松拓3PEAK带GPS全球定位系统，运动手表，户外运动，骑行必备神器，可带心跳记录仪，GPS记录仪，随时记录你的运动状态" />
+
+        <TextView
+            style="@style/gray_12_line1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_item_group_detail_title"
+            android:layout_marginTop="4dp"
+            android:text="T型蓝色" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/item_price_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥" />
+
+                <TextView
+                    style="@style/item_price_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="158.00" />
+
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    style="@style/item_price_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数量" />
+
+                <TextView
+                    style="@style/item_price_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1" />
+                <TextView
+                    style="@style/item_price_black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="件" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        style="@style/white_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/selector_red2red_deep"
+                        android:padding="4dp"
+                        android:text="选择规格" />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+
+    </RelativeLayout>
 </LinearLayout>
 <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/item_group_detail_item.xml -->

@@ -2512,6 +2512,12 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/gray_deep</item>
     </style>
+    <style name="gray_12_line1">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray_deep</item>
+    </style>
     <style name="gray_12_line2">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/gray_deep</item>
