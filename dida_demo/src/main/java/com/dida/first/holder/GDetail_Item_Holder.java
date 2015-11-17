@@ -3,14 +3,17 @@
  */
 package com.dida.first.holder;
 
-import com.dida.first.R;
-import com.dida.first.utils.UIUtils;
-
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.dida.first.R;
+import com.dida.first.activity.Detail_Market_Activity;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.UIUtils;
 
 /**
  * @author		KingJA 
@@ -18,9 +21,13 @@ import android.widget.ListView;
  * @use			
  *
  */
-public class GDetail_Item_Holder extends BaseHolder {
-
+public class GDetail_Item_Holder extends BaseHolder implements AdapterView.OnItemClickListener{
 	private ListView lv_group_detail_item;
+	protected Activity activity;
+
+	public GDetail_Item_Holder(Activity activity) {
+		this.activity=activity;
+	}
 
 	@Override
 	public View initView() {
@@ -32,8 +39,15 @@ public class GDetail_Item_Holder extends BaseHolder {
 	@Override
 	public void refreshView() {
 		lv_group_detail_item.setAdapter(new GroupItemAdapter());
+		lv_group_detail_item.setOnItemClickListener(this);
 
 	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		ActivityUtil.goActivity(activity, Detail_Market_Activity.class);
+	}
+
 	class GroupItemAdapter extends BaseAdapter{
 		@Override
 		public int getCount() {

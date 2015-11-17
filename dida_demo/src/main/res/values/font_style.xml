@@ -179,6 +179,13 @@
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
     </style>
+
+    <style name="black_14_line4">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/font_black</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
+    </style>
     <style name="black_12_line8">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/black</item>

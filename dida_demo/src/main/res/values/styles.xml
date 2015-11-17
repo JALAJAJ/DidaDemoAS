@@ -66,7 +66,7 @@
     <style name="divider_nomal_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_divider</item>
     </style>
 
     <style name="divider_gray_horizontal">
@@ -84,7 +84,7 @@
     <style name="divider_nomal_vertical">
         <item name="android:layout_width">1px</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_divider</item>
     </style>
 
     <style name="divider_red_vertical">

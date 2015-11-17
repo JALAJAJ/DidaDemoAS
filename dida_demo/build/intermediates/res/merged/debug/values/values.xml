@@ -367,8 +367,9 @@
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="glass_gall">#c2ebef</color>
-    <color name="gray">#EBEBEB</color>
+    <color name="gray">#f6f4f7</color>
     <color name="gray_deep">#8e9397</color>
+    <color name="gray_divider">#dadada</color>
     <color name="gray_light">#eeeeee</color>
     <color name="green">#86c143</color>
     <color name="half_transparency">#4A000000</color>
@@ -2474,12 +2475,12 @@
     <style name="divider_nomal_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_divider</item>
     </style>
     <style name="divider_nomal_vertical">
         <item name="android:layout_width">1px</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_divider</item>
     </style>
     <style name="divider_red_horizontal">
         <item name="android:layout_width">match_parent</item>

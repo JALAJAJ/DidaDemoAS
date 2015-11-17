@@ -102,7 +102,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dida.first.activity.Detail_Group_Activity"
+            android:name=".activity.Detail_Pingou_Activity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
@@ -230,6 +230,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.dida.first.activity.Personal_Detail_Activity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dida.first.activity.Add_Show_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
 

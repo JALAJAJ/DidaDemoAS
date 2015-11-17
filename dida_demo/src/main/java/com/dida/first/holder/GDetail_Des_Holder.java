@@ -29,10 +29,9 @@ public class GDetail_Des_Holder extends BaseHolder implements OnItemClickListene
 
     private GridView gv_group_detail_des;
     private CircleImageView civ_pingou_detail_leader;
-    private Activity activity;
+    protected Activity activity;
 
     public GDetail_Des_Holder(Activity activity) {
-        super();
         this.activity = activity;
     }
 

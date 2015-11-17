@@ -4,45 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="#ffffff"
-    card_view:cardElevation="2px" >
+    card_view:cardElevation="2px">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <RelativeLayout 
+        android:orientation="vertical">
+
+        <RelativeLayout
             android:id="@+id/rl_market_head_lunbotu"
-           android:layout_width="match_parent"
-        android:layout_height="320dp"  
-            
-            />
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
 
         <LinearLayout
-             android:paddingTop="16dp"
-             android:paddingBottom="16dp"
-             android:paddingLeft="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingBottom="12dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="12dp">
 
-            <com.meg7.widget.CircleImageView
-                 android:id="@+id/iv_market_detail_head_icon"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/ququn_head"
-                android:scaleType="centerCrop" />
+            <!--            <com.meg7.widget.CircleImageView
+                             android:id="@+id/iv_market_detail_head_icon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/ququn_head"
+                            android:scaleType="centerCrop" />-->
 
             <LinearLayout
-                android:layout_marginRight="8dp"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:orientation="vertical" >
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                     android:id="@+id/tv_market_detail_head_title"
+                    android:id="@+id/tv_market_detail_head_title"
                     style="@style/black_14_line2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,13 +48,13 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp" >
+                    android:layout_marginTop="8dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal">
 
                         <TextView
                             style="@style/gray_12"
@@ -66,7 +63,7 @@
                             android:text="销量:" />
 
                         <TextView
-                             android:id="@+id/tv_market_detail_head_count"
+                            android:id="@+id/tv_market_detail_head_count"
                             style="@style/gray_12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -79,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         style="@style/item_price_red"
@@ -88,7 +85,7 @@
                         android:text="¥" />
 
                     <TextView
-                       android:id="@+id/tv_market_detail_head_price"
+                        android:id="@+id/tv_market_detail_head_price"
                         style="@style/item_price_red"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -102,74 +99,71 @@
                         android:text="原价:¥" />
 
                     <TextView
-                         android:id="@+id/tv_market_detail_head_oldprice"
+                        android:id="@+id/tv_market_detail_head_oldprice"
                         style="@style/item_price_gray"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="778.00" />
                 </LinearLayout>
             </LinearLayout>
-            <View
-                style="@style/divider_nomal_vertical"/>
-            <LinearLayout 
-                 android:layout_marginLeft="16dp"
-                 android:layout_marginRight="16dp"
-                 android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-                
-             <LinearLayout
-                 android:id="@+id/ll_market_detail_head_share"
-                 android:layout_width="wrap_content"
-                 android:layout_height="0dp"
-                 android:layout_weight="1"
-                 android:gravity="center"
-                 android:orientation="vertical"
-                 android:padding="4dp" >
-                
-              <ImageView
-                   
+
+            <View style="@style/divider_nomal_vertical" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/ll_market_detail_head_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="4dp">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
                         android:background="@drawable/share" />
-                <!-- <TextView
-                    android:text="分享"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                       style="@style/black_12"/> -->
-                
-                
-            </LinearLayout>
-            <View
-                
-                style="@style/divider_nomal_horizontal"/>
-               <LinearLayout 
+                    <!-- <TextView
+                        android:text="分享"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                           style="@style/black_12"/> -->
+
+
+                </RelativeLayout>
+
+                <View style="@style/divider_nomal_horizontal" />
+
+                <RelativeLayout
                     android:id="@+id/ll_market_detail_head_favorite"
-                    android:padding="4dp"
-                 android:layout_width="wrap_content"
-                       android:layout_weight="1"
-                        android:layout_height="0dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                >
-                
-              <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:padding="4dp">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
                         android:background="@drawable/shoucang_nor" />
-               <!--  <TextView
-                    android:text="收藏"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                       style="@style/black_12"/> -->
-                
-                
-            </LinearLayout>
-                
-                
+                    <!--  <TextView
+                         android:text="收藏"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                            style="@style/black_12"/> -->
+
+
+                </RelativeLayout>
+
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

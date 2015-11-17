@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.activity.Detail_Group_Activity;
+import com.dida.first.activity.Detail_Pingou_Activity;
 import com.dida.first.activity.YaoYueSearchActivity;
 import com.dida.first.adapter.MyBaseAdapter;
 import com.dida.first.bean.YaoYueBean;
@@ -408,7 +408,7 @@ public class PingGouFragment_bak extends BaseHeadFragment implements
 		public void onItemClick(AdapterView<?> parent, View v, int position,
 				long id) {
 			ToastUtil.singleToast(context, "点击了条目" + (position - 1));
-			Intent intent =new Intent(context,Detail_Group_Activity.class);
+			Intent intent =new Intent(context,Detail_Pingou_Activity.class);
 			startActivity(intent);
 			
 			

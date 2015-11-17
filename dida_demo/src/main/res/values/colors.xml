@@ -24,7 +24,9 @@
     <!-- 分割线 -->
     <color name="blue_deep">#003455</color>
     <color name="blue_light">#328fca</color>
-    <color name="gray">#EBEBEB</color>
+   <!-- <color name="gray">#EBEBEB</color>-->
+    <color name="gray">#f6f4f7</color>
+    <color name="gray_divider">#dadada</color>
     <color name="yellow">#FF992C</color>
     <color name="half_transparency">#4A000000</color>
     <color name="transparency_70">#B3000000</color>

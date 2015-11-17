@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.activity.Detail_Group_Activity;
+import com.dida.first.activity.Detail_Pingou_Activity;
 import com.dida.first.bean.BeanPingou;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
@@ -150,7 +150,7 @@ public class PinGou_Group_Fr extends Fragment_Base_Nomal implements AdapterView.
         if (position>=2){
             position-=2;
         }
-        ActivityUtil.goActivity(getActivity(), Detail_Group_Activity.class);
+        ActivityUtil.goActivity(getActivity(), Detail_Pingou_Activity.class);
     }
 
     class MyPingouAdapter extends android.widget.BaseAdapter {
