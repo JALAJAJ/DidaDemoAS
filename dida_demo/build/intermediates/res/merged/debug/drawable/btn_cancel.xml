@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-		xmlns:android="http://schemas.android.com/apk/res/android">
-		<item
-				android:state_pressed="true"
-				android:drawable="@drawable/icon_cancel_focused" />
-		<item
-				android:drawable="@drawable/icon_cancel_unfocused" />
-</selector><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/drawable/btn_cancel.xml -->

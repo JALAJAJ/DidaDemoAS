@@ -110,7 +110,7 @@
                     <EditText
                          android:id="@+id/tv_refundm_step3_number"
                         android:imeOptions="actionSend"
-                        android:textCursorDrawable="@drawable/sharp_cursor_red"
+                        android:textCursorDrawable="@drawable/shape_lnull_bred_rnull_s2"
                         android:inputType="number"
                         android:background="@null"
                         android:layout_centerVertical="true"

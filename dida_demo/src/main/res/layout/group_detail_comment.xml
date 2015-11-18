@@ -40,7 +40,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             />
-        <com.dida.first.view.MyListView
+        <com.dida.first.view.AbsListView.MyListView
             android:id="@+id/lv_group_detail_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

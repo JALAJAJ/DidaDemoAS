@@ -9,8 +9,8 @@ import com.dida.first.bean.ShopCarOutterBean;
 import com.dida.first.bean.ShopCarOutterBean.ShopCarInnerBean;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyListView;
-import android.util.Log;
+import com.dida.first.view.AbsListView.MyListView;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.LinearLayout;

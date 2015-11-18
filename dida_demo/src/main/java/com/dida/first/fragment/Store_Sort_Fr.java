@@ -211,7 +211,7 @@ public class Store_Sort_Fr extends Fragment_Base_Nomal implements OnClickSortLis
     public void onChickSort(BeanSortButton sortButton) {
         for (int i = 0; i < SortButtonList.size(); i++) {
             MyGridViewTextView textView = SortButtonList.get(i).getTextView();
-            textView.setBackgroundResource(R.drawable.bg_btn_red_line12);
+            textView.setBackgroundResource(R.drawable.shape_l1red_bwhite_r12);
             textView.setTextColor(getResources().getColor(R.color.black));
         }
         sortButton.getTextView().setBackgroundResource(R.drawable.shape_bg12red);

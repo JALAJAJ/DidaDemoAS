@@ -24,9 +24,9 @@ import com.dida.first.utils.DataUtils;
 import com.dida.first.utils.HttpUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.view.MyViewPager;
-import com.dida.first.view.PullPushListView;
-import com.dida.first.view.PullPushListView.OnBackTop;
-import com.dida.first.view.PullPushListView.OnFrushLoadMore;
+import com.dida.first.view.AbsListView.PullPushListView;
+import com.dida.first.view.AbsListView.PullPushListView.OnBackTop;
+import com.dida.first.view.AbsListView.PullPushListView.OnFrushLoadMore;
 import com.lidroid.xutils.exception.HttpException;
 
 import java.util.ArrayList;

@@ -23,8 +23,8 @@ import com.dida.first.R;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.view.DialogUpLoadHead;
-import com.dida.first.view.DialogUpLoadHead.OnUploadHeadListener;
+import com.dida.first.dialog.DialogUploadIcon;
+import com.dida.first.dialog.DialogUploadIcon.OnUploadHeadListener;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -108,9 +108,9 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 		switch (v.getId()) {
 		case R.id.rl_mine_personal_icon:
 			ToastUtil.showMyToast("头像");
-			DialogUpLoadHead dialogUpLoadHead = new DialogUpLoadHead(
+			DialogUploadIcon dialogUploadIcon = new DialogUploadIcon(
 					Mine_Personal_Activity.this);
-			dialogUpLoadHead
+			dialogUploadIcon
 					.setOnUploadHeadListener(new OnUploadHeadListener() {
 
 						@Override

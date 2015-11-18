@@ -14,7 +14,7 @@ import com.dida.first.R;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.DataCleanManager;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.view.DialogProgress;
+import com.dida.first.dialog.DialogProgress;
 
 /**
  * @author KingJA

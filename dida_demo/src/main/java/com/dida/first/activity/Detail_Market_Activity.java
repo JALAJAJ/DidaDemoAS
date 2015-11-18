@@ -20,8 +20,8 @@ import com.dida.first.holder.MDetail_Image_Holder;
 import com.dida.first.holder.MDetail_Store_Holder;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.PopupWindowParam;
-import com.dida.first.view.PopupWindowSelect;
+import com.dida.first.popupwindow.PopupWindowParam;
+import com.dida.first.popupwindow.PopupWindowSelect;
 
 import java.util.ArrayList;
 import java.util.List;

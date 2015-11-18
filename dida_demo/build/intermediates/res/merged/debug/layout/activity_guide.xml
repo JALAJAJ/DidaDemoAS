@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/ll_sort_dots"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_btn_red_line12"
+        android:background="@drawable/shape_l1red_bwhite_r12"
         android:padding="8dp"
         android:text="马上体验" />
 

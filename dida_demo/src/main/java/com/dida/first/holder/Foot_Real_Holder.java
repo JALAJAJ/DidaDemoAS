@@ -16,7 +16,7 @@ import com.dida.first.bean.BeanFootPrint;
 import com.dida.first.bean.BeanFootPrint.ItemFootPrint;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyGridView;
+import com.dida.first.view.AbsListView.MyGridView;
 
 /**
  * @author		KingJA 

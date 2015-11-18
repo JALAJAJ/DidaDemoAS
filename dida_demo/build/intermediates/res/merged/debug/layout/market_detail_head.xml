@@ -20,9 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="12dp"
-            android:paddingLeft="12dp"
-            android:paddingTop="12dp">
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
 
             <!--            <com.meg7.widget.CircleImageView
                              android:id="@+id/iv_market_detail_head_icon"
@@ -40,37 +39,11 @@
 
                 <TextView
                     android:id="@+id/tv_market_detail_head_title"
-                    style="@style/black_14_line2"
+                    style="@style/black_14_line4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="红黄蓝童装，童装女童春装2015春秋新款韩版卡通休闲儿童套装2-3-4-5-6岁童装女童冬装2015新款儿童卫衣三件套女大童运动秋装套装10岁女孩" />
+                    android:text="红黄蓝童装，童装女童春装2015春秋新款韩版卡通休闲儿童套装2-3-4-5-6岁童装女童冬装2015红黄蓝童装，童装女童春装2015春秋新款韩版卡通休闲儿童套装2-3-4-5-6岁童装女童冬装2015新款儿童新款儿童卫衣三件套女大童运动秋装套装10岁女孩" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/gray_12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="销量:" />
-
-                        <TextView
-                            android:id="@+id/tv_market_detail_head_count"
-                            style="@style/gray_12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2185" />
-                    </LinearLayout>
-
-                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -154,17 +127,82 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:background="@drawable/shoucang_nor" />
-                    <!--  <TextView
-                         android:text="收藏"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                            style="@style/black_12"/> -->
-
-
                 </RelativeLayout>
 
 
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="快递:" />
+
+                <com.dida.first.view.DeadlineTextView
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8.00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="销量:" />
+
+                <com.dida.first.view.DeadlineTextView
+                    android:id="@+id/tv_market_detail_head_count"
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1024" />
+
+                <TextView
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="件" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/gray_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="浙江金华" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 

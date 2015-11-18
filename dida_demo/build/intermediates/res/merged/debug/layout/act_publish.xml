@@ -40,7 +40,7 @@
                 </EditText>
                 <!-- android:id="@+id/gridview" -->
 
-                <com.dida.first.view.MyGridView
+                <com.dida.first.view.AbsListView.MyGridView
                     android:id="@+id/gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:numColumns="4"
                     android:scrollbars="none"
                     android:verticalSpacing="4dp" >
-                </com.dida.first.view.MyGridView>
+                </com.dida.first.view.AbsListView.MyGridView>
 
                 <View
                     android:layout_width="match_parent"

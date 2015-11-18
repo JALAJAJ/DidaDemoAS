@@ -221,7 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:background="@drawable/bg_btn_red_line2"
+            android:background="@drawable/shape_l1red_bwhite_r2"
             android:minHeight="0dp"
             android:padding="8dp"
             android:text="删除" />

@@ -13,8 +13,8 @@ import android.widget.LinearLayout;
 import com.dida.first.R;
 import com.dida.first.textwatcher.MyTextWatcher;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnDoubleClickListener;
+import com.dida.first.dialog.DialogDouble;
+import com.dida.first.dialog.DialogDouble.OnDoubleClickListener;
 
 import java.util.regex.Pattern;
 
@@ -42,7 +42,7 @@ public class FindPsdCodeActivity extends BackTitleActivity {
 		switch (v.getId()) {
 		case R.id.btn_findpsd_get_code:
 			if (checkPhone()) {
-				btn_findpsd_get_code.setBackgroundResource(R.drawable.bg_btn_gray);
+				btn_findpsd_get_code.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 				timeCount = new TimeCount(60 * 1000, 1000);
 				timeCount.start();
 				// 截取输入框焦点
@@ -89,10 +89,10 @@ public class FindPsdCodeActivity extends BackTitleActivity {
 			if (Pattern.matches("^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\\d{8}$",
 					phone)) {
 				iv_findpsd_regex_phone.setVisibility(View.VISIBLE);
-				btn_findpsd_get_code.setBackgroundResource(R.drawable.bg_btn_red4);
+				btn_findpsd_get_code.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 			} else {
 				iv_findpsd_regex_phone.setVisibility(View.GONE);
-				btn_findpsd_get_code.setBackgroundResource(R.drawable.bg_btn_gray);
+				btn_findpsd_get_code.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 			}
 		}
 	};
@@ -105,11 +105,11 @@ public class FindPsdCodeActivity extends BackTitleActivity {
 			if (code.length() > 0) {
 				btn_findpsd_check.setClickable(true);
 				btn_findpsd_check
-						.setBackgroundResource(R.drawable.bg_btn_red4);
+						.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 			} else {
 				btn_findpsd_check.setClickable(false);
 				btn_findpsd_check
-						.setBackgroundResource(R.drawable.bg_btn_gray);
+						.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 			}
 		}
 	};
@@ -204,7 +204,7 @@ public class FindPsdCodeActivity extends BackTitleActivity {
 		public void onFinish() {
 			btn_findpsd_get_code.setText("重新发送");
 			btn_findpsd_get_code.setClickable(true);
-			btn_findpsd_get_code.setBackgroundResource(R.drawable.bg_btn_red4);
+			btn_findpsd_get_code.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 		}
 
 	}

@@ -3,7 +3,7 @@
     android:id="@+id/rl_save_image"
     android:layout_width="280dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/sharp_text_dialog"
+    android:background="@drawable/shape_lnull_bwhite_r2"
     android:orientation="vertical" >
 
     <TextView

@@ -67,14 +67,14 @@
             android:layout_height="wrap_content"
         
         />
-    <com.dida.first.view.MyGridView
+    <com.dida.first.view.AbsListView.MyGridView
             android:paddingTop="8dp"
             android:verticalSpacing="8dp"
             android:numColumns="4"
             android:id="@+id/gv_group_detail_des"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-        </com.dida.first.view.MyGridView>
+        </com.dida.first.view.AbsListView.MyGridView>
 </LinearLayout>    
 </LinearLayout>
     </LinearLayout>

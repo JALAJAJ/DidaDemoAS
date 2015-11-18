@@ -4,12 +4,8 @@
 package com.dida.first.activity;
 
 import com.dida.first.R;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-import com.dida.first.view.DialogProgress;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;

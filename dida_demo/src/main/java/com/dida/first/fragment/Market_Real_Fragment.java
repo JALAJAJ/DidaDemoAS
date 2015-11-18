@@ -24,7 +24,7 @@ import com.dida.first.bean.MarketBean;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyGridView;
+import com.dida.first.view.AbsListView.MyGridView;
 import com.dida.first.view.MyViewPager;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;

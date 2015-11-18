@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@drawable/transparency_gray_selector" >
+            android:background="@drawable/selector_transparent2gray" >
 
             <com.meg7.widget.CircleImageView
                 android:layout_width="36dp"
@@ -185,7 +185,7 @@
                    android:paddingBottom="8dp"
                    android:paddingRight="24dp"
                    android:paddingLeft="24dp"
-                   android:background="@drawable/sharp_btn_gray"
+                   android:background="@drawable/shape_l1gray_bnull_r2"
                    android:layout_width="0dp"
                    android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -207,7 +207,7 @@
                    android:paddingBottom="8dp"
                    android:paddingRight="24dp"
                    android:paddingLeft="24dp"
-                   android:background="@drawable/sharp_btn_gray"
+                   android:background="@drawable/shape_l1gray_bnull_r2"
                android:layout_width="0dp"
                    android:layout_weight="1"
                     android:layout_height="wrap_content"

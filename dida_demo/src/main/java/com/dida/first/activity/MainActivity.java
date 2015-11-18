@@ -9,8 +9,8 @@ import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.SharedPreferencesUtils;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnDoubleClickListener;
+import com.dida.first.dialog.DialogDouble;
+import com.dida.first.dialog.DialogDouble.OnDoubleClickListener;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;

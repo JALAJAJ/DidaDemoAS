@@ -19,9 +19,11 @@ import android.view.View.OnTouchListener;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
+
+import com.dida.first.dialog.DialogSaveImg;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.ImageUtils;
-import com.dida.first.view.DialogText.OnSaveListener;
+import com.dida.first.dialog.DialogSaveImg.OnSaveListener;
 
 /**
  * @author KingJA
@@ -135,7 +137,7 @@ public class ZoomImageView extends ImageView implements OnGlobalLayoutListener,
 					@Override
 					public void onLongPress(MotionEvent e) {
 						super.onLongPress(e);
-						DialogText textDialog = new DialogText(
+						DialogSaveImg textDialog = new DialogSaveImg(
 								ActivityFactory.zoomActivity);
 						textDialog.show();
 						textDialog.setOnSaveListener(new OnSaveListener() {

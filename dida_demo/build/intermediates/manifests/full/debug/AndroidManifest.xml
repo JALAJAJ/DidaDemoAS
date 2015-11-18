@@ -236,7 +236,7 @@
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dida.first.activity.Add_Show_Activity"
+            android:name="com.dida.first.activity.Pingou_Show_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
 

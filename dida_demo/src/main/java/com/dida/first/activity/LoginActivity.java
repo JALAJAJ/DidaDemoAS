@@ -111,12 +111,12 @@ public class LoginActivity extends BackTitleActivity {
 	private LinearLayout ll_login_focus;
 
 	private void setClickFalse() {
-		btn_login.setBackgroundResource(R.drawable.bg_btn_gray);
+		btn_login.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 		btn_login.setClickable(false);
 	}
 
 	private void setClickTrue() {
-		btn_login.setBackgroundResource(R.drawable.bg_btn_red4);
+		btn_login.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 		btn_login.setClickable(true);
 	}
 

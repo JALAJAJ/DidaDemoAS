@@ -4,7 +4,6 @@
 package com.dida.first.activity;
 
 import com.dida.first.R;
-import com.dida.first.activity.BackTitleActivity.OnTextClickListener;
 import com.dida.first.utils.ToastUtil;
 
 import android.content.Intent;
@@ -64,12 +63,12 @@ public class Detail_Store_Activity extends BackTitleActivity {
 	private void setFavorite(boolean iFavorite) {
 		
 		if (!iFavorite) {
-			ll_store_favorite.setBackgroundResource(R.drawable.bg_btn_red8);
+			ll_store_favorite.setBackgroundResource(R.drawable.shape_lnull_bred_r8);
 			iv_store_star.setBackgroundResource(R.drawable.fav_line);
 			tv_store_favorite.setText("收藏");
 			tv_store_favorite.setTextColor(getResources().getColor(R.color.white));
 		}else {
-			ll_store_favorite.setBackgroundResource(R.drawable.bg_btn_gray8);
+			ll_store_favorite.setBackgroundResource(R.drawable.shape_lnull_bgray_r8);
 			iv_store_star.setBackgroundResource(R.drawable.fav_red);
 			tv_store_favorite.setText("已收藏");
 			tv_store_favorite.setTextColor(getResources().getColor(R.color.red));

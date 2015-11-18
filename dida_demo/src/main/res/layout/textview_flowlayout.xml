@@ -3,7 +3,7 @@
     style="@style/black_14"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_btn_red_line12"
+    android:background="@drawable/shape_l1red_bwhite_r12"
     android:ellipsize="marquee"
     android:focusableInTouchMode="true"
     android:gravity="center"

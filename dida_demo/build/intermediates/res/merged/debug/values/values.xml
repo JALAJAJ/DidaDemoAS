@@ -1882,7 +1882,7 @@
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@drawable/sharp_basedialog</item>
+        <item name="android:windowBackground">@drawable/shape_lnull_bwhite_r8</item>
     </style>
     <style name="DesignTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/tab_color_nomal</item>
@@ -2430,6 +2430,12 @@
         <item name="android:textColor">@color/font_black</item>
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
+    </style>
+    <style name="black_14_line4">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/font_black</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="black_16">
         <item name="android:textSize">16sp</item>

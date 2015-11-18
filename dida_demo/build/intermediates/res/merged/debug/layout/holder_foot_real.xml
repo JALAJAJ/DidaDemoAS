@@ -32,7 +32,7 @@
             android:text="2015-09-30" />
  </LinearLayout>
         
-        <com.dida.first.view.MyGridView
+        <com.dida.first.view.AbsListView.MyGridView
             android:id="@+id/mgv_foot_real"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

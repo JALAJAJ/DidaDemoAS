@@ -14,7 +14,7 @@ import com.dida.first.R;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.view.MyViewPager;
-import com.dida.first.view.PopupWindowShare;
+import com.dida.first.popupwindow.PopupWindowShare;
 
 import java.util.ArrayList;
 import java.util.List;

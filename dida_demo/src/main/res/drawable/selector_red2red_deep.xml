@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true"
-          android:drawable="@drawable/bg_btn_red_light4" /> <!-- pressed -->
-    <item android:drawable="@drawable/bg_btn_red4" /> <!-- default -->
+          android:drawable="@drawable/shape_lnull_bredd_r4" /> <!-- pressed -->
+    <item android:drawable="@drawable/shape_lnull_bred_r4" /> <!-- default -->
 </selector>

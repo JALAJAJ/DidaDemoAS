@@ -19,7 +19,7 @@
     </style>
     <!-- 按钮话框样式 -->
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowBackground">@drawable/sharp_basedialog</item>
+        <item name="android:windowBackground">@drawable/shape_lnull_bwhite_r8</item>
     </style>
     <!-- 进度条对话框样式 -->
     <style name="dialog_progress" parent="@android:style/Theme.Dialog">

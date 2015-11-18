@@ -173,6 +173,7 @@
                     android:text="销量:" />
 
                 <com.dida.first.view.DeadlineTextView
+                    android:id="@+id/tv_market_detail_head_count"
                     style="@style/gray_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

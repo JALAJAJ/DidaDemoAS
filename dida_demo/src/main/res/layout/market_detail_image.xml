@@ -25,7 +25,7 @@
                 android:text="商品图片" />
         </RelativeLayout>
 
-        <com.dida.first.view.MyGridView
+        <com.dida.first.view.AbsListView.MyGridView
             android:id="@+id/mygv_item_market_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

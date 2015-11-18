@@ -78,6 +78,7 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
      */
     private void onJoin() {
         ToastUtil.showMyToast("加入拼购");
+        ActivityUtil.goActivity(this,Pingou_Show_Activity.class);
     }
 
     /**

@@ -81,7 +81,7 @@
 
         <View style="@style/divider_nomal_horizontal" />
 
-        <com.dida.first.view.MyListView
+        <com.dida.first.view.AbsListView.MyListView
             android:id="@+id/mylv_shopcar_inner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             android:divider="@color/gray"
             android:dividerHeight="1dp"
             android:listSelector="#00000000" >
-        </com.dida.first.view.MyListView>
+        </com.dida.first.view.AbsListView.MyListView>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

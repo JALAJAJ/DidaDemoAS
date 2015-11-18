@@ -514,12 +514,12 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:231
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:232:13-76
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:233:13-42
-activity#com.dida.first.activity.Add_Show_Activity
+activity#com.dida.first.activity.Pingou_Show_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:235:9-238:52
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:238:13-49
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:236:13-69
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:236:13-58
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:237:13-42
 activity#com.dida.first.rongyun.ConversationListActivity

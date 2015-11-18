@@ -26,8 +26,8 @@ import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.HttpUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.VolleyStringRequest;
-import com.dida.first.view.DialogDouble;
-import com.dida.first.view.DialogDouble.OnDoubleClickListener;
+import com.dida.first.dialog.DialogDouble;
+import com.dida.first.dialog.DialogDouble.OnDoubleClickListener;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -215,19 +215,19 @@ public class RegisterActivity extends BackTitleActivity {
 			phone = et_register_phone.getText().toString().trim();
 			if (phone.length() > 0) {
 				btn_register.setClickable(true);
-				btn_register.setBackgroundResource(R.drawable.bg_btn_red4);
+				btn_register.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 			} else {
 				btn_register.setClickable(false);
-				btn_register.setBackgroundResource(R.drawable.bg_btn_gray);
+				btn_register.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 			}
 			if (Pattern.matches("^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\\d{8}$",
 					phone)) {
 				iv_register_regex_phone.setVisibility(View.VISIBLE);
 				btn_register_get_code
-						.setBackgroundResource(R.drawable.bg_btn_red4);
+						.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 			} else {
 				btn_register_get_code
-						.setBackgroundResource(R.drawable.bg_btn_gray);
+						.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 				iv_register_regex_phone.setVisibility(View.GONE);
 			}
 		}
@@ -275,7 +275,7 @@ public class RegisterActivity extends BackTitleActivity {
 		timeCount.cancel();
 		btn_register_get_code.setText("获取验证码");
 		btn_register_get_code.setClickable(true);
-		btn_register_get_code.setBackgroundResource(R.drawable.bg_btn_red4);
+		btn_register_get_code.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 	}
 	@Override
 	public void setBackClick() {
@@ -292,7 +292,7 @@ public class RegisterActivity extends BackTitleActivity {
 		case R.id.btn_register_get_code:
 			if (checkPhone()) {
 				postByVolley();
-				 btn_register_get_code.setBackgroundResource(R.drawable.bg_btn_gray);
+				 btn_register_get_code.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 				 timeCount = new TimeCount(60 * 1000, 1000);
 				 timeCount.start();
 				 // 截取输入框焦点

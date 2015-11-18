@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/bg_btn_red_line2"
+            android:background="@drawable/shape_l1red_bwhite_r2"
             android:padding="4dp" >
 
             <ImageView
@@ -119,7 +119,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <com.dida.first.view.MyListView
+            <com.dida.first.view.AbsListView.MyListView
                 android:id="@+id/mylv_market_detail_select"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -151,7 +151,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/bg_btn_red_line2"
+                    android:background="@drawable/shape_l1red_bwhite_r2"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="1dp" >

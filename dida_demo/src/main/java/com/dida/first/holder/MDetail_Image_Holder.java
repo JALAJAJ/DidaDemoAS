@@ -7,7 +7,7 @@ import com.dida.first.R;
 import com.dida.first.activity.MyZoomImageActivity;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyGridView;
+import com.dida.first.view.AbsListView.MyGridView;
 import com.lidroid.xutils.BitmapUtils;
 
 import android.content.Intent;
