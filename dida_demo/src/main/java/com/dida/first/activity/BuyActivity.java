@@ -168,7 +168,7 @@ public class BuyActivity extends Activity implements OnClickListener {
                         R.color.tab_color_selected));
             } else {
                 convertView.setBackgroundColor(getResources().getColor(
-                        R.color.tab_color_nomal));
+                        R.color.black_bg));
             }
             return convertView;
         }

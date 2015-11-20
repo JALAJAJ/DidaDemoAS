@@ -80,12 +80,12 @@
                             android:text="显示位置" />
                     </LinearLayout>
 
-                    <com.dida.first.view.MyButton
+                    <com.dida.first.view.MySwitchButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true" >
-                    </com.dida.first.view.MyButton>
+                    </com.dida.first.view.MySwitchButton>
                 </RelativeLayout>
             </LinearLayout>
 

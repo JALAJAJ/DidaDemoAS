@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/tab_color_nomal" >
+        android:background="@color/black_bg" >
 
 
             <ImageView

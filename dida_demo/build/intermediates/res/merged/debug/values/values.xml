@@ -296,6 +296,7 @@
     <color name="bg_gray">#e1e1e1</color>
     <color name="bg_root">#E5E5E5</color>
     <color name="black">#000000</color>
+    <color name="black_bg">#262a2e</color>
     <color name="black_light">#26292e</color>
     <color name="blue_deep">#003455</color>
     <color name="blue_light">#328fca</color>
@@ -368,6 +369,7 @@
     <eat-comment/>
     <color name="glass_gall">#c2ebef</color>
     <color name="gray">#f6f4f7</color>
+    <color name="gray_comment">#EDEDED</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_divider">#dadada</color>
     <color name="gray_light">#eeeeee</color>
@@ -453,7 +455,6 @@
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="tab_color_nomal">#262a2e</color>
     <color name="tab_color_selected">#FE5B5F</color>
     <color name="tab_text_nomal">#677179</color>
     <color name="tab_text_selected">#ffffff</color>
@@ -1885,7 +1886,7 @@
         <item name="android:windowBackground">@drawable/shape_lnull_bwhite_r8</item>
     </style>
     <style name="DesignTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/tab_color_nomal</item>
+        <item name="colorPrimary">@color/black_bg</item>
         <item name="colorPrimaryDark">#0ba823</item>
         <item name="colorAccent">#FF4081</item>
         <item name="android:windowBackground">@color/window_background</item>

@@ -98,7 +98,7 @@
         <item name="android:progressDrawable">@drawable/progresshorizontal</item>
     </style>
     <style name="DesignTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/tab_color_nomal</item>
+        <item name="colorPrimary">@color/black_bg</item>
         <item name="colorPrimaryDark">#0ba823</item>
         <item name="colorAccent">#FF4081</item>
         <item name="android:windowBackground">@color/window_background</item>

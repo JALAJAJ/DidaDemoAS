@@ -119,7 +119,8 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
          * 评论块
          */
         fl_group_detail_comment = (FrameLayout) view.findViewById(R.id.fl_group_detail_comment);
-        commentHolder = new GDetail_Comment_Holder();
+        commentHolder = new GDetail_Comment_Holder(this);
+        commentHolder.setList(commentList);
         fl_group_detail_comment.addView(commentHolder.getRootView());
         return view;
     }

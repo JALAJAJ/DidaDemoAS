@@ -56,6 +56,8 @@
           />
 
         <LinearLayout
+            android:background="@drawable/selector_transparent2gray"
+            android:id="@+id/ll_pingou_comment_more"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

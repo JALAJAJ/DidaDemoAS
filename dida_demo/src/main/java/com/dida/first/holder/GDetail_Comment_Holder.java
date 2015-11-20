@@ -3,22 +3,8 @@
  */
 package com.dida.first.holder;
 
-import java.util.List;
-
-import com.dida.first.R;
-import com.dida.first.adapter.ItemCommentAdapter;
-import com.dida.first.bean.CommentBean;
-import com.dida.first.bean.CommentBean.ItemComment;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-
-import android.graphics.Color;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
+import android.app.Activity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,21 +13,39 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.dida.first.R;
+import com.dida.first.activity.Detail_Pingou_Comment_Activity;
+import com.dida.first.adapter.ItemCommentAdapter;
+import com.dida.first.bean.CommentBean;
+import com.dida.first.bean.CommentBean.ItemComment;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
+
+import java.util.List;
+
 /**
  * @author		KingJA 
  * @data		2015-8-19 上午11:12:37 
  * @use			
  *
  */
-public class GDetail_Comment_Holder extends BaseHolder<CommentBean> {
+public class GDetail_Comment_Holder extends BaseHolder<CommentBean> implements View.OnClickListener{
 
 	private ListView lv_group_detail_comment;
+	private Activity activity;
+	private LinearLayout ll_pingou_comment_more;
+	public GDetail_Comment_Holder(Activity activity){
+		this.activity=activity;
+	}
 
 	@Override
 	public View initView() {
-		View initView=UIUtils.inflate(R.layout.group_detail_comment);
-		lv_group_detail_comment = (ListView) initView.findViewById(R.id.lv_group_detail_comment);
-		return initView;
+		view=UIUtils.inflate(R.layout.group_detail_comment);
+		lv_group_detail_comment = (ListView) view.findViewById(R.id.lv_group_detail_comment);
+		ll_pingou_comment_more = (LinearLayout) view.findViewById(R.id.ll_pingou_comment_more);
+		ll_pingou_comment_more.setOnClickListener(this);
+		return view;
 	}
 
 	@Override
@@ -49,6 +53,17 @@ public class GDetail_Comment_Holder extends BaseHolder<CommentBean> {
 		List<CommentBean> list = getList();
 		lv_group_detail_comment.setAdapter(new GroupCommentAdapter(list));
 	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.ll_pingou_comment_more:
+				ActivityUtil.goActivity(activity, Detail_Pingou_Comment_Activity.class);
+				ToastUtil.showMyToast("全部评论");
+				break;
+		}
+	}
+
 	class GroupCommentAdapter extends BaseAdapter{
 		private List<CommentBean> list;
 		public GroupCommentAdapter(List<CommentBean> list) {

@@ -5,7 +5,7 @@
     <color name="tab_text_nomal">#677179</color>
     <!-- 导航栏色块颜色 -->
     <color name="tab_color_selected">#FE5B5F</color>
-    <color name="tab_color_nomal">#262a2e</color>
+    <color name="black_bg">#262a2e</color>
     <!-- 选择色块颜色 -->
     <color name="select_color_selected">#FE5B5F</color>
     <color name="select_color_nomal">#ffffff</color>
@@ -26,6 +26,7 @@
     <color name="blue_light">#328fca</color>
    <!-- <color name="gray">#EBEBEB</color>-->
     <color name="gray">#f6f4f7</color>
+    <color name="gray_comment">#EDEDED</color>
     <color name="gray_divider">#dadada</color>
     <color name="yellow">#FF992C</color>
     <color name="half_transparency">#4A000000</color>
