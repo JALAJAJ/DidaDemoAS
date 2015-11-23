@@ -208,4 +208,9 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/yellow</item>
     </style>
+
+    <style name="blue_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/blue_font</item>
+    </style>
 </resources>

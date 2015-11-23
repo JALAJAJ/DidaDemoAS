@@ -23,7 +23,7 @@ import com.dida.first.application.App;
 import com.dida.first.bean.BeanSms;
 import com.dida.first.textwatcher.MyTextWatcher;
 import com.dida.first.utils.ActivityUtil;
-import com.dida.first.utils.HttpUtil;
+import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.VolleyStringRequest;
 import com.dida.first.dialog.DialogDouble;
@@ -321,7 +321,7 @@ public class RegisterActivity extends BackTitleActivity {
 	}
 
 	private void postByVolley(){
-        VolleyStringRequest<BeanSms> userRequest = new VolleyStringRequest<BeanSms>(HttpUtil.REGISTER_SMS, BeanSms.class,null, new Listener<BeanSms>()  
+        VolleyStringRequest<BeanSms> userRequest = new VolleyStringRequest<BeanSms>(UrlUtil.REGISTER_SMS, BeanSms.class,null, new Listener<BeanSms>()
         {  
             @Override  
             public void onResponse(BeanSms beanSms)  

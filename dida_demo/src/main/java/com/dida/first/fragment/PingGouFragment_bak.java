@@ -2,7 +2,6 @@ package com.dida.first.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -19,15 +18,11 @@ import com.dida.first.bean.YaoYueBean.Res;
 import com.dida.first.holder.AAHolder;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.GroupHolder;
-import com.dida.first.utils.CustomConstants;
-import com.dida.first.utils.DataUtils;
-import com.dida.first.utils.HttpUtil;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.view.MyViewPager;
 import com.dida.first.view.AbsListView.PullPushListView;
 import com.dida.first.view.AbsListView.PullPushListView.OnBackTop;
 import com.dida.first.view.AbsListView.PullPushListView.OnFrushLoadMore;
-import com.lidroid.xutils.exception.HttpException;
+import com.dida.first.view.MyViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -202,22 +197,22 @@ public class PingGouFragment_bak extends BaseHeadFragment implements
 	 * 初始化AA数据
 	 */
 	private void initAAData() {
-		DataUtils<YaoYueBean> dataUtils = new DataUtils<YaoYueBean>() {
-			@Override
-			public void onCache(YaoYueBean bean) {
-			}
-
-			@Override
-			public void onFail(HttpException error, String msg) {
-			}
-
-			@Override
-			public void onSucc(YaoYueBean bean) {
-				aaList = bean.res;
-			}
-		};
-		dataUtils.getDataFromNet(HttpUtil.YAOYUE_PATH,
-				dataUtils.getYaoYueParams(3, 1), YaoYueBean.class);
+//		DataUtil<YaoYueBean> dataUtil = new DataUtil<YaoYueBean>() {
+//			@Override
+//			public void onCache(YaoYueBean bean) {
+//			}
+//
+//			@Override
+//			public void onFail(HttpException error, String msg) {
+//			}
+//
+//			@Override
+//			public void onSucc(YaoYueBean bean) {
+//				aaList = bean.res;
+//			}
+//		};
+//		dataUtil.getDataFromNet(UrlUtil.YAOYUE_PATH,
+//				dataUtil.getYaoYueParams(3, 1), YaoYueBean.class);
 
 	}
 
@@ -225,25 +220,25 @@ public class PingGouFragment_bak extends BaseHeadFragment implements
 	 * 初始化团购数据
 	 */
 	private void initGroupData() {
-		DataUtils<YaoYueBean> dataUtils = new DataUtils<YaoYueBean>() {
-			@Override
-			public void onCache(YaoYueBean bean) {
-				setData(bean, false);
-			}
-			@Override
-			public void onFail(HttpException error, String msg) {
-				lv_yaoyue_group.setFrushViewGone();
-			}
-
-			@Override
-			public void onSucc(YaoYueBean bean) {
-				setData(bean, false);
-				lv_yaoyue_group.setFrushViewGone();
-			}
-		};
-		dataUtils.initData(HttpUtil.YAOYUE_PATH,
-				dataUtils.getYaoYueParams(1, 1),
-				CustomConstants.YAOYUE_GROUP_CACHE, YaoYueBean.class);
+//		DataUtil<YaoYueBean> dataUtil = new DataUtil<YaoYueBean>() {
+//			@Override
+//			public void onCache(YaoYueBean bean) {
+//				setData(bean, false);
+//			}
+//			@Override
+//			public void onFail(HttpException error, String msg) {
+//				lv_yaoyue_group.setFrushViewGone();
+//			}
+//
+//			@Override
+//			public void onSucc(YaoYueBean bean) {
+//				setData(bean, false);
+//				lv_yaoyue_group.setFrushViewGone();
+//			}
+//		};
+//		dataUtil.initData(UrlUtil.YAOYUE_PATH,
+//				dataUtil.getYaoYueParams(1, 1),
+//				CustomConstants.YAOYUE_GROUP_CACHE, YaoYueBean.class);
 	}
 
 	/**
@@ -278,26 +273,26 @@ public class PingGouFragment_bak extends BaseHeadFragment implements
 	 * 加载更多
 	 */
 	private void getMoreData(int type) {
-		page += 1;
-		DataUtils<YaoYueBean> dataUtils = new DataUtils<YaoYueBean>() {
-			@Override
-			public void onCache(YaoYueBean bean) {
-			}
-
-			@Override
-			public void onFail(HttpException error, String msg) {
-				lv_yaoyue_group.setLoadViewGone();
-			}
-
-			@Override
-			public void onSucc(YaoYueBean bean) {
-				Log.i("getMoreData", bean.res.size()+"");
-				setMoreView(bean);
-			}
-
-		};
-		dataUtils.getDataFromNet(HttpUtil.YAOYUE_PATH,
-				dataUtils.getYaoYueParams(type, page), YaoYueBean.class);
+//		page += 1;
+//		DataUtil<YaoYueBean> dataUtil = new DataUtil<YaoYueBean>() {
+//			@Override
+//			public void onCache(YaoYueBean bean) {
+//			}
+//
+//			@Override
+//			public void onFail(HttpException error, String msg) {
+//				lv_yaoyue_group.setLoadViewGone();
+//			}
+//
+//			@Override
+//			public void onSucc(YaoYueBean bean) {
+//				Log.i("getMoreData", bean.res.size()+"");
+//				setMoreView(bean);
+//			}
+//
+//		};
+//		dataUtil.getDataFromNet(UrlUtil.YAOYUE_PATH,
+//				dataUtil.getYaoYueParams(type, page), YaoYueBean.class);
 	}
 
 	/**
@@ -352,29 +347,29 @@ public class PingGouFragment_bak extends BaseHeadFragment implements
 	}
 
 	private void getData(int type, int page) {
-		DataUtils<YaoYueBean> dataUtils = new DataUtils<YaoYueBean>() {
-			@Override
-			public void onCache(YaoYueBean bean) {
-
-			}
-
-			@Override
-			public void onFail(HttpException error, String msg) {
-				lv_yaoyue_group.setFrushViewGone();
-			}
-
-			@Override
-			public void onSucc(YaoYueBean bean) {
-				setData(bean, false);
-				if (isGroup) {
-					lv_yaoyue_group.setFrushViewGone();
-				} else {
-					lv_yaoyue_aa.setFrushViewGone();
-				}
-			}
-		};
-		dataUtils.getDataFromNet(HttpUtil.YAOYUE_PATH,
-				dataUtils.getYaoYueParams(type, page), YaoYueBean.class);
+//		DataUtil<YaoYueBean> dataUtil = new DataUtil<YaoYueBean>() {
+//			@Override
+//			public void onCache(YaoYueBean bean) {
+//
+//			}
+//
+//			@Override
+//			public void onFail(HttpException error, String msg) {
+//				lv_yaoyue_group.setFrushViewGone();
+//			}
+//
+//			@Override
+//			public void onSucc(YaoYueBean bean) {
+//				setData(bean, false);
+//				if (isGroup) {
+//					lv_yaoyue_group.setFrushViewGone();
+//				} else {
+//					lv_yaoyue_aa.setFrushViewGone();
+//				}
+//			}
+//		};
+//		dataUtil.getDataFromNet(UrlUtil.YAOYUE_PATH,
+//				dataUtil.getYaoYueParams(type, page), YaoYueBean.class);
 	}
 
 	private void initUrl() {

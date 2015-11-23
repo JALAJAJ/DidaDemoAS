@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 /**
  * @author		KingJA 
  * @data		2015-10-14 下午2:11:29 
@@ -20,10 +23,18 @@ import android.view.ViewGroup;
 public abstract class Fragment_Base_Nomal extends Fragment implements View.OnClickListener{
 	protected Context context;
 	protected View view;
+	protected RequestQueue mQueue;
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		context=getActivity();
+		mQueue = Volley.newRequestQueue(context);
+	}
+
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		context=getActivity();
 		view=setFragmentView();
 		return view;
 	}

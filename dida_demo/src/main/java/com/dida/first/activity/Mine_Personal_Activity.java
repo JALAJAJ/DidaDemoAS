@@ -199,7 +199,7 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 	/**
 	 * 图片上传
 	 * 
-	 * @param absolutePath
+	 * @param file
 	 */
 	private void uploadImage(File file) {
 		Log.i("file", file.getAbsolutePath());
@@ -216,14 +216,14 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 			client.post("http://192.168.1.173:8080/image/uploadImage", params, new AsyncHttpResponseHandler() {
 				@Override
 				public void onSuccess(int statusCode, String content) {
-					Toast.makeText(Mine_Personal_Activity.this, "头像上传成功!" + content, 0).show();
+					ToastUtil.showMyToast( "头像上传成功!");
 					Log.i("content", content);
 					Log.i("statusCode", statusCode+"");
 				}
 
 				@Override
 				public void onFailure(Throwable e, String data) {
-					Toast.makeText(Mine_Personal_Activity.this, "头像上传失败!", 0).show();
+					ToastUtil.showMyToast( "头像上传失败!");
 				}
 			});
 

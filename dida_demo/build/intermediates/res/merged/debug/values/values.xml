@@ -299,6 +299,7 @@
     <color name="black_bg">#262a2e</color>
     <color name="black_light">#26292e</color>
     <color name="blue_deep">#003455</color>
+    <color name="blue_font">#61749B</color>
     <color name="blue_light">#328fca</color>
     <color name="border_gray">#d9dfe5</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
@@ -2457,6 +2458,10 @@
         <item name="android:textColor">@color/black_light</item>
          <item name="android:maxLines">8</item>
            <item name="android:ellipsize">end</item>
+    </style>
+    <style name="blue_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/blue_font</item>
     </style>
     <style name="blue_deep_12_line8">
         <item name="android:textSize">12sp</item>
