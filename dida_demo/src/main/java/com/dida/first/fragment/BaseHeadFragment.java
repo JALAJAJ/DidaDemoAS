@@ -1,20 +1,5 @@
 package com.dida.first.fragment;
 
-import io.rong.imkit.RongIM;
-import io.rong.imlib.RongIMClient.ConnectCallback;
-import io.rong.imlib.RongIMClient.ErrorCode;
-
-import com.dida.first.MainFragment;
-import com.dida.first.R;
-import com.dida.first.activity.ChatActivity;
-import com.dida.first.activity.MainActivity;
-import com.dida.first.application.App;
-import com.dida.first.rongyun.RongSelectActivity;
-import com.dida.first.utils.SharedPreferencesUtils;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-
-import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,19 +8,24 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-import android.widget.FrameLayout.LayoutParams;
 import android.widget.TextView;
+
+import com.dida.first.MainFragment;
+import com.dida.first.R;
+import com.dida.first.activity.ChatActivity;
+import com.dida.first.utils.SharedPreferencesUtils;
+import com.dida.first.utils.ToastUtil;
+
+import io.rong.imkit.RongIM;
 
 public abstract class BaseHeadFragment extends Fragment implements
 		OnClickListener {
@@ -70,7 +60,6 @@ public abstract class BaseHeadFragment extends Fragment implements
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		Log.i("onCreateView", "onCreateView");
 		selectView = View.inflate(context, R.layout.fragment_new_search, null);
 		/* 在FrameLayout下添加头部搜索框 */
 		addContentView();
@@ -104,7 +93,6 @@ public abstract class BaseHeadFragment extends Fragment implements
 	 */
 	@Override
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-		Log.i("onActivityCreated", "onActivityCreated");
 		initContentEvent();
 		initFragmentView();
 		initFragmentNet();
@@ -125,14 +113,12 @@ public abstract class BaseHeadFragment extends Fragment implements
 		onChildClick(v);
 		switch (v.getId()) {
 		case R.id.iv_leftMenu:
-			MainActivity.drawer_layout.openDrawer(Gravity.START);
 			break;
 		case R.id.rl_search:
 			onSearch();
 			break;
 		case R.id.iv_chat:
 			String token = SharedPreferencesUtils.getStringData("TOKEN", "");
-			Log.i("Token", token);
 			ToastUtil.showMyToast(token);
 			if (!TextUtils.isEmpty(token)) {
 				RongIM.getInstance().startConversationList(context);

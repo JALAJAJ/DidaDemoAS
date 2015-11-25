@@ -1,12 +1,11 @@
-/**
- * 
- */
 package com.dida.first.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +23,15 @@ public abstract class Fragment_Base_Nomal extends Fragment implements View.OnCli
 	protected Context context;
 	protected View view;
 	protected RequestQueue mQueue;
+	protected FragmentManager mFragmentManager;
 
 	@Override
-	public void onCreate(@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		context=getActivity();
+	public void onAttach(Context context) {
+		super.onAttach(context);
+		Log.i("onAttach( context)", context.toString());
+		this.context = context;
 		mQueue = Volley.newRequestQueue(context);
+		mFragmentManager=getActivity().getSupportFragmentManager();
 	}
 
 	@Override

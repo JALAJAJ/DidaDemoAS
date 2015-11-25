@@ -1,32 +1,27 @@
 package com.dida.first.application;
 
-import io.rong.imkit.RongContext;
-import io.rong.imkit.RongIM;
-import io.rong.imkit.widget.provider.CameraInputProvider;
-import io.rong.imkit.widget.provider.ImageInputProvider;
-import io.rong.imkit.widget.provider.InputProvider.ExtendProvider;
-import io.rong.imlib.RongIMClient;
-import io.rong.imlib.RongIMClient.ConnectCallback;
-import io.rong.imlib.RongIMClient.ErrorCode;
-import io.rong.imlib.model.Conversation.ConversationType;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-import com.dida.first.rongyun.RongYunEvent;
-import com.dida.first.utils.CustomConstants;
-import com.dida.first.utils.SharedPreferencesUtils;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.dida.first.rongyun.RongYunEvent;
+import com.dida.first.utils.CustomConstants;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+
+import io.rong.imkit.RongContext;
+import io.rong.imkit.RongIM;
+import io.rong.imkit.widget.provider.CameraInputProvider;
+import io.rong.imkit.widget.provider.ImageInputProvider;
+import io.rong.imkit.widget.provider.InputProvider.ExtendProvider;
+import io.rong.imlib.model.Conversation.ConversationType;
 
 public class App extends Application {
 	private static Context context;
@@ -40,6 +35,8 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		//初始化Android-Universal-Image-Loader
+		initImageLoader(getApplicationContext());
 		// 初始化融云
 		initRongYun();
 		// 初始化图片加载
@@ -58,6 +55,26 @@ public class App extends Application {
 		sp = getSharedPreferences(CustomConstants.APPLICATION_NAME,
 				MODE_PRIVATE);
 	}
+
+	/**
+	 * 初始化Android-Universal-Image-Loader
+	 * @param applicationContext
+	 */
+	private void initImageLoader(Context applicationContext) {
+		Log.e("Thread.NORM_PRIORITY", Thread.NORM_PRIORITY + "");
+		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(applicationContext)
+				.threadPriority(Thread.NORM_PRIORITY - 2)
+				.threadPoolSize(3)//线程池内加载的数量
+				.denyCacheImageMultipleSizesInMemory()
+				.discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.tasksProcessingOrder(QueueProcessingType.LIFO)
+				.writeDebugLogs()
+				.discCacheSize(20 * 1024 * 1024)
+//				.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024))
+				.build();
+		ImageLoader.getInstance().init(config);
+	}
+
 	public static RequestQueue getQueue(){
 		if (mQueue==null) {
 			mQueue = Volley.newRequestQueue(context);
@@ -82,7 +99,6 @@ public class App extends Application {
     		 ExtendProvider [] ep = {new ImageInputProvider(RongContext.getInstance()),new CameraInputProvider(RongContext.getInstance())};  
     		 //我需要让他在什么会话类型中的 bar 展示    
     		 RongIM.resetInputExtensionProvider(ConversationType.PRIVATE, ep);  
-    		 Log.i("initRongYun", "initRongYun");
         }
 	}
 

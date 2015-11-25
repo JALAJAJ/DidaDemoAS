@@ -3,7 +3,6 @@ package com.dida.first;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -12,9 +11,9 @@ import android.widget.TextView;
 
 import com.dida.first.activity.MainActivity;
 import com.dida.first.fragment.Index_Market_Fragment;
+import com.dida.first.fragment.Index_Mine_Fragment;
 import com.dida.first.fragment.Index_Pingou_Fragment;
 import com.dida.first.fragment.Index_Show_Fragment;
-import com.dida.first.fragment.Index_Mine_Fragment;
 
 /**
  * @author KingJA
@@ -45,8 +44,6 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		fragmentManager = ((MainActivity) context).getSupportFragmentManager();
-
-		Log.i("MainFragment", "onCreate");
 	}
 
 	@Override
@@ -228,7 +225,6 @@ public class MainFragment extends BaseFragment implements OnClickListener {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		Log.i("MainFragment", "onDestroy");
 	}
 
 }

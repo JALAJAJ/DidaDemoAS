@@ -131,7 +131,7 @@ public class Store_Home_Fr extends Fragment_Base_Nomal {
 
             public MyViewHolder(View view) {
                 super(view);
-                iv_market_item = (ImageView) view.findViewById(R.id.iv_market_item);
+                iv_market_item = (ImageView) view.findViewById(R.id.iv_market_item_img);
             }
         }
     }
