@@ -2,5 +2,5 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true"
           android:drawable="@drawable/shape_lnull_bredd_r4" /> <!-- pressed -->
-    <item android:drawable="@drawable/shape_lnull_bred_r4" /> <!-- default -->
+    <item android:drawable="@drawable/shape_lnull_bred_r4" /> <!-- default_img -->
 </selector>

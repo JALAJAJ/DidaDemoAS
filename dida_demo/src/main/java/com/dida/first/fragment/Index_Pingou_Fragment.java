@@ -1,20 +1,17 @@
 package com.dida.first.fragment;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.bean.BeanPingou;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyViewPager;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -53,13 +50,13 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
 
 	@Override
 	public void initFragmentEvent() {
-		initIndicator();
-		View lunbotuView = View.inflate(context, R.layout.view_pinggou_lunbotu, null);
-		RelativeLayout rl_lunbotu = (RelativeLayout) lunbotuView.findViewById(R.id.rl_lunbotu);
-		initViewPager(context, urlList, rl_lunbotu);
-		// 加入轮播图布局
-		ListView refreshableView = plv_pingou.getRefreshableView();
-		refreshableView.addHeaderView(lunbotuView, null, false);
+//		initIndicator();
+//		View lunbotuView = View.inflate(context, R.layout.view_pinggou_lunbotu, null);
+//		RelativeLayout rl_lunbotu = (RelativeLayout) lunbotuView.findViewById(R.id.rl_lunbotu);
+//		initViewPager(context, urlList, rl_lunbotu);
+//		// 加入轮播图布局
+//		ListView refreshableView = plv_pingou.getRefreshableView();
+//		refreshableView.addHeaderView(lunbotuView, null, false);
 		MyPingouAdapter pingouAdapter = new MyPingouAdapter(pingouList);
 		plv_pingou.setAdapter(pingouAdapter);
 	}
@@ -184,13 +181,13 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
 	/**
 	 * 初始化轮播图
 	 */
-	private void initViewPager(Context context, List<String> urlList,
-							   RelativeLayout relativeLayout) {
-		MyViewPager myViewPager = new MyViewPager(context, urlList,
-				relativeLayout);
-		relativeLayout.addView(myViewPager);
-		myViewPager.initDot();
-		myViewPager.setCurrentItem(2000);
-		myViewPager.startRoll();
-	}
+//	private void initViewPager(Context context, List<String> urlList,
+//							   RelativeLayout relativeLayout) {
+//		MyViewPager myViewPager = new MyViewPager(context, urlList,
+//				relativeLayout);
+//		relativeLayout.addView(myViewPager);
+//		myViewPager.initDot();
+//		myViewPager.setCurrentItem(2000);
+//		myViewPager.startRoll();
+//	}
 }

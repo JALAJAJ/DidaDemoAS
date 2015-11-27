@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/iv_viewpager_item"
-    android:scaleType="centerCrop"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  >
-</ImageView>
+    android:background="@drawable/default_img"
+    android:scaleType="centerCrop" />
+
 <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/viewpager_item.xml -->

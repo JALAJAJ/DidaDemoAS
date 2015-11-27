@@ -11,10 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
+import com.dida.first.popupwindow.PopupWindowShare;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyViewPager;
-import com.dida.first.popupwindow.PopupWindowShare;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,20 +64,20 @@ public class MDetail_Head_Holder extends BaseHolder implements OnClickListener {
         ll_market_detail_head_share.setOnClickListener(this);
         ll_market_detail_head_favorite.setOnClickListener(this);
         initUrl();
-        initViewPager(activity, urlList, rl_market_head_lunbotu);
+//        initViewPager(activity, urlList, rl_market_head_lunbotu);
 
     }
 
     /**
      * 初始化轮播图
      */
-    private void initViewPager(Context context, List<String> urlList,
-                               RelativeLayout relativeLayout) {
-        MyViewPager myViewPager = new MyViewPager(context, urlList,
-                relativeLayout);
-        relativeLayout.addView(myViewPager);
-        myViewPager.initDot();
-    }
+//    private void initViewPager(Context context, List<String> urlList,
+//                               RelativeLayout relativeLayout) {
+//        MyViewPager myViewPager = new MyViewPager(context, urlList,
+//                relativeLayout);
+//        relativeLayout.addView(myViewPager);
+//        myViewPager.initDot();
+//    }
 
     private void initUrl() {
         urlList.clear();

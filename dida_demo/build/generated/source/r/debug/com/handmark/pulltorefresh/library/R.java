@@ -42,29 +42,29 @@ public final class R {
 		public static final int indicator_right_padding = 0x7f08006d;
 	}
 	public static final class drawable {
-		public static final int default_ptr_flip = 0x7f020071;
-		public static final int default_ptr_rotate = 0x7f020072;
-		public static final int indicator_arrow = 0x7f0200a2;
-		public static final int indicator_bg_bottom = 0x7f0200a3;
-		public static final int indicator_bg_top = 0x7f0200a4;
-		public static final int iv_head_jishi = 0x7f0200ac;
+		public static final int default_ptr_flip = 0x7f020074;
+		public static final int default_ptr_rotate = 0x7f020075;
+		public static final int indicator_arrow = 0x7f0200a5;
+		public static final int indicator_bg_bottom = 0x7f0200a6;
+		public static final int indicator_bg_top = 0x7f0200a7;
+		public static final int iv_head_jishi = 0x7f0200af;
 	}
 	public static final class id {
 		public static final int both = 0x7f0d0078;
 		public static final int disabled = 0x7f0d0079;
-		public static final int fl_inner = 0x7f0d02d0;
+		public static final int fl_inner = 0x7f0d02d1;
 		public static final int flip = 0x7f0d007f;
 		public static final int gridview = 0x7f0d0004;
-		public static final int ll_refush_text = 0x7f0d02d3;
+		public static final int ll_refush_text = 0x7f0d02d4;
 		public static final int manualOnly = 0x7f0d007a;
 		public static final int pullDownFromTop = 0x7f0d007b;
 		public static final int pullFromEnd = 0x7f0d007c;
 		public static final int pullFromStart = 0x7f0d007d;
 		public static final int pullUpFromBottom = 0x7f0d007e;
-		public static final int pull_to_refresh_image = 0x7f0d02d1;
-		public static final int pull_to_refresh_progress = 0x7f0d02d2;
-		public static final int pull_to_refresh_sub_text = 0x7f0d02d5;
-		public static final int pull_to_refresh_text = 0x7f0d02d4;
+		public static final int pull_to_refresh_image = 0x7f0d02d2;
+		public static final int pull_to_refresh_progress = 0x7f0d02d3;
+		public static final int pull_to_refresh_sub_text = 0x7f0d02d6;
+		public static final int pull_to_refresh_text = 0x7f0d02d5;
 		public static final int rotate = 0x7f0d0080;
 		public static final int scrollview = 0x7f0d0039;
 		public static final int webview = 0x7f0d003d;

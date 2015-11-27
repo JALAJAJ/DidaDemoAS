@@ -61,11 +61,12 @@
             android:text="860" />
 
         <TextView
+            android:layout_marginRight="4dp"
             style="@style/gray_12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/tv_market_item_count"
-            android:text="已售:" />
+            android:text="已售" />
     </RelativeLayout>
 
 </LinearLayout>

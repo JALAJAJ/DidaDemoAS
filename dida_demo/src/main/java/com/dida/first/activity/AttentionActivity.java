@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.dida.first.activity;
 
 import android.view.View;

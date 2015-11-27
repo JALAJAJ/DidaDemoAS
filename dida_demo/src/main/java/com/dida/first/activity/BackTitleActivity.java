@@ -41,7 +41,9 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 		initView();
 		initDoNet();
 		initEvent();
+
 		initData();
+
 	}
 
 	protected void doBeforeSetContentView() {

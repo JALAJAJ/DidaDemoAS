@@ -12,7 +12,9 @@ import java.util.List;
  */
 public class MarketBean {
 
+
     private int code;
+
     private ResEntity res;
 
     public void setCode(int code) {
@@ -34,7 +36,9 @@ public class MarketBean {
     public static class ResEntity {
         private int pages;
         private int rowCount;
+
         private ProductsEntity products;
+
         private List<ProductAdsEntity> productAds;
 
         public void setPages(int pages) {
@@ -96,14 +100,11 @@ public class MarketBean {
                 private String shopId;
                 private double price;
                 private String userId;
-                private String des;
                 private String thumb;
-                private int stock;
                 private boolean groupStatus;
-                private String createTime;
-                private String createTime2;
-                private int startCount;
-                private int endCount;
+                private String categoryId;
+                private int salesCount;
+                private String ptypeId;
 
                 public void setProductNo(String productNo) {
                     this.productNo = productNo;
@@ -125,36 +126,24 @@ public class MarketBean {
                     this.userId = userId;
                 }
 
-                public void setDes(String des) {
-                    this.des = des;
-                }
-
                 public void setThumb(String thumb) {
                     this.thumb = thumb;
-                }
-
-                public void setStock(int stock) {
-                    this.stock = stock;
                 }
 
                 public void setGroupStatus(boolean groupStatus) {
                     this.groupStatus = groupStatus;
                 }
 
-                public void setCreateTime(String createTime) {
-                    this.createTime = createTime;
+                public void setCategoryId(String categoryId) {
+                    this.categoryId = categoryId;
                 }
 
-                public void setCreateTime2(String createTime2) {
-                    this.createTime2 = createTime2;
+                public void setSalesCount(int salesCount) {
+                    this.salesCount = salesCount;
                 }
 
-                public void setStartCount(int startCount) {
-                    this.startCount = startCount;
-                }
-
-                public void setEndCount(int endCount) {
-                    this.endCount = endCount;
+                public void setPtypeId(String ptypeId) {
+                    this.ptypeId = ptypeId;
                 }
 
                 public String getProductNo() {
@@ -177,36 +166,24 @@ public class MarketBean {
                     return userId;
                 }
 
-                public String getDes() {
-                    return des;
-                }
-
                 public String getThumb() {
                     return thumb;
-                }
-
-                public int getStock() {
-                    return stock;
                 }
 
                 public boolean isGroupStatus() {
                     return groupStatus;
                 }
 
-                public String getCreateTime() {
-                    return createTime;
+                public String getCategoryId() {
+                    return categoryId;
                 }
 
-                public String getCreateTime2() {
-                    return createTime2;
+                public int getSalesCount() {
+                    return salesCount;
                 }
 
-                public int getStartCount() {
-                    return startCount;
-                }
-
-                public int getEndCount() {
-                    return endCount;
+                public String getPtypeId() {
+                    return ptypeId;
                 }
             }
         }
@@ -313,5 +290,4 @@ public class MarketBean {
             }
         }
     }
-
 }

@@ -3,7 +3,6 @@
  */
 package com.dida.first.fragment;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -22,7 +21,6 @@ import com.dida.first.bean.BeanPingou;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.view.MyViewPager;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
@@ -72,7 +70,7 @@ public class PinGou_Group_Fr extends Fragment_Base_Nomal implements AdapterView.
         initIndicator();
         View lunbotuView = View.inflate(context, R.layout.view_pinggou_lunbotu, null);
         RelativeLayout rl_lunbotu = (RelativeLayout) lunbotuView.findViewById(R.id.rl_lunbotu);
-        initViewPager(context, urlList, rl_lunbotu);
+//        initViewPager(context, urlList, rl_lunbotu);
         // 加入轮播图布局
         ListView refreshableView = plv_pinggou_group.getRefreshableView();
         refreshableView.addHeaderView(lunbotuView, null, false);
@@ -135,15 +133,15 @@ public class PinGou_Group_Fr extends Fragment_Base_Nomal implements AdapterView.
     /**
      * 初始化轮播图
      */
-    private void initViewPager(Context context, List<String> urlList,
-                               RelativeLayout relativeLayout) {
-        MyViewPager myViewPager = new MyViewPager(context, urlList,
-                relativeLayout);
-        relativeLayout.addView(myViewPager);
-        myViewPager.initDot();
-        myViewPager.setCurrentItem(2000);
-        myViewPager.startRoll();
-    }
+//    private void initViewPager(Context context, List<String> urlList,
+//                               RelativeLayout relativeLayout) {
+//        MyViewPager myViewPager = new MyViewPager(context, urlList,
+//                relativeLayout);
+//        relativeLayout.addView(myViewPager);
+//        myViewPager.initDot();
+//        myViewPager.setCurrentItem(2000);
+//        myViewPager.startRoll();
+//    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

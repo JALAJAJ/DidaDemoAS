@@ -3,5 +3,5 @@
     <item android:state_pressed="true"
         
           android:drawable="@color/gray" /> <!-- pressed -->
-    <item android:drawable="@color/white" /> <!-- default -->
+    <item android:drawable="@color/white" /> <!-- default_img -->
 </selector>

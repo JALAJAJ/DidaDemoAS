@@ -31,6 +31,7 @@
     <color name="gray_divider">#dadada</color>
     <color name="yellow">#FF992C</color>
     <color name="half_transparency">#4A000000</color>
+    <color name="transparency_30">#B2000000</color>
     <color name="transparency_70">#B3000000</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_light">#eeeeee</color>

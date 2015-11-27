@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.bean.MarketBean;
+import com.dida.first.utils.UrlUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -38,9 +39,9 @@ public class GvAdapter extends BaseAdapter {
         this.list = list;
         this.context = context;
         options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.ic_stub)
+                .showImageOnLoading(R.drawable.default_img)
                 .showImageForEmptyUri(R.drawable.ic_empty)
-                .showImageOnFail(R.drawable.ic_error)
+                .showImageOnFail(R.drawable.default_img)
                 .cacheInMemory(true)
                 .cacheOnDisc(true)
                 .considerExifParams(true)
@@ -52,6 +53,7 @@ public class GvAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
+        Log.i("GV getCount ","GV getCount="+list.size());
         return list.size();
     }
 
@@ -89,7 +91,8 @@ public class GvAdapter extends BaseAdapter {
         viewHolder.ivmarketitemimg.setLayoutParams(param);
         viewHolder.tvmarketitemtitle.setText(list.get(position).getName());
         viewHolder.tvmarketitemprice.setText(list.get(position).getPrice() + "");
-        imageLoader.displayImage("https://gd4.alicdn.com/bao/uploaded/i4/TB15SHoJVXXXXakXXXXXXXXXXXX_!!0-item_pic.jpg", viewHolder.ivmarketitemimg, options);
+        viewHolder.tvmarketitemcount.setText(list.get(position).getSalesCount()+"");
+        imageLoader.displayImage(UrlUtil.HOST+list.get(position).getThumb(), viewHolder.ivmarketitemimg, options);
 //        imageLoader.displayImage("http://121.40.28.206"+list.get(position).getThumb(), viewHolder.ivmarketitemimg, options);
 
         return convertView;

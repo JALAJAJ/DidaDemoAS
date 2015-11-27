@@ -181,9 +181,9 @@ containing a value of this type.
         public static int rc_voice_color=0x7f06000f;
     }
     public static final class dimen {
-        public static int rc_conversation_item_data_size=0x7f080000;
-        public static int rc_conversation_item_name_size=0x7f080001;
-        public static int rc_message_send_status_image_size=0x7f080002;
+        public static int rc_conversation_item_data_size=0x7f070000;
+        public static int rc_conversation_item_name_size=0x7f070001;
+        public static int rc_message_send_status_image_size=0x7f070002;
     }
     public static final class drawable {
         public static int logo=0x7f020000;
@@ -458,119 +458,119 @@ containing a value of this type.
         public static int u2b50=0x7f02010d;
     }
     public static final class id {
-        public static int C=0x7f07000c;
-        public static int CE=0x7f07000b;
-        public static int CES=0x7f070005;
-        public static int CS=0x7f070009;
-        public static int CSE=0x7f070007;
-        public static int EC=0x7f07000a;
-        public static int ECS=0x7f070006;
-        public static int SC=0x7f070008;
-        public static int SCE=0x7f070004;
-        public static int account=0x7f070055;
-        public static int answer_id=0x7f070046;
-        public static int btn_cancel=0x7f07003d;
-        public static int btn_isOK=0x7f07003f;
-        public static int button1=0x7f070050;
-        public static int call_finish=0x7f070047;
-        public static int calling_state=0x7f07004b;
-        public static int circle=0x7f070001;
-        public static int container=0x7f070043;
-        public static int description=0x7f070058;
-        public static int enter=0x7f070059;
-        public static int fill=0x7f070003;
-        public static int follow=0x7f07005a;
-        public static int func=0x7f070057;
-        public static int hands_off_id=0x7f07004e;
-        public static int introduction=0x7f070062;
-        public static int linearLayout=0x7f070063;
-        public static int mask_layout=0x7f07004f;
-        public static int name=0x7f070054;
-        public static int portrait=0x7f070053;
-        public static int rc_actionbar=0x7f07000d;
-        public static int rc_back=0x7f07000e;
-        public static int rc_btn_cancel=0x7f07000f;
-        public static int rc_btn_ok=0x7f070010;
-        public static int rc_chebox_pictrue=0x7f070041;
-        public static int rc_checkbox=0x7f070011;
-        public static int rc_content=0x7f070012;
-        public static int rc_conversation_content=0x7f070013;
-        public static int rc_conversation_msg_block=0x7f070014;
-        public static int rc_conversation_time=0x7f070015;
-        public static int rc_conversation_title=0x7f070016;
-        public static int rc_ext=0x7f07006f;
-        public static int rc_flow=0x7f070066;
-        public static int rc_fragment=0x7f070017;
-        public static int rc_frame=0x7f070018;
-        public static int rc_icon=0x7f070019;
-        public static int rc_img=0x7f07001a;
-        public static int rc_indicator=0x7f070067;
-        public static int rc_input=0x7f070052;
-        public static int rc_input_custom_menu=0x7f07006d;
-        public static int rc_input_extension=0x7f07001b;
-        public static int rc_input_main=0x7f07001c;
-        public static int rc_input_menu=0x7f07006b;
-        public static int rc_input_switch=0x7f07001d;
-        public static int rc_item0=0x7f07001e;
-        public static int rc_item1=0x7f07001f;
-        public static int rc_item2=0x7f070020;
-        public static int rc_item3=0x7f070021;
-        public static int rc_item4=0x7f070022;
-        public static int rc_item5=0x7f070023;
-        public static int rc_item6=0x7f070024;
-        public static int rc_item7=0x7f070025;
-        public static int rc_item8=0x7f070026;
-        public static int rc_item9=0x7f070027;
-        public static int rc_item_conversation=0x7f070028;
-        public static int rc_layout=0x7f070029;
-        public static int rc_left=0x7f07002a;
-        public static int rc_list=0x7f07002b;
-        public static int rc_logo=0x7f07002c;
-        public static int rc_menu_item_text=0x7f070060;
-        public static int rc_menu_line=0x7f070061;
-        public static int rc_menu_switch=0x7f070069;
-        public static int rc_message_send_failed=0x7f07002d;
-        public static int rc_msg=0x7f07002e;
-        public static int rc_new=0x7f07002f;
-        public static int rc_pager=0x7f070030;
-        public static int rc_plugins=0x7f07006e;
-        public static int rc_portrait=0x7f070031;
-        public static int rc_portrait_right=0x7f070032;
-        public static int rc_progress=0x7f070033;
-        public static int rc_right=0x7f070034;
-        public static int rc_rmb=0x7f070064;
-        public static int rc_search_btn=0x7f07005d;
-        public static int rc_search_ed=0x7f07005c;
-        public static int rc_search_list=0x7f07005e;
-        public static int rc_send=0x7f070035;
-        public static int rc_setting_item=0x7f07005f;
-        public static int rc_switcher=0x7f070068;
-        public static int rc_switcher1=0x7f07006a;
-        public static int rc_switcher2=0x7f07006c;
-        public static int rc_time=0x7f070036;
-        public static int rc_title=0x7f070037;
-        public static int rc_title_layout=0x7f070038;
-        public static int rc_txt=0x7f070039;
-        public static int rc_unread_message=0x7f07003a;
-        public static int rc_unread_message_right=0x7f07003b;
-        public static int rc_voice_unread=0x7f070065;
-        public static int rc_voip_called_layout=0x7f070044;
-        public static int rc_warning=0x7f07003c;
-        public static int rc_webview=0x7f070042;
-        public static int refuse_id=0x7f070045;
-        public static int rel_group_intro=0x7f070056;
-        public static int show_pictrue=0x7f07003e;
-        public static int shownumber=0x7f070040;
-        public static int sound_off_container_id=0x7f070051;
-        public static int sound_off_id=0x7f07004d;
-        public static int square=0x7f070000;
-        public static int stroke=0x7f070002;
-        public static int unfollow=0x7f07005b;
-        public static int user_name=0x7f07004a;
-        public static int user_photo=0x7f070049;
-        public static int user_photo_container=0x7f070048;
-        public static int vioce_control_container=0x7f07004c;
-        public static int volume_animation=0x7f070070;
+        public static int C=0x7f080034;
+        public static int CE=0x7f080035;
+        public static int CES=0x7f080036;
+        public static int CS=0x7f080037;
+        public static int CSE=0x7f080038;
+        public static int EC=0x7f080039;
+        public static int ECS=0x7f08003a;
+        public static int SC=0x7f08003b;
+        public static int SCE=0x7f08003c;
+        public static int account=0x7f080055;
+        public static int answer_id=0x7f080046;
+        public static int btn_cancel=0x7f08003d;
+        public static int btn_isOK=0x7f08003f;
+        public static int button1=0x7f080050;
+        public static int call_finish=0x7f080047;
+        public static int calling_state=0x7f08004b;
+        public static int circle=0x7f080030;
+        public static int container=0x7f080043;
+        public static int description=0x7f080058;
+        public static int enter=0x7f080059;
+        public static int fill=0x7f080032;
+        public static int follow=0x7f08005a;
+        public static int func=0x7f080057;
+        public static int hands_off_id=0x7f08004e;
+        public static int introduction=0x7f080062;
+        public static int linearLayout=0x7f080063;
+        public static int mask_layout=0x7f08004f;
+        public static int name=0x7f080054;
+        public static int portrait=0x7f080053;
+        public static int rc_actionbar=0x7f080000;
+        public static int rc_back=0x7f080001;
+        public static int rc_btn_cancel=0x7f080002;
+        public static int rc_btn_ok=0x7f080003;
+        public static int rc_chebox_pictrue=0x7f080041;
+        public static int rc_checkbox=0x7f080004;
+        public static int rc_content=0x7f080005;
+        public static int rc_conversation_content=0x7f080006;
+        public static int rc_conversation_msg_block=0x7f080007;
+        public static int rc_conversation_time=0x7f080008;
+        public static int rc_conversation_title=0x7f080009;
+        public static int rc_ext=0x7f08006f;
+        public static int rc_flow=0x7f080066;
+        public static int rc_fragment=0x7f08000a;
+        public static int rc_frame=0x7f08000b;
+        public static int rc_icon=0x7f08000c;
+        public static int rc_img=0x7f08000d;
+        public static int rc_indicator=0x7f080067;
+        public static int rc_input=0x7f080052;
+        public static int rc_input_custom_menu=0x7f08006d;
+        public static int rc_input_extension=0x7f08000e;
+        public static int rc_input_main=0x7f08000f;
+        public static int rc_input_menu=0x7f08006b;
+        public static int rc_input_switch=0x7f080010;
+        public static int rc_item0=0x7f080011;
+        public static int rc_item1=0x7f080012;
+        public static int rc_item2=0x7f080013;
+        public static int rc_item3=0x7f080014;
+        public static int rc_item4=0x7f080015;
+        public static int rc_item5=0x7f080016;
+        public static int rc_item6=0x7f080017;
+        public static int rc_item7=0x7f080018;
+        public static int rc_item8=0x7f080019;
+        public static int rc_item9=0x7f08001a;
+        public static int rc_item_conversation=0x7f08001b;
+        public static int rc_layout=0x7f08001c;
+        public static int rc_left=0x7f08001d;
+        public static int rc_list=0x7f08001e;
+        public static int rc_logo=0x7f08001f;
+        public static int rc_menu_item_text=0x7f080060;
+        public static int rc_menu_line=0x7f080061;
+        public static int rc_menu_switch=0x7f080069;
+        public static int rc_message_send_failed=0x7f080020;
+        public static int rc_msg=0x7f080021;
+        public static int rc_new=0x7f080022;
+        public static int rc_pager=0x7f080023;
+        public static int rc_plugins=0x7f08006e;
+        public static int rc_portrait=0x7f080024;
+        public static int rc_portrait_right=0x7f080025;
+        public static int rc_progress=0x7f080026;
+        public static int rc_right=0x7f080027;
+        public static int rc_rmb=0x7f080064;
+        public static int rc_search_btn=0x7f08005d;
+        public static int rc_search_ed=0x7f08005c;
+        public static int rc_search_list=0x7f08005e;
+        public static int rc_send=0x7f080028;
+        public static int rc_setting_item=0x7f08005f;
+        public static int rc_switcher=0x7f080068;
+        public static int rc_switcher1=0x7f08006a;
+        public static int rc_switcher2=0x7f08006c;
+        public static int rc_time=0x7f080029;
+        public static int rc_title=0x7f08002a;
+        public static int rc_title_layout=0x7f08002b;
+        public static int rc_txt=0x7f08002c;
+        public static int rc_unread_message=0x7f08002d;
+        public static int rc_unread_message_right=0x7f08002e;
+        public static int rc_voice_unread=0x7f080065;
+        public static int rc_voip_called_layout=0x7f080044;
+        public static int rc_warning=0x7f08002f;
+        public static int rc_webview=0x7f080042;
+        public static int refuse_id=0x7f080045;
+        public static int rel_group_intro=0x7f080056;
+        public static int show_pictrue=0x7f08003e;
+        public static int shownumber=0x7f080040;
+        public static int sound_off_container_id=0x7f080051;
+        public static int sound_off_id=0x7f08004d;
+        public static int square=0x7f080031;
+        public static int stroke=0x7f080033;
+        public static int unfollow=0x7f08005b;
+        public static int user_name=0x7f08004a;
+        public static int user_photo=0x7f080049;
+        public static int user_photo_container=0x7f080048;
+        public static int vioce_control_container=0x7f08004c;
+        public static int volume_animation=0x7f080070;
     }
     public static final class integer {
         public static int rc_chatroom_first_pull_message_count=0x7f090000;
@@ -763,7 +763,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name io.rong.imkit:defDrawable
         */
-        public static final int AsyncImageView_defDrawable = 1;
+        public static int AsyncImageView_defDrawable = 1;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#shape}
           attribute's value can be found in the {@link #AsyncImageView} array.
@@ -780,7 +780,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name io.rong.imkit:shape
         */
-        public static final int AsyncImageView_shape = 0;
+        public static int AsyncImageView_shape = 0;
         /** Attributes that can be used with a AutoLoadListView.
            <p>Includes the following attributes:</p>
            <table>
@@ -805,7 +805,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name io.rong.imkit:headerLayoutt
         */
-        public static final int AutoLoadListView_headerLayoutt = 0;
+        public static int AutoLoadListView_headerLayoutt = 0;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#perLoadCount}
           attribute's value can be found in the {@link #AutoLoadListView} array.
@@ -819,7 +819,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:perLoadCount
         */
-        public static final int AutoLoadListView_perLoadCount = 1;
+        public static int AutoLoadListView_perLoadCount = 1;
         /** Attributes that can be used with a CircleFlowIndicator.
            <p>Includes the following attributes:</p>
            <table>
@@ -865,7 +865,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:activeColor
         */
-        public static final int CircleFlowIndicator_activeColor = 0;
+        public static int CircleFlowIndicator_activeColor = 0;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#activeType}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -882,7 +882,7 @@ containing a value of this type.
 </table>
           @attr name io.rong.imkit:activeType
         */
-        public static final int CircleFlowIndicator_activeType = 7;
+        public static int CircleFlowIndicator_activeType = 7;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#centered}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -896,7 +896,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:centered
         */
-        public static final int CircleFlowIndicator_centered = 4;
+        public static int CircleFlowIndicator_centered = 4;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#fadeOut}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -910,7 +910,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:fadeOut
         */
-        public static final int CircleFlowIndicator_fadeOut = 5;
+        public static int CircleFlowIndicator_fadeOut = 5;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#inactiveColor}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -925,7 +925,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:inactiveColor
         */
-        public static final int CircleFlowIndicator_inactiveColor = 1;
+        public static int CircleFlowIndicator_inactiveColor = 1;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#inactiveType}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -942,7 +942,7 @@ containing a value of this type.
 </table>
           @attr name io.rong.imkit:inactiveType
         */
-        public static final int CircleFlowIndicator_inactiveType = 6;
+        public static int CircleFlowIndicator_inactiveType = 6;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#radius}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -958,7 +958,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:radius
         */
-        public static final int CircleFlowIndicator_radius = 2;
+        public static int CircleFlowIndicator_radius = 2;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#snap}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -972,7 +972,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:snap
         */
-        public static final int CircleFlowIndicator_snap = 8;
+        public static int CircleFlowIndicator_snap = 8;
         /**
           <p>This symbol is the offset where the {@link io.rong.imkit.R.attr#spacing}
           attribute's value can be found in the {@link #CircleFlowIndicator} array.
@@ -988,7 +988,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:spacing
         */
-        public static final int CircleFlowIndicator_spacing = 3;
+        public static int CircleFlowIndicator_spacing = 3;
         /** Attributes that can be used with a InputView.
            <p>Includes the following attributes:</p>
            <table>
@@ -1025,7 +1025,7 @@ containing a value of this type.
 </table>
           @attr name io.rong.imkit:style
         */
-        public static final int InputView_style = 0;
+        public static int InputView_style = 0;
         /** Attributes that can be used with a MessageProviderContainerView.
            <p>Includes the following attributes:</p>
            <table>
@@ -1052,7 +1052,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:maxContainSize
         */
-        public static final int MessageProviderContainerView_maxContainSize = 0;
+        public static int MessageProviderContainerView_maxContainSize = 0;
         /** Attributes that can be used with a ViewFlow.
            <p>Includes the following attributes:</p>
            <table>
@@ -1079,6 +1079,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name io.rong.imkit:sideBuffer
         */
-        public static final int ViewFlow_sideBuffer = 0;
+        public static int ViewFlow_sideBuffer = 0;
     };
 }

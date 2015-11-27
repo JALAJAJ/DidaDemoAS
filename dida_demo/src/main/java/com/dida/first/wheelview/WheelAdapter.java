@@ -40,7 +40,7 @@ public interface WheelAdapter {
 
 	/**
 	 * Gets maximum item length. It is used to determine the wheel width. If -1
-	 * is returned there will be used the default wheel width.
+	 * is returned there will be used the default_img wheel width.
 	 * 
 	 * @return the maximum item length or -1
 	 */
