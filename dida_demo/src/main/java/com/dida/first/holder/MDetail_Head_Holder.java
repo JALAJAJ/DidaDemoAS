@@ -1,19 +1,21 @@
 package com.dida.first.holder;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Paint;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
+import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.popupwindow.PopupWindowShare;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
+import com.dida.first.utils.UrlUtil;
+import com.dida.first.view.MyLunBoTu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +25,7 @@ import java.util.List;
  * @data 2015-9-14 下午4:41:42
  * @use
  */
-public class MDetail_Head_Holder extends BaseHolder implements OnClickListener {
-    private List<String> urlList = new ArrayList<String>();
-    private Context context;
+public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements OnClickListener {
     private LinearLayout rootView;
     private Activity activity;
 
@@ -35,12 +35,11 @@ public class MDetail_Head_Holder extends BaseHolder implements OnClickListener {
     }
 
 
-    private RelativeLayout rl_market_head_lunbotu;
-    private ImageView iv_market_detail_head_icon;
+    private FrameLayout fl_market_head;
     private TextView tv_market_detail_head_title;
     private TextView tv_market_detail_head_count;
     private TextView tv_market_detail_head_price;
-    private TextView tv_market_detail_head_oldprice;
+    private TextView tv_market_detail_head_stock;
     private PopupWindowShare popupWindowShare;
     private RelativeLayout ll_market_detail_head_favorite;
     private RelativeLayout ll_market_detail_head_share;
@@ -48,11 +47,11 @@ public class MDetail_Head_Holder extends BaseHolder implements OnClickListener {
     @Override
     public View initView() {
         View view = UIUtils.inflate(R.layout.market_detail_head);
-        rl_market_head_lunbotu = (RelativeLayout) view.findViewById(R.id.rl_market_head_lunbotu);
+        fl_market_head = (FrameLayout) view.findViewById(R.id.fl_market_head);
         tv_market_detail_head_title = (TextView) view.findViewById(R.id.tv_market_detail_head_title);
-        tv_market_detail_head_count = (TextView) view.findViewById(R.id.tv_market_detail_head_count);
         tv_market_detail_head_price = (TextView) view.findViewById(R.id.tv_market_detail_head_price);
-        tv_market_detail_head_oldprice = (TextView) view.findViewById(R.id.tv_market_detail_head_oldprice);
+        tv_market_detail_head_count = (TextView) view.findViewById(R.id.tv_market_detail_head_count);
+        tv_market_detail_head_stock = (TextView) view.findViewById(R.id.tv_market_detail_head_stock);
         ll_market_detail_head_favorite = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_favorite);
         ll_market_detail_head_share = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_share);
         return view;
@@ -60,34 +59,28 @@ public class MDetail_Head_Holder extends BaseHolder implements OnClickListener {
 
     @Override
     public void refreshView() {
-        tv_market_detail_head_oldprice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG | Paint.ANTI_ALIAS_FLAG);
+        BeanDetailMarket data = getData();
+        tv_market_detail_head_title.setText(data.getRes().getTimeOrPhyProduct().getName());
+        tv_market_detail_head_price.setText(data.getRes().getTimeOrPhyProduct().getPrice()+"");
+        tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount()+"");
+        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock()+"");
+
+
         ll_market_detail_head_share.setOnClickListener(this);
         ll_market_detail_head_favorite.setOnClickListener(this);
-        initUrl();
-//        initViewPager(activity, urlList, rl_market_head_lunbotu);
+        MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity> mLunBoTu = new MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity>(activity);
+        mLunBoTu.setOnShowItemListener(new OnShowItemListener<BeanDetailMarket.ResEntity.ProductImgsEntity>() {
+            @Override
+            public String onShowItem(List<BeanDetailMarket.ResEntity.ProductImgsEntity> mData, int position) {
+                return UrlUtil.HOST+mData.get(position % mData.size()).getImageURL();
+            }
+        });
+        mLunBoTu.show(data.getRes().getProductImgs());
+        fl_market_head.addView(mLunBoTu);
+
 
     }
 
-    /**
-     * 初始化轮播图
-     */
-//    private void initViewPager(Context context, List<String> urlList,
-//                               RelativeLayout relativeLayout) {
-//        MyViewPager myViewPager = new MyViewPager(context, urlList,
-//                relativeLayout);
-//        relativeLayout.addView(myViewPager);
-//        myViewPager.initDot();
-//    }
-
-    private void initUrl() {
-        urlList.clear();
-        urlList.add("https://img.alicdn.com/imgextra/i4/228784630/TB2e7LZeFXXXXXVXXXXXXXXXXXX-228784630.jpg");
-        urlList.add("https://img.alicdn.com/imgextra/i4/327145812/TB2Kti5eFXXXXX7XpXXXXXXXXXX-327145812.jpg");
-        urlList.add("https://img.alicdn.com/imgextra/i2/327145812/TB2ogG1eFXXXXaUXpXXXXXXXXXX-327145812.jpg");
-        urlList.add("https://img.alicdn.com/imgextra/i1/671012022/TB2a8BOepXXXXX4XXXXXXXXXXXX-671012022.jpg");
-        urlList.add("https://img.alicdn.com/imgextra/i2/671012022/TB22YtJepXXXXbDXXXXXXXXXXXX-671012022.jpg");
-        urlList.add("https://img.alicdn.com/imgextra/i2/671012022/TB29QBmepXXXXcJXpXXXXXXXXXX-671012022.jpg");
-    }
 
     @Override
     public void onClick(View v) {

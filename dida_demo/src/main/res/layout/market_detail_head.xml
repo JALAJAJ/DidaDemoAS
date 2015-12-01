@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/rl_market_head_lunbotu"
+        <FrameLayout
+            android:id="@+id/fl_market_head"
             android:layout_width="match_parent"
             android:layout_height="320dp" />
 
@@ -64,19 +64,7 @@
                         android:layout_height="wrap_content"
                         android:text="668.00" />
 
-                    <TextView
-                        style="@style/item_price_gray"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="原价:¥" />
 
-                    <TextView
-                        android:id="@+id/tv_market_detail_head_oldprice"
-                        style="@style/item_price_gray"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="778.00" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -150,13 +138,14 @@
                     style="@style/gray_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="快递:" />
+                    android:text="库存:" />
 
                 <com.dida.first.view.DeadlineTextView
+                    android:id="@+id/tv_market_detail_head_stock"
                     style="@style/gray_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8.00" />
+                    android:text="800" />
             </LinearLayout>
 
             <LinearLayout
@@ -179,11 +168,6 @@
                     android:layout_height="wrap_content"
                     android:text="1024" />
 
-                <TextView
-                    style="@style/gray_12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="件" />
 
             </LinearLayout>
 
@@ -195,6 +179,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tv_market_detail_head_address"
                     style="@style/gray_12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

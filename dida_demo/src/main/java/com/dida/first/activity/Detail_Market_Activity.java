@@ -3,14 +3,22 @@
  */
 package com.dida.first.activity;
 
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.dida.first.LoadPage;
 import com.dida.first.R;
+import com.dida.first.bean.BeanDetailMarket;
 import com.dida.first.bean.BeanParam;
 import com.dida.first.bean.BeanParamsSelect;
 import com.dida.first.bean.YaoYueBean.Res;
@@ -18,13 +26,16 @@ import com.dida.first.holder.MDetail_Comment_Holder;
 import com.dida.first.holder.MDetail_Head_Holder;
 import com.dida.first.holder.MDetail_Image_Holder;
 import com.dida.first.holder.MDetail_Store_Holder;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
 import com.dida.first.popupwindow.PopupWindowParam;
 import com.dida.first.popupwindow.PopupWindowSelect;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
+import com.dida.first.utils.VolleyGsonRequest;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author KingJA
@@ -32,6 +43,9 @@ import java.util.List;
  * @use
  */
 public class Detail_Market_Activity extends BaseNomalActivity {
+    private static final int RES_OK=1;
+    private static final int RES_ERR=-1;
+    private static final String TAG = "Detail_Market_Activity";
     private List<Res> list = new ArrayList<Res>();
     private List<BeanParam> paramList = new ArrayList<BeanParam>();
     private LoadPage loadPage;
@@ -46,6 +60,18 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private MDetail_Image_Holder imageHolder;
     private MDetail_Store_Holder storeHolder;
     private MDetail_Comment_Holder commentHolder;
+    private BeanDetailMarket mDetailMarket=new BeanDetailMarket();
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case RES_OK:
+                    setData(mDetailMarket);
+                    break;
+            }
+
+        }
+    };
 
     private void initUrl() {
         urlList.clear();
@@ -171,6 +197,37 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     }
 
     @Override
+    protected void initNet() {
+        Bundle bundle = getIntent().getExtras();
+        final String productNo = bundle.getString("productNo");
+        final String type = bundle.getString("type");
+        Log.i(TAG, "productNo: "+productNo+"type: "+type);
+        VolleyGsonRequest<BeanDetailMarket> marketRequest = new VolleyGsonRequest<BeanDetailMarket>("http://192.168.1.178:8080/commodity/queryDetailCommodity.do", BeanDetailMarket.class, new Response.Listener<BeanDetailMarket>() {
+            @Override
+            public void onResponse(BeanDetailMarket beanDetailMarket) {
+                Log.i(TAG, "beanDetailMarket: "+beanDetailMarket.getRes().getTimeOrPhyProduct().getName());
+                mDetailMarket=beanDetailMarket;
+                mHandler.sendEmptyMessage(RES_OK);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("productNo", productNo);
+                map.put("type",type);
+                return map;
+            }
+        };
+        mQueue.add(marketRequest);
+        initMyData();
+    }
+
+    @Override
     protected void initEvent() {
         rl_market_detail_buy.setOnClickListener(this);
         rl_bottom_market_detail_addcar.setOnClickListener(this);
@@ -179,16 +236,16 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         iv_market_detail_chat.setOnClickListener(this);
     }
 
-    @Override
-    protected void initNet() {
-        initMyData();
-    }
 
     @Override
     protected void initData() {
-        headHolder.setData(list);
-        commentHolder.setData(list);
-        storeHolder.setData(list);
-        imageHolder.setList(urlList);
+
+    }
+
+    private void setData(BeanDetailMarket bean) {
+        headHolder.setData(bean);
+//        commentHolder.setData(bean);
+//        storeHolder.setData(bean);
+//        imageHolder.setData(bean);
     }
 }

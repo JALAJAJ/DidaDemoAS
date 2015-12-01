@@ -97,7 +97,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
     @Override
     public void initFragmentEvent() {
         iv_market_real_backtotop.setOnClickListener(this);
-        lvAdapter = new LvAdapter(realProList, context);
+        lvAdapter = new LvAdapter(realProList, getActivity());
         plv.setAdapter(lvAdapter);
         plv.setOnRefreshListener(onRefreshListener);
         plv.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -108,7 +108,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                Log.i("LV onScroll","firstVisibleItem="+firstVisibleItem);
+//                Log.i("LV onScroll","firstVisibleItem="+firstVisibleItem);
             }
         });
 
@@ -182,7 +182,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
      * @param requestCode
      */
     private void refresh(final int page, final int requestCode) {
-        StringRequest http = new StringRequest(Request.Method.POST, UrlUtil.HOST + UrlUtil.PINGOU_LIST_PATH, new Response.Listener<String>() {
+        StringRequest http = new StringRequest(Request.Method.POST, UrlUtil.HOST + UrlUtil.MARKET_LIST, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
                 MarketBean marketBean = GsonUtil.json2Bean(s, MarketBean.class);

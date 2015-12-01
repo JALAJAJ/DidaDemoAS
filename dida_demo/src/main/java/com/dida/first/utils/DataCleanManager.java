@@ -4,13 +4,13 @@ package com.dida.first.utils;
  * * 描    述:  主要功能有清除内/外缓存，清除数据库，清除sharedPreference，清除files和清除自定义目录   
  * */
 
-import java.io.File;
-import java.math.BigDecimal;
 import android.content.Context;
-import android.hardware.camera2.params.RggbChannelVector;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+
+import java.io.File;
+import java.math.BigDecimal;
 
 /** * 本应用数据清除管理器 */
 public class DataCleanManager {
@@ -169,12 +169,10 @@ public class DataCleanManager {
 	}
 
 	/**
-	 * 删除指定目录下文件及目录
-	 * 
+	 *
+	 * @param filePath
 	 * @param deleteThisPath
-	 * @param filepath
-	 * @return
-	 */
+     */
 	public static void deleteFolderFile(String filePath, boolean deleteThisPath) {
 		if (!TextUtils.isEmpty(filePath)) {
 			try {
