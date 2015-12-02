@@ -40,6 +40,7 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
     private TextView tv_market_detail_head_count;
     private TextView tv_market_detail_head_price;
     private TextView tv_market_detail_head_stock;
+    private TextView tv_market_detail_head_address;
     private PopupWindowShare popupWindowShare;
     private RelativeLayout ll_market_detail_head_favorite;
     private RelativeLayout ll_market_detail_head_share;
@@ -52,6 +53,7 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         tv_market_detail_head_price = (TextView) view.findViewById(R.id.tv_market_detail_head_price);
         tv_market_detail_head_count = (TextView) view.findViewById(R.id.tv_market_detail_head_count);
         tv_market_detail_head_stock = (TextView) view.findViewById(R.id.tv_market_detail_head_stock);
+        tv_market_detail_head_address = (TextView) view.findViewById(R.id.tv_market_detail_head_address);
         ll_market_detail_head_favorite = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_favorite);
         ll_market_detail_head_share = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_share);
         return view;
@@ -64,6 +66,7 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         tv_market_detail_head_price.setText(data.getRes().getTimeOrPhyProduct().getPrice()+"");
         tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount()+"");
         tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock()+"");
+        tv_market_detail_head_address.setText(data.getRes().getShop().getProvince()+" "+data.getRes().getShop().getCity());
 
 
         ll_market_detail_head_share.setOnClickListener(this);

@@ -3,26 +3,22 @@
  */
 package com.dida.first.popupwindow;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import com.dida.first.R;
-import com.dida.first.adapter.MyBaseListViewAdapter;
-import com.dida.first.bean.BeanParamsSelect;
-import com.dida.first.bean.BeanParamsSelect.ParamItem;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-import com.dida.first.view.FlowLayout;
-import com.dida.first.view.AbsListView.MyListView;
-
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.dida.first.R;
+import com.dida.first.adapter.MyBaseListViewAdapter;
+import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
+import com.dida.first.view.AbsListView.MyListView;
+import com.dida.first.view.FlowLayout;
+
+import java.util.List;
 
 /**
  * @author KingJA
@@ -31,42 +27,15 @@ import android.widget.TextView;
  * 
  */
 public class PopupWindowSelect extends
-		PopupWindowBaseDown<List<BeanParamsSelect>> {
-	private static String[] paramsArr = { "深黄色", "绿色", "紫色", "红色", "橘色", "天蓝色",
-			"黑色", "玫瑰色", "普通版", "美版", "港版", "超人内衣版", "美人鱼版", "蝙蝠侠紧身版",
-			"无敌绿巨人狂化版", "蜘蛛侠版", "咸蛋超人升级版", "洪七公版" };
+		PopupWindowBaseDown<List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity>> {
 	private MyListView mylv_market_detail_select;
-	private static List<BeanParamsSelect> paramsSelectList = new ArrayList<BeanParamsSelect>();
 	private MyAdapter myAdapter;
 	private TextView tv_param_select_count;
 	private int count = 1;
 
 	public PopupWindowSelect(View parentView, Activity activity,
-			List<BeanParamsSelect> data) {
+			List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity> data) {
 		super(parentView, activity, data);
-
-	}
-
-	/**
-	 * 虚拟数据
-	 */
-	private void initData() {
-		paramsSelectList.clear();
-		for (int i = 0; i < 3; i++) {
-			List<ParamItem> arrayList = new ArrayList<ParamItem>();
-			BeanParamsSelect beanParamsSelect = new BeanParamsSelect();
-			beanParamsSelect.selectString = "选择参数";
-			beanParamsSelect.paramList = arrayList;
-			int count = new Random().nextInt(8) + 4;
-			Log.i("count", count + "");
-			for (int j = 0; j < count; j++) {
-				int nextInt = new Random().nextInt(paramsArr.length);
-				Log.i("nextInt", paramsArr[nextInt]);
-				arrayList.add(beanParamsSelect.new ParamItem(
-						paramsArr[nextInt], false));
-			}
-			paramsSelectList.add(new BeanParamsSelect("参数分类", arrayList));
-		}
 
 	}
 
@@ -83,7 +52,6 @@ public class PopupWindowSelect extends
 
 	@Override
 	public void initChildView() {
-		initData();
 		tv_param_select_count = (TextView) popupView
 				.findViewById(R.id.tv_param_select_count);
 		ImageView iv_param_select_add = (ImageView) popupView
@@ -94,7 +62,7 @@ public class PopupWindowSelect extends
 				.findViewById(R.id.iv_mark_detail_close);
 		mylv_market_detail_select = (MyListView) popupView
 				.findViewById(R.id.mylv_market_detail_select);
-		myAdapter = new MyAdapter(paramsSelectList);
+		myAdapter = new MyAdapter(data);
 		mylv_market_detail_select.setAdapter(myAdapter);
 		iv_mark_detail_close.setOnClickListener(this);
 		TextView tv_market_select = (TextView) popupView
@@ -132,8 +100,8 @@ public class PopupWindowSelect extends
 
 	}
 
-	class MyAdapter extends MyBaseListViewAdapter<BeanParamsSelect> {
-		public MyAdapter(List<BeanParamsSelect> list) {
+	class MyAdapter extends MyBaseListViewAdapter<BeanDetailMarket.ResEntity.PurchaseAttrListEntity> {
+		public MyAdapter(List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity> list) {
 			super(list);
 			// TODO Auto-generated constructor stub
 		}
@@ -147,15 +115,14 @@ public class PopupWindowSelect extends
 			FlowLayout fl_param_slecet_params = (FlowLayout) view
 					.findViewById(R.id.fl_param_slecet_params);
 
-			String paramName = list.get(position).selectString;
-			List<ParamItem> paramList = list.get(position).paramList;
-
+			String paramName = list.get(position).getAttributeName();
+			List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity> attrValues = list.get(position).getAttrValues();
 			tv_param_slecet_name.setText(paramName);
-			for (final ParamItem paramItem : paramList) {
+			for (final BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity attr : attrValues) {
 				final TextView tv = (TextView) UIUtils
 						.inflate(R.layout.textview_flowlayout);
-				tv.setText(paramItem.paramString);
-				if (paramItem.isCheck) {
+				tv.setText(attr.getAttrValue());
+				if (attr.isCheck()) {
 					tv.setBackgroundResource(R.drawable.shape_lnull_bred_r4);
 					tv.setTextColor(activity.getResources().getColor(
 							R.color.white));
@@ -169,7 +136,7 @@ public class PopupWindowSelect extends
 					@Override
 					public void onClick(View v) {
 						setFalse(position);
-						paramItem.isCheck = true;
+						attr.setCheck(true);
 						notifyDataSetChanged();
 
 					}
@@ -180,22 +147,20 @@ public class PopupWindowSelect extends
 		}
 
 		public void setFalse(int position) {
-			BeanParamsSelect beanParamsSelect = list.get(position);
-			List<ParamItem> paramList = beanParamsSelect.paramList;
-			for (ParamItem paramItem : paramList) {
-				paramItem.isCheck = false;
+			List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity> attrValues = list.get(position).getAttrValues();
+			for (BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity  attr : attrValues) {
+				attr.setCheck(false);
 			}
 			notifyDataSetChanged();
 		}
 
 		public String getParams() {
 			StringBuffer sb = new StringBuffer();
-			for (BeanParamsSelect beanParamsSelect : list) {
-				List<ParamItem> paramList = beanParamsSelect.paramList;
-				for (ParamItem paramItem : paramList) {
-					if (paramItem.isCheck) {
-						Log.i("paramItem.paramString", paramItem.paramString);
-						sb.append(paramItem.paramString);
+			for (BeanDetailMarket.ResEntity.PurchaseAttrListEntity outVallues : list) {
+				List<BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity> attrValues = outVallues.getAttrValues();
+				for (BeanDetailMarket.ResEntity.PurchaseAttrListEntity.AttrValuesEntity attr : attrValues) {
+					if (attr.isCheck()) {
+						sb.append(attr.getAttrValue());
 					}
 				}
 			}
