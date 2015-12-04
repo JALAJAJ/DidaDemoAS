@@ -1,5 +1,6 @@
 package com.dida.first.activity;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -11,6 +12,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,6 +40,7 @@ import io.rong.imlib.RongIMClient;
  */
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
+    private static final String TAG = "MainActivity";
     public FragmentManager mFragmentManager;
     private LinearLayout ll_tab_yaoyue;
     private LinearLayout ll_tab_xianggou;
@@ -65,6 +68,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         initView();
         initEvent();
         initData();
+        ActivityManager manager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        int heapSize = manager.getMemoryClass();
+        Log.i(TAG, "heapSize: "+heapSize);
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        switch (level) {
+            case TRIM_MEMORY_UI_HIDDEN:
+                Log.i(TAG, "onTrimMemory: ");  
+                break;
+        }
     }
 
     /**

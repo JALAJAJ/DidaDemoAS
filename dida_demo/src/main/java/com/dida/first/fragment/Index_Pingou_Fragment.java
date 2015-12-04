@@ -1,193 +1,232 @@
 package com.dida.first.fragment;
 
-import android.graphics.Color;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.dida.first.R;
-import com.dida.first.bean.BeanPingou;
-import com.dida.first.utils.UIUtils;
+import com.dida.first.adapter.PingouLvAdapter;
+import com.dida.first.bean.PingouBean;
+import com.dida.first.interfaces.OnShowItemListener;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UImageLoaderUitl;
+import com.dida.first.utils.UrlUtil;
+import com.dida.first.utils.VolleyGsonRequest;
+import com.dida.first.view.MyLunBoTu;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
-	private List<String> urlList = new ArrayList<String>();
-	private int itemWidth;
-	private List<BeanPingou> pingouList = new ArrayList<BeanPingou>();
-	private RelativeLayout.LayoutParams layoutParams;
-	private PullToRefreshListView plv_pingou;
-
-	@Override
-	public View setFragmentView() {
-		view=View.inflate(context, R.layout.fr_pingou,null);
-		return view;
-	}
-
-	@Override
-	public void initFragmentView() {
-		plv_pingou = (PullToRefreshListView) view.findViewById(R.id.plv_pingou);
-	}
-
-	@Override
-	public void initFragmentNet() {
-		initUrl();
-		int imgWidth = UIUtils.getScreenWidth();
-		int imgHeight = imgWidth / 2;
-		layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, imgHeight);
-		Log.i("initFragmentNet", "imgWidth=" + imgWidth + ",imgHeight=" + imgHeight);
-		for (int i = 0; i < 20; i++) {
-			pingouList.add(new BeanPingou(Math.random() > 0.5 ? true : false, Math.random() > 0.5 ? true : false));
-		}
-	}
-
-	@Override
-	public void initFragmentEvent() {
-//		initIndicator();
-//		View lunbotuView = View.inflate(context, R.layout.view_pinggou_lunbotu, null);
-//		RelativeLayout rl_lunbotu = (RelativeLayout) lunbotuView.findViewById(R.id.rl_lunbotu);
-//		initViewPager(context, urlList, rl_lunbotu);
-//		// 加入轮播图布局
-//		ListView refreshableView = plv_pingou.getRefreshableView();
-//		refreshableView.addHeaderView(lunbotuView, null, false);
-		MyPingouAdapter pingouAdapter = new MyPingouAdapter(pingouList);
-		plv_pingou.setAdapter(pingouAdapter);
-	}
-
-	@Override
-	public void initFragmentData() {
-
-	}
-
-	@Override
-	public void onChildClick(View v) {
-
-	}
-	class MyPingouAdapter extends android.widget.BaseAdapter {
-		private List<BeanPingou> list;
-
-		public MyPingouAdapter(List<BeanPingou> list) {
-			this.list = list;
-		}
-
-		@Override
-		public int getCount() {
-			return list.size();
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return null;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return 0;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			ViewHolder viewHolder = null;
-			if (convertView == null) {
-				convertView = View.inflate(getActivity(), R.layout.item_pingou, null);
-				viewHolder = new ViewHolder(convertView);
-				convertView.setTag(viewHolder);
-			} else {
-				viewHolder = (ViewHolder) convertView.getTag();
-			}
-
-			viewHolder.ivitempingouicon.setLayoutParams(layoutParams);
-			if (list.get(position).isUser()) {
-				viewHolder.ivitempingouisuser.setBackgroundResource(R.drawable.yonghu);
-				viewHolder.ivitempingouqiang.setBackgroundColor(Color.TRANSPARENT);
-			} else {
-				viewHolder.ivitempingouisuser.setBackgroundResource(R.drawable.shangjia);
-				if (list.get(position).isPin()) {
-					viewHolder.llitempingoudeadline.setVisibility(View.VISIBLE);
-					viewHolder.ivitempingouqiang.setBackgroundResource(R.drawable.pin);
-				} else {
-					viewHolder.llitempingoudeadline.setVisibility(View.GONE);
-					viewHolder.ivitempingouqiang.setBackgroundResource(R.drawable.qiang);
-				}
-			}
-			return convertView;
-		}
+    private boolean hasInitHead;//初始化轮播图
+    private boolean mHasMore = true;//有无更多
+    private int mInitPager = 1;//初始化页面Position
+    private static final int RES_REFRESH = 0;//刷新
+    private static final int RES_MORE = 1;//加载更多
+    private static final int RES_ERROR = -1;//错误
+    private static final int RES_NOMORE = -3;//没有更多
+    private static final String TAG = "Index_Pingou_Fragment";
+    private List<PingouBean.ResEntity.QueryListEntity> queryList = new ArrayList<PingouBean.ResEntity.QueryListEntity>();
+    private List<PingouBean.ResEntity.TaskAdvertiseEntity> taskAdvertise = new ArrayList<PingouBean.ResEntity.TaskAdvertiseEntity>();
+    private PullToRefreshListView plv_pingou;
+    private PingouLvAdapter pingouLvAdapter;
+    private RelativeLayout rl_loading;
+    private Handler mHandle=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            //关闭刷新
+            setRefreshComplete();
+            switch (msg.what) {
+                case RES_REFRESH:
+                    ToastUtil.showMyToast("更新数据 page=" + mInitPager + " 数据量=" + queryList.size());
+                    //隐藏加载进度条
+                    rl_loading.setVisibility(rl_loading.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
+                    mInitPager = 1;
+                    //避免多次加Head
+                    if (!hasInitHead) {
+                        addLVHead(taskAdvertise);
+                        hasInitHead = true;
+                    }
+                    pingouLvAdapter.setData(queryList);
+                    break;
+                case RES_MORE:
+                    ToastUtil.showMyToast("加载更多数据 page=" + mInitPager + " 数据量=" + queryList.size());
+                    pingouLvAdapter.addData(queryList);
+                    break;
+                case RES_ERROR:
+                    ToastUtil.showMyToast("服务器被都敏俊拐走了！");
+                    break;
+                case RES_NOMORE:
+                    ToastUtil.showMyToast("更多商品敬请期待！");
+                    break;
+            }
+        }
+    };
+    private MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
 
 
-		public class ViewHolder {
-			public final LinearLayout llitempingoudeadline;
-			public final ImageView ivitempingouicon;
-			public final ImageView ivitempingouisuser;
-			public final ImageView ivitempingouqiang;
-			public final TextView tvitempingoutitle;
-			public final TextView tvitempingousubject;
-			public final TextView tvitempingouleft;
-			public final TextView tvitempingouhour;
-			public final TextView tvitempingoumin;
-			public final TextView tvitempingouprice;
-			public final TextView tvitempingouoldprice;
-			public final TextView tvitempingoucomment;
-			public final View root;
+    @Override
+    public View setFragmentView() {
+        view = View.inflate(context, R.layout.fr_pingou, null);
+        rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
+        return view;
+    }
 
-			public ViewHolder(View root) {
-				llitempingoudeadline = (LinearLayout) root.findViewById(R.id.ll_item_pingou_deadline);
-				ivitempingouicon = (ImageView) root.findViewById(R.id.iv_item_pingou_icon);
-				ivitempingouisuser = (ImageView) root.findViewById(R.id.iv_item_pingou_isuser);
-				ivitempingouqiang = (ImageView) root.findViewById(R.id.iv_item_pingou_qiang);
-				tvitempingoutitle = (TextView) root.findViewById(R.id.tv_item_pingou_title);
-				tvitempingousubject = (TextView) root.findViewById(R.id.tv_item_pingou_subject);
-				tvitempingouleft = (TextView) root.findViewById(R.id.tv_item_pingou_left);
-				tvitempingouhour = (TextView) root.findViewById(R.id.tv_item_pingou_hour);
-				tvitempingoumin = (TextView) root.findViewById(R.id.tv_item_pingou_min);
-				tvitempingouprice = (TextView) root.findViewById(R.id.tv_item_pingou_price);
-				tvitempingouoldprice = (TextView) root.findViewById(R.id.tv_item_pingou_oldprice);
-				tvitempingoucomment = (TextView) root.findViewById(R.id.tv_item_pingou_comment);
-				this.root = root;
-			}
-		}
-	}
+    @Override
+    public void initFragmentView() {
+        plv_pingou = (PullToRefreshListView) view.findViewById(R.id.plv_pingou);
+    }
 
-	private void initUrl() {
-		urlList.clear();
-		urlList.add("http://pic74.nipic.com/file/20150809/21430351_115107197205_2.jpg");
-		urlList.add("http://pic40.nipic.com/20140423/5523845_164638406332_2.jpg");
-		urlList.add("http://pic74.nipic.com/file/20150807/21430351_223621960871_2.jpg");
-		urlList.add("http://pic74.nipic.com/file/20150807/21430351_224952168084_2.jpg");
-		urlList.add("http://pic74.nipic.com/file/20150803/21430351_175936202461_2.jpg");
-	}
+    @Override
+    public void initFragmentNet() {
 
-	/**
-	 * 初始化刷新加载的内容
-	 */
-	private void initIndicator() {
-		ILoadingLayout downLabels = plv_pingou
-				.getLoadingLayoutProxy(true, false);
-		downLabels.setPullLabel("下拉刷新...");// 刚下拉时，显示的提示
-		downLabels.setRefreshingLabel("正在刷新...");// 刷新时
-		downLabels.setReleaseLabel("释放刷新...");// 下来达到一定距离时，显示的提示
-		ILoadingLayout upLabels = plv_pingou.getLoadingLayoutProxy(false, true);
-		upLabels.setPullLabel("上拉加载...");// 刚上拉时，显示的提示
-		upLabels.setRefreshingLabel("正在加载...");// 加载时
-		upLabels.setReleaseLabel("释放加载...");// 上来达到一定距离时，显示的提示
-	}
+    }
 
-	/**
-	 * 初始化轮播图
-	 */
-//	private void initViewPager(Context context, List<String> urlList,
-//							   RelativeLayout relativeLayout) {
-//		MyViewPager myViewPager = new MyViewPager(context, urlList,
-//				relativeLayout);
-//		relativeLayout.addView(myViewPager);
-//		myViewPager.initDot();
-//		myViewPager.setCurrentItem(2000);
-//		myViewPager.startRoll();
-//	}
+    @Override
+    public void initFragmentEvent() {
+        pingouLvAdapter = new PingouLvAdapter(queryList, mActivity);
+        plv_pingou.setAdapter(pingouLvAdapter);
+        plv_pingou.setOnRefreshListener(onRefreshListener);
+        plv_pingou.setOnScrollListener(new PauseOnScrollListener(UImageLoaderUitl.getImageLoader(), true, false));
+
+    }
+
+    @Override
+    public void initFragmentData() {
+        refresh(1, RES_REFRESH);
+    }
+
+    @Override
+    public void onChildClick(View v) {
+
+    }
+    /**
+     * 刷新结束，隐藏刷新布局
+     */
+    private void setRefreshComplete() {
+        if (plv_pingou.isRefreshing()) {
+            plv_pingou.onRefreshComplete();
+        }
+    }
+    /**
+     * 刷新加载监听器
+     */
+    private PullToRefreshBase.OnRefreshListener2 onRefreshListener = new PullToRefreshBase.OnRefreshListener2<ListView>() {
+
+        @Override
+        public void onPullDownToRefresh(
+                PullToRefreshBase<ListView> refreshView) {
+            refresh(1, RES_REFRESH);
+
+        }
+
+        @Override
+        public void onPullUpToRefresh(
+                PullToRefreshBase<ListView> refreshView) {
+            if (mHasMore) {
+                refresh(++mInitPager, RES_MORE);
+            } else {
+                mHandle.sendEmptyMessage(RES_NOMORE);
+            }
+        }
+    };
+    /**
+     * ListView加入轮播图Head
+     *
+     * @param adsList
+     */
+    private void addLVHead(List<PingouBean.ResEntity.TaskAdvertiseEntity> adsList) {
+
+
+        adsLunBoTu = new MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity, adsList, new OnShowItemListener<PingouBean.ResEntity.TaskAdvertiseEntity>() {
+            @Override
+            public String onShowItem(List<PingouBean.ResEntity.TaskAdvertiseEntity> mData, int position) {
+                return UrlUtil.HOST+mData.get(position % mData.size()).getAdUrl();
+            }
+        });
+        adsLunBoTu.setViewHeight(200);
+        adsLunBoTu.startRoll();
+        ListView refreshableView = plv_pingou.getRefreshableView();
+        refreshableView.addHeaderView(adsLunBoTu, null, false);
+    }
+    /**
+     * 刷洗·加载 网络操作
+     *
+     * @param page
+     * @param requestCode
+     */
+    private void refresh(final int page, final int requestCode) {
+        VolleyGsonRequest<PingouBean> pingouRequest = new VolleyGsonRequest<PingouBean>(UrlUtil.HOST + UrlUtil.PINGOU_LIST, PingouBean.class, new Response.Listener<PingouBean>() {
+            @Override
+            public void onResponse(PingouBean res) {
+                queryList=res.getRes().getQueryList();
+                taskAdvertise=res.getRes().getTaskAdvertise();
+                if (requestCode == RES_MORE && queryList.isEmpty()) {
+                    ToastUtil.showMyToast("没有更多商品");
+                    mHasMore = false;
+                    mHandle.sendEmptyMessage(RES_NOMORE);
+                }
+                mHandle.sendEmptyMessage(requestCode);
+               
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("page", page + "");
+                map.put("serviceType", "1");
+                map.put("app", "1");
+                return map;
+            }
+        };
+        mQueue.add(pingouRequest);
+    }
+
+    /**
+     * 初始化刷新加载的内容
+     */
+    private void initIndicator() {
+        ILoadingLayout downLabels = plv_pingou
+                .getLoadingLayoutProxy(true, false);
+        downLabels.setPullLabel("下拉刷新...");// 刚下拉时，显示的提示
+        downLabels.setRefreshingLabel("正在刷新...");// 刷新时
+        downLabels.setReleaseLabel("释放刷新...");// 下来达到一定距离时，显示的提示
+        ILoadingLayout upLabels = plv_pingou.getLoadingLayoutProxy(false, true);
+        upLabels.setPullLabel("上拉加载...");// 刚上拉时，显示的提示
+        upLabels.setRefreshingLabel("正在加载...");// 加载时
+        upLabels.setReleaseLabel("释放加载...");// 上来达到一定距离时，显示的提示
+    }
+
+    /**
+     * 根据Fragment隐藏和显示来启动和停止轮播图。
+     * @param hidden
+     */
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (adsLunBoTu!=null){
+            if (hidden){
+                adsLunBoTu.stopRoll();
+            }else{
+                adsLunBoTu.startRoll();
+            }
+        }
+
+    }
 }

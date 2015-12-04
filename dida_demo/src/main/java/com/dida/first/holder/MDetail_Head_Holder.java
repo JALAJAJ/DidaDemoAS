@@ -1,6 +1,7 @@
 package com.dida.first.holder;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
@@ -27,11 +28,13 @@ import java.util.List;
  */
 public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements OnClickListener {
     private LinearLayout rootView;
+    private Context context;
     private Activity activity;
 
     public MDetail_Head_Holder(LinearLayout rootView, Activity activity) {
         this.rootView = rootView;
         this.activity = activity;
+        this.context = activity;
     }
 
 
@@ -63,23 +66,20 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
     public void refreshView() {
         BeanDetailMarket data = getData();
         tv_market_detail_head_title.setText(data.getRes().getTimeOrPhyProduct().getName());
-        tv_market_detail_head_price.setText(data.getRes().getTimeOrPhyProduct().getPrice()+"");
-        tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount()+"");
-        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock()+"");
-        tv_market_detail_head_address.setText(data.getRes().getShop().getProvince()+" "+data.getRes().getShop().getCity());
-
-
+        tv_market_detail_head_price.setText(data.getRes().getTimeOrPhyProduct().getPrice() + "");
+        tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount() + "");
+        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock() + "");
+        tv_market_detail_head_address.setText(data.getRes().getShop().getProvince() + " " + data.getRes().getShop().getCity());
         ll_market_detail_head_share.setOnClickListener(this);
         ll_market_detail_head_favorite.setOnClickListener(this);
-        MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity> mLunBoTu = new MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity>(activity);
-        mLunBoTu.setOnShowItemListener(new OnShowItemListener<BeanDetailMarket.ResEntity.ProductImgsEntity>() {
+        MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity> adsLunBoTu = new MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity>(context, data.getRes().getProductImgs(), new OnShowItemListener<BeanDetailMarket.ResEntity.ProductImgsEntity>() {
             @Override
             public String onShowItem(List<BeanDetailMarket.ResEntity.ProductImgsEntity> mData, int position) {
-                return UrlUtil.HOST+mData.get(position % mData.size()).getImageURL();
+                return UrlUtil.HOST + mData.get(position % mData.size()).getImageURL();
             }
         });
-        mLunBoTu.show(data.getRes().getProductImgs());
-        fl_market_head.addView(mLunBoTu);
+        adsLunBoTu.setViewHeight(300);
+        fl_market_head.addView(adsLunBoTu);
 
 
     }

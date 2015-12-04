@@ -1,10 +1,7 @@
 package com.dida.first.fragment;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -14,7 +11,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.dida.first.R;
-import com.dida.first.adapter.LvAdapter;
+import com.dida.first.adapter.MarketLvAdapter;
 import com.dida.first.bean.MarketBean;
 import com.dida.first.utils.GsonUtil;
 import com.dida.first.utils.ToastUtil;
@@ -30,9 +27,8 @@ import java.util.Map;
 
 public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
-    private LvAdapter lvAdapter;
+    private MarketLvAdapter marketLvAdapter;
     private RelativeLayout rl_loading;
-    private ImageView iv_market_real_backtotop;
     private boolean hasInitHead;//初始化轮播图
     private boolean mHasMore = true;//有无更多
     private static final int NET_REFRESH = 0;//刷新
@@ -58,11 +54,11 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
                         addLVHead(productAds);
                         hasInitHead = true;
                     }
-                    lvAdapter.setData(realProList);
+                    marketLvAdapter.setData(realProList);
                     break;
                 case NET_MORE:
                     ToastUtil.showMyToast("加载更多数据 page=" + mInitPager + " 数据量=" + realProList.size());
-                    lvAdapter.addData(realProList);
+                    marketLvAdapter.addData(realProList);
                     break;
                 case NET_ERROR:
                     ToastUtil.showMyToast("服务器被都敏俊拐走了！");
@@ -86,7 +82,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
     @Override
     public void initFragmentView() {
         rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
-        iv_market_real_backtotop = (ImageView) view.findViewById(R.id.iv_market_real_backtotop);
         plv = (PullToRefreshListView) view.findViewById(R.id.plv_market_real);
     }
 
@@ -96,22 +91,9 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     @Override
     public void initFragmentEvent() {
-        iv_market_real_backtotop.setOnClickListener(this);
-        lvAdapter = new LvAdapter(realProList, getActivity());
-        plv.setAdapter(lvAdapter);
+        marketLvAdapter = new MarketLvAdapter(realProList, getActivity());
+        plv.setAdapter(marketLvAdapter);
         plv.setOnRefreshListener(onRefreshListener);
-        plv.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//                Log.i("LV onScroll","firstVisibleItem="+firstVisibleItem);
-            }
-        });
-
     }
 
     @Override
@@ -168,9 +150,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
     @Override
     public void onChildClick(View v) {
         switch (v.getId()){
-            //返回顶部
-            case R.id.iv_market_real_backtotop:
-                break;
         }
 
     }
@@ -188,7 +167,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
                 MarketBean marketBean = GsonUtil.json2Bean(s, MarketBean.class);
                 productAds = marketBean.getRes().getProductAds();
                 realProList = marketBean.getRes().getProducts().getSt();
-                Log.i("1.获取数据", "realProList=" + realProList.size());
                 if (requestCode == NET_MORE && realProList.isEmpty()) {
                     ToastUtil.showMyToast("没有更多商品");
                     mHasMore = false;
@@ -200,7 +178,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.i("onErrorResponse", "VolleyError=" + volleyError.toString());
                 handler.sendEmptyMessage(NET_ERROR);
             }
         }) {

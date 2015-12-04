@@ -5,7 +5,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -61,16 +60,17 @@ public class App extends Application {
 	 * @param applicationContext
 	 */
 	private void initImageLoader(Context applicationContext) {
-		Log.e("Thread.NORM_PRIORITY", Thread.NORM_PRIORITY + "");
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(applicationContext)
 				.threadPriority(Thread.NORM_PRIORITY - 2)
 				.threadPoolSize(3)//线程池内加载的数量
 				.denyCacheImageMultipleSizesInMemory()
-				.discCacheFileNameGenerator(new Md5FileNameGenerator())
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
 				.writeDebugLogs()
-				.discCacheSize(20 * 1024 * 1024)
-//				.memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024))
+//				.memoryCache(new LruMemoryCache(5 * 1024 * 1024)) //建议内存设在5-10M,可以有比较好的表现
+//				.memoryCacheSize(5 * 1024 * 1024)
+				.discCacheSize(50 * 1024 * 1024)
+				.discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.discCacheFileCount(100) //缓存的文件数量
 				.build();
 		ImageLoader.getInstance().init(config);
 	}

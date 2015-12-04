@@ -3,7 +3,6 @@
     android:id="@+id/iv_viewpager_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/default_img"
     android:scaleType="centerCrop" />
 
 <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/viewpager_item.xml -->

@@ -16,14 +16,4 @@
         ptr:ptrScrollingWhileRefreshingEnabled="false" />
 
 <include layout="@layout/include_loading"/>
-    <ImageView
-        android:visibility="gone"
-        android:id="@+id/iv_market_real_backtotop"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentRight="true"
-       android:layout_alignParentBottom="true"
-        android:background="@drawable/back_top"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
 </RelativeLayout>

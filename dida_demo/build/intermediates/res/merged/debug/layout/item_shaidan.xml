@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                android:layout_below="@id/tv_item_shaidan_title"
-                android:text="Alice Handmade 派对婚礼甜品 金色小清新蛋糕甜品。哈根达斯劲爆大削价，买一送一第二份半价，集满9颗龙珠直接送你到非洲，而且有机会参加尼玛大本营" />
+                android:text="奶油味 2寸" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

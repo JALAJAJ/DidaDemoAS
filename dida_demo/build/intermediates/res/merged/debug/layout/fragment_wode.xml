@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="收藏的商品" />
+                android:text="收藏的拼购" />
         </LinearLayout>
 
         <View

@@ -3,20 +3,16 @@
  */
 package com.dida.first.holder;
 
-import java.text.ParseException;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.R.id;
-import com.dida.first.R.layout;
 import com.dida.first.bean.YaoYueBean.Res;
 import com.dida.first.utils.TimeUtils;
 import com.dida.first.utils.UIUtils;
 import com.lidroid.xutils.BitmapUtils;
 import com.meg7.widget.CircleImageView;
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 /**
  * @author KingJA
@@ -66,14 +62,10 @@ public class GroupHolder extends BaseHolder<Res> {
 		tv_yaoyue_group_title.setText(res.des);
 		tv_yaoyue_group_price.setText(res.price+"");
 		tv_yaoyue_group_count.setText(res.newCount+"");
-		try {
 			int[] deadTime = TimeUtils.getDeadTime(res.customDueDate);
 			tv_yaoyue_group_day.setText(deadTime[0]+"");
 			tv_yaoyue_group_hour.setText(deadTime[1]+"");
 			tv_yaoyue_group_minute.setText(deadTime[2]+"");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
 	}
 
 }
