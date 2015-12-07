@@ -34,7 +34,7 @@ import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
 
 /**
- * MainActivity作用 1.完成左侧拉,右侧拉,主界面的位置布局,网络监听
+ * 入口Activity，，负责四个标签页的切换及网络状态的广播
  *
  * @author KingJA
  */
@@ -199,7 +199,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     /**
-     * 选择对应的Fragment
+     * 选择对应的Fragment：0拼购    1集市 2晒单 3我的
      */
     // TODO 需要重构
     private void setTab(int position) {
@@ -280,6 +280,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
+    /**
+     * 隐藏所有Fragment
+     * @param transaction
+     */
     private void hideFragments(FragmentTransaction transaction) {
         if (yaoyueFragment != null) {
             transaction.hide(yaoyueFragment);

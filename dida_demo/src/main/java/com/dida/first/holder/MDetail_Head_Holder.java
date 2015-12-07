@@ -72,7 +72,17 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         tv_market_detail_head_address.setText(data.getRes().getShop().getProvince() + " " + data.getRes().getShop().getCity());
         ll_market_detail_head_share.setOnClickListener(this);
         ll_market_detail_head_favorite.setOnClickListener(this);
-        MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity> adsLunBoTu = new MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity>(context, data.getRes().getProductImgs(), new OnShowItemListener<BeanDetailMarket.ResEntity.ProductImgsEntity>() {
+        List<BeanDetailMarket.ResEntity.ProductImgsEntity> productImgs = data.getRes().getProductImgs();
+        if(productImgs.size()!=0){
+            addLunBoTu(productImgs);
+        }
+
+
+
+    }
+
+    private void addLunBoTu(List<BeanDetailMarket.ResEntity.ProductImgsEntity> productImgs) {
+        MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity> adsLunBoTu = new MyLunBoTu<BeanDetailMarket.ResEntity.ProductImgsEntity>(context, productImgs, new OnShowItemListener<BeanDetailMarket.ResEntity.ProductImgsEntity>() {
             @Override
             public String onShowItem(List<BeanDetailMarket.ResEntity.ProductImgsEntity> mData, int position) {
                 return UrlUtil.HOST + mData.get(position % mData.size()).getImageURL();
@@ -80,8 +90,6 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         });
         adsLunBoTu.setViewHeight(300);
         fl_market_head.addView(adsLunBoTu);
-
-
     }
 
 

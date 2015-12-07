@@ -2,6 +2,7 @@ package com.dida.first.fragment;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -228,5 +229,33 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
             }
         }
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (adsLunBoTu!=null){
+                adsLunBoTu.startRoll();
+        }
+        Log.i(TAG, "onStart: ");
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume: ");
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop: ");
+        if (adsLunBoTu!=null){
+            adsLunBoTu.stopRoll();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause: ");
     }
 }
