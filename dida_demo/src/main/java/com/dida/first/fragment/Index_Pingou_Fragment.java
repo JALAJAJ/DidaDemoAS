@@ -1,9 +1,11 @@
 package com.dida.first.fragment;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -11,6 +13,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.dida.first.R;
+import com.dida.first.activity.Detail_Pingou_Activity;
 import com.dida.first.adapter.PingouLvAdapter;
 import com.dida.first.bean.PingouBean;
 import com.dida.first.interfaces.OnShowItemListener;
@@ -29,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
+public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements AdapterView.OnItemClickListener{
     private boolean hasInitHead;//初始化轮播图
     private boolean mHasMore = true;//有无更多
     private int mInitPager = 1;//初始化页面Position
@@ -100,6 +103,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
         plv_pingou.setAdapter(pingouLvAdapter);
         plv_pingou.setOnRefreshListener(onRefreshListener);
         plv_pingou.setOnScrollListener(new PauseOnScrollListener(UImageLoaderUitl.getImageLoader(), true, false));
+        plv_pingou.setOnItemClickListener(this);
 
     }
 
@@ -257,5 +261,17 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal {
     public void onPause() {
         super.onPause();
         Log.i(TAG, "onPause: ");
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //position从2开始
+        int mPosition=position-2;
+        List<PingouBean.ResEntity.QueryListEntity> data = pingouLvAdapter.getData();
+        PingouBean.ResEntity.QueryListEntity queryListEntity = data.get(mPosition);
+        Intent intent = new Intent(mActivity, Detail_Pingou_Activity.class);
+        intent.putExtra("serviceId",queryListEntity.getServiceId()+"");
+        mActivity.startActivity(intent);
+
     }
 }

@@ -10,12 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp" >
+     >
 
         <RelativeLayout
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
            
            >
 
@@ -28,31 +31,28 @@
 
             <ImageView
                  android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/chat_nor" />
+                android:background="@drawable/store_chat" />
         </RelativeLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/gray" >
+           style="@style/divider_special_horizontal">
         </View>
 <LinearLayout 
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp"
+    android:padding="16dp"
       android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
     
     >
     <com.meg7.widget.CircleImageView
-        android:id="@+id/civ_pingou_detail_leader"
+        android:id="@+id/civ_pingou_detail_des_icon"
             android:scaleType="centerCrop"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/group_icon" />
+            />
     
     <LinearLayout 
         android:layout_marginLeft="8dp"
@@ -61,11 +61,12 @@
             android:orientation="vertical"
     
     >
-    <TextView 
+    <TextView
+        android:id="@+id/tv_pingou_detail_des_content"
         android:text="《岛上书店》是现象级全球畅销书，美国独立书商选书第1名，美国图书馆推荐阅读第1名。一年之内，《岛上书店》畅销美国、英国、德国、法国、荷兰、西班牙、意大利、丹麦、芬兰、挪威、瑞典、冰岛、波兰、加拿大、土耳其、以色列、巴西、日本、韩国等25国，是感动全球千万读者的阳光治愈小说。一个失去了一切的人，如何重新找到牵挂，书，爱情，宴会和欢笑，以及一切美好生活。每个人的生命中，都有最艰难的那一年，将人生变得美好而辽阔。"
           android:layout_width="match_parent"
             android:layout_height="wrap_content"
-        
+        style="@style/gray_12_line8"
         />
     <com.dida.first.view.AbsListView.MyGridView
             android:paddingTop="8dp"

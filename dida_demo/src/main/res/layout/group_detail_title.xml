@@ -17,7 +17,9 @@
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="16dp"
-            android:paddingTop="10dp">
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -29,6 +31,7 @@
                 >
 
                 <LinearLayout
+                    android:gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -38,10 +41,11 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/shangjia" />
+                        android:background="@drawable/yonghu" />
 
                     <TextView
-                        style="@style/black_14_line4"
+                        android:id="@+id/tv_pingou_detail_head_title"
+                        style="@style/black_14_line2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -66,7 +70,7 @@
                         android:text="¥" />
 
                     <com.dida.first.view.DeadlineTextView
-                        android:id="@+id/tv_yaoyue_group_price"
+                        android:id="@+id/tv_pingou_detail_head_price"
                         style="@style/red_20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -80,6 +84,7 @@
                         android:text="原价¥" />
 
                     <com.dida.first.view.DeadlineTextView
+                        android:id="@+id/tv_pingou_detail_head_oldPrice"
                         style="@style/gray_12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -138,6 +143,7 @@
 
         <!--   快递，销量，地址-->
         <LinearLayout
+            android:visibility="gone"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -243,6 +249,7 @@
                     android:text="目标" />
 
                 <com.dida.first.view.DeadlineTextView
+                    android:id="@+id/tv_pingou_detail_head_subject"
                     style="@style/black_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -262,6 +269,7 @@
                     android:text="仅剩" />
 
                 <com.dida.first.view.DeadlineTextView
+                    android:id="@+id/tv_pingou_detail_head_left"
                     style="@style/red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -299,7 +307,7 @@
                     android:text="还剩" />
 
                 <com.dida.first.view.DeadlineTextView
-                    android:id="@+id/tv_yaoyue_group_day"
+                    android:id="@+id/tv_pingou_detail_head_day"
                     style="@style/red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -312,7 +320,7 @@
                     android:text="天" />
 
                 <com.dida.first.view.DeadlineTextView
-                    android:id="@+id/tv_yaoyue_group_hour"
+                    android:id="@+id/tv_pingou_detail_head_hour"
                     style="@style/red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -325,7 +333,7 @@
                     android:text="小时" />
 
                 <com.dida.first.view.DeadlineTextView
-                    android:id="@+id/tv_yaoyue_group_minute"
+                    android:id="@+id/tv_pingou_detail_head_minute"
                     style="@style/red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

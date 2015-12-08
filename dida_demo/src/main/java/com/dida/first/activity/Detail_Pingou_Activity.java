@@ -4,17 +4,19 @@
 package com.dida.first.activity;
 
 import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.dida.first.LoadPage;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.dida.first.R;
-import com.dida.first.bean.CommentBean;
-import com.dida.first.bean.CommentBean.ItemComment;
-import com.dida.first.bean.YaoYueBean.Res;
+import com.dida.first.bean.BeanDetailPingou;
 import com.dida.first.holder.GDetail_Comment_Holder;
 import com.dida.first.holder.GDetail_Des_Holder;
 import com.dida.first.holder.GDetail_Item_Holder;
@@ -23,9 +25,11 @@ import com.dida.first.interfaces.OnShareFavListener;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
+import com.dida.first.utils.UrlUtil;
+import com.dida.first.utils.VolleyGsonRequest;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author KingJA
@@ -33,10 +37,12 @@ import java.util.List;
  * @use
  */
 public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShareFavListener {
-    private LoadPage loadPage;
-    private List<Res> list = new ArrayList<Res>();
-    private List<CommentBean> commentList = new ArrayList<CommentBean>();
-    private FrameLayout fl_group_detail_title;
+    private static final int RES_OK=1;
+    private static final int RES_ERR=-1;
+    private static final int RES_COLLECT_OK=2;
+    private static final String TAG = "Detail_Pingou_Activity";
+    private static final int RES_COLLECT_ERR = -2;
+    private FrameLayout fl_group_detail_head;
     private FrameLayout fl_group_detail_item;
     private FrameLayout fl_group_detail_des;
     private FrameLayout fl_group_detail_comment;
@@ -45,21 +51,21 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
     private GDetail_Item_Holder itemHolder;
     private RelativeLayout rl_pingou_detail_team_more;
     private TextView tv_pingou_detail_team_count;
-    private RelativeLayout rl_pingou_detail_pb;
     private GDetail_Title_Holder titleHolder;
     private RelativeLayout rl_pingou_detail_join;
+    private BeanDetailPingou mDetailPingou=new BeanDetailPingou();
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case RES_OK:
+                    setData(mDetailPingou);
+                    break;
+            }
+        }
+    };
+    private String serviceId;
 
-    private void initCommentData() {
-        CommentBean commentBean1 = new CommentBean("贝多芬的假日", "贝多芬的主要作品以九部交响曲占首要地位。代表作有降E大调第3交响曲《英雄》、c小调第5交响曲《命运》、F大调第6交响曲《田园》、A大调第7交响曲、d小调第9交响曲《合唱》（《欢乐颂》主旋律）、序曲《爱格蒙特》、《莱奥诺拉》、升c小调第14钢琴奏鸣曲《月光》、F大调第5钢琴奏鸣曲《春天》、F大调第2号浪漫曲。他集古典音乐的大成，同时开辟了浪漫时期音乐的道路，对世界音乐发展有着举足轻重的作用。", "2015-08-18");
-        CommentBean commentBean2 = new CommentBean("快乐的阿斗", "买买买，哼，等我爸回来", "2015-08-18");
-        commentBean1.itemComments = new ArrayList<ItemComment>();
-        commentBean1.itemComments.add(commentBean1.new ItemComment("达芬奇", "贝多芬", "我觉得你还是跟我学画画吧,但是首先你得有草纸吧！", "2015-08-19"));
-        commentBean1.itemComments.add(commentBean1.new ItemComment("贝多芬", "达芬奇", "你回头买台钢琴先！", "2015-08-19"));
-        commentBean1.itemComments.add(commentBean1.new ItemComment("毕加索", "达芬奇", "老大，美剧开始了..", "2015-08-19"));
-        commentList.add(commentBean1);
-        commentList.add(commentBean2);
-
-    }
 
     @Override
     protected void onChildClick(View v) {
@@ -94,9 +100,9 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
         /**
          * 标题块
          */
-        fl_group_detail_title = (FrameLayout) view.findViewById(R.id.fl_group_detail_title);
+        fl_group_detail_head = (FrameLayout) view.findViewById(R.id.fl_group_detail_head);
         titleHolder = new GDetail_Title_Holder();
-        fl_group_detail_title.addView(titleHolder.getRootView());
+        fl_group_detail_head.addView(titleHolder.getRootView());
         /**·
          * 商品列表块
          */
@@ -120,7 +126,7 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
          */
         fl_group_detail_comment = (FrameLayout) view.findViewById(R.id.fl_group_detail_comment);
         commentHolder = new GDetail_Comment_Holder(this);
-        commentHolder.setList(commentList);
+//        commentHolder.setList(commentList);
         fl_group_detail_comment.addView(commentHolder.getRootView());
         return view;
     }
@@ -128,7 +134,6 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
     @Override
     protected void initView() {
 
-        rl_pingou_detail_pb = (RelativeLayout) view.findViewById(R.id.rl_pingou_detail_pb);
         rl_pingou_detail_join = (RelativeLayout) view.findViewById(R.id.rl_pingou_detail_join);
 
     }
@@ -142,23 +147,54 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
 
     @Override
     protected void initNet() {
-        initCommentData();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                rl_pingou_detail_pb.setVisibility(View.GONE);
-            }
-        }, 2000);
+        serviceId = getIntent().getStringExtra("serviceId");
+        ToastUtil.showMyToast("serviceId="+ serviceId);
+
     }
 
     @Override
     protected void initData() {
-        titleHolder.setData(list);
-        itemHolder.setData(list);
-        desHolder.setData(list);
-        commentHolder.setList(commentList);
+        doNetInit(serviceId, "fb9a38d82cd3405a9b60ec54cdb5ecdf");
+
     }
 
+    /**
+     * 访问网络-初始化页面
+     * @param serviceId
+     * @param userId
+     */
+    private void doNetInit(final String serviceId, final String userId) {
+        VolleyGsonRequest<BeanDetailPingou> initRequest = new VolleyGsonRequest<BeanDetailPingou>(UrlUtil.HOST+UrlUtil.PINGOU_DETAIL, BeanDetailPingou.class, new Response.Listener<BeanDetailPingou>() {
+            @Override
+            public void onResponse(BeanDetailPingou beanDetailPingou) {
+                Log.i(TAG, "beanDetailPingou: "+beanDetailPingou.getRes().getShare().getName());
+                mDetailPingou=beanDetailPingou;
+                mHandler.sendEmptyMessage(RES_OK);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                mHandler.sendEmptyMessage(RES_ERR);
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("serviceId", serviceId);
+                map.put("userId",userId);
+                map.put("app","1");
+                return map;
+            }
+        };
+        mQueue.add(initRequest);
+    }
+
+    private void setData(BeanDetailPingou bean) {
+        titleHolder.setData(bean);
+        itemHolder.setData(bean);
+        desHolder.setData(bean);
+//        commentHolder.setList(bean);
+    }
     /**
      * 分享
      */
@@ -176,4 +212,6 @@ public class Detail_Pingou_Activity extends BaseNomalActivity implements OnShare
         ToastUtil.showMyToast("收藏");
 
     }
+
+
 }

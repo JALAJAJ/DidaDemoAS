@@ -197,7 +197,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         productNo = bundle.getString("productNo");
         type = bundle.getString("type");
         Log.i(TAG, "productNo: "+ productNo +"type: "+ type);
-        doNetInit(productNo, type);
+
     }
 
     /**
@@ -277,7 +277,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
     @Override
     protected void initData() {
-
+        doNetInit(productNo, type);
     }
 
     private void setData(BeanDetailMarket bean) {
