@@ -9,8 +9,8 @@ import java.util.Random;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.BeanFootPrint;
-import com.dida.first.bean.BeanFootPrint.ItemFootPrint;
+import com.dida.first.entity.BeanFootPrint;
+import com.dida.first.entity.BeanFootPrint.ItemFootPrint;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.Foot_Real_Holder;
 import com.dida.first.utils.ToastUtil;

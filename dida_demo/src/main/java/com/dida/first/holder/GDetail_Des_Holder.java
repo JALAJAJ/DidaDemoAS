@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.dida.first.R;
 import com.dida.first.activity.Personal_Detail_Activity;
 import com.dida.first.activity.ZoomImageActivity;
-import com.dida.first.bean.BeanDetailPingou;
+import com.dida.first.entity.BeanDetailPingou;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.UIUtils;

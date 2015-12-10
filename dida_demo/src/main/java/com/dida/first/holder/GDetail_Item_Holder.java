@@ -13,9 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.activity.Detail_Market_Activity;
-import com.dida.first.bean.BeanDetailPingou;
-import com.dida.first.utils.ActivityUtil;
+import com.dida.first.entity.BeanDetailPingou;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 
@@ -53,7 +51,7 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingou> implements
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		ActivityUtil.goActivity(activity, Detail_Market_Activity.class);
+//		ActivityUtil.goActivity(activity, Detail_Market_Activity.class);
 	}
 
 	class GroupItemAdapter extends BaseAdapter{

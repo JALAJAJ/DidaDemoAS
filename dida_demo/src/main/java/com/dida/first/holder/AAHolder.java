@@ -1,7 +1,7 @@
 package com.dida.first.holder;
 
 import com.dida.first.R;
-import com.dida.first.bean.YaoYueBean.Res;
+import com.dida.first.entity.YaoYueBean.Res;
 import com.dida.first.utils.UIUtils;
 import com.lidroid.xutils.BitmapUtils;
 import com.meg7.widget.CircleImageView;

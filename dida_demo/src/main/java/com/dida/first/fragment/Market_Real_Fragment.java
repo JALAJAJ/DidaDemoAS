@@ -12,7 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.dida.first.R;
 import com.dida.first.adapter.MarketLvAdapter;
-import com.dida.first.bean.MarketBean;
+import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.GsonUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UrlUtil;

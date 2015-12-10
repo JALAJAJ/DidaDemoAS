@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanAddress;
+import com.dida.first.entity.BeanAddress;
 import com.dida.first.utils.UIUtils;
 
 /**

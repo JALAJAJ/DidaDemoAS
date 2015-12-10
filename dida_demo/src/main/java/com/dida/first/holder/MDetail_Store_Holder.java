@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.activity.Store_Activity;
-import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;

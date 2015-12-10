@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.BeanProduct;
+import com.dida.first.entity.BeanProduct;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.Product_Real_Holder;
 import com.handmark.pulltorefresh.library.PullToRefreshGridView;

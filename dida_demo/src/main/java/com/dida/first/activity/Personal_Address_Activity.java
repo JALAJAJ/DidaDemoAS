@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dida.first.R;
-import com.dida.first.activity.BackTitleActivity.OnTextClickListener;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.BeanAddress;
+import com.dida.first.entity.BeanAddress;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.HolderAddress;
 import com.dida.first.utils.ToastUtil;
@@ -14,7 +13,6 @@ import com.dida.first.utils.ToastUtil;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 

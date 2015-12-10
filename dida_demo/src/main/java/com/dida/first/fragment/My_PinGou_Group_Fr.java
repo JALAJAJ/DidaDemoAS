@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.BeanPinGouGroup;
+import com.dida.first.entity.BeanPinGouGroup;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.MyPinGou_Group_Holder;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;

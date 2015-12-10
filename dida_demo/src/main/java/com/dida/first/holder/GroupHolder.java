@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.YaoYueBean.Res;
+import com.dida.first.entity.YaoYueBean.Res;
 import com.dida.first.utils.TimeUtils;
 import com.dida.first.utils.UIUtils;
 import com.lidroid.xutils.BitmapUtils;

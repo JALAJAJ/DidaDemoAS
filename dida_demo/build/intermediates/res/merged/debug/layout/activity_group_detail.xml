@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <include layout="@layout/include_loading"/>
     <include layout="@layout/top_group_detail"/>
 
    <ScrollView
@@ -52,6 +53,6 @@
            /> 
     </LinearLayout>
  </ScrollView>
-<include layout="@layout/bottom_pingou_detail"/>
+<include layout="@layout/bottom_pingou_detail_user"/>
 </LinearLayout>
 <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/activity_group_detail.xml -->

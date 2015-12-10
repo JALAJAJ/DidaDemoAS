@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import com.dida.first.R;
-import com.dida.first.bean.BeanProduct;
+import com.dida.first.entity.BeanProduct;
 import com.dida.first.utils.UIUtils;
 
 /**

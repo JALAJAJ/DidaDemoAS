@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseListViewAdapter;
-import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.view.AbsListView.MyListView;

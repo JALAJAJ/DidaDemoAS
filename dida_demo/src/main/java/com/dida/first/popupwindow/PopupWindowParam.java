@@ -9,7 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.entity.BeanDetailMarket;
 
 import java.util.List;
 

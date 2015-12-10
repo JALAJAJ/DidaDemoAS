@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.CommentBean.ItemComment;
+import com.dida.first.entity.CommentBean.ItemComment;
 import com.dida.first.utils.UIUtils;
 
 /**

@@ -8,10 +8,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import com.dida.first.R;
-import com.dida.first.bean.BeanFootPrint.ItemFootPrint;
+import com.dida.first.entity.BeanFootPrint.ItemFootPrint;
 import com.dida.first.utils.UIUtils;
 
 /**

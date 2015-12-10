@@ -13,9 +13,10 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.dida.first.R;
-import com.dida.first.activity.Detail_Pingou_Activity;
+import com.dida.first.activity.Detail_Pingou_Store_Activity;
+import com.dida.first.activity.Detail_Pingou_User_Activity;
 import com.dida.first.adapter.PingouLvAdapter;
-import com.dida.first.bean.PingouBean;
+import com.dida.first.entity.PingouBean;
 import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UImageLoaderUitl;
@@ -78,6 +79,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
         }
     };
     private MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
+    private Intent intent;
 
 
     @Override
@@ -267,11 +269,19 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //position从2开始
         int mPosition=position-2;
-        List<PingouBean.ResEntity.QueryListEntity> data = pingouLvAdapter.getData();
-        PingouBean.ResEntity.QueryListEntity queryListEntity = data.get(mPosition);
-        Intent intent = new Intent(mActivity, Detail_Pingou_Activity.class);
+        PingouBean.ResEntity.QueryListEntity queryListEntity = pingouLvAdapter.getData().get(mPosition);
+        //0用户拼购  1商家拼购
+        if (queryListEntity.getGroupType()==0){
+            intent = new Intent(mActivity, Detail_Pingou_User_Activity.class);
+
+        }else{
+            intent = new Intent(mActivity, Detail_Pingou_Store_Activity.class);
+        }
         intent.putExtra("serviceId",queryListEntity.getServiceId()+"");
         mActivity.startActivity(intent);
 
+    }
+    public void doThing(){
+        Log.i(TAG, "doThing: ");
     }
 }

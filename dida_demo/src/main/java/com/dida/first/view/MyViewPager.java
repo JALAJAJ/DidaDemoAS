@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.dida.first.R;
-import com.dida.first.bean.MarketBean;
+import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.UIUtils;
 import com.lidroid.xutils.BitmapUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;

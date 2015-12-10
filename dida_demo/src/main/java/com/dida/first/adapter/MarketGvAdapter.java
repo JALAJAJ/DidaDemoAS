@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.MarketBean;
+import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.UImageLoaderUitl;
 
 import java.util.List;

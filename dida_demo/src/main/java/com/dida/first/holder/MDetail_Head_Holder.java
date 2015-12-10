@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanDetailMarket;
+import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.popupwindow.PopupWindowShare;
 import com.dida.first.utils.ToastUtil;

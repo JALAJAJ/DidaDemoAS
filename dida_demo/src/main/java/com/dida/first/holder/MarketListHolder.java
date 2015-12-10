@@ -5,7 +5,7 @@ package com.dida.first.holder;
 
 import android.view.View;
 
-import com.dida.first.bean.MarketBean;
+import com.dida.first.entity.MarketBean;
 
 /**
  * @author		KingJA 

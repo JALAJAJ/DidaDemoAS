@@ -8,8 +8,8 @@ import java.util.List;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.ShopCarOutterBean;
-import com.dida.first.bean.ShopCarOutterBean.ShopCarInnerBean;
+import com.dida.first.entity.ShopCarOutterBean;
+import com.dida.first.entity.ShopCarOutterBean.ShopCarInnerBean;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.ShopCarOutterHolder;
 import com.dida.first.utils.ToastUtil;

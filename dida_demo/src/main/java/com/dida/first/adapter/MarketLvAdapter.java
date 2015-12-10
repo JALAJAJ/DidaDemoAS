@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 
 import com.dida.first.R;
 import com.dida.first.activity.Detail_Market_Activity;
-import com.dida.first.bean.MarketBean;
+import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.view.AbsListView.MyGridView;

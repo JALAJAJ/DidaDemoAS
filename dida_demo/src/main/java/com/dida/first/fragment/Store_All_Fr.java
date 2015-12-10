@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanPinGouGroup;
+import com.dida.first.entity.BeanPinGouGroup;
 import com.dida.first.utils.UIUtils;
 
 import java.util.ArrayList;

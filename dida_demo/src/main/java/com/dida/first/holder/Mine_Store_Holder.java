@@ -6,7 +6,7 @@ package com.dida.first.holder;
 import android.view.View;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanStores;
+import com.dida.first.entity.BeanStores;
 import com.dida.first.utils.UIUtils;
 
 /**

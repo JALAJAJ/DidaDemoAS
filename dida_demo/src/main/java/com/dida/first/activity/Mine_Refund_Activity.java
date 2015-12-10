@@ -10,8 +10,7 @@ import android.view.View;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.bean.BeanParam;
-import com.dida.first.bean.BeanRefund;
+import com.dida.first.entity.BeanRefund;
 import com.dida.first.holder.BaseHolder;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 

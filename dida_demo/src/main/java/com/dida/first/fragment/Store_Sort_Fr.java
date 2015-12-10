@@ -18,8 +18,8 @@ import android.widget.TextView;
 
 import com.dida.first.interfaces.OnClickSortListener;
 import com.dida.first.R;
-import com.dida.first.bean.BeanPinGouGroup;
-import com.dida.first.bean.BeanSortButton;
+import com.dida.first.entity.BeanPinGouGroup;
+import com.dida.first.entity.BeanSortButton;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.view.FlowLayout;
 import com.dida.first.view.MyGridViewTextView;

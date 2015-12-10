@@ -20,7 +20,7 @@ import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.dida.first.R;
 import com.dida.first.application.App;
-import com.dida.first.bean.BeanSms;
+import com.dida.first.entity.BeanSms;
 import com.dida.first.textwatcher.MyTextWatcher;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.UrlUtil;

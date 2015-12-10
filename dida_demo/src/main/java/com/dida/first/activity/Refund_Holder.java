@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.bean.BeanRefund;
+import com.dida.first.entity.BeanRefund;
 import com.dida.first.holder.BaseHolder;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;

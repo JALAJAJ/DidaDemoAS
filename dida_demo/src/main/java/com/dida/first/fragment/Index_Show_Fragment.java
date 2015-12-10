@@ -14,7 +14,7 @@ import com.dida.first.R;
 import com.dida.first.activity.Detail_Market_Activity;
 import com.dida.first.activity.Publish_Activity;
 import com.dida.first.adapter.MyBaseListViewAdapter;
-import com.dida.first.bean.ShaiDanItemBean;
+import com.dida.first.entity.ShaiDanItemBean;
 import com.dida.first.interfaces.OnCheckListener;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;

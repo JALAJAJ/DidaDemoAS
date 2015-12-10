@@ -216,6 +216,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 if (yaoyueFragment == null) {
                     // 如果yaoyueFragment为空，则创建一个并添加到界面上
                     yaoyueFragment = new Index_Pingou_Fragment();
+//                    yaoyueFragment.doThing();
                     transaction.add(R.id.fl_main_content, yaoyueFragment);
                 } else {
                     // 如果yaoyueFragment不为空，则直接将它显示出来

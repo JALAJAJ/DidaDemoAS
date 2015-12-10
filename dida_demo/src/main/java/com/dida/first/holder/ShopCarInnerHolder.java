@@ -4,11 +4,10 @@
 package com.dida.first.holder;
 
 import com.dida.first.R;
-import com.dida.first.bean.ShopCarOutterBean.ShopCarInnerBean;
+import com.dida.first.entity.ShopCarOutterBean.ShopCarInnerBean;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
