@@ -153,6 +153,12 @@ public class Store_All_Fr extends Fragment_Base_Nomal {
         }
 
     }
+
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
     public void reSet(){
         tv_sort_all.setTextColor(getResources().getColor(R.color.black));
         tv_sort_count.setTextColor(getResources().getColor(R.color.black));

@@ -35,28 +35,22 @@ import java.util.Map;
 
 public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements AdapterView.OnItemClickListener{
     private boolean hasInitHead;//初始化轮播图
-    private boolean mHasMore = true;//有无更多
-    private int mInitPager = 1;//初始化页面Position
-    private static final int RES_REFRESH = 0;//刷新
-    private static final int RES_MORE = 1;//加载更多
-    private static final int RES_ERROR = -1;//错误
-    private static final int RES_NOMORE = -3;//没有更多
+//    private int mInitPager = 1;//初始化页面Position
     private static final String TAG = "Index_Pingou_Fragment";
     private List<PingouBean.ResEntity.QueryListEntity> queryList = new ArrayList<PingouBean.ResEntity.QueryListEntity>();
     private List<PingouBean.ResEntity.TaskAdvertiseEntity> taskAdvertise = new ArrayList<PingouBean.ResEntity.TaskAdvertiseEntity>();
     private PullToRefreshListView plv_pingou;
     private PingouLvAdapter pingouLvAdapter;
     private RelativeLayout rl_loading;
-    private Handler mHandle=new Handler(){
+    private Handler mHandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             //关闭刷新
             setRefreshComplete();
             switch (msg.what) {
                 case RES_REFRESH:
+                    mLoadingAndRetryManager.showContent();
                     ToastUtil.showMyToast("更新数据 page=" + mInitPager + " 数据量=" + queryList.size());
-                    //隐藏加载进度条
-                    rl_loading.setVisibility(rl_loading.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
                     mInitPager = 1;
                     //避免多次加Head
                     if (!hasInitHead) {
@@ -71,6 +65,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
                     break;
                 case RES_ERROR:
                     ToastUtil.showMyToast("服务器被都敏俊拐走了！");
+                    mLoadingAndRetryManager.showRetry();
                     break;
                 case RES_NOMORE:
                     ToastUtil.showMyToast("更多商品敬请期待！");
@@ -85,7 +80,6 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
     @Override
     public View setFragmentView() {
         view = View.inflate(context, R.layout.fr_pingou, null);
-        rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
         return view;
     }
 
@@ -96,7 +90,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
 
     @Override
     public void initFragmentNet() {
-
+        mLoadingAndRetryManager.showLoading();
     }
 
     @Override
@@ -118,6 +112,12 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
     public void onChildClick(View v) {
 
     }
+
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
     /**
      * 刷新结束，隐藏刷新布局
      */
@@ -144,7 +144,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
             if (mHasMore) {
                 refresh(++mInitPager, RES_MORE);
             } else {
-                mHandle.sendEmptyMessage(RES_NOMORE);
+                mHandler.sendEmptyMessage(RES_NOMORE);
             }
         }
     };
@@ -182,15 +182,15 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
                 if (requestCode == RES_MORE && queryList.isEmpty()) {
                     ToastUtil.showMyToast("没有更多商品");
                     mHasMore = false;
-                    mHandle.sendEmptyMessage(RES_NOMORE);
+                    mHandler.sendEmptyMessage(RES_NOMORE);
                 }
-                mHandle.sendEmptyMessage(requestCode);
+                mHandler.sendEmptyMessage(requestCode);
                
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-
+                mHandler.sendEmptyMessage(RES_ERROR);
             }
         }) {
             @Override

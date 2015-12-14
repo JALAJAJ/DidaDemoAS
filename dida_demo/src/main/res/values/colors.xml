@@ -25,7 +25,7 @@
     <color name="blue_deep">#003455</color>
     <color name="blue_light">#328fca</color>
    <!-- <color name="gray">#EBEBEB</color>-->
-    <color name="gray">#f6f4f7</color>
+    <color name="gray_tip">#999999</color>
     <color name="blue_font">#61749B</color>
     <color name="gray_comment">#EDEDED</color>
     <color name="gray_divider">#dadada</color>
@@ -35,10 +35,10 @@
     <color name="transparency_70">#B3000000</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_light">#eeeeee</color>
-    <color name="red">#e95a5e</color>
+    <color name="red">#ff5a5f</color>
     <color name="red_deep">#be4649</color>
     <color name="red_light">#e79d9f</color>
-    <color name="black">#000000</color>
+    <color name="black">#333333</color>
     <color name="black_light">#26292e</color>
     <color name="white">#ffffff</color>
     <color name="green">#86c143</color>

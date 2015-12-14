@@ -295,7 +295,7 @@
     <eat-comment/>
     <color name="bg_gray">#e1e1e1</color>
     <color name="bg_root">#E5E5E5</color>
-    <color name="black">#000000</color>
+    <color name="black">#333333</color>
     <color name="black_bg">#262a2e</color>
     <color name="black_light">#26292e</color>
     <color name="blue_deep">#003455</color>
@@ -369,11 +369,11 @@
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="glass_gall">#c2ebef</color>
-    <color name="gray">#f6f4f7</color>
     <color name="gray_comment">#EDEDED</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_divider">#dadada</color>
     <color name="gray_light">#eeeeee</color>
+    <color name="gray_tip">#999999</color>
     <color name="green">#86c143</color>
     <color name="half_transparency">#4A000000</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
@@ -431,7 +431,7 @@
     <color name="rc_voice_color">#0195ff</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="red">#e95a5e</color>
+    <color name="red">#ff5a5f</color>
     <color name="red_deep">#be4649</color>
     <color name="red_light">#e79d9f</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
@@ -889,6 +889,10 @@
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="take_photo">拍照</string>
+    <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/DidaDemoAS/loadlibrary/unspecified/res/values/values.xml -->
+    <eat-comment/>
+    <string name="title_activity_category">CategoryActivity</string>
+    <string name="title_activity_fragment_test">FragmentTestActivity</string>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
@@ -2397,17 +2401,17 @@
     <eat-comment/>
     <style name="black_10">
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_12">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_12_line1">
          <item name="android:maxLines">1</item>
            <item name="android:ellipsize">end</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_12_line8">
         <item name="android:textSize">12sp</item>
@@ -2417,33 +2421,33 @@
     </style>
     <style name="black_14">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_14_line1">
          <item name="android:maxLines">1</item>
            <item name="android:ellipsize">end</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_14_line2">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
     </style>
     <style name="black_14_line4">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:maxLines">4</item>
         <item name="android:ellipsize">end</item>
     </style>
     <style name="black_16">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_18">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="black_light_12_line1">
          <item name="android:maxLines">1</item>
@@ -2480,7 +2484,7 @@
     <style name="divider_gray_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_tip</item>
     </style>
     <style name="divider_nomal_horizontal">
         <item name="android:layout_width">match_parent</item>
@@ -2511,45 +2515,45 @@
     <eat-comment/>
     <style name="gray_10">
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
     </style>
     <style name="gray_10_line2">
         <item name="android:textSize">10sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
     </style>
     <style name="gray_12">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
     </style>
     <style name="gray_12_line1">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
     </style>
     <style name="gray_12_line2">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
          <item name="android:maxLines">2</item>
            <item name="android:ellipsize">end</item>
     </style>
     <style name="gray_12_line8">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
         <item name="android:maxLines">8</item>
            <item name="android:ellipsize">end</item>
     </style>
     <style name="gray_14">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/gray_deep</item>
+        <item name="android:textColor">@color/gray_tip</item>
     </style>
     <style name="item_content_black">
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">8</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="item_content_gray">
         <item name="android:ellipsize">end</item>
@@ -2565,7 +2569,7 @@
     </style>
     <style name="item_price_black">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="item_price_gray">
         <item name="android:textSize">14sp</item>
@@ -2625,21 +2629,21 @@
     <eat-comment/>
     <style name="white_12">
         <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="white_14">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="white_14_line1">
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="white_16">
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="yellow_14">
         <item name="android:textSize">14sp</item>

@@ -50,4 +50,9 @@ public class Fav_Product_Group extends Fragment_Base_Nomal {
 
 	}
 
+	@Override
+	public void setMyRetryEvent(View retryView) {
+
+	}
+
 }

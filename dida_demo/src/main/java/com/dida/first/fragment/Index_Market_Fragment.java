@@ -40,6 +40,11 @@ public class Index_Market_Fragment extends Fragment_Base_Nomal {
 
     }
 
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
     /**
      * 选择对应的Fragment
      */

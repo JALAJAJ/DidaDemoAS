@@ -89,6 +89,11 @@ public class Store_Home_Fr extends Fragment_Base_Nomal {
 
     }
 
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

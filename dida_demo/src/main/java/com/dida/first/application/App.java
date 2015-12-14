@@ -8,12 +8,14 @@ import android.os.Handler;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.dida.first.R;
 import com.dida.first.rongyun.RongYunEvent;
 import com.dida.first.utils.CustomConstants;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.zhy.base.loadandretry.LoadingAndRetryManager;
 
 import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
@@ -34,6 +36,8 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		//初始化LoadPager
+		initLoadPager();
 		//初始化Android-Universal-Image-Loader
 		initImageLoader(getApplicationContext());
 		// 初始化融云
@@ -53,6 +57,12 @@ public class App extends Application {
 		// SharedPreferences
 		sp = getSharedPreferences(CustomConstants.APPLICATION_NAME,
 				MODE_PRIVATE);
+	}
+
+	private void initLoadPager() {
+		LoadingAndRetryManager.BASE_RETRY_LAYOUT_ID = R.layout.base_retry;
+		LoadingAndRetryManager.BASE_LOADING_LAYOUT_ID = R.layout.base_loading;
+		LoadingAndRetryManager.BASE_EMPTY_LAYOUT_ID = R.layout.base_empty;
 	}
 
 	/**

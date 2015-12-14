@@ -58,6 +58,11 @@ public class My_PinGou_Group_Fr extends Fragment_Base_Nomal {
 
 	}
 
+	@Override
+	public void setMyRetryEvent(View retryView) {
+
+	}
+
 	class MyAdapter extends MyBaseAdapter<BeanPinGouGroup>{
 
 		public MyAdapter(List<BeanPinGouGroup> list) {

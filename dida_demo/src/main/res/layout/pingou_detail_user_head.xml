@@ -378,9 +378,9 @@
                     android:layout_height="wrap_content"
                     android:text="目标" />
 
-                <com.dida.first.view.DeadlineTextView
+                <TextView
                     android:id="@+id/tv_pingou_user_detail_head_subject"
-                    style="@style/black_14"
+                    style="@style/red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50" />
@@ -398,7 +398,7 @@
                     android:layout_marginLeft="10dp"
                     android:text="仅剩" />
 
-                <com.dida.first.view.DeadlineTextView
+                <TextView
                     android:id="@+id/tv_pingou_user_detail_head_left"
                     style="@style/red_14"
                     android:layout_width="wrap_content"

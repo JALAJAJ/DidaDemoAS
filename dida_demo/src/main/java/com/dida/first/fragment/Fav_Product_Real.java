@@ -60,6 +60,11 @@ public class Fav_Product_Real extends Fragment_Base_Nomal {
 
 	}
 
+	@Override
+	public void setMyRetryEvent(View retryView) {
+
+	}
+
 	class MyAdapter extends MyBaseAdapter<BeanProduct>{
 		public MyAdapter(List<BeanProduct> list) {
 			super(list);

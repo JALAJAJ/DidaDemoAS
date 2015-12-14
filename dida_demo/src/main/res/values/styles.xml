@@ -72,7 +72,7 @@
     <style name="divider_gray_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
-        <item name="android:background">@color/gray</item>
+        <item name="android:background">@color/gray_tip</item>
     </style>
 
     <style name="divider_red_horizontal">

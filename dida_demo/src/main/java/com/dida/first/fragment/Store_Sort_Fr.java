@@ -145,6 +145,11 @@ public class Store_Sort_Fr extends Fragment_Base_Nomal implements OnClickSortLis
 
     }
 
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
     private void expand() {
         if (isOpen) {
             //            展开=>关闭

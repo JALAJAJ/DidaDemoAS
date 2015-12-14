@@ -30,12 +30,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
     private MarketLvAdapter marketLvAdapter;
     private RelativeLayout rl_loading;
     private boolean hasInitHead;//初始化轮播图
-    private boolean mHasMore = true;//有无更多
-    private static final int NET_REFRESH = 0;//刷新
-    private static final int NET_MORE = 1;//加载更多
-    private static final int NET_ERROR = -1;//错误
-    private static final int NET_NOMORE = -3;//没有更多
-    private int mInitPager = 1;//初始化页面Position
     private PullToRefreshListView plv;
     private List<MarketBean.ResEntity.ProductAdsEntity> productAds = new ArrayList<MarketBean.ResEntity.ProductAdsEntity>();
     private List<MarketBean.ResEntity.ProductsEntity.StEntity> realProList = new ArrayList<MarketBean.ResEntity.ProductsEntity.StEntity>();
@@ -44,7 +38,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
             //关闭刷新
             setRefreshComplete();
             switch (msg.what) {
-                case NET_REFRESH:
+                case RES_REFRESH:
                     mInitPager = 1;
                     ToastUtil.showMyToast("更新数据 page=" + mInitPager + " 数据量=" + realProList.size());
                     //隐藏加载进度条
@@ -56,14 +50,15 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
                     }
                     marketLvAdapter.setData(realProList);
                     break;
-                case NET_MORE:
+                case RES_MORE:
                     ToastUtil.showMyToast("加载更多数据 page=" + mInitPager + " 数据量=" + realProList.size());
                     marketLvAdapter.addData(realProList);
                     break;
-                case NET_ERROR:
+                case RES_ERROR:
+                    rl_loading.setVisibility(rl_loading.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
                     ToastUtil.showMyToast("服务器被都敏俊拐走了！");
                     break;
-                case NET_NOMORE:
+                case RES_NOMORE:
                     ToastUtil.showMyToast("更多商品敬请期待！");
                     break;
                 default:
@@ -98,7 +93,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     @Override
     public void initFragmentData() {
-        refresh(1, NET_REFRESH);
+        refresh(1, RES_REFRESH);
     }
 
     /**
@@ -118,7 +113,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
         @Override
         public void onPullDownToRefresh(
                 PullToRefreshBase<ListView> refreshView) {
-            refresh(1, NET_REFRESH);
+            refresh(1, RES_REFRESH);
 
         }
 
@@ -126,9 +121,9 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
         public void onPullUpToRefresh(
                 PullToRefreshBase<ListView> refreshView) {
             if (mHasMore) {
-                refresh(++mInitPager, NET_MORE);
+                refresh(++mInitPager, RES_MORE);
             } else {
-                handler.sendEmptyMessage(NET_NOMORE);
+                handler.sendEmptyMessage(RES_NOMORE);
             }
         }
     };
@@ -154,6 +149,11 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     }
 
+    @Override
+    public void setMyRetryEvent(View retryView) {
+
+    }
+
     /**
      * 刷洗·加载 网络操作
      *
@@ -167,10 +167,10 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
                 MarketBean marketBean = GsonUtil.json2Bean(s, MarketBean.class);
                 productAds = marketBean.getRes().getProductAds();
                 realProList = marketBean.getRes().getProducts().getSt();
-                if (requestCode == NET_MORE && realProList.isEmpty()) {
+                if (requestCode == RES_MORE && realProList.isEmpty()) {
                     ToastUtil.showMyToast("没有更多商品");
                     mHasMore = false;
-                    handler.sendEmptyMessage(NET_NOMORE);
+                    handler.sendEmptyMessage(RES_NOMORE);
                 }
                 handler.sendEmptyMessage(requestCode);
 
@@ -178,7 +178,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                handler.sendEmptyMessage(NET_ERROR);
+                handler.sendEmptyMessage(RES_ERROR);
             }
         }) {
             @Override
