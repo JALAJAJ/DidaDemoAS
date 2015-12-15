@@ -18,6 +18,8 @@ public class UrlUtil {
     public final static String PINGOU_IF_COLLECT = "/collection/isTaskCollection.do";//拼购判断是否收藏
    /*==============================================晒单==============================================*/
    public final static String SHOW_LIST = "/prepayorder/getPrepayOrders.do";//晒单列表
+   public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
+   public final static String SHOW_PUBLISH = "/group/saveGroup.do";//晒单发布
 
     public final static String REGISTER_SMS = "/collection/deleteProduct.do";
 }

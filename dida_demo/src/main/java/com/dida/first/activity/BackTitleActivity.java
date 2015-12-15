@@ -10,8 +10,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.dida.first.R;
 import com.dida.first.utils.ToastUtil;
+import com.zhy.base.loadandretry.LoadingAndRetryManager;
+import com.zhy.base.loadandretry.OnLoadingAndRetryListener;
 
 /**
  * 
@@ -22,6 +26,11 @@ import com.dida.first.utils.ToastUtil;
  */
 public abstract class BackTitleActivity extends FragmentActivity  implements
 		OnClickListener {
+	protected static final int RES_REFRESH = 0;//刷新
+	protected static final int RES_MORE = 1;//加载更多
+	protected static final int RES_ERROR = -1;//错误
+	protected static final int RES_NOMORE = -3;//没有更多
+	protected boolean mHasMore = true;//有无更多
 	protected View view;
 	private ImageView iv_top_back_left;
 	private ImageView iv_top_back_right;
@@ -30,12 +39,17 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	private TextView tv_top_back_right_title;
 	private LinearLayout ll_title_num;
 	private OnTextClickListener onTextClickListener;
+	protected RequestQueue mQueue;
+	protected LoadingAndRetryManager mLoadingAndRetryManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mQueue = Volley.newRequestQueue(this);
+
 		doBeforeSetContentView();
 		setContentView(R.layout.top_back);
+		initLoadPager();
 		view = setView();
 		initTopView();
 		initView();
@@ -44,6 +58,17 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 
 		initData();
 
+	}
+
+	private void initLoadPager() {
+		mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
+		{
+			@Override
+			public void setRetryEvent(View retryView)
+			{
+				setMyRetryEvent(retryView);
+			}
+		});
 	}
 
 	protected void doBeforeSetContentView() {
@@ -139,4 +164,5 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	public abstract void onChildClick(View v);
 
 	public abstract void setBackClick();
+	public  void setMyRetryEvent(View retryView){}
 }
