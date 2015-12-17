@@ -6,16 +6,14 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.dida.first.R;
 import com.dida.first.adapter.MarketLvAdapter;
 import com.dida.first.entity.MarketBean;
-import com.dida.first.utils.GsonUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UrlUtil;
+import com.dida.first.utils.VolleyGsonRequest;
 import com.dida.first.view.AutoLunBoTu;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -32,30 +30,30 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
     private boolean hasInitHead;//初始化轮播图
     private PullToRefreshListView plv;
     private List<MarketBean.ResEntity.ProductAdsEntity> productAds = new ArrayList<MarketBean.ResEntity.ProductAdsEntity>();
-    private List<MarketBean.ResEntity.ProductsEntity.StEntity> realProList = new ArrayList<MarketBean.ResEntity.ProductsEntity.StEntity>();
-    private Handler handler = new Handler() {
+    private List<MarketBean.ResEntity.ProductsEntity> products = new ArrayList<MarketBean.ResEntity.ProductsEntity>();
+    private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             //关闭刷新
             setRefreshComplete();
             switch (msg.what) {
                 case RES_REFRESH:
+                    mLoadingAndRetryManager.showContent();
                     mInitPager = 1;
-                    ToastUtil.showMyToast("更新数据 page=" + mInitPager + " 数据量=" + realProList.size());
+                    ToastUtil.showMyToast("更新数据 page=" + mInitPager + " 数据量=" + products.size());
                     //隐藏加载进度条
-                    rl_loading.setVisibility(rl_loading.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
                     //避免多次加Head
                     if (!hasInitHead) {
                         addLVHead(productAds);
                         hasInitHead = true;
                     }
-                    marketLvAdapter.setData(realProList);
+                    marketLvAdapter.setData(products);
                     break;
                 case RES_MORE:
-                    ToastUtil.showMyToast("加载更多数据 page=" + mInitPager + " 数据量=" + realProList.size());
-                    marketLvAdapter.addData(realProList);
+                    ToastUtil.showMyToast("加载更多数据 page=" + mInitPager + " 数据量=" + products.size());
+                    marketLvAdapter.addData(products);
                     break;
                 case RES_ERROR:
-                    rl_loading.setVisibility(rl_loading.getVisibility() == View.VISIBLE ? View.GONE : View.GONE);
+                    mLoadingAndRetryManager.showRetry();
                     ToastUtil.showMyToast("服务器被都敏俊拐走了！");
                     break;
                 case RES_NOMORE:
@@ -82,11 +80,12 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     @Override
     public void initFragmentNet() {
+        mLoadingAndRetryManager.showLoading();
     }
 
     @Override
     public void initFragmentEvent() {
-        marketLvAdapter = new MarketLvAdapter(realProList, getActivity());
+        marketLvAdapter = new MarketLvAdapter(products, getActivity());
         plv.setAdapter(marketLvAdapter);
         plv.setOnRefreshListener(onRefreshListener);
     }
@@ -123,7 +122,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
             if (mHasMore) {
                 refresh(++mInitPager, RES_MORE);
             } else {
-                handler.sendEmptyMessage(RES_NOMORE);
+                mHandler.sendEmptyMessage(RES_NOMORE);
             }
         }
     };
@@ -144,7 +143,7 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     @Override
     public void onChildClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
         }
 
     }
@@ -161,37 +160,33 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
      * @param requestCode
      */
     private void refresh(final int page, final int requestCode) {
-        StringRequest http = new StringRequest(Request.Method.POST, UrlUtil.HOST + UrlUtil.MARKET_LIST, new Response.Listener<String>() {
+        VolleyGsonRequest<MarketBean> pingouRequest = new VolleyGsonRequest<MarketBean>(UrlUtil.HOST + UrlUtil.MARKET_LIST, MarketBean.class, new Response.Listener<MarketBean>() {
             @Override
-            public void onResponse(String s) {
-                MarketBean marketBean = GsonUtil.json2Bean(s, MarketBean.class);
-                productAds = marketBean.getRes().getProductAds();
-                realProList = marketBean.getRes().getProducts().getSt();
-                if (requestCode == RES_MORE && realProList.isEmpty()) {
+            public void onResponse(MarketBean bean) {
+                productAds = bean.getRes().getProductAds();
+                products = bean.getRes().getProducts();
+                if (requestCode == RES_MORE && products.isEmpty()) {
                     ToastUtil.showMyToast("没有更多商品");
                     mHasMore = false;
-                    handler.sendEmptyMessage(RES_NOMORE);
+                    mHandler.sendEmptyMessage(RES_NOMORE);
                 }
-                handler.sendEmptyMessage(requestCode);
-
+                mHandler.sendEmptyMessage(requestCode);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                handler.sendEmptyMessage(RES_ERROR);
+                mHandler.sendEmptyMessage(RES_ERROR);
             }
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
-                map.put("app", "1");
                 map.put("type", "1");
                 map.put("page", page + "");
+                map.put("app", "1");
                 return map;
             }
         };
-
-        mQueue.add(http);
-
+        mQueue.add(pingouRequest);
     }
 }

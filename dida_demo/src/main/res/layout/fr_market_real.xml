@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/gray_light"
+    >
 <com.handmark.pulltorefresh.library.PullToRefreshListView
         xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/plv_market_real"
@@ -15,5 +17,4 @@
         ptr:ptrMode="both"
         ptr:ptrScrollingWhileRefreshingEnabled="false" />
 
-<include layout="@layout/include_loading"/>
 </RelativeLayout>

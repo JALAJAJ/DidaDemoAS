@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ import com.zhy.base.loadandretry.OnLoadingAndRetryListener;
  *
  */
 public abstract class Fragment_Base_Nomal extends Fragment implements View.OnClickListener{
-	private static final String TAG = "Fragment_Base_Nomal";
+	static final String TAG = "Fragment_Base_Nomal";
 	protected int mInitPager = 1;//初始化页面Position
 	protected static final int RES_REFRESH = 0;//刷新
 	protected static final int RES_MORE = 1;//加载更多
@@ -66,7 +65,6 @@ public abstract class Fragment_Base_Nomal extends Fragment implements View.OnCli
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		Log.i(TAG, "onViewCreated: ");
 		mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
 		{
 			@Override
@@ -75,7 +73,7 @@ public abstract class Fragment_Base_Nomal extends Fragment implements View.OnCli
 				setMyRetryEvent(retryView);
 			}
 		});
-//		mLoadingAndRetryManager.showContent();
+		mLoadingAndRetryManager.showContent();
 	}
 
 	public abstract View setFragmentView();

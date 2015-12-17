@@ -243,17 +243,17 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
         if (adsLunBoTu!=null){
                 adsLunBoTu.startRoll();
         }
-        Log.i(TAG, "onStart: ");
+//        Log.i(TAG, "onStart: ");
     }
     @Override
     public void onResume() {
         super.onResume();
-        Log.i(TAG, "onResume: ");
+//        Log.i(TAG, "onResume: ");
     }
     @Override
     public void onStop() {
         super.onStop();
-        Log.i(TAG, "onStop: ");
+//        Log.i(TAG, "onStop: ");
         if (adsLunBoTu!=null){
             adsLunBoTu.stopRoll();
         }
@@ -262,7 +262,7 @@ public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements Adapte
     @Override
     public void onPause() {
         super.onPause();
-        Log.i(TAG, "onPause: ");
+//        Log.i(TAG, "onPause: ");
     }
 
     @Override

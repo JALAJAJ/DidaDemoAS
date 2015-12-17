@@ -17,11 +17,11 @@ import com.dida.first.utils.UImageLoaderUitl;
 import java.util.List;
 
 public class MarketGvAdapter extends BaseAdapter {
-    private List<MarketBean.ResEntity.ProductsEntity.StEntity> list;
+    private List<MarketBean.ResEntity.ProductsEntity> list;
     private Context context;
     private LinearLayout.LayoutParams param;
 
-    public MarketGvAdapter(List<MarketBean.ResEntity.ProductsEntity.StEntity> list, Context context) {
+    public MarketGvAdapter(List<MarketBean.ResEntity.ProductsEntity> list, Context context) {
         WindowManager manager = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
@@ -69,7 +69,7 @@ public class MarketGvAdapter extends BaseAdapter {
         viewHolder.tvmarketitemtitle.setText(list.get(position).getName());
         viewHolder.tvmarketitemprice.setText(list.get(position).getPrice() + "");
         viewHolder.tvmarketitemcount.setText(list.get(position).getSalesCount()+"");
-        UImageLoaderUitl.displayLvMidImage(list.get(position).getThumb(),viewHolder.ivmarketitemimg);
+        UImageLoaderUitl.displayLvMidImage(list.get(position).getMobileThumb(),viewHolder.ivmarketitemimg);
         return convertView;
     }
 

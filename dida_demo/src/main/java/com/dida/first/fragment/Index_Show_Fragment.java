@@ -181,7 +181,7 @@ public class Index_Show_Fragment extends Fragment_Base_Nomal implements
             @Override
             public void onResponse(ShowBean res) {
                 prepayOrderList = res.getRes().getPrepayOrderList();
-                Log.i(TAG, "onResponse: "+prepayOrderList.size());
+//                Log.i(TAG, "onResponse: "+prepayOrderList.size());
                 if (requestCode == RES_MORE && prepayOrderList.isEmpty()) {
                     ToastUtil.showMyToast("没有更多商品");
                     mHasMore = false;

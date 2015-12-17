@@ -17,11 +17,11 @@ import com.dida.first.view.AbsListView.MyGridView;
 import java.util.List;
 
 public class MarketLvAdapter extends BaseAdapter {
-    private List<MarketBean.ResEntity.ProductsEntity.StEntity> list;
+    private List<MarketBean.ResEntity.ProductsEntity> list;
     private Activity activity;
     private MyGridView gv_item_market;
 
-    public MarketLvAdapter(List<MarketBean.ResEntity.ProductsEntity.StEntity> list, Activity activity) {
+    public MarketLvAdapter(List<MarketBean.ResEntity.ProductsEntity> list, Activity activity) {
         this.list = list;
         this.activity = activity;
     }
@@ -41,7 +41,7 @@ public class MarketLvAdapter extends BaseAdapter {
         return 0;
     }
 
-    public void addData(List<MarketBean.ResEntity.ProductsEntity.StEntity> list) {
+    public void addData(List<MarketBean.ResEntity.ProductsEntity> list) {
         this.list.addAll(list);
         this.notifyDataSetChanged();
     }

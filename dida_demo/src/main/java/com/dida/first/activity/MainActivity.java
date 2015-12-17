@@ -56,21 +56,33 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private TextView tv_tab_wode;
     private Index_Pingou_Fragment yaoyueFragment;
     private Index_Market_Fragment xianggouFragment;
-    private com.dida.first.fragment.Index_Show_Fragment Index_Show_Fragment;
+    private Index_Show_Fragment index_Show_Fragment;
     private Index_Mine_Fragment indexMineFragment;
+    private FragmentTransaction transaction;
+    private int mCurrentIndex=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
-        registerDateTransReceiver();
         mFragmentManager = getSupportFragmentManager();
+        if (savedInstanceState != null) {
+            mCurrentIndex= savedInstanceState.getInt("currentIndex");
+            Log.i(TAG, "savedInstanceState: "+mCurrentIndex);
+            yaoyueFragment = (Index_Pingou_Fragment) mFragmentManager.findFragmentByTag("PINGOU");
+            xianggouFragment = (Index_Market_Fragment) mFragmentManager.findFragmentByTag("MARKET");
+            index_Show_Fragment = (Index_Show_Fragment) mFragmentManager.findFragmentByTag("SHOW");
+            indexMineFragment = (Index_Mine_Fragment) mFragmentManager.findFragmentByTag("MINE");
+        }
+        registerDateTransReceiver();
         initView();
         initEvent();
         initData();
-        ActivityManager manager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         int heapSize = manager.getMemoryClass();
-        Log.i(TAG, "heapSize: "+heapSize);
+        Log.i(TAG, "onCreate: " + heapSize);
+
+
     }
 
     @Override
@@ -78,7 +90,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onTrimMemory(level);
         switch (level) {
             case TRIM_MEMORY_UI_HIDDEN:
-                Log.i(TAG, "onTrimMemory: ");  
+                Log.i(TAG, "onTrimMemory: ");
                 break;
         }
     }
@@ -115,7 +127,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      * 初始化布局
      */
     public void initData() {
-        setTab(0);
+        setTab(mCurrentIndex);
     }
 
 
@@ -203,23 +215,23 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      */
     // TODO 需要重构
     private void setTab(int position) {
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        transaction = mFragmentManager.beginTransaction();
         // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
         hideFragments(transaction);
         // clearPopuWindow();
         resetState();
+        mCurrentIndex=position;
         switch (position) {
             case 0:
                 iv_tab_yaoyue.setBackgroundResource(R.drawable.yaoyue_selected);
                 tv_tab_yaoyue.setTextColor(getResources().getColor(
                         R.color.red));
                 if (yaoyueFragment == null) {
-                    // 如果yaoyueFragment为空，则创建一个并添加到界面上
+                    Log.i(TAG, "yaoyueFragment == null");
                     yaoyueFragment = new Index_Pingou_Fragment();
-//                    yaoyueFragment.doThing();
-                    transaction.add(R.id.fl_main_content, yaoyueFragment);
+                    transaction.add(R.id.fl_main_content, yaoyueFragment,"PINGOU");
                 } else {
-                    // 如果yaoyueFragment不为空，则直接将它显示出来
+                    Log.i(TAG, "show(yaoyueFragment)");
                     transaction.show(yaoyueFragment);
                 }
                 break;
@@ -228,9 +240,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 tv_tab_xianggou.setTextColor(getResources().getColor(
                         R.color.red));
                 if (xianggouFragment == null) {
+                    Log.i(TAG, "xianggouFragment == null");
                     xianggouFragment = new Index_Market_Fragment();
-                    transaction.add(R.id.fl_main_content, xianggouFragment);
+                    transaction.add(R.id.fl_main_content, xianggouFragment,"MARKET");
                 } else {
+                    Log.i(TAG, "show(xianggouFragment)");
                     transaction.show(xianggouFragment);
                 }
                 break;
@@ -238,13 +252,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 iv_tab_saidan.setBackgroundResource(R.drawable.saidan_sel);
                 tv_tab_saidan.setTextColor(getResources().getColor(
                         R.color.red));
-                if (Index_Show_Fragment == null) {
-                    // 如果ShaidanFragment为空，则创建一个并添加到界面上
-                    Index_Show_Fragment = new Index_Show_Fragment();
-                    transaction.add(R.id.fl_main_content, Index_Show_Fragment);
+                if (index_Show_Fragment == null) {
+                    index_Show_Fragment = new Index_Show_Fragment();
+                    transaction.add(R.id.fl_main_content, index_Show_Fragment,"SHOW");
                 } else {
-                    // 如果ShaidanFragment不为空，则直接将它显示出来
-                    transaction.show(Index_Show_Fragment);
+                    transaction.show(index_Show_Fragment);
                 }
                 break;
             case 3:
@@ -253,7 +265,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         R.color.red));
                 if (indexMineFragment == null) {
                     indexMineFragment = new Index_Mine_Fragment();
-                    transaction.add(R.id.fl_main_content, indexMineFragment);
+                    transaction.add(R.id.fl_main_content, indexMineFragment,"MINE");
                 } else {
                     transaction.show(indexMineFragment);
                 }
@@ -283,6 +295,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     /**
      * 隐藏所有Fragment
+     *
      * @param transaction
      */
     private void hideFragments(FragmentTransaction transaction) {
@@ -292,8 +305,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if (xianggouFragment != null) {
             transaction.hide(xianggouFragment);
         }
-        if (Index_Show_Fragment != null) {
-            transaction.hide(Index_Show_Fragment);
+        if (index_Show_Fragment != null) {
+            transaction.hide(index_Show_Fragment);
         }
         if (indexMineFragment != null) {
             transaction.hide(indexMineFragment);
@@ -387,8 +400,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      */
     @Override
     protected void onDestroy() {
+        Log.i(TAG, "onDestroy: ");
         unregisterReceiver(netChanged);
         super.onDestroy();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.i(TAG, "onSaveInstanceState: "+mCurrentIndex);
+        //取消保存状态，防止Fragment重叠
+        outState.putInt("currentIndex",mCurrentIndex);
+        super.onSaveInstanceState(outState);
+    }
 }
