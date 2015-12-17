@@ -60,7 +60,7 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	}
 
 	private void initLoadPager() {
-		mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
+		mLoadingAndRetryManager =  LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
 		{
 			@Override
 			public void setRetryEvent(View retryView)
@@ -68,6 +68,7 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 				setMyRetryEvent(retryView);
 			}
 		});
+		mLoadingAndRetryManager.showContent();
 	}
 
 	protected void doBeforeSetContentView() {

@@ -1,10 +1,5 @@
 package com.dida.first.wheelview;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-
-import com.dida.first.R;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.dida.first.R;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+
 
 /**
  * 日期选择对话框
@@ -20,7 +20,7 @@ import android.widget.TextView;
  * @author ywl
  *
  */
-public class ChangeBirthDialog extends Dialog implements android.view.View.OnClickListener {
+public class ChangeDeadlineDialog extends Dialog implements android.view.View.OnClickListener {
 
 	private Context context;
 	private boolean dayMove;
@@ -60,7 +60,7 @@ public class ChangeBirthDialog extends Dialog implements android.view.View.OnCli
 
 	private OnBirthListener onBirthListener;
 
-	public ChangeBirthDialog(Context context) {
+	public ChangeDeadlineDialog(Context context) {
 		super(context, R.style.ShareDialog);
 		this.context = context;
 	}
@@ -227,22 +227,22 @@ public class ChangeBirthDialog extends Dialog implements android.view.View.OnCli
 	}
 
 	public void initYears() {
-		for (int i = getYear(); i <=getYear()+1; i++) {
+		for (int i = getYear(); i <=getYear(); i++) {
 			arry_years.add(i + "");
 		}
 	}
 
 	public void initMonths(int months) {
 		arry_months.clear();
-		if (months==12) {
-			for (int i = 1; i <= months; i++) {
-				arry_months.add(i + "");
-			}
-		}else {
+//		if (months==12) {
+//			for (int i = 1; i <= months; i++) {
+//				arry_months.add(i + "");
+//			}
+//		}else {
 			for (int i = months; i <= 12; i++) {
 				arry_months.add(i + "");
 			}
-		}
+//		}
 	}
 
 	public void initDays(int days) {
@@ -399,8 +399,7 @@ public class ChangeBirthDialog extends Dialog implements android.view.View.OnCli
 
 	/**
 	 * 设置月份
-	 * 
-	 * @param year
+	 *
 	 * @param month
 	 * @return
 	 */
@@ -421,7 +420,7 @@ public class ChangeBirthDialog extends Dialog implements android.view.View.OnCli
 	 * 计算每月多少天
 	 * 
 	 * @param month
-	 * @param leayyear
+	 * @param year
 	 */
 	public void calDays(int year, int month) {
 		boolean leayyear = false;

@@ -173,6 +173,13 @@
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/gray_tip</item>
     </style>
+
+    <style name="gray_content_12_line2">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
     <style name="black_14_line2">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/black</item>

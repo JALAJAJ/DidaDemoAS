@@ -370,6 +370,7 @@
     <eat-comment/>
     <color name="glass_gall">#c2ebef</color>
     <color name="gray_comment">#EDEDED</color>
+    <color name="gray_content">#666666</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_divider">#dadada</color>
     <color name="gray_light">#eeeeee</color>
@@ -2548,6 +2549,12 @@
     <style name="gray_14">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/gray_tip</item>
+    </style>
+    <style name="gray_content_12_line2">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/gray_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="item_content_black">
         <item name="android:ellipsize">end</item>

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.dida.first.activity;
 
@@ -8,13 +8,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.fragment.My_PinGou_AA_Fr_Bak;
-import com.dida.first.fragment.My_PinGou_Group_Fr;
+import com.dida.first.fragment.MyPingou_Invate_Fragment;
+import com.dida.first.fragment.MyPingou_Join_Fragment;
+import com.dida.first.fragment.MyPingou_Mine_Fragment;
+import com.dida.first.utils.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,161 +27,195 @@ import java.util.List;
  * @author KingJA
  * @data 2015-10-14 下午1:22:21
  * @use
- * 
  */
 public class Mine_PinGou_Activity extends BackTitleActivity {
-	private List<Fragment> fragmentList=new ArrayList<Fragment>();
-	private LinearLayout ll_pingou_group;
-	private LinearLayout ll_pingou_aa;
-	private TextView tv_pingou_group;
-	private TextView tv_pingou_aa;
-	private View iv_pingou_group;
-	private View iv_pingou_aa;
-	private ViewPager vp_mine_pingou;
+    private static final String TAG = "Mine_PinGou_Activity";
+    private ViewPager vp_mine_mypingou;
+    private FrameLayout fl_mypingou_tab;
 
-	@Override
-	public View setView() {
-		view=View.inflate(Mine_PinGou_Activity.this, R.layout.activity_mine_pingou, null);
-		return view;
-	}
+    private TextView tv__mypingou_mime;
+    private TextView tv__mypingou_join;
+    private TextView tv__mypingou_invate;
 
-	@Override
-	public void initView() {
-		ll_pingou_group = (LinearLayout) view.findViewById(R.id.ll_pingou_group);
-		ll_pingou_aa = (LinearLayout) view.findViewById(R.id.ll_pingou_aa);
-		tv_pingou_group = (TextView) view.findViewById(R.id.tv_pingou_group);
-		tv_pingou_aa = (TextView) view.findViewById(R.id.tv_pingou_aa);
-		iv_pingou_group = (View) view.findViewById(R.id.iv_pingou_group);
-		iv_pingou_aa = (View) view.findViewById(R.id.iv_pingou_aa);
-		vp_mine_pingou = (ViewPager) view.findViewById(R.id.vp_mine_pingou);
+    private List<Fragment> fragmentList = new ArrayList<Fragment>();
+    private static final int TAB_COUNT = 3;
+    private LinearLayout.LayoutParams layoutParams;
+    private int screenWidth;
+    private int tabWidth;
+    private MyAdapter myAdapter;
 
-	}
+    @Override
+    public View setView() {
+        view = View.inflate(this,R.layout.activity_mine_pingou, null);
+        return view;
+    }
 
-	@Override
-	public void initDoNet() {
-		fragmentList.add(new My_PinGou_Group_Fr());
-		fragmentList.add(new My_PinGou_AA_Fr_Bak());
-	}
+    @Override
+    public void initView() {
 
-	@Override
-	public void initEvent() {
-		ll_pingou_group.setOnClickListener(this);
-		ll_pingou_aa.setOnClickListener(this);
-		vp_mine_pingou.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
-		vp_mine_pingou.setOnPageChangeListener(onPageChangeListener);
+        vp_mine_mypingou = (ViewPager) view.findViewById(R.id.vp_mine_mypingou);
+        fl_mypingou_tab = (FrameLayout) view.findViewById(R.id.fl_mypingou_tab);
+        tv__mypingou_mime = (TextView) view.findViewById(R.id.tv__mypingou_mime);
+        tv__mypingou_join = (TextView) view.findViewById(R.id.tv__mypingou_join);
+        tv__mypingou_invate = (TextView) view.findViewById(R.id.tv__mypingou_invate);
 
-	}
+        fragmentList.add(new MyPingou_Mine_Fragment());
+        fragmentList.add(new MyPingou_Join_Fragment());
+        fragmentList.add(new MyPingou_Invate_Fragment());
 
-	@Override
-	public void initData() {
-		setBackTitle("我的拼购");
+    }
 
-	}
+    @Override
+    public void initDoNet() {
+        initTab();
 
-	@Override
-	public void onChildClick(View v) {
-		switch (v.getId()) {
-		case R.id.ll_pingou_group:
-			set(0);
-			vp_mine_pingou.setCurrentItem(0);
-			break;
-		case R.id.ll_pingou_aa:
-			set(1);
-			vp_mine_pingou.setCurrentItem(1);
-			break;
 
-		default:
-			break;
-		}
+    }
 
-	}
+    private void initTab() {
+        screenWidth = UIUtils.getScreenWidth();
+        tabWidth = screenWidth / TAB_COUNT;
+        LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_mypingou_tab.getLayoutParams();
+        layoutParam.width = tabWidth;
+        fl_mypingou_tab.setLayoutParams(layoutParam);
+        Log.i("screenWidth", screenWidth + "");
+        Log.i("tabWidth", tabWidth + "");
+    }
 
-	private void set(int position) {
-		reSet();
-		switch (position) {
-		case 0:
-			tv_pingou_group.setTextColor(getResources().getColor(R.color.red));
-			iv_pingou_group.setVisibility(View.VISIBLE);
-			break;
-		case 1:
-			tv_pingou_aa.setTextColor(getResources().getColor(R.color.red));
-			iv_pingou_aa.setVisibility(View.VISIBLE);
-			break;
+    @Override
+    public void initEvent() {
+        myAdapter = new MyAdapter(getSupportFragmentManager());
+        vp_mine_mypingou.setAdapter(myAdapter);
+        vp_mine_mypingou.addOnPageChangeListener(onPageChangeListener);
+        tv__mypingou_mime.setOnClickListener(this);
+        tv__mypingou_join.setOnClickListener(this);
+        tv__mypingou_invate.setOnClickListener(this);
 
-		default:
-			break;
-		}
-		
-		
-	}
+    }
 
-	private void reSet() {
-		tv_pingou_group.setTextColor(getResources().getColor(R.color.black));
-		tv_pingou_aa.setTextColor(getResources().getColor(R.color.black));
-		iv_pingou_group.setVisibility(View.INVISIBLE);
-		iv_pingou_aa.setVisibility(View.INVISIBLE);
-	}
+    @Override
+    public void initData() {
+        setBackTitle("收藏的商品");
+//        select(2);
+    }
 
-	@Override
-	public void setBackClick() {
-		finish();
 
-	}
-	class MyFragmentPagerAdapter extends FragmentPagerAdapter{
+    @Override
+    public void onChildClick(View v) {
 
-		public MyFragmentPagerAdapter(FragmentManager fm) {
-			super(fm);
-			// TODO Auto-generated constructor stub
-		}
+        switch (v.getId()) {
+            case R.id.tv__mypingou_mime:
+                select(0);
+                break;
+            case R.id.tv__mypingou_join:
+                select(1);
+                break;
+            case R.id.tv__mypingou_invate:
+                select(2);
+                break;
+            default:
+                break;
+        }
 
-		@Override
-		public Fragment getItem(int position) {
-			// TODO Auto-generated method stub
-			return fragmentList.get(position);
-		}
+    }
 
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return fragmentList.size();
-		}
-		
-	}
-	private int currentPosition;
-	private OnPageChangeListener onPageChangeListener=new OnPageChangeListener() {
-		
+    @Override
+    public void setBackClick() {
+        finish();
 
-		@Override
-		public void onPageSelected(int position) {
-			currentPosition = position;
-			reSet();
-			switch (position) {
-			case 0:
-				set(0);
-				break;
-			case 1:
-				set(1);
-				break;
+    }
 
-			default:
-				break;
-			}
-			
-		}
-		
-	
+    class MyAdapter extends FragmentPagerAdapter {
+        public MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-		@Override
-		public void onPageScrolled(int position, float positionOffset,
-				int positionOffsetPixels) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void onPageScrollStateChanged(int state) {
-			// TODO Auto-generated method stub
-			
-		}
-	};
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+
+    }
+
+    private int currentPosition;
+    private OnPageChangeListener onPageChangeListener = new OnPageChangeListener() {
+
+        @Override
+        public void onPageSelected(int position) {
+            reSet();
+            currentPosition = position;
+            switch (position) {
+                case 0:
+                    tv__mypingou_mime.setTextColor(getResources().getColor(R.color.red));
+                    break;
+                case 1:
+                    tv__mypingou_join.setTextColor(getResources().getColor(R.color.red));
+                    break;
+                case 2:
+                    tv__mypingou_invate.setTextColor(getResources().getColor(R.color.red));
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        @Override
+        public void onPageScrolled(int position, float positionOffset,
+                                   int positionOffsetPixels) {
+//            Log.i("onPageScrolled", "currentPosition=" + currentPosition + "  position=" + position + "  偏移百分比=" + positionOffset + "  偏移像素=" + positionOffsetPixels);
+            // 向右滑动
+            if (currentPosition == position) {
+                LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_mypingou_tab.getLayoutParams();
+                layoutParam.leftMargin = (int) (currentPosition * tabWidth + tabWidth
+                        * positionOffset);
+                fl_mypingou_tab.setLayoutParams(layoutParam);
+            }
+            // 向左滑动
+            else if (currentPosition > position) {
+                LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_mypingou_tab.getLayoutParams();
+                layoutParam.leftMargin = (int) (currentPosition * tabWidth - tabWidth
+                        * (1 - positionOffset));
+                fl_mypingou_tab.setLayoutParams(layoutParam);
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
+    private void reSet() {
+        tv__mypingou_mime.setTextColor(getResources().getColor(R.color.black));
+        tv__mypingou_join.setTextColor(getResources().getColor(R.color.black));
+        tv__mypingou_invate.setTextColor(getResources().getColor(R.color.black));
+    }
+
+    private void select(int position) {
+        Log.i(TAG, "select: "+position);
+        reSet();
+        switch (position) {
+            case 0:
+                tv__mypingou_mime.setTextColor(getResources().getColor(R.color.red));
+                vp_mine_mypingou.setCurrentItem(0);
+                break;
+            case 1:
+                tv__mypingou_join.setTextColor(getResources().getColor(R.color.red));
+                vp_mine_mypingou.setCurrentItem(1);
+                break;
+            case 2:
+                tv__mypingou_invate.setTextColor(getResources().getColor(R.color.red));
+                vp_mine_mypingou.setCurrentItem(2);
+                break;
+            default:
+                break;
+        }
+    }
+
+
 }

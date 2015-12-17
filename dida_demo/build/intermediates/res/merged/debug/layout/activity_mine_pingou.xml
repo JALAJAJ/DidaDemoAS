@@ -2,86 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_tip"
+    android:background="@color/gray_light"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="horizontal" >
-
-        
-
-        
+        android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/ll_pingou_group"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/red"
+                android:id="@+id/tv__mypingou_mime"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="我发起的" />
 
-                <TextView
-                     android:id="@+id/tv_pingou_group"
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="团购拼购" />
+            <View style="@style/divider_nomal_vertical" />
 
-                <View
-                     android:id="@+id/iv_pingou_group"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:id="@+id/tv__mypingou_join"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="我参与的" />
+
+            <View style="@style/divider_nomal_vertical" />
+
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:id="@+id/tv__mypingou_invate"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="邀请我的" />
+
+
         </LinearLayout>
- <View
-     android:layout_marginTop="16dp"
-     android:layout_marginBottom="16dp"
-                  style="@style/divider_nomal_vertical" />
-        <LinearLayout
-            android:id="@+id/ll_pingou_aa"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
+        <FrameLayout
+            android:id="@+id/fl_mypingou_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp" >
 
-                <TextView
-                     android:id="@+id/tv_pingou_aa"
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="AA拼购" />
-
-                <View
-                    android:visibility="invisible"
-                     android:id="@+id/iv_pingou_aa"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/tab_red" />
+        </FrameLayout>
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_mine_pingou"
+        android:id="@+id/vp_mine_mypingou"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

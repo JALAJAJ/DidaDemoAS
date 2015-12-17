@@ -42,8 +42,8 @@ import com.dida.first.selectmore.util.IntentConstants;
 import com.dida.first.selectmore.view.ImageBucketChooseActivity;
 import com.dida.first.selectmore.view.ImageZoomActivity;
 import com.dida.first.utils.CustomConstants;
-import com.dida.first.wheelview.ChangeBirthDialog;
-import com.dida.first.wheelview.ChangeBirthDialog.OnBirthListener;
+import com.dida.first.wheelview.ChangeDeadlineDialog;
+import com.dida.first.wheelview.ChangeDeadlineDialog.OnBirthListener;
 
 import java.io.File;
 import java.io.Serializable;
@@ -198,11 +198,11 @@ public class BuyActivity extends Activity implements OnClickListener {
     private void deadLine() {
 
         // TODO Auto-generated method stub
-        ChangeBirthDialog mChangeBirthDialog = new ChangeBirthDialog(
+        ChangeDeadlineDialog mChangeDeadlineDialog = new ChangeDeadlineDialog(
                 BuyActivity.this);
-//		mChangeBirthDialog.setDate(2015, 03, 29);
-        mChangeBirthDialog.show();
-        mChangeBirthDialog.setBirthdayListener(new OnBirthListener() {
+//		mChangeDeadlineDialog.setDate(2015, 03, 29);
+        mChangeDeadlineDialog.show();
+        mChangeDeadlineDialog.setBirthdayListener(new OnBirthListener() {
 
             @Override
             public void onClick(String year, String month, String day) {

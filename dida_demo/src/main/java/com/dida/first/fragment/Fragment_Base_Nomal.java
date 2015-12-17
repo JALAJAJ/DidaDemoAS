@@ -75,7 +75,7 @@ public abstract class Fragment_Base_Nomal extends Fragment implements View.OnCli
 				setMyRetryEvent(retryView);
 			}
 		});
-
+//		mLoadingAndRetryManager.showContent();
 	}
 
 	public abstract View setFragmentView();

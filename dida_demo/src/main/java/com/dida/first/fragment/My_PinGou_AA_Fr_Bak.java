@@ -1,5 +1,6 @@
 package com.dida.first.fragment;
 
+import android.util.Log;
 import android.view.View;
 
 import com.dida.first.R;
@@ -24,6 +25,7 @@ public class My_PinGou_AA_Fr_Bak extends Fragment_Base_Nomal {
 
 	@Override
 	public View setFragmentView() {
+		Log.i("My_PinGou_AA_Fr_Bak", "setFragmentView: ");
 		view=View.inflate(context, R.layout.fragment_mine_pingou_aa, null);
 		return view;
 	}
