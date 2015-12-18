@@ -1,8 +1,6 @@
 package com.dida.first.fragment;
 
 
-import com.dida.first.MainFragment;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +19,7 @@ public abstract class Base4Fragment extends Fragment implements OnClickListener{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.context=getActivity();
-		fragmentManager=MainFragment.fragmentManager;
+		fragmentManager=getActivity().getSupportFragmentManager();
 	}
 	@Override
 	public View onCreateView(LayoutInflater inflater,

@@ -22,34 +22,31 @@
         android:scaleType="centerCrop"/>
 
     <TextView
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
         android:id="@+id/tv_market_item_title"
-        style="@style/black_12_line1"
+        style="@style/black_14_line1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
         android:text="夏季女装韩版紧身休闲运动，粥粥同款，非常适合路人甲。" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:paddingTop="4dp" >
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        >
 
-        <TextView
-            android:id="@+id/tv_market_item_rmb"
-            style="@style/red_12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="￥" />
+
 
         <TextView
             android:id="@+id/tv_market_item_price"
-            style="@style/red_12"
+            style="@style/red_16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tv_market_item_rmb"
             android:text="580.00" />
 
         <TextView

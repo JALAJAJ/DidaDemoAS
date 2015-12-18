@@ -12,7 +12,7 @@ import android.widget.TextView;
  * @use			
  *
  */
-public class Fav_Product_Group extends Fragment_Base_Nomal {
+public class Fav_Product_Group extends Base_First_Fragment {
 
 	@Override
 	public View setFragmentView() {

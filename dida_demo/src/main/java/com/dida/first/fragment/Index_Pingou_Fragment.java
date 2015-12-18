@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Index_Pingou_Fragment extends Fragment_Base_Nomal implements AdapterView.OnItemClickListener{
+public class Index_Pingou_Fragment extends Base_First_Fragment implements AdapterView.OnItemClickListener{
     private boolean hasInitHead;//初始化轮播图
 //    private int mInitPager = 1;//初始化页面Position
     private static final String TAG = "Index_Pingou_Fragment";

@@ -42,22 +42,22 @@ import io.rong.imlib.RongIMClient;
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     public FragmentManager mFragmentManager;
-    private LinearLayout ll_tab_yaoyue;
-    private LinearLayout ll_tab_xianggou;
-    private LinearLayout ll_tab_saidan;
-    private LinearLayout ll_tab_wode;
-    private ImageView iv_tab_yaoyue;
-    private ImageView iv_tab_xianggou;
-    private ImageView iv_tab_saidan;
-    private ImageView iv_tab_wode;
-    private TextView tv_tab_yaoyue;
-    private TextView tv_tab_xianggou;
-    private TextView tv_tab_saidan;
-    private TextView tv_tab_wode;
-    private Index_Pingou_Fragment yaoyueFragment;
-    private Index_Market_Fragment xianggouFragment;
-    private Index_Show_Fragment index_Show_Fragment;
-    private Index_Mine_Fragment indexMineFragment;
+    private LinearLayout ll_tab_pingou;
+    private LinearLayout ll_tab_market;
+    private LinearLayout ll_tab_show;
+    private LinearLayout ll_tab_mine;
+    private ImageView iv_tab_pingou;
+    private ImageView iv_tab_market;
+    private ImageView iv_tab_mine;
+    private ImageView iv_tab_show;
+    private TextView tv_tab_pingou;
+    private TextView tv_tab_market;
+    private TextView tv_tab_mine;
+    private TextView tv_tab_show;
+    private Index_Pingou_Fragment mPingouFragment;
+    private Index_Market_Fragment mMarketFragment;
+    private Index_Show_Fragment mShowFragment;
+    private Index_Mine_Fragment mMineFragment;
     private FragmentTransaction transaction;
     private int mCurrentIndex=0;
 
@@ -69,10 +69,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if (savedInstanceState != null) {
             mCurrentIndex= savedInstanceState.getInt("currentIndex");
             Log.i(TAG, "savedInstanceState: "+mCurrentIndex);
-            yaoyueFragment = (Index_Pingou_Fragment) mFragmentManager.findFragmentByTag("PINGOU");
-            xianggouFragment = (Index_Market_Fragment) mFragmentManager.findFragmentByTag("MARKET");
-            index_Show_Fragment = (Index_Show_Fragment) mFragmentManager.findFragmentByTag("SHOW");
-            indexMineFragment = (Index_Mine_Fragment) mFragmentManager.findFragmentByTag("MINE");
+            mPingouFragment = (Index_Pingou_Fragment) mFragmentManager.findFragmentByTag("PINGOU");
+            mMarketFragment = (Index_Market_Fragment) mFragmentManager.findFragmentByTag("MARKET");
+            mShowFragment = (Index_Show_Fragment) mFragmentManager.findFragmentByTag("SHOW");
+            mMineFragment = (Index_Mine_Fragment) mFragmentManager.findFragmentByTag("MINE");
         }
         registerDateTransReceiver();
         initView();
@@ -99,28 +99,28 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      * 查找控件
      */
     private void initView() {
-        ll_tab_yaoyue = (LinearLayout) findViewById(R.id.ll_tab_share);
-        ll_tab_xianggou = (LinearLayout) findViewById(R.id.ll_tab_want);
-        ll_tab_saidan = (LinearLayout) findViewById(R.id.ll_tab_interest);
-        ll_tab_wode = (LinearLayout) findViewById(R.id.ll_tab_show);
-        iv_tab_yaoyue = (ImageView) findViewById(R.id.iv_tab_share);
-        iv_tab_xianggou = (ImageView) findViewById(R.id.iv_tab_want);
-        iv_tab_saidan = (ImageView) findViewById(R.id.iv_tab_interest);
-        iv_tab_wode = (ImageView) findViewById(R.id.iv_tab_show);
-        tv_tab_yaoyue = (TextView) findViewById(R.id.tv_tab_share);
-        tv_tab_xianggou = (TextView) findViewById(R.id.tv_tab_want);
-        tv_tab_saidan = (TextView) findViewById(R.id.tv_tab_interest);
-        tv_tab_wode = (TextView) findViewById(R.id.tv_tab_show);
+        ll_tab_pingou = (LinearLayout) findViewById(R.id.ll_tab_pingou);
+        ll_tab_market = (LinearLayout) findViewById(R.id.ll_tab_market);
+        ll_tab_show = (LinearLayout) findViewById(R.id.ll_tab_show);
+        ll_tab_mine = (LinearLayout) findViewById(R.id.ll_tab_mine);
+        iv_tab_pingou = (ImageView) findViewById(R.id.iv_tab_pingou);
+        iv_tab_market = (ImageView) findViewById(R.id.iv_tab_market);
+        iv_tab_show = (ImageView) findViewById(R.id.iv_tab_show);
+        iv_tab_mine = (ImageView) findViewById(R.id.iv_tab_mine);
+        tv_tab_pingou = (TextView) findViewById(R.id.tv_tab_pingou);
+        tv_tab_market = (TextView) findViewById(R.id.tv_tab_market);
+        tv_tab_show = (TextView) findViewById(R.id.tv_tab_show);
+        tv_tab_mine = (TextView) findViewById(R.id.tv_tab_mine);
     }
 
     /**
      * 添加事件
      */
     private void initEvent() {
-        ll_tab_yaoyue.setOnClickListener(this);
-        ll_tab_xianggou.setOnClickListener(this);
-        ll_tab_saidan.setOnClickListener(this);
-        ll_tab_wode.setOnClickListener(this);
+        ll_tab_pingou.setOnClickListener(this);
+        ll_tab_market.setOnClickListener(this);
+        ll_tab_show.setOnClickListener(this);
+        ll_tab_mine.setOnClickListener(this);
     }
 
     /**
@@ -194,16 +194,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_tab_share:
+            case R.id.ll_tab_pingou:
                 setTab(0);
                 break;
-            case R.id.ll_tab_want:
+            case R.id.ll_tab_market:
                 setTab(1);
                 break;
-            case R.id.ll_tab_interest:
+            case R.id.ll_tab_show:
                 setTab(2);
                 break;
-            case R.id.ll_tab_show:
+            case R.id.ll_tab_mine:
                 setTab(3);
                 break;
 
@@ -223,51 +223,51 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mCurrentIndex=position;
         switch (position) {
             case 0:
-                iv_tab_yaoyue.setBackgroundResource(R.drawable.yaoyue_selected);
-                tv_tab_yaoyue.setTextColor(getResources().getColor(
+                iv_tab_pingou.setBackgroundResource(R.drawable.pingou_sel);
+                tv_tab_pingou.setTextColor(getResources().getColor(
                         R.color.red));
-                if (yaoyueFragment == null) {
-                    Log.i(TAG, "yaoyueFragment == null");
-                    yaoyueFragment = new Index_Pingou_Fragment();
-                    transaction.add(R.id.fl_main_content, yaoyueFragment,"PINGOU");
+                if (mPingouFragment == null) {
+                    Log.i(TAG, "mPingouFragment == null");
+                    mPingouFragment = new Index_Pingou_Fragment();
+                    transaction.add(R.id.fl_main_content, mPingouFragment,"PINGOU");
                 } else {
-                    Log.i(TAG, "show(yaoyueFragment)");
-                    transaction.show(yaoyueFragment);
+                    Log.i(TAG, "show(mPingouFragment)");
+                    transaction.show(mPingouFragment);
                 }
                 break;
             case 1:
-                iv_tab_xianggou.setBackgroundResource(R.drawable.xianggou_sel);
-                tv_tab_xianggou.setTextColor(getResources().getColor(
+                iv_tab_market.setBackgroundResource(R.drawable.market_sel);
+                tv_tab_market.setTextColor(getResources().getColor(
                         R.color.red));
-                if (xianggouFragment == null) {
-                    Log.i(TAG, "xianggouFragment == null");
-                    xianggouFragment = new Index_Market_Fragment();
-                    transaction.add(R.id.fl_main_content, xianggouFragment,"MARKET");
+                if (mMarketFragment == null) {
+                    Log.i(TAG, "mMarketFragment == null");
+                    mMarketFragment = new Index_Market_Fragment();
+                    transaction.add(R.id.fl_main_content, mMarketFragment,"MARKET");
                 } else {
-                    Log.i(TAG, "show(xianggouFragment)");
-                    transaction.show(xianggouFragment);
+                    Log.i(TAG, "show(mMarketFragment)");
+                    transaction.show(mMarketFragment);
                 }
                 break;
             case 2:
-                iv_tab_saidan.setBackgroundResource(R.drawable.saidan_sel);
-                tv_tab_saidan.setTextColor(getResources().getColor(
+                iv_tab_show.setBackgroundResource(R.drawable.show_sel);
+                tv_tab_show.setTextColor(getResources().getColor(
                         R.color.red));
-                if (index_Show_Fragment == null) {
-                    index_Show_Fragment = new Index_Show_Fragment();
-                    transaction.add(R.id.fl_main_content, index_Show_Fragment,"SHOW");
+                if (mShowFragment == null) {
+                    mShowFragment = new Index_Show_Fragment();
+                    transaction.add(R.id.fl_main_content, mShowFragment,"SHOW");
                 } else {
-                    transaction.show(index_Show_Fragment);
+                    transaction.show(mShowFragment);
                 }
                 break;
             case 3:
-                iv_tab_wode.setBackgroundResource(R.drawable.wode_sel);
-                tv_tab_wode.setTextColor(getResources().getColor(
+                iv_tab_mine.setBackgroundResource(R.drawable.mine_sel);
+                tv_tab_mine.setTextColor(getResources().getColor(
                         R.color.red));
-                if (indexMineFragment == null) {
-                    indexMineFragment = new Index_Mine_Fragment();
-                    transaction.add(R.id.fl_main_content, indexMineFragment,"MINE");
+                if (mMineFragment == null) {
+                    mMineFragment = new Index_Mine_Fragment();
+                    transaction.add(R.id.fl_main_content, mMineFragment,"MINE");
                 } else {
-                    transaction.show(indexMineFragment);
+                    transaction.show(mMineFragment);
                 }
                 break;
         }
@@ -278,18 +278,18 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      * 复位TAB状态
      */
     private void resetState() {
-        iv_tab_yaoyue.setBackgroundResource(R.drawable.yaoyue_nor);
-        iv_tab_xianggou.setBackgroundResource(R.drawable.xianggou_nomal);
-        iv_tab_saidan.setBackgroundResource(R.drawable.saidan_nomal);
-        iv_tab_wode.setBackgroundResource(R.drawable.wode_nomal);
-        tv_tab_yaoyue.setTextColor(getResources().getColor(
-                R.color.tab_text_nomal));
-        tv_tab_xianggou.setTextColor(getResources().getColor(
-                R.color.tab_text_nomal));
-        tv_tab_saidan.setTextColor(getResources().getColor(
-                R.color.tab_text_nomal));
-        tv_tab_wode.setTextColor(getResources()
-                .getColor(R.color.tab_text_nomal));
+        iv_tab_pingou.setBackgroundResource(R.drawable.pingou_nor);
+        iv_tab_market.setBackgroundResource(R.drawable.market_nor);
+        iv_tab_show.setBackgroundResource(R.drawable.show_nor);
+        iv_tab_mine.setBackgroundResource(R.drawable.mine_nor);
+        tv_tab_pingou.setTextColor(getResources().getColor(
+                R.color.gray_content));
+        tv_tab_market.setTextColor(getResources().getColor(
+                R.color.gray_content));
+        tv_tab_show.setTextColor(getResources().getColor(
+                R.color.gray_content));
+        tv_tab_mine.setTextColor(getResources()
+                .getColor(R.color.gray_content));
 
     }
 
@@ -299,17 +299,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      * @param transaction
      */
     private void hideFragments(FragmentTransaction transaction) {
-        if (yaoyueFragment != null) {
-            transaction.hide(yaoyueFragment);
+        if (mPingouFragment != null) {
+            transaction.hide(mPingouFragment);
         }
-        if (xianggouFragment != null) {
-            transaction.hide(xianggouFragment);
+        if (mMarketFragment != null) {
+            transaction.hide(mMarketFragment);
         }
-        if (index_Show_Fragment != null) {
-            transaction.hide(index_Show_Fragment);
+        if (mShowFragment != null) {
+            transaction.hide(mShowFragment);
         }
-        if (indexMineFragment != null) {
-            transaction.hide(indexMineFragment);
+        if (mMineFragment != null) {
+            transaction.hide(mMineFragment);
         }
     }
 

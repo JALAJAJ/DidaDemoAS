@@ -46,7 +46,6 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mQueue = Volley.newRequestQueue(this);
-
 		doBeforeSetContentView();
 		setContentView(R.layout.top_back);
 		initLoadPager();

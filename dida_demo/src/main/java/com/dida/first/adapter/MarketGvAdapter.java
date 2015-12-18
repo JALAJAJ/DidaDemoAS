@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.entity.MarketBean;
+import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 
 import java.util.List;
@@ -26,8 +27,9 @@ public class MarketGvAdapter extends BaseAdapter {
                 .getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
         int screenWidth = display.getWidth();
-        int itemWidth = (screenWidth - 3 * 8) / 2;
-        param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, itemWidth);
+        int itemWidth = (screenWidth - 3 * UIUtils.dip2px(4)) / 2;
+        int itemHeight= (int) (itemWidth*1.2f);
+        param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, itemHeight);
         this.list = list;
         this.context = context;
     }
@@ -67,7 +69,7 @@ public class MarketGvAdapter extends BaseAdapter {
         }
         viewHolder.ivmarketitemimg.setLayoutParams(param);
         viewHolder.tvmarketitemtitle.setText(list.get(position).getName());
-        viewHolder.tvmarketitemprice.setText(list.get(position).getPrice() + "");
+        viewHolder.tvmarketitemprice.setText("¥ "+list.get(position).getPrice());
         viewHolder.tvmarketitemcount.setText(list.get(position).getSalesCount()+"");
         UImageLoaderUitl.displayLvMidImage(list.get(position).getMobileThumb(),viewHolder.ivmarketitemimg);
         return convertView;

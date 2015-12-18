@@ -11,34 +11,56 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
 
             <TextView
-                style="@style/gray_14"
+                android:id="@+id/tv_fav_pingou_from"
+                style="@style/blue_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
+                android:text="商家"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_fav_pingou_date"
+                style="@style/gray_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/tv_fav_pingou_from"
                 android:text="2015-10-10 16:25"
 
                 />
 
-        </LinearLayout>
+            <TextView
+                style="@style/red_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="进行中"
+
+                />
+
+        </RelativeLayout>
 
         <View style="@style/divider_nomal_horizontal"
 
             />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="10dp">
 
             <ImageView
+                android:id="@+id/iv_fav_pingou_icon"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@drawable/mine_head"
@@ -46,16 +68,30 @@
                 />
 
             <TextView
+                android:id="@+id/tv_fav_pingou_title"
                 style="@style/black_14_line2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/iv_fav_pingou_icon"
                 android:text="布伊格2015秋装韩版中长款连衣裙气质修身长袖高腰显瘦裙子女秋裙"
 
                 />
 
-        </LinearLayout>
+            <TextView
+                android:layout_marginTop="4dp"
+                android:id="@+id/tv_fav_pingou_content"
+                style="@style/gray_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_below="@id/tv_fav_pingou_title"
+                android:layout_toRightOf="@id/iv_fav_pingou_icon"
+                android:text="布伊格2015秋装韩版中长款连衣裙气质修身长袖高腰显瘦裙子女秋裙"
+
+                />
+
+        </RelativeLayout>
     </LinearLayout>
 
-</android.support.v7.widget.CardView><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/item_mine_pingou_group.xml -->
+</android.support.v7.widget.CardView>

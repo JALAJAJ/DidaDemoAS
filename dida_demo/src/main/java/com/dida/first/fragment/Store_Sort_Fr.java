@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Store_Sort_Fr extends Fragment_Base_Nomal implements OnClickSortListener {
+public class Store_Sort_Fr extends Base_First_Fragment implements OnClickSortListener {
 
     private OnClickSortListener onChickSortListener;
     private ImageView iv_sort_open;

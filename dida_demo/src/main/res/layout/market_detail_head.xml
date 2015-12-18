@@ -39,7 +39,7 @@
 
                 <TextView
                     android:id="@+id/tv_market_detail_head_title"
-                    style="@style/black_14_line4"
+                    style="@style/black_14_line2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="红黄蓝童装，童装女童春装2015春秋新款韩版卡通休闲儿童套装2-3-4-5-6岁童装女童冬装2015红黄蓝童装，童装女童春装2015春秋新款韩版卡通休闲儿童套装2-3-4-5-6岁童装女童冬装2015新款儿童新款儿童卫衣三件套女大童运动秋装套装10岁女孩" />

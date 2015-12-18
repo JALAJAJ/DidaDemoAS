@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Store_Home_Fr extends Fragment_Base_Nomal {
+public class Store_Home_Fr extends Base_First_Fragment {
 
     private RecyclerView mRecyclerView;
     private int lastVisibleItem;

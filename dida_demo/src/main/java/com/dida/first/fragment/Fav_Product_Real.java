@@ -18,7 +18,7 @@ import java.util.List;
  * @use			
  *
  */
-public class Fav_Product_Real extends Fragment_Base_Nomal {
+public class Fav_Product_Real extends Base_First_Fragment {
 
 	private PullToRefreshGridView mgv_proucet_real;
 	private List<BeanProduct> productList=new ArrayList<BeanProduct>();

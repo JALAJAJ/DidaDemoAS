@@ -224,6 +224,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("productNo", productNo);
                 map.put("type",type);
+                map.put("userId","fb9a38d82cd3405a9b60ec54cdb5ecdf");
                 map.put("app","1");
                 return map;
             }

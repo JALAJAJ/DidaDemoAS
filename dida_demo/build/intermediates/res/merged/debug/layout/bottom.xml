@@ -6,7 +6,7 @@
       android:background="@color/white">
 
     <LinearLayout
-        android:id="@+id/ll_tab_share"
+        android:id="@+id/ll_tab_pingou"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="1"
@@ -14,24 +14,24 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:id="@+id/iv_tab_share"
+            android:id="@+id/iv_tab_pingou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-            android:background="@drawable/yaoyue_selected" />
+            android:background="@drawable/pingou_sel" />
 
         <TextView
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:id="@+id/tv_tab_share"
+            style="@style/red_12"
+            android:id="@+id/tv_tab_pingou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="拼购"
-            android:textColor="@color/red" />
+            />
     </LinearLayout>
 
     <LinearLayout
-       android:id="@+id/ll_tab_want"
+       android:id="@+id/ll_tab_market"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="1"
@@ -39,17 +39,16 @@
         android:orientation="vertical" >
 
         <ImageView
-           android:id="@+id/iv_tab_want"
+           android:id="@+id/iv_tab_market"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-            android:background="@drawable/xianggou_nomal" />
+            android:background="@drawable/market_nor" />
 
         <TextView
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:textColor="#677179"
-            android:id="@+id/tv_tab_want"
+            style="@style/gray_content_12"
+            android:id="@+id/tv_tab_market"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="集市"
@@ -57,7 +56,7 @@
     </LinearLayout>
 
     <LinearLayout
-       android:id="@+id/ll_tab_interest"
+       android:id="@+id/ll_tab_show"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="1"
@@ -66,17 +65,16 @@
          >
 
         <ImageView
-            android:id="@+id/iv_tab_interest"
+            android:id="@+id/iv_tab_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-            android:background="@drawable/saidan_nomal" />
+            android:background="@drawable/show_nor" />
 
         <TextView
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:textColor="#677179"
-            android:id="@+id/tv_tab_interest"
+            style="@style/gray_content_12"
+            android:id="@+id/tv_tab_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="晒单"
@@ -84,7 +82,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_tab_show"
+        android:id="@+id/ll_tab_mine"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:layout_weight="1"
@@ -93,17 +91,16 @@
         >
 
         <ImageView
-           android:id="@+id/iv_tab_show"
+           android:id="@+id/iv_tab_mine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-            android:background="@drawable/wode_nomal" />
+            android:background="@drawable/mine_nor" />
 
         <TextView
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
-            android:textColor="#677179"
-            android:id="@+id/tv_tab_show"
+           style="@style/gray_content_12"
+            android:id="@+id/tv_tab_mine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的"

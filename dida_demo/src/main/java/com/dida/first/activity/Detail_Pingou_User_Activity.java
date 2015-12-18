@@ -5,10 +5,11 @@ package com.dida.first.activity;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -37,9 +38,9 @@ import java.util.Map;
  * @use
  */
 public class Detail_Pingou_User_Activity extends BaseNomalActivity implements OnShareFavListener {
-    private static final int RES_OK=1;
-    private static final int RES_ERR=-1;
-    private static final int RES_COLLECT_OK=2;
+    private static final int RES_OK = 1;
+    private static final int RES_ERR = -1;
+    private static final int RES_COLLECT_OK = 2;
     private static final String TAG = "Detail_Pingou_User_Activity";
     private static final int RES_COLLECT_ERR = -2;
     private FrameLayout fl_group_detail_head;
@@ -53,20 +54,25 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
     private TextView tv_pingou_detail_team_count;
     private GDetail_User_Head_Holder titleHolder;
     private TextView tv_pingou_user_join;
-    private BeanDetailPingou mDetailPingou=new BeanDetailPingou();
+    private BeanDetailPingou mDetailPingou = new BeanDetailPingou();
     private RelativeLayout rl_loading;
-    private Handler mHandler=new Handler(){
+    private int mIfFav;
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            rl_loading.setVisibility(View.GONE);
-            switch (msg.what){
+
+            switch (msg.what) {
                 case RES_OK:
+                    mLoadingAndRetryManager.showContent();
                     setData(mDetailPingou);
                     break;
             }
         }
     };
     private String serviceId;
+    private LinearLayout ll_pingou_user_fav;
+    private ImageView iv_pingou_user_fav;
+    private TextView tv_pingou_user_fav;
 
 
     @Override
@@ -86,7 +92,7 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
      */
     private void onJoin() {
         ToastUtil.showMyToast("加入拼购");
-        ActivityUtil.goActivity(this,Pingou_Show_Activity.class);
+        ActivityUtil.goActivity(this, Pingou_Show_Activity.class);
     }
 
     /**
@@ -98,8 +104,8 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
 
     @Override
     protected View setView() {
-        View view = UIUtils.inflate(R.layout.activity_group_detail);
-        rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
+        View view = UIUtils.inflate(R.layout.activity_group_detail_user);
+
         /**
          * 标题块
          */
@@ -138,6 +144,17 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
     protected void initView() {
 
         tv_pingou_user_join = (TextView) view.findViewById(R.id.tv_pingou_user_join);
+        ll_pingou_user_fav = (LinearLayout) view.findViewById(R.id.ll_pingou_user_fav);
+        iv_pingou_user_fav = (ImageView) view.findViewById(R.id.iv_pingou_user_fav);
+        tv_pingou_user_fav = (TextView) view.findViewById(R.id.tv_pingou_user_fav);
+
+    }
+
+    @Override
+    protected void initNet() {
+        mLoadingAndRetryManager.showLoading();
+        serviceId = getIntent().getStringExtra("serviceId");
+        ToastUtil.showMyToast("serviceId=" + serviceId);
 
     }
 
@@ -146,13 +163,7 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         rl_pingou_detail_team_more.setOnClickListener(this);
         tv_pingou_user_join.setOnClickListener(this);
         titleHolder.setOnShareFavListener(this);
-    }
-
-    @Override
-    protected void initNet() {
-        serviceId = getIntent().getStringExtra("serviceId");
-        ToastUtil.showMyToast("serviceId="+ serviceId);
-
+        ll_pingou_user_fav.setOnClickListener(this);
     }
 
     @Override
@@ -163,15 +174,16 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
 
     /**
      * 访问网络-初始化页面
+     *
      * @param serviceId
      * @param userId
      */
     private void doNetInit(final String serviceId, final String userId) {
-        VolleyGsonRequest<BeanDetailPingou> initRequest = new VolleyGsonRequest<BeanDetailPingou>(UrlUtil.HOST+UrlUtil.PINGOU_DETAIL, BeanDetailPingou.class, new Response.Listener<BeanDetailPingou>() {
+        VolleyGsonRequest<BeanDetailPingou> initRequest = new VolleyGsonRequest<BeanDetailPingou>(UrlUtil.HOST + UrlUtil.PINGOU_DETAIL, BeanDetailPingou.class, new Response.Listener<BeanDetailPingou>() {
             @Override
-            public void onResponse(BeanDetailPingou beanDetailPingou) {
-                Log.i(TAG, "beanDetailPingou: "+beanDetailPingou.getRes().getShare().getName());
-                mDetailPingou=beanDetailPingou;
+            public void onResponse(BeanDetailPingou bean) {
+                mDetailPingou = bean;
+                mIfFav=bean.getRes().getIsCollection();
                 mHandler.sendEmptyMessage(RES_OK);
             }
         }, new Response.ErrorListener() {
@@ -179,13 +191,13 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
             public void onErrorResponse(VolleyError volleyError) {
                 mHandler.sendEmptyMessage(RES_ERR);
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("serviceId", serviceId);
-                map.put("userId",userId);
-                map.put("app","1");
+                map.put("userId", userId);
+                map.put("app", "1");
                 return map;
             }
         };
@@ -196,8 +208,9 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         titleHolder.setData(bean);
         itemHolder.setData(bean);
         desHolder.setData(bean);
-//        commentHolder.setList(bean);
+        showFav(mIfFav);
     }
+
     /**
      * 分享
      */
@@ -216,5 +229,10 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
 
     }
 
+    private void showFav(int ifFav) {
+        iv_pingou_user_fav.setBackgroundResource(ifFav == 0 ? R.drawable.btn_fav_sel : R.drawable.btn_fav_nor);
+        tv_pingou_user_fav.setTextColor(ifFav == 0 ? ContextCompat.getColor(this, R.color.red) : ContextCompat.getColor(this, R.color.gray_tip));
+        tv_pingou_user_fav.setText(ifFav == 0 ? "收藏" : "已收藏");
+    }
 
 }

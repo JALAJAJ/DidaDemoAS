@@ -52,6 +52,7 @@ public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingou>  impl
 
     @Override
     public void refreshView() {
+
         BeanDetailPingou data = getData();
         BeanDetailPingou.ResEntity.ShareEntity share = data.getRes().getShare();
         int[] deadTime = TimeUtils.getDeadTime(share.getCustomDueDate());
@@ -59,8 +60,8 @@ public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingou>  impl
         tv_pingou_user_detail_head_day.setText(deadTime[0]+"");
         tv_pingou_user_detail_head_hour.setText(deadTime[1]+"");
         tv_pingou_user_detail_head_minute.setText(deadTime[2]+"");
-        tv_pingou_user_detail_head_price.setText(share.getPrice()+"");
-        tv_pingou_user_detail_head_oldPrice.setText(share.getOldPrice()+"");
+        tv_pingou_user_detail_head_price.setText("¥ "+share.getPrice());
+        tv_pingou_user_detail_head_oldPrice.setText("¥ "+share.getOldPrice());
         tv_pingou_user_detail_head_title.setText(share.getName());
         tv_pingou_user_detail_head_subject.setText(share.getCount()+"");
         tv_pingou_user_detail_head_left.setText(share.getCount()-share.getNewCount()+"");

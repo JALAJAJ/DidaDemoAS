@@ -7,7 +7,7 @@ import android.view.View;
 import com.dida.first.R;
 import com.dida.first.view.MarketSwitchButton;
 
-public class Index_Market_Fragment extends Fragment_Base_Nomal implements MarketSwitchButton.OnSwitchListener{
+public class Index_Market_Fragment extends Base_First_Fragment implements MarketSwitchButton.OnSwitchListener{
     private Market_Real_Fragment mRealFragment;
     private Market_Service_Fragment mServiceFragment;
     private int mType=1;

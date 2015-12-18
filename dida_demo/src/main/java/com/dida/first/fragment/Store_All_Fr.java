@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Store_All_Fr extends Fragment_Base_Nomal {
+public class Store_All_Fr extends Base_First_Fragment {
     private RecyclerView rv_store_all;
     private LinearLayout ll_sort_all;
     private LinearLayout ll_sort_count;

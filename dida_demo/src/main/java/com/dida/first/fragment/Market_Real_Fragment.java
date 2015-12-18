@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Market_Real_Fragment extends Fragment_Base_Nomal {
+public class Market_Real_Fragment extends Base_First_Fragment {
 
     private MarketLvAdapter marketLvAdapter;
     private RelativeLayout rl_loading;
@@ -74,7 +74,6 @@ public class Market_Real_Fragment extends Fragment_Base_Nomal {
 
     @Override
     public void initFragmentView() {
-        rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
         plv = (PullToRefreshListView) view.findViewById(R.id.plv_market_real);
     }
 

@@ -11,7 +11,7 @@
         android:stretchMode="columnWidth"
           android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:horizontalSpacing="4dp"
-        android:verticalSpacing="4dp" />
+
+ />
 
 </FrameLayout><!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/item_single_gridview.xml -->

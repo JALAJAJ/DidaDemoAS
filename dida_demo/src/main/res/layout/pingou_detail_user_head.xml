@@ -236,34 +236,22 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/tuangoujia" />
 
-                    <TextView
-                        style="@style/red_12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
-                        android:text="¥" />
 
                     <TextView
+                        android:layout_marginLeft="4dp"
                         android:id="@+id/tv_pingou_user_detail_head_price"
                         style="@style/red_20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="468.00" />
 
-                    <TextView
-                        style="@style/gray_12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <com.dida.first.wheelview.DeleteTextView
                         android:layout_marginLeft="8dp"
-                        android:text="¥" />
-
-                    <TextView
                         android:id="@+id/tv_pingou_user_detail_head_oldPrice"
                         style="@style/gray_12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="550.00" />
-
 
                 </LinearLayout>
             </LinearLayout>

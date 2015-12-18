@@ -19,7 +19,7 @@ public class MyPinGou_Group_Holder extends BaseHolder<BeanPinGouGroup> {
 
 	@Override
 	public View initView() {
-		view = UIUtils.inflate(R.layout.item_mine_pingou_group);
+		view = UIUtils.inflate(R.layout.item_mypingou_mine);
 		return view;
 	}
 

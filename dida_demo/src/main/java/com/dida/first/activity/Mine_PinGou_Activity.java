@@ -96,7 +96,6 @@ public class Mine_PinGou_Activity extends BackTitleActivity {
     @Override
     public void initData() {
         setBackTitle("收藏的商品");
-//        select(2);
     }
 
 

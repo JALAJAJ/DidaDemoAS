@@ -21,8 +21,8 @@ import com.zhy.base.loadandretry.OnLoadingAndRetryListener;
  * @use			
  *
  */
-public abstract class Fragment_Base_Nomal extends Fragment implements View.OnClickListener{
-	static final String TAG = "Fragment_Base_Nomal";
+public abstract class Base_First_Fragment extends Fragment implements View.OnClickListener{
+	static final String TAG = "Base_First_Fragment";
 	protected int mInitPager = 1;//初始化页面Position
 	protected static final int RES_REFRESH = 0;//刷新
 	protected static final int RES_MORE = 1;//加载更多

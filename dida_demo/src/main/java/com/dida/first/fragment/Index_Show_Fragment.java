@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Index_Show_Fragment extends Fragment_Base_Nomal implements
+public class Index_Show_Fragment extends Base_First_Fragment implements
         OnCheckedChangeListener, OnCheckListener<ShowBean.ResEntity.PrepayOrderListEntity>, AdapterView.OnItemClickListener {
     private static final String TAG = "Index_Show_Fragment";
     private PullToRefreshListView plv_show;
