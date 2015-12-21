@@ -299,7 +299,7 @@
     <color name="black_bg">#262a2e</color>
     <color name="black_light">#26292e</color>
     <color name="blue_deep">#003455</color>
-    <color name="blue_font">#61749B</color>
+    <color name="blue_font">#328FCA</color>
     <color name="blue_light">#328fca</color>
     <color name="border_gray">#d9dfe5</color>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
@@ -369,6 +369,7 @@
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/colors.xml -->
     <eat-comment/>
     <color name="glass_gall">#c2ebef</color>
+    <color name="gray_bg">#fcfcfc</color>
     <color name="gray_comment">#EDEDED</color>
     <color name="gray_content">#666666</color>
     <color name="gray_deep">#8e9397</color>
@@ -2470,6 +2471,30 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/blue_light</item>
 
+    </style>
+    <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/btn_style.xml -->
+    <eat-comment/>
+    <style name="btn_small_red">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:minHeight">0dp</item>
+
+        <item name="android:background">@drawable/selector_red2red_deep</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="btn_small_white">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:minHeight">0dp</item>
+
+        <item name="android:background">@drawable/selector_btn_white4</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/build/intermediates/exploded-aar/DidaDemoAS/iMKit/unspecified/res/values/values.xml -->
     <eat-comment/>

@@ -16,7 +16,7 @@ import android.widget.TextView;
 /**
  * @author KingJA
  * @data 2015-10-14 上午9:31:42
- * @use
+ * @use	 店铺简介
  * 
  */
 public class Detail_Store_Activity extends BackTitleActivity {

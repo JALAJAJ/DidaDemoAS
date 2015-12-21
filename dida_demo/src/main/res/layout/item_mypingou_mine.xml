@@ -15,20 +15,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/tv_fav_pingou_from"
-                style="@style/blue_12"
+                style="@style/gray_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="商家"
+                android:text="用户"
 
                 />
 
             <TextView
-                android:id="@+id/tv_fav_pingou_date"
+                android:id="@+id/tv_mypingou_mine_date"
                 style="@style/gray_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,6 +38,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_mypingou_mine_state"
                 style="@style/red_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,47 +49,136 @@
 
         </RelativeLayout>
 
-        <View style="@style/divider_nomal_horizontal"
-
-            />
+        <View style="@style/divider_special_horizontal" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/gray_bg"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="8dp">
 
             <ImageView
-                android:id="@+id/iv_fav_pingou_icon"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:id="@+id/iv_mypingou_mine_icon"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
                 android:background="@drawable/mine_head"
 
                 />
 
             <TextView
-                android:id="@+id/tv_fav_pingou_title"
+                android:id="@+id/tv_mypingou_mine_title"
                 style="@style/black_14_line2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@id/iv_fav_pingou_icon"
+                android:layout_toRightOf="@id/iv_mypingou_mine_icon"
                 android:text="布伊格2015秋装韩版中长款连衣裙气质修身长袖高腰显瘦裙子女秋裙"
 
                 />
 
             <TextView
-                android:layout_marginTop="4dp"
-                android:id="@+id/tv_fav_pingou_content"
+                android:id="@+id/tv_mypingou_mine_content"
                 style="@style/gray_12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/tv_mypingou_mine_title"
                 android:layout_marginLeft="8dp"
-                android:layout_below="@id/tv_fav_pingou_title"
-                android:layout_toRightOf="@id/iv_fav_pingou_icon"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@id/iv_mypingou_mine_icon"
                 android:text="布伊格2015秋装韩版中长款连衣裙气质修身长袖高腰显瘦裙子女秋裙"
 
                 />
+
+        </RelativeLayout>
+        <View style="@style/divider_special_horizontal" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    style="@style/black_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="目标份数" />
+
+                <TextView
+                    android:id="@+id/tv_mypingou_mine_subject"
+                    style="@style/red_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+
+                    style="@style/black_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我购买" />
+
+                <TextView
+                    android:id="@+id/tv_mypingou_mine_count"
+                    style="@style/red_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="1" />
+
+                <TextView
+
+                    style="@style/black_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="份" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true">
+
+                <TextView
+
+                    style="@style/black_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合计" />
+
+                <TextView
+                    android:id="@+id/tv_mypingou_mine_totelPrice"
+                    style="@style/red_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="¥50" />
+            </LinearLayout>
+        </RelativeLayout>
+        <View style="@style/divider_special_horizontal"/>
+        <RelativeLayout
+            android:id="@+id/rl_mypingou_mine_btn"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_mypingou_mine_edit"
+                style="@style/btn_small_red"
+                android:layout_alignParentRight="true"
+                android:text="修改"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </RelativeLayout>
     </LinearLayout>

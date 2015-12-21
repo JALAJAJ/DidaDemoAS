@@ -95,7 +95,6 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 	@Override
 	public void initData() {
 		setBackTitle("个人资料");
-		setChatClickVisibility();
 	}
 
 	@Override

@@ -27,7 +27,7 @@
    <!-- <color name="gray">#EBEBEB</color>-->
     <color name="gray_tip">#999999</color>
     <color name="gray_content">#666666</color>
-    <color name="blue_font">#61749B</color>
+    <color name="blue_font">#328FCA</color>
     <color name="gray_comment">#EDEDED</color>
     <color name="gray_divider">#dadada</color>
     <color name="yellow">#FF992C</color>
@@ -36,6 +36,7 @@
     <color name="transparency_70">#B3000000</color>
     <color name="gray_deep">#8e9397</color>
     <color name="gray_light">#eeeeee</color>
+    <color name="gray_bg">#fcfcfc</color>
     <color name="red">#ff5a5f</color>
     <color name="red_deep">#be4649</color>
     <color name="red_light">#e79d9f</color>

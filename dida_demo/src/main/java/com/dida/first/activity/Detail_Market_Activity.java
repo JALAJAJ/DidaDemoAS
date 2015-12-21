@@ -60,7 +60,6 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private Handler mHandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-            rl_loading.setVisibility(View.GONE);
             switch (msg.what){
                 case RES_OK:
                     setData(mDetailMarket);
@@ -134,7 +133,6 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     @Override
     protected View setView() {
         View view = UIUtils.inflate(R.layout.activity_market_detail);
-        rl_loading = (RelativeLayout) view.findViewById(R.id.rl_loading);
 
         /**
          * head信息

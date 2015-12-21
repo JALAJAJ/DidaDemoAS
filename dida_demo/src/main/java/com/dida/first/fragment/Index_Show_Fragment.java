@@ -77,7 +77,7 @@ public class Index_Show_Fragment extends Base_First_Fragment implements
 
     @Override
     public View setFragmentView() {
-        view = View.inflate(context, R.layout.fragment_shaidan, null);
+        view = View.inflate(context, R.layout.fragment_show, null);
         return view;
     }
 

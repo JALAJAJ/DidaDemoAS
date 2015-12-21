@@ -28,8 +28,8 @@ import java.util.List;
  * @data 2015-10-14 下午1:22:21
  * @use
  */
-public class Mine_PinGou_Activity extends BackTitleActivity {
-    private static final String TAG = "Mine_PinGou_Activity";
+public class Mine_MyPingou_Activity extends BackTitleActivity {
+    private static final String TAG = "Mine_MyPingou_Activity";
     private ViewPager vp_mine_mypingou;
     private FrameLayout fl_mypingou_tab;
 
@@ -78,8 +78,6 @@ public class Mine_PinGou_Activity extends BackTitleActivity {
         LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_mypingou_tab.getLayoutParams();
         layoutParam.width = tabWidth;
         fl_mypingou_tab.setLayoutParams(layoutParam);
-        Log.i("screenWidth", screenWidth + "");
-        Log.i("tabWidth", tabWidth + "");
     }
 
     @Override
@@ -87,6 +85,7 @@ public class Mine_PinGou_Activity extends BackTitleActivity {
         myAdapter = new MyAdapter(getSupportFragmentManager());
         vp_mine_mypingou.setAdapter(myAdapter);
         vp_mine_mypingou.addOnPageChangeListener(onPageChangeListener);
+        vp_mine_mypingou.setOffscreenPageLimit(2);
         tv__mypingou_mime.setOnClickListener(this);
         tv__mypingou_join.setOnClickListener(this);
         tv__mypingou_invate.setOnClickListener(this);
@@ -95,7 +94,7 @@ public class Mine_PinGou_Activity extends BackTitleActivity {
 
     @Override
     public void initData() {
-        setBackTitle("收藏的商品");
+        setBackTitle("我的拼购");
     }
 
 

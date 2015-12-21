@@ -3,15 +3,6 @@
  */
 package com.dida.first.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.dida.first.R;
-import com.dida.first.fragment.Fav_Product_AA_Bak;
-import com.dida.first.fragment.Fav_Product_Group;
-import com.dida.first.fragment.Fav_Product_Real;
-import com.dida.first.fragment.Fav_Product_Service;
-import com.dida.first.utils.UIUtils;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -24,13 +15,23 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.dida.first.R;
+import com.dida.first.fragment.Fav_Product_AA_Bak;
+import com.dida.first.fragment.Fav_Product_Group;
+import com.dida.first.fragment.Fav_Product_Real;
+import com.dida.first.fragment.Fav_Product_Service;
+import com.dida.first.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author KingJA
  * @data 2015-10-16 上午11:03:56
  * @use
  * 
  */
-public class Mine_Product_Activity extends BackTitleActivity {
+public class Mine_FavPingou_Activity extends BackTitleActivity {
 
 	private ViewPager vp_mine_product;
 	private FrameLayout iv_product_tab;
@@ -43,7 +44,7 @@ public class Mine_Product_Activity extends BackTitleActivity {
 
 	@Override
 	public View setView() {
-		view = View.inflate(Mine_Product_Activity.this,
+		view = View.inflate(Mine_FavPingou_Activity.this,
 				R.layout.activity_mine_product, null);
 		return view;
 	}
@@ -96,7 +97,7 @@ public class Mine_Product_Activity extends BackTitleActivity {
 
 	@Override
 	public void initData() {
-		setBackTitle("收藏的商品");
+		setBackTitle("收藏的拼购");
 
 	}
 

@@ -2,137 +2,79 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_tip"
+    android:background="@color/gray_light"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
         <LinearLayout
-            android:id="@+id/ll_footprint_real"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/red"
+                android:id="@+id/tv_myfootprint_real"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="实体" />
 
-                <TextView
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="实体商品" />
+            <View style="@style/divider_nomal_vertical" />
 
-                <View
-                      android:id="@+id/view_footprint_real"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:id="@+id/tv_myfootprint_service"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="服务" />
+
+            <View style="@style/divider_nomal_vertical" />
+
+            <TextView
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:id="@+id/tv_myfootprint_pingou"
+                style="@style/black_14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="拼购" />
+
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_footprint_service"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
+        <FrameLayout
+            android:id="@+id/fl_myfootprint_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp" >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <TextView
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="线下服务" />
-
-                <View
-                    android:visibility="gone"
-                     android:id="@+id/view_footprint_service"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_footprint_group"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <TextView
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="团购商品" />
-
-                <View
-                    android:visibility="gone"
-                     android:id="@+id/view_footprint_group"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_footprint_aa"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <TextView
-                    style="@style/black_14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="AA商品" />
-
-                <View
-                    android:visibility="gone"
-                     android:id="@+id/view_footprint_aa"
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red" />
-            </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:background="@drawable/tab_red" />
+        </FrameLayout>
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_footprint"
+        android:layout_marginTop="4dp"
+        android:id="@+id/vp_mine_myfootprint"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

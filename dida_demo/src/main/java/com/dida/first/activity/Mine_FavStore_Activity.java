@@ -3,8 +3,10 @@
  */
 package com.dida.first.activity;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.dida.first.R;
 import com.dida.first.adapter.MyBaseAdapter;
@@ -13,25 +15,23 @@ import com.dida.first.holder.BaseHolder;
 import com.dida.first.holder.Mine_Store_Holder;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-import android.content.Intent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * @author		KingJA 
  * @data		2015-10-13 下午4:44:05 
- * @use			
+ * @use			我收藏的商家
  *
  */
-public class Mine_Stone_Activity extends BackTitleActivity implements OnItemClickListener {
+public class Mine_FavStore_Activity extends BackTitleActivity implements OnItemClickListener {
 	List<BeanStores> storeList=new ArrayList<BeanStores>();
 	private PullToRefreshListView plv_store;
 
 	@Override
 	public View setView() {
-		view=View.inflate(Mine_Stone_Activity.this, R.layout.activity_mine_store, null);
+		view=View.inflate(Mine_FavStore_Activity.this, R.layout.activity_mine_store, null);
 		return view;
 	}
 
@@ -94,7 +94,7 @@ public class Mine_Stone_Activity extends BackTitleActivity implements OnItemClic
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		Intent  intent=new Intent(Mine_Stone_Activity.this,Detail_Store_Activity.class);
+		Intent  intent=new Intent(Mine_FavStore_Activity.this,Store_Activity.class);
 		startActivity(intent);
 		
 	}

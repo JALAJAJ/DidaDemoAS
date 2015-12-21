@@ -5,12 +5,12 @@ import com.dida.first.activity.LoginActivity;
 import com.dida.first.activity.Mine_FootPrint_Activity;
 import com.dida.first.activity.Mine_Personal_Activity;
 import com.dida.first.activity.Mine_MyOrder_Activity;
-import com.dida.first.activity.Mine_PinGou_Activity;
-import com.dida.first.activity.Mine_Product_Activity;
+import com.dida.first.activity.Mine_MyPingou_Activity;
+import com.dida.first.activity.Mine_FavPingou_Activity;
 import com.dida.first.activity.Mine_Refund_Activity;
 import com.dida.first.activity.Mine_Setting_Activity;
 import com.dida.first.activity.Mine_ShopCar_Activity;
-import com.dida.first.activity.Mine_Stone_Activity;
+import com.dida.first.activity.Mine_FavStore_Activity;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.SharedPreferencesUtils;
 import com.meg7.widget.CircleImageView;
@@ -163,7 +163,7 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 //			break;
 			//我的拼购
 		case R.id.rl_mine_myyaoyue:
-			goActivity(Mine_PinGou_Activity.class);
+			goActivity(Mine_MyPingou_Activity.class);
 			break;
 			//个人中心
 		case R.id.rl_mine_personial:
@@ -175,11 +175,11 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 			break;
 			//收藏的店铺
 		case R.id.ll_mine_dianpu:
-			goActivity(Mine_Stone_Activity.class);
+			goActivity(Mine_FavStore_Activity.class);
 			break;
 			//收藏的商品
 		case R.id.ll_mine_product:
-			goActivity(Mine_Product_Activity.class);
+			goActivity(Mine_FavPingou_Activity.class);
 			break;
 			//退款退货
 		case R.id.ll_mine_tuikuan:

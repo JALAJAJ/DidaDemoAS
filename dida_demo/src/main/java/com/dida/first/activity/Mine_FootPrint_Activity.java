@@ -3,192 +3,217 @@
  */
 package com.dida.first.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.dida.first.R;
-import com.dida.first.fragment.Footprint_Service_Fr;
-import com.dida.first.fragment.Footprint_AA_Fr_Bak;
-import com.dida.first.fragment.Footprint_Group_Fr;
-import com.dida.first.fragment.Footprint_Real_Fr;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.dida.first.R;
+import com.dida.first.fragment.MyPingou_Invate_Fragment;
+import com.dida.first.fragment.MyPingou_Join_Fragment;
+import com.dida.first.fragment.MyPingou_Mine_Fragment;
+import com.dida.first.utils.UIUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author KingJA
  * @data 2015-9-24 下午1:35:14
- * @use
+ * @use  收藏的足迹
  * 
  */
 public class Mine_FootPrint_Activity extends BackTitleActivity {
 
-	private ViewPager vp_footprint;
-	private List<Fragment> fragmentList=new ArrayList<Fragment>();
-	private View view_footprint_real;
-	private View view_footprint_service;
-	private View view_footprint_group;
-	private View view_footprint_aa;
+	private static final String TAG = "Mine_MyPingou_Activity";
+	private ViewPager vp_mine_myfootprint;
+	private FrameLayout fl_myfootprint_tab;
+
+	private TextView tv_myfootprint_real;
+	private TextView tv_myfootprint_service;
+	private TextView tv_myfootprint_pingou;
+
+	private List<Fragment> fragmentList = new ArrayList<Fragment>();
+	private static final int TAB_COUNT = 3;
+	private LinearLayout.LayoutParams layoutParams;
+	private int screenWidth;
+	private int tabWidth;
+	private MyAdapter myAdapter;
 
 	@Override
 	public View setView() {
-		view = View.inflate(Mine_FootPrint_Activity.this,
-				R.layout.activity_mine_footprint, null);
+		view = View.inflate(this,R.layout.activity_mine_footprint, null);
 		return view;
 	}
 
 	@Override
 	public void initView() {
-		ll_footprint_real = (LinearLayout) view.findViewById(R.id.ll_footprint_real);
-		ll_footprint_service = (LinearLayout) view.findViewById(R.id.ll_footprint_service);
-		ll_footprint_group = (LinearLayout) view.findViewById(R.id.ll_footprint_group);
-		ll_footprint_aa = (LinearLayout) view.findViewById(R.id.ll_footprint_aa);
-		vp_footprint = (ViewPager) view.findViewById(R.id.vp_footprint);
-		view_footprint_real = view.findViewById(R.id.view_footprint_real);
-		view_footprint_service = view.findViewById(R.id.view_footprint_service);
-		view_footprint_group = view.findViewById(R.id.view_footprint_group);
-		view_footprint_aa = view.findViewById(R.id.view_footprint_aa);
-		initFragmentList();
-	}
 
-	private void initFragmentList() {
-		fragmentList.add(new Footprint_Real_Fr());
-		fragmentList.add(new Footprint_Service_Fr());
-		fragmentList.add(new Footprint_Group_Fr());
-		fragmentList.add(new Footprint_AA_Fr_Bak());
-		
+		vp_mine_myfootprint = (ViewPager) view.findViewById(R.id.vp_mine_myfootprint);
+		fl_myfootprint_tab = (FrameLayout) view.findViewById(R.id.fl_myfootprint_tab);
+		tv_myfootprint_real = (TextView) view.findViewById(R.id.tv_myfootprint_real);
+		tv_myfootprint_service = (TextView) view.findViewById(R.id.tv_myfootprint_service);
+		tv_myfootprint_pingou = (TextView) view.findViewById(R.id.tv_myfootprint_pingou);
+
+		fragmentList.add(new MyPingou_Mine_Fragment());
+		fragmentList.add(new MyPingou_Join_Fragment());
+		fragmentList.add(new MyPingou_Invate_Fragment());
+
 	}
 
 	@Override
 	public void initDoNet() {
-		setBackTitle("我的足迹");
+		initTab();
 
+
+	}
+
+	private void initTab() {
+		screenWidth = UIUtils.getScreenWidth();
+		tabWidth = screenWidth / TAB_COUNT;
+		LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_myfootprint_tab.getLayoutParams();
+		layoutParam.width = tabWidth;
+		fl_myfootprint_tab.setLayoutParams(layoutParam);
 	}
 
 	@Override
 	public void initEvent() {
-		ll_footprint_real.setOnClickListener(this);
-		ll_footprint_service.setOnClickListener(this);
-		ll_footprint_group.setOnClickListener(this);
-		ll_footprint_aa.setOnClickListener(this);
-		vp_footprint.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager()));
-		vp_footprint.setOnPageChangeListener(onPageChangeListener);
+		myAdapter = new MyAdapter(getSupportFragmentManager());
+		vp_mine_myfootprint.setAdapter(myAdapter);
+		vp_mine_myfootprint.addOnPageChangeListener(onPageChangeListener);
+		vp_mine_myfootprint.setOffscreenPageLimit(2);
+		tv_myfootprint_real.setOnClickListener(this);
+		tv_myfootprint_service.setOnClickListener(this);
+		tv_myfootprint_pingou.setOnClickListener(this);
+
 	}
 
 	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
-
+		setBackTitle("我的拼购");
 	}
+
 
 	@Override
 	public void onChildClick(View v) {
-		reSet();
-		switch (v.getId()) {
-		case R.id.ll_footprint_real:
-			view_footprint_real.setVisibility(View.VISIBLE);
-			vp_footprint.setCurrentItem(0);
-			break;
-		case R.id.ll_footprint_service:
-			ll_footprint_group.setVisibility(View.VISIBLE);
-			vp_footprint.setCurrentItem(1);
-			break;
-		case R.id.ll_footprint_group:
-			ll_footprint_group.setVisibility(View.VISIBLE);
-			vp_footprint.setCurrentItem(2);
-			break;
-		case R.id.ll_footprint_aa:
-			ll_footprint_aa.setVisibility(View.VISIBLE);
-			vp_footprint.setCurrentItem(3);
-			break;
 
-		default:
-			break;
+		switch (v.getId()) {
+			case R.id.tv_myfootprint_real:
+				select(0);
+				break;
+			case R.id.tv_myfootprint_service:
+				select(1);
+				break;
+			case R.id.tv_myfootprint_pingou:
+				select(2);
+				break;
+			default:
+				break;
 		}
 
 	}
 
 	@Override
 	public void setBackClick() {
-		// TODO Auto-generated method stub
+		finish();
 
 	}
-	class MyFragmentPagerAdapter extends FragmentPagerAdapter{
 
-		public MyFragmentPagerAdapter(FragmentManager fm) {
+	class MyAdapter extends FragmentPagerAdapter {
+		public MyAdapter(FragmentManager fm) {
 			super(fm);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		public Fragment getItem(int position) {
-			// TODO Auto-generated method stub
 			return fragmentList.get(position);
 		}
 
 		@Override
 		public int getCount() {
-			// TODO Auto-generated method stub
 			return fragmentList.size();
 		}
-		
+
 	}
+
 	private int currentPosition;
-	private OnPageChangeListener onPageChangeListener=new OnPageChangeListener() {
-		
+	private OnPageChangeListener onPageChangeListener = new OnPageChangeListener() {
 
 		@Override
 		public void onPageSelected(int position) {
-			currentPosition = position;
 			reSet();
+			currentPosition = position;
 			switch (position) {
-			case 0:
-				view_footprint_real.setVisibility(View.VISIBLE);
-				break;
-			case 1:
-				view_footprint_service.setVisibility(View.VISIBLE);
-				break;
-			case 2:
-				view_footprint_group.setVisibility(View.VISIBLE);
-				break;
-			case 3:
-				view_footprint_aa.setVisibility(View.VISIBLE);
-				break;
-
-			default:
-				break;
+				case 0:
+					tv_myfootprint_real.setTextColor(getResources().getColor(R.color.red));
+					break;
+				case 1:
+					tv_myfootprint_service.setTextColor(getResources().getColor(R.color.red));
+					break;
+				case 2:
+					tv_myfootprint_pingou.setTextColor(getResources().getColor(R.color.red));
+					break;
+				default:
+					break;
 			}
-			
 		}
-		
-	
 
 		@Override
 		public void onPageScrolled(int position, float positionOffset,
-				int positionOffsetPixels) {
-			// TODO Auto-generated method stub
-			
+								   int positionOffsetPixels) {
+//            Log.i("onPageScrolled", "currentPosition=" + currentPosition + "  position=" + position + "  偏移百分比=" + positionOffset + "  偏移像素=" + positionOffsetPixels);
+			// 向右滑动
+			if (currentPosition == position) {
+				LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_myfootprint_tab.getLayoutParams();
+				layoutParam.leftMargin = (int) (currentPosition * tabWidth + tabWidth
+						* positionOffset);
+				fl_myfootprint_tab.setLayoutParams(layoutParam);
+			}
+			// 向左滑动
+			else if (currentPosition > position) {
+				LinearLayout.LayoutParams layoutParam = (LinearLayout.LayoutParams) fl_myfootprint_tab.getLayoutParams();
+				layoutParam.leftMargin = (int) (currentPosition * tabWidth - tabWidth
+						* (1 - positionOffset));
+				fl_myfootprint_tab.setLayoutParams(layoutParam);
+			}
 		}
-		
+
 		@Override
 		public void onPageScrollStateChanged(int state) {
-			// TODO Auto-generated method stub
-			
+
 		}
 	};
-	private LinearLayout ll_footprint_real;
-	private LinearLayout ll_footprint_service;
-	private LinearLayout ll_footprint_group;
-	private LinearLayout ll_footprint_aa;
 	private void reSet() {
-		view_footprint_real.setVisibility(View.GONE);
-		view_footprint_service.setVisibility(View.GONE);
-		view_footprint_group.setVisibility(View.GONE);
-		view_footprint_aa.setVisibility(View.GONE);
+		tv_myfootprint_real.setTextColor(getResources().getColor(R.color.black));
+		tv_myfootprint_service.setTextColor(getResources().getColor(R.color.black));
+		tv_myfootprint_pingou.setTextColor(getResources().getColor(R.color.black));
 	}
+
+	private void select(int position) {
+		Log.i(TAG, "select: "+position);
+		reSet();
+		switch (position) {
+			case 0:
+				tv_myfootprint_real.setTextColor(getResources().getColor(R.color.red));
+				vp_mine_myfootprint.setCurrentItem(0);
+				break;
+			case 1:
+				tv_myfootprint_service.setTextColor(getResources().getColor(R.color.red));
+				vp_mine_myfootprint.setCurrentItem(1);
+				break;
+			case 2:
+				tv_myfootprint_pingou.setTextColor(getResources().getColor(R.color.red));
+				vp_mine_myfootprint.setCurrentItem(2);
+				break;
+			default:
+				break;
+		}
+	}
+
 }

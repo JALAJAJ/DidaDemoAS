@@ -197,7 +197,7 @@
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dida.first.activity.Mine_Stone_Activity"
+            android:name=".activity.Mine_FavStore_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity
@@ -205,11 +205,11 @@
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dida.first.activity.Mine_PinGou_Activity"
+            android:name=".activity.Mine_MyPingou_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.dida.first.activity.Mine_Product_Activity"
+            android:name=".activity.Mine_FavPingou_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait" />
         <activity

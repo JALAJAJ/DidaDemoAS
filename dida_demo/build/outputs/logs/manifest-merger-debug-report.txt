@@ -445,14 +445,14 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:195
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:197:13-42
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:196:13-64
-activity#com.dida.first.activity.Mine_Stone_Activity
+activity#com.dida.first.activity.Mine_FavStore_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:199:9-202:52
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:202:13-49
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:201:13-42
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:200:13-71
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:200:13-60
 activity#com.dida.first.activity.Detail_Store_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:203:9-206:52
 	android:screenOrientation
@@ -461,22 +461,22 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:203
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:205:13-42
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:204:13-73
-activity#com.dida.first.activity.Mine_PinGou_Activity
+activity#com.dida.first.activity.Mine_MyPingou_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:207:9-210:52
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:210:13-49
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:209:13-42
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:208:13-72
-activity#com.dida.first.activity.Mine_Product_Activity
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:208:13-60
+activity#com.dida.first.activity.Mine_FavPingou_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:211:9-214:52
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:214:13-49
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:213:13-42
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:212:13-73
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:212:13-61
 activity#com.dida.first.activity.Setting_Help_Activity
 ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:215:9-218:52
 	android:screenOrientation
