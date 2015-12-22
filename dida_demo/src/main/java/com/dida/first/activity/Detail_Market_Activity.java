@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -40,48 +41,54 @@ import java.util.Map;
  */
 public class Detail_Market_Activity extends BaseNomalActivity {
 
-    private static final int RES_OK=1;
-    private static final int RES_ERR=-1;
-    private static final int RES_COLLECT_OK=2;
     private static final String TAG = "Detail_Market_Activity";
-    private static final int RES_COLLECT_ERR = -2;
+    private static final int RES_OK = 1;
+    private static final int RES_ERR = -1;
+    private static final int RES_COLLECT_RESULT = 2;
     private LinearLayout ll_parent_market_detail;
-    private RelativeLayout rl_bottom_market_detail_addcar;
-    private RelativeLayout rl_bottom_market_detail_addorder;
-    private RelativeLayout rl_market_detail_buy;
     private ImageView iv_market_detail_back;
     private ImageView iv_market_detail_chat;
     private MDetail_Head_Holder headHolder;
     private MDetail_Image_Holder imageHolder;
     private MDetail_Store_Holder storeHolder;
     private MDetail_Comment_Holder commentHolder;
-    private BeanDetailMarket mDetailMarket=new BeanDetailMarket();
+    private BeanDetailMarket mDetailMarket = new BeanDetailMarket();
     private PopupWindowSelect sharePopupWindow;
-    private Handler mHandler=new Handler(){
+    private int mIsCollection;
+    private String mProductNo;
+    private String mType;
+    private boolean mIsVisitNet;
+    private TextView tv_market_join;
+    private TextView tv_market_addcar;
+    private ImageView iv_market_addcar;
+    private LinearLayout ll_market_addshow;
+    private LinearLayout ll_market_store;
+    private LinearLayout ll_market_addcar;
+
+    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            mIsVisitNet = false;
+            switch (msg.what) {
                 case RES_OK:
+                    mLoadingAndRetryManager.showContent();
                     setData(mDetailMarket);
                     //初始化参数列表
                     initPopupWindow();
                     break;
                 case RES_ERR:
+                    mLoadingAndRetryManager.showRetry();
                     ToastUtil.showMyToast("服务器君被绑架啦！");
                     break;
-                case RES_COLLECT_OK:
-                    ToastUtil.showMyToast("成功添加到待购订单！");
+                case RES_COLLECT_RESULT:
+                    setFav(mIsCollection);
                     break;
-                case RES_COLLECT_ERR:
-                    ToastUtil.showMyToast("添加到待购订单失败！");
-                    break;
+
             }
 
         }
     };
-    private RelativeLayout rl_loading;
-    private String productNo;
-    private String type;
+
 
     private void initPopupWindow() {
         sharePopupWindow = new PopupWindowSelect(
@@ -111,16 +118,20 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                 //TODO
                 ToastUtil.showMyToast("聊天界面");
                 break;
-            case R.id.rl_market_detail_addOrder:
+            case R.id.ll_market_addcar:
                 //TODO
-                ToastUtil.showMyToast("加入订单");
-                doNetCollect(productNo,type,"fb9a38d82cd3405a9b60ec54cdb5ecdf");
+                ToastUtil.showMyToast("加入待购");
+                doNetCollect(mProductNo, mType, "fb9a38d82cd3405a9b60ec54cdb5ecdf", mIsCollection);
                 break;
-            case R.id.rl_market_detail_addShow:
+            case R.id.ll_market_addshow:
                 //TODO
                 ToastUtil.showMyToast("加入晒单");
                 break;
-            case R.id.rl_market_detail_buy:
+            case R.id.ll_market_store:
+                //TODO
+                ToastUtil.showMyToast("店铺");
+                break;
+            case R.id.tv_market_join:
                 //TODO
                 ToastUtil.showMyToast("立即购买");
                 break;
@@ -182,9 +193,15 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     protected void initView() {
         ll_parent_market_detail = (LinearLayout) view
                 .findViewById(R.id.ll_parent_market_detail);
-        rl_bottom_market_detail_addcar = (RelativeLayout) view.findViewById(R.id.rl_market_detail_addOrder);
-        rl_bottom_market_detail_addorder = (RelativeLayout) view.findViewById(R.id.rl_market_detail_addShow);
-        rl_market_detail_buy = (RelativeLayout) view.findViewById(R.id.rl_market_detail_buy);
+        ll_market_addcar = (LinearLayout) view.findViewById(R.id.ll_market_addcar);
+        ll_market_store = (LinearLayout) view.findViewById(R.id.ll_market_store);
+        ll_market_addshow = (LinearLayout) view.findViewById(R.id.ll_market_addshow);
+
+        iv_market_addcar = (ImageView) view.findViewById(R.id.iv_market_addcar);
+        tv_market_addcar = (TextView) view.findViewById(R.id.tv_market_addcar);
+
+        tv_market_join = (TextView) view.findViewById(R.id.tv_market_join);
+
         iv_market_detail_back = (ImageView) view.findViewById(R.id.iv_market_detail_back);
         iv_market_detail_chat = (ImageView) view.findViewById(R.id.iv_market_detail_chat);
     }
@@ -192,23 +209,29 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     @Override
     protected void initNet() {
         Bundle bundle = getIntent().getExtras();
-        productNo = bundle.getString("productNo");
-        type = bundle.getString("type");
-        Log.i(TAG, "productNo: "+ productNo +"type: "+ type);
+        mProductNo = bundle.getString("productNo");
+        mType = bundle.getString("type");
+        mLoadingAndRetryManager.showLoading();
 
     }
 
     /**
      * 访问网络-初始化页面
+     *
      * @param productNo
      * @param type
      */
     private void doNetInit(final String productNo, final String type) {
-        VolleyGsonRequest<BeanDetailMarket> initRequest = new VolleyGsonRequest<BeanDetailMarket>(UrlUtil.HOST+UrlUtil.MARKET_DETAIL, BeanDetailMarket.class, new Response.Listener<BeanDetailMarket>() {
+        if (mIsVisitNet) {
+            return;
+        }
+        mIsVisitNet = true;
+        VolleyGsonRequest<BeanDetailMarket> initRequest = new VolleyGsonRequest<BeanDetailMarket>(UrlUtil.HOST + UrlUtil.MARKET_DETAIL, BeanDetailMarket.class, new Response.Listener<BeanDetailMarket>() {
             @Override
             public void onResponse(BeanDetailMarket beanDetailMarket) {
-                Log.i(TAG, "beanDetailMarket: "+beanDetailMarket.getRes().getTimeOrPhyProduct().getName());
-                mDetailMarket=beanDetailMarket;
+                Log.i(TAG, "beanDetailMarket: " + beanDetailMarket.getRes().getTimeOrPhyProduct().getName());
+                mDetailMarket = beanDetailMarket;
+                mIsCollection = beanDetailMarket.getRes().getIsCollection();
                 mHandler.sendEmptyMessage(RES_OK);
             }
         }, new Response.ErrorListener() {
@@ -216,30 +239,37 @@ public class Detail_Market_Activity extends BaseNomalActivity {
             public void onErrorResponse(VolleyError volleyError) {
                 mHandler.sendEmptyMessage(RES_ERR);
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("productNo", productNo);
-                map.put("type",type);
-                map.put("userId","fb9a38d82cd3405a9b60ec54cdb5ecdf");
-                map.put("app","1");
+                map.put("type", type);
+                map.put("userId", "fb9a38d82cd3405a9b60ec54cdb5ecdf");
+                map.put("app", "1");
                 return map;
             }
         };
         mQueue.add(initRequest);
     }
 
-    private void doNetCollect(final String productId, final String productType,final String userId) {
-        VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.HOST+UrlUtil.MARKET_DO_COLLECT, BeanRes.class, new Response.Listener<BeanRes>() {
+    /**
+     * 加入/取消    待购单
+     * @param productId
+     * @param productType
+     * @param userId
+     * @param isCollection
+     */
+    private void doNetCollect(final String productId, final String productType, final String userId, final int isCollection) {
+        if (mIsVisitNet) {
+            return;
+        }
+        mIsVisitNet = true;
+        VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.HOST + UrlUtil.MARKET_IFCOLLECT, BeanRes.class, new Response.Listener<BeanRes>() {
             @Override
             public void onResponse(BeanRes res) {
-                if (res.getCode()==1){
-                    Log.i(TAG, "onResponse: "+res.getCode());
-                    mHandler.sendEmptyMessage(RES_COLLECT_OK);
-                }else{
-                    mHandler.sendEmptyMessage(RES_COLLECT_ERR);
-                }
+                mIsCollection = res.getRes();
+                mHandler.sendEmptyMessage(RES_COLLECT_RESULT);
 
             }
         }, new Response.ErrorListener() {
@@ -248,15 +278,15 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
                 mHandler.sendEmptyMessage(RES_ERR);
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("productId", productId);
-                map.put("productType",productType);
-                map.put("userId",userId);
-                map.put("app","1");
-                Log.d(TAG, "productId" + productId+ "productType" + productId+ "userId" + userId);
+                map.put("productType", productType);
+                map.put("userId", "fb9a38d82cd3405a9b60ec54cdb5ecdf");
+                map.put("isCollection", isCollection + "");
+                map.put("app", "1");
                 return map;
             }
         };
@@ -266,9 +296,10 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
     @Override
     protected void initEvent() {
-        rl_market_detail_buy.setOnClickListener(this);
-        rl_bottom_market_detail_addcar.setOnClickListener(this);
-        rl_bottom_market_detail_addorder.setOnClickListener(this);
+        ll_market_addcar.setOnClickListener(this);
+        ll_market_store.setOnClickListener(this);
+        ll_market_addshow.setOnClickListener(this);
+        tv_market_join.setOnClickListener(this);
         iv_market_detail_back.setOnClickListener(this);
         iv_market_detail_chat.setOnClickListener(this);
     }
@@ -276,13 +307,21 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
     @Override
     protected void initData() {
-        doNetInit(productNo, type);
+        doNetInit(mProductNo, mType);
     }
 
     private void setData(BeanDetailMarket bean) {
         headHolder.setData(bean);
-//        commentHolder.setData(bean);
         storeHolder.setData(bean);
+//        commentHolder.setData(bean);
 //        imageHolder.setData(bean);
+        setFav(mIsCollection);
     }
+
+    private void setFav(int isCollection) {
+        iv_market_addcar.setBackgroundResource(isCollection == 0 ? R.drawable.btn_addcar_sel : R.drawable.btn_canclecar_nor);
+        tv_market_addcar.setText(isCollection == 0 ? "加入待购" : "取消待购");
+    }
+
+
 }

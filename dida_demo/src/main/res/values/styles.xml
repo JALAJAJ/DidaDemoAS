@@ -69,6 +69,12 @@
         <item name="android:background">@color/gray_divider</item>
     </style>
 
+    <style name="divider_shadow_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@drawable/shadow_divider</item>
+    </style>
+
     <style name="divider_gray_horizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>

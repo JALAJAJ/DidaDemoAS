@@ -127,7 +127,7 @@ public class PopupWindowSelect extends
 					tv.setTextColor(activity.getResources().getColor(
 							R.color.white));
 				} else {
-					tv.setBackgroundResource(R.drawable.shape_l1grayd_bwhite_r4);
+					tv.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
 					tv.setTextColor(activity.getResources().getColor(
 							R.color.gray_deep));
 				}

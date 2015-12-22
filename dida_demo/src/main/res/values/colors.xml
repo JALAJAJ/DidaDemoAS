@@ -28,6 +28,7 @@
     <color name="gray_tip">#999999</color>
     <color name="gray_content">#666666</color>
     <color name="blue_font">#328FCA</color>
+    <color name="blue_comment">#005078</color>
     <color name="gray_comment">#EDEDED</color>
     <color name="gray_divider">#dadada</color>
     <color name="yellow">#FF992C</color>
