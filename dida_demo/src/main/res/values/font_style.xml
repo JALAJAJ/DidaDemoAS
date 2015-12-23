@@ -204,6 +204,13 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="gray_content_14_line8">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_content</item>
+        <item name="android:maxLines">8</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
     <style name="blue_content_12_line8">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/blue_comment</item>

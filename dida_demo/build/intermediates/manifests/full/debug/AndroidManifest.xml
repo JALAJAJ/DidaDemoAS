@@ -249,7 +249,7 @@
             android:name="com.dida.first.activity.Detail_Pingou_Comment_Activity"
             android:launchMode="standard"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
 
         <!-- 融云 -->
         <!-- 会话列表 Activity -->

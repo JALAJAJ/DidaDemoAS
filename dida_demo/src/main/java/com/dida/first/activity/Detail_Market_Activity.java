@@ -163,7 +163,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
          */
         FrameLayout fl_market_detail_comment = (FrameLayout) view
                 .findViewById(R.id.fl_market_detail_comment);
-        commentHolder = new MDetail_Comment_Holder();
+        commentHolder = new MDetail_Comment_Holder(this);
         fl_market_detail_comment.addView(commentHolder.getRootView());
         /**
          * 店铺信息
@@ -313,7 +313,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private void setData(BeanDetailMarket bean) {
         headHolder.setData(bean);
         storeHolder.setData(bean);
-//        commentHolder.setData(bean);
+        commentHolder.setData(bean);
 //        imageHolder.setData(bean);
         setFav(mIsCollection);
     }
