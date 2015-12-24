@@ -18,6 +18,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.dida.first.R;
+import com.dida.first.dialog.DialogProgress;
 import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.entity.BeanRes;
 import com.dida.first.holder.MDetail_Comment_Holder;
@@ -81,6 +82,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                     ToastUtil.showMyToast("服务器君被绑架啦！");
                     break;
                 case RES_COLLECT_RESULT:
+                    dialogProgress.dismiss();
                     setFav(mIsCollection);
                     break;
 
@@ -88,6 +90,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
         }
     };
+    private DialogProgress dialogProgress;
 
 
     private void initPopupWindow() {
@@ -122,6 +125,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                 //TODO
                 ToastUtil.showMyToast("加入待购");
                 doNetCollect(mProductNo, mType, "fb9a38d82cd3405a9b60ec54cdb5ecdf", mIsCollection);
+                Log.i(TAG, " mProductNo: "+mProductNo+" mType: "+mType+" mIsCollection: "+mIsCollection);
                 break;
             case R.id.ll_market_addshow:
                 //TODO
@@ -180,7 +184,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                 .findViewById(R.id.rl_market_detail_info);
         rl_market_detail_info.setOnClickListener(this);
         /**
-         * 图片详情
+         * 图文详情
          */
         FrameLayout fl_market_detail_image = (FrameLayout) view
                 .findViewById(R.id.fl_market_detail_image);
@@ -212,6 +216,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         mProductNo = bundle.getString("productNo");
         mType = bundle.getString("type");
         mLoadingAndRetryManager.showLoading();
+        dialogProgress = new DialogProgress(this);
 
     }
 
@@ -261,14 +266,17 @@ public class Detail_Market_Activity extends BaseNomalActivity {
      * @param isCollection
      */
     private void doNetCollect(final String productId, final String productType, final String userId, final int isCollection) {
+
         if (mIsVisitNet) {
             return;
         }
+        dialogProgress.show();
         mIsVisitNet = true;
-        VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.HOST + UrlUtil.MARKET_IFCOLLECT, BeanRes.class, new Response.Listener<BeanRes>() {
+        VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.HOST + UrlUtil.MARKET_ADD_CANCLE_COLLECT, BeanRes.class, new Response.Listener<BeanRes>() {
             @Override
             public void onResponse(BeanRes res) {
                 mIsCollection = res.getRes();
+                Log.i(TAG, "onResponse: "+mIsCollection);
                 mHandler.sendEmptyMessage(RES_COLLECT_RESULT);
 
             }
@@ -314,11 +322,12 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         headHolder.setData(bean);
         storeHolder.setData(bean);
         commentHolder.setData(bean);
-//        imageHolder.setData(bean);
+        imageHolder.setData(bean.getRes().getDetailDesUrl());
         setFav(mIsCollection);
     }
 
     private void setFav(int isCollection) {
+
         iv_market_addcar.setBackgroundResource(isCollection == 0 ? R.drawable.btn_addcar_sel : R.drawable.btn_canclecar_nor);
         tv_market_addcar.setText(isCollection == 0 ? "加入待购" : "取消待购");
     }

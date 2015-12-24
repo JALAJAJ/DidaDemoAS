@@ -538,13 +538,13 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:241
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:242:13-80
 activity#com.dida.first.activity.Detail_Pingou_Comment_Activity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:245:9-249:75
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:245:9-249:69
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:248:13-49
 	android:launchMode
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:247:13-42
 	android:windowSoftInputMode
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:249:13-73
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:249:13-67
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:246:13-68
 activity#com.dida.first.rongyun.ConversationListActivity

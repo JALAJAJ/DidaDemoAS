@@ -88,7 +88,7 @@
 
     <TextView
         android:gravity="center"
-        android:text="立即加入"
+        android:text="立即购买"
         style="@style/white_16"
         android:id="@+id/tv_market_join"
         android:layout_width="0dp"
