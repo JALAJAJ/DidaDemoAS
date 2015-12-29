@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.entity.BeanDetailPingou;
+import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.interfaces.OnShareFavListener;
 import com.dida.first.utils.TimeUtils;
 import com.dida.first.utils.UIUtils;
@@ -20,7 +20,7 @@ import com.meg7.widget.CircleImageView;
  * @data 2015-8-17 下午4:19:59
  * @use
  */
-public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingou>  implements View.OnClickListener{
+public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingouUser>  implements View.OnClickListener{
 
     private OnShareFavListener onShareFavListener;
     private TextView tv_pingou_user_detail_head_day;
@@ -53,18 +53,18 @@ public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingou>  impl
     @Override
     public void refreshView() {
 
-        BeanDetailPingou data = getData();
-        BeanDetailPingou.ResEntity.ShareEntity share = data.getRes().getShare();
-        int[] deadTime = TimeUtils.getDeadTime(share.getCustomDueDate());
-        UImageLoaderUitl.displaySmallImage(share.getThumb(),civ_pingou_user_detail_icon);
+        BeanDetailPingouUser data = getData();
+        BeanDetailPingouUser.ResEntity.ComGroupDetailEntity comGroupDetail = data.getRes().getComGroupDetail();
+        int[] deadTime = TimeUtils.getDeadTime(comGroupDetail.getCustomDueDate());
+        UImageLoaderUitl.displaySmallImage(data.getRes().getThumb(),civ_pingou_user_detail_icon);
         tv_pingou_user_detail_head_day.setText(deadTime[0]+"");
         tv_pingou_user_detail_head_hour.setText(deadTime[1]+"");
         tv_pingou_user_detail_head_minute.setText(deadTime[2]+"");
-        tv_pingou_user_detail_head_price.setText("¥ "+share.getPrice());
-        tv_pingou_user_detail_head_oldPrice.setText("¥ "+share.getOldPrice());
-        tv_pingou_user_detail_head_title.setText(share.getName());
-        tv_pingou_user_detail_head_subject.setText(share.getCount()+"");
-        tv_pingou_user_detail_head_left.setText(share.getCount()-share.getNewCount()+"");
+        tv_pingou_user_detail_head_price.setText("¥ "+comGroupDetail.getPrice());
+        tv_pingou_user_detail_head_oldPrice.setText("¥ "+comGroupDetail.getOldPrice());
+        tv_pingou_user_detail_head_title.setText(comGroupDetail.getGroupName());
+        tv_pingou_user_detail_head_subject.setText(comGroupDetail.getCount()+"");
+        tv_pingou_user_detail_head_left.setText(comGroupDetail.getCount()-comGroupDetail.getBuyCount()+"");
         rl_pingou_user_detail_share.setOnClickListener(this);
 
     }

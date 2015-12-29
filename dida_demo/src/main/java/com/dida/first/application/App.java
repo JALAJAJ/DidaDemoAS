@@ -12,6 +12,7 @@ import com.dida.first.R;
 import com.dida.first.rongyun.RongYunEvent;
 import com.dida.first.utils.CustomConstants;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
@@ -76,8 +77,8 @@ public class App extends Application {
 				.denyCacheImageMultipleSizesInMemory()
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
 				.writeDebugLogs()
-//				.memoryCache(new LruMemoryCache(5 * 1024 * 1024)) //建议内存设在5-10M,可以有比较好的表现
-//				.memoryCacheSize(5 * 1024 * 1024)
+				.memoryCache(new LruMemoryCache(5 * 1024 * 1024)) //建议内存设在5-10M,可以有比较好的表现
+				.memoryCacheSize(5 * 1024 * 1024)
 				.discCacheSize(50 * 1024 * 1024)
 				.discCacheFileNameGenerator(new Md5FileNameGenerator())
 				.discCacheFileCount(100) //缓存的文件数量

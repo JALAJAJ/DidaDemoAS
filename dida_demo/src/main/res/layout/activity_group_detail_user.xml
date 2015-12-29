@@ -30,6 +30,13 @@
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
            />
+        <include layout="@layout/include_open_right_team"/>
+        <!-- 评论-->
+        <FrameLayout
+            android:id="@+id/fl_group_detail_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
         <!-- 描述-->
        <FrameLayout 
            android:id="@+id/fl_group_detail_des"
@@ -43,13 +50,7 @@
             android:layout_width="match_parent"
     android:layout_height="wrap_content"
            />-->
-        <include layout="@layout/include_open_right_team"/>
-        <!-- 评论-->
-       <FrameLayout 
-           android:id="@+id/fl_group_detail_comment"
-            android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-           /> 
+
     </LinearLayout>
  </ScrollView>
     <View style="@style/divider_nomal_horizontal"/>

@@ -3,50 +3,67 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp"
-    android:background="#ffffff"
+    android:background="@color/white"
   >
     <LinearLayout
+        android:layout_centerVertical="true"
         android:gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <com.meg7.widget.CircleImageView
-            android:id="@+id/iv_invate_item_icon"
+            android:id="@+id/iv_pingou_group_icon"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_alignParentLeft="true"
-            android:src="@drawable/invate_icon"
             android:scaleType="centerCrop" />
-        <ImageView
-            android:layout_marginLeft="4dp"
-            android:background="@drawable/level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
 
         <TextView
             style="@style/black_14"
-            android:id="@+id/tv_invate_item_name"
+            android:id="@+id/iv_pingou_group_name"
             android:layout_marginLeft="8dp"
             android:text="豆奶喝不醉"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
-            android:id="@+id/iv_invate_item_gender"
+            android:id="@+id/iv_pingou_group_gender"
             android:layout_marginLeft="4dp"
             android:background="@drawable/gender_woman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
-     <CheckBox
-         android:id="@+id/cb_attention"
-           android:layout_centerVertical="true"
-           android:layout_alignParentRight="true"
-         style="@style/style_attention_checkbox"
-         android:layout_width="60dp"
-            android:layout_height="28dp"
+    <TextView
+        android:visibility="gone"
+        style="@style/gray_12"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="已添加"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-         />
+    <LinearLayout
+        android:id="@+id/ll_pingou_group_add"
+        android:padding="8dp"
+        android:background="@drawable/selector_btn_white4"
+        android:gravity="center_vertical"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:background="@drawable/bg_add_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            style="@style/black_12"
+            android:layout_marginLeft="4dp"
+            android:text="添加好友"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
 </RelativeLayout>
 <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/layout/item_attention.xml -->

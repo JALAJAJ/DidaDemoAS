@@ -3,6 +3,7 @@
  */
 package com.dida.first.activity;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
@@ -17,7 +18,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.dida.first.R;
-import com.dida.first.entity.BeanDetailPingou;
+import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.holder.GDetail_Comment_Holder;
 import com.dida.first.holder.GDetail_Des_Holder;
 import com.dida.first.holder.GDetail_Item_Holder;
@@ -29,7 +30,9 @@ import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.VolleyGsonRequest;
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -54,7 +57,7 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
     private TextView tv_pingou_detail_team_count;
     private GDetail_User_Head_Holder titleHolder;
     private TextView tv_pingou_user_join;
-    private BeanDetailPingou mDetailPingou = new BeanDetailPingou();
+    private BeanDetailPingouUser mDetailPingouUser = new BeanDetailPingouUser();
     private RelativeLayout rl_loading;
     private int mIfFav;
     private Handler mHandler = new Handler() {
@@ -64,7 +67,7 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
             switch (msg.what) {
                 case RES_OK:
                     mLoadingAndRetryManager.showContent();
-                    setData(mDetailPingou);
+                    setData(mDetailPingouUser);
                     break;
             }
         }
@@ -73,13 +76,16 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
     private LinearLayout ll_pingou_user_fav;
     private ImageView iv_pingou_user_fav;
     private TextView tv_pingou_user_fav;
+    private Bundle mBundle=new Bundle();
 
 
     @Override
     protected void onChildClick(View v) {
         switch (v.getId()) {
             case R.id.rl_pingou_detail_team_more:
-                ActivityUtil.goActivity(Detail_Pingou_User_Activity.this, AttentionActivity.class);
+                List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ParticipatesEntity> participates = mDetailPingouUser.getRes().getComGroupDetail().getParticipates();
+                mBundle.putSerializable("PINGOU_GROUP", (Serializable) participates);
+                ActivityUtil.goActivityWithBundle(Detail_Pingou_User_Activity.this, AttentionActivity.class, mBundle);
                 break;
             case R.id.tv_pingou_user_join:
                 onJoin();
@@ -119,13 +125,6 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         itemHolder = new GDetail_Item_Holder(this);
         fl_group_detail_item.addView(itemHolder.getRootView());
         /**
-         * 团长块
-         */
-        fl_group_detail_des = (FrameLayout) view.findViewById(R.id.fl_group_detail_des);
-        desHolder = new GDetail_Des_Holder(this);
-        fl_group_detail_des.addView(desHolder.getRootView());
-
-        /**
          * 团员块
          */
         rl_pingou_detail_team_more = (RelativeLayout) view.findViewById(R.id.rl_pingou_detail_team_more);
@@ -137,6 +136,14 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         commentHolder = new GDetail_Comment_Holder(this);
 //        commentHolder.setList(commentList);
         fl_group_detail_comment.addView(commentHolder.getRootView());
+        /**
+         * 团长块
+         */
+        fl_group_detail_des = (FrameLayout) view.findViewById(R.id.fl_group_detail_des);
+        desHolder = new GDetail_Des_Holder(this);
+        fl_group_detail_des.addView(desHolder.getRootView());
+
+
         return view;
     }
 
@@ -179,11 +186,11 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
      * @param userId
      */
     private void doNetInit(final String serviceId, final String userId) {
-        VolleyGsonRequest<BeanDetailPingou> initRequest = new VolleyGsonRequest<BeanDetailPingou>(UrlUtil.HOST + UrlUtil.PINGOU_DETAIL, BeanDetailPingou.class, new Response.Listener<BeanDetailPingou>() {
+        VolleyGsonRequest<BeanDetailPingouUser> initRequest = new VolleyGsonRequest<BeanDetailPingouUser>(UrlUtil.HOST + UrlUtil.PINGOU_DETAIL, BeanDetailPingouUser.class, new Response.Listener<BeanDetailPingouUser>() {
             @Override
-            public void onResponse(BeanDetailPingou bean) {
-                mDetailPingou = bean;
-                mIfFav=bean.getRes().getIsCollection();
+            public void onResponse(BeanDetailPingouUser bean) {
+                mDetailPingouUser = bean;
+                mIfFav=mDetailPingouUser.getRes().getComGroupDetail().getIsCollection();
                 mHandler.sendEmptyMessage(RES_OK);
             }
         }, new Response.ErrorListener() {
@@ -204,10 +211,11 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         mQueue.add(initRequest);
     }
 
-    private void setData(BeanDetailPingou bean) {
+    private void setData(BeanDetailPingouUser bean) {
         titleHolder.setData(bean);
         itemHolder.setData(bean);
         desHolder.setData(bean);
+        tv_pingou_detail_team_count.setText(bean.getRes().getComGroupDetail().getParticipates().size()+"");
         showFav(mIfFav);
     }
 

@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.entity.BeanDetailPingou;
+import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 
@@ -25,7 +25,7 @@ import java.util.List;
  * @use			
  *
  */
-public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingou> implements AdapterView.OnItemClickListener {
+public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingouUser> implements AdapterView.OnItemClickListener {
 	private ListView lv_group_detail_item;
 	protected Activity activity;
 
@@ -42,9 +42,9 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingou> implements
 
 	@Override
 	public void refreshView() {
-		BeanDetailPingou data = getData();
-		List<BeanDetailPingou.ResEntity.PrepayListEntity> prepayList = data.getRes().getPrepayList();
-		lv_group_detail_item.setAdapter(new GroupItemAdapter(prepayList));
+		BeanDetailPingouUser data = getData();
+		List<BeanDetailPingouUser.ResEntity.PrepayordersEntity> prepayorders = data.getRes().getPrepayorders();
+		lv_group_detail_item.setAdapter(new GroupItemAdapter(prepayorders));
 		lv_group_detail_item.setOnItemClickListener(this);
 
 	}
@@ -56,9 +56,9 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingou> implements
 
 	class GroupItemAdapter extends BaseAdapter{
 
-		private List<BeanDetailPingou.ResEntity.PrepayListEntity> list;
+		private List<BeanDetailPingouUser.ResEntity.PrepayordersEntity> list;
 
-		public GroupItemAdapter(List<BeanDetailPingou.ResEntity.PrepayListEntity> list) {
+		public GroupItemAdapter(List<BeanDetailPingouUser.ResEntity.PrepayordersEntity> list) {
 			this.list = list;
 		}
 
@@ -84,15 +84,12 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingou> implements
 			}else{
 				viewHolder = (ViewHolder) convertView.getTag();
 			}
-			List<BeanDetailPingou.ResEntity.PrepayListEntity.OrderattrvalueEntity> orderattrvalue = list.get(position).getOrderattrvalue();
-			StringBuilder sb = new StringBuilder();
-			for (BeanDetailPingou.ResEntity.PrepayListEntity.OrderattrvalueEntity param:orderattrvalue){
-				sb.append(param.getAttrValue()+" ");
-			}
+
+
 			viewHolder.tvitemgroupdetailtitle.setText(list.get(position).getOrderName());
 			viewHolder.tvitemgroupdetailprice.setText(list.get(position).getPrice()+"");
 			viewHolder.tvitemgroupdetailcount.setText(list.get(position).getCount()+"");
-			viewHolder.tvitemgroupdetailparam.setText(sb.toString());
+			viewHolder.tvitemgroupdetailparam.setText(list.get(position).getOrderattrvalue());
 			UImageLoaderUitl.displayGvMidImage(list.get(position).getProductThumb(),viewHolder.ivitemgroupdetailicon);
 
 			return convertView;

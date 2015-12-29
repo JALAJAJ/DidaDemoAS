@@ -243,17 +243,14 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
         if (adsLunBoTu!=null){
                 adsLunBoTu.startRoll();
         }
-//        Log.i(TAG, "onStart: ");
     }
     @Override
     public void onResume() {
         super.onResume();
-//        Log.i(TAG, "onResume: ");
     }
     @Override
     public void onStop() {
         super.onStop();
-//        Log.i(TAG, "onStop: ");
         if (adsLunBoTu!=null){
             adsLunBoTu.stopRoll();
         }
@@ -262,7 +259,6 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     @Override
     public void onPause() {
         super.onPause();
-//        Log.i(TAG, "onPause: ");
     }
 
     @Override
@@ -271,7 +267,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
         int mPosition=position-2;
         PingouBean.ResEntity.QueryListEntity queryListEntity = pingouLvAdapter.getData().get(mPosition);
         //0用户拼购  1商家拼购
-        if (queryListEntity.getGroupType()==0){
+        if (queryListEntity.getGroupMode()==0){
             intent = new Intent(mActivity, Detail_Pingou_User_Activity.class);
 
         }else{

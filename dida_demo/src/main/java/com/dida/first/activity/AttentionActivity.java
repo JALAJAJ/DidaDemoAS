@@ -4,13 +4,11 @@ package com.dida.first.activity;
 import android.view.View;
 
 import com.dida.first.R;
-import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.holder.AttentionHolder;
-import com.dida.first.holder.BaseHolder;
+import com.dida.first.adapter.PingouGroupAdapter;
+import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.utils.UIUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +20,7 @@ import java.util.List;
 public class AttentionActivity extends BackTitleActivity {
 
 	private PullToRefreshListView plv_attention_list;
-	private List<String> attentionList=new ArrayList<String>();
+	private List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ParticipatesEntity> pingou_group;
 
 	@Override
 	public void onChildClick(View v) {
@@ -39,39 +37,22 @@ public class AttentionActivity extends BackTitleActivity {
 	public void initView() {
 		plv_attention_list = (PullToRefreshListView) view.findViewById(R.id.plv_attention_list);
 	}
+	@Override
+	public void initDoNet() {
+		pingou_group = (List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ParticipatesEntity>) getIntent().getSerializableExtra("PINGOU_GROUP");
 
+	}
 	@Override
 	public void initEvent() {
-		for (int i = 0; i < 20; i++) {
-			attentionList.add("别让我转回头"+i);
-		}
-		plv_attention_list.setAdapter(new AttentionAdapter(attentionList));
+		plv_attention_list.setAdapter(new PingouGroupAdapter(pingou_group,this));
 	}
 
 	@Override
 	public void initData() {
 		setBackTitle("团员列表");
-
 	}
 
-	@Override
-	public void initDoNet() {
 
-	}
-	class AttentionAdapter extends MyBaseAdapter<String>{
-
-		public AttentionAdapter(List<String> list) {
-			super(list);
-			// TODO Auto-generated constructor stub
-		}
-
-		@Override
-		public BaseHolder<String> getHolder() {
-			// TODO Auto-generated method stub
-			return new AttentionHolder();
-		}
-		
-	}
 	@Override
 	public void setBackClick() {
 		finish();
