@@ -5,22 +5,23 @@ package com.dida.first.holder;
 
 import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.activity.Detail_Pingou_Comment_Activity;
-import com.dida.first.adapter.ItemCommentAdapter;
-import com.dida.first.entity.CommentBean;
-import com.dida.first.entity.CommentBean.ItemComment;
+import com.dida.first.adapter.ImgAdapter;
+import com.dida.first.adapter.PingouCommentInAdapter;
+import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.SizeUtil;
+import com.dida.first.utils.TimeUtils;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
+import com.dida.first.utils.UImageLoaderUitl;
+import com.dida.first.view.AbsListView.MyGridView;
+import com.dida.first.view.AbsListView.MyListView;
+import com.meg7.widget.CircleImageView;
 
 import java.util.List;
 
@@ -30,11 +31,20 @@ import java.util.List;
  * @use			
  *
  */
-public class GDetail_Comment_Holder extends BaseHolder<CommentBean> implements View.OnClickListener{
+public class GDetail_Comment_Holder extends BaseHolder<BeanDetailPingouUser> implements View.OnClickListener{
 
-	private ListView lv_group_detail_comment;
 	private Activity activity;
-	private LinearLayout ll_pingou_comment_more;
+	private LinearLayout ll_comment_empty;
+	private LinearLayout ll_pingou_comment_content;
+	private TextView tv_pingou_comment_commentCount;
+	private TextView tv_pingou_detail_comment_name;
+	private TextView tv_pingou_detail_comment_floor;
+	private TextView tv_pingou_detail_comment_date;
+	private TextView tv_pingou_detail_comment_content;
+	private TextView tv_pingou_comment_more;
+	private CircleImageView civ_pingou_detail_comment_icon;
+	private MyGridView mgv_pingou_detail_comment_imgs;
+	private MyListView mlv_pingou_detail_comment_second;
 	public GDetail_Comment_Holder(Activity activity){
 		this.activity=activity;
 	}
@@ -42,80 +52,61 @@ public class GDetail_Comment_Holder extends BaseHolder<CommentBean> implements V
 	@Override
 	public View initView() {
 		view=UIUtils.inflate(R.layout.group_detail_comment);
-		lv_group_detail_comment = (ListView) view.findViewById(R.id.lv_group_detail_comment);
-		ll_pingou_comment_more = (LinearLayout) view.findViewById(R.id.ll_pingou_comment_more);
-		ll_pingou_comment_more.setOnClickListener(this);
+		ll_comment_empty = (LinearLayout) view.findViewById(R.id.ll_comment_empty);
+		ll_pingou_comment_content = (LinearLayout) view.findViewById(R.id.ll_pingou_comment_content);
+		tv_pingou_comment_commentCount = (TextView) view.findViewById(R.id.tv_pingou_comment_commentCount);
+		tv_pingou_detail_comment_name = (TextView) view.findViewById(R.id.tv_pingou_detail_comment_name);
+		tv_pingou_detail_comment_floor = (TextView) view.findViewById(R.id.tv_pingou_detail_comment_floor);
+		tv_pingou_detail_comment_date = (TextView) view.findViewById(R.id.tv_pingou_detail_comment_date);
+		tv_pingou_detail_comment_content = (TextView) view.findViewById(R.id.tv_pingou_detail_comment_content);
+		tv_pingou_comment_more = (TextView) view.findViewById(R.id.tv_pingou_comment_more);
+		civ_pingou_detail_comment_icon = (CircleImageView) view.findViewById(R.id.civ_pingou_detail_comment_icon);
+		mgv_pingou_detail_comment_imgs = (MyGridView) view.findViewById(R.id.mgv_pingou_detail_comment_imgs);
+		mlv_pingou_detail_comment_second = (MyListView) view.findViewById(R.id.mlv_pingou_detail_comment_second);
+		tv_pingou_comment_more.setOnClickListener(this);
 		return view;
 	}
 
 	@Override
 	public void refreshView() {
-		List<CommentBean> list = getList();
-		lv_group_detail_comment.setAdapter(new GroupCommentAdapter(list));
+		BeanDetailPingouUser data = getData();
+		List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ReplysEntity> replys = data.getRes().getComGroupDetail().getReplys();
+		tv_pingou_comment_commentCount.setText(replys.size()==0?"暂无评论(0)":"评论("+data.getRes().getComGroupDetail().getTaskcount()+")");
+		ll_pingou_comment_content.setVisibility(replys.size()==0?View.GONE:View.VISIBLE);
+		ll_comment_empty.setVisibility(replys.size()==0?View.VISIBLE:View.GONE);
+		mlv_pingou_detail_comment_second.setVisibility(View.GONE);
+
+		if (replys.size()>0){
+			BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ReplysEntity latestComment = replys.get(0);
+			tv_pingou_detail_comment_name.setText(latestComment.getUserName());
+			UImageLoaderUitl.displaySmallImage(latestComment.getThumb(),civ_pingou_detail_comment_icon);
+			tv_pingou_detail_comment_floor.setText(latestComment.getFloorNo()+"楼");
+			tv_pingou_detail_comment_date.setText(TimeUtils.getDayTime(latestComment.getCreateTime()));
+			tv_pingou_detail_comment_content.setText(latestComment.getContent());
+			if (latestComment.getReplyThumbList().size()>0){
+				ImgAdapter commentImgAdapter = new ImgAdapter(latestComment.getReplyThumbList(), activity);
+				commentImgAdapter.setImgSize(SizeUtil.getSize(SizeUtil.ImgSize.COMMENT),SizeUtil.getSize(SizeUtil.ImgSize.COMMENT));
+				mgv_pingou_detail_comment_imgs.setAdapter(commentImgAdapter);
+
+			}
+			if (latestComment.getSubReplys().size()>0){
+				mlv_pingou_detail_comment_second.setVisibility(View.VISIBLE);
+				List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ReplysEntity.SubReplysEntity> subReplys = latestComment.getSubReplys();
+				PingouCommentInAdapter pingouCommentInAdapter = new PingouCommentInAdapter(subReplys, activity);
+				mlv_pingou_detail_comment_second.setAdapter(pingouCommentInAdapter);
+			}
+		}
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()){
-			case R.id.ll_pingou_comment_more:
+			case R.id.tv_pingou_comment_more:
 				ActivityUtil.goActivity(activity, Detail_Pingou_Comment_Activity.class);
 				ToastUtil.showMyToast("全部评论");
 				break;
 		}
 	}
 
-	class GroupCommentAdapter extends BaseAdapter{
-		private List<CommentBean> list;
-		public GroupCommentAdapter(List<CommentBean> list) {
-			this.list=list;
-		}
-		@Override
-		public int getCount() {
-			if (list==null) {
-				return 0;
-			}else {
-				return 1;
-			}
-		}
-		@Override
-		public Object getItem(int position) {
-			return null;
-		}
-		@Override
-		public long getItemId(int position) {
-			return 0;
-		}
-		@Override
-		public View getView(final int position, View convertView, ViewGroup parent) {
-			View itemView=UIUtils.inflate(R.layout.item_group_detail_comment);
-			ListView lv_group_detail_itemcomment = (ListView) itemView.findViewById(R.id.lv_group_detail_itemcomment);
-			LinearLayout ll_comment = (LinearLayout) itemView.findViewById(R.id.ll_comment);
-			TextView tv_group_detail_comment_rootname = (TextView) itemView.findViewById(R.id.tv_group_detail_comment_rootname);
-			TextView tv_group_detail_comment_rootcomment = (TextView) itemView.findViewById(R.id.tv_group_detail_comment_rootcomment);
-			TextView tv_group_detail_comment_rootdate = (TextView) itemView.findViewById(R.id.tv_group_detail_comment_rootdate);
-			tv_group_detail_comment_rootname.setText(list.get(position).rootName);
-			tv_group_detail_comment_rootcomment.setText(list.get(position).rootComment);
-			tv_group_detail_comment_rootdate.setText(list.get(position).rootDate);
-			
-			
-			final List<ItemComment> itemComment=list.get(position).itemComments;
-			
-			if (itemComment!=null) {
-				ll_comment.setVisibility(View.VISIBLE);
-				lv_group_detail_itemcomment.setAdapter(new ItemCommentAdapter(itemComment));
-				lv_group_detail_itemcomment.setOnItemClickListener(new OnItemClickListener() {
 
-					@Override
-					public void onItemClick(AdapterView<?> parent, View view,
-							int position, long id) {
-						ToastUtil.showMyToast(itemComment.get(position).fromName);
-						
-					}
-				});
-			}
-			
-			return itemView;
-		}
-		
-	}
 }

@@ -50,5 +50,9 @@ public class TimeUtils {
 		return timeArr;
 	}
 
+	public static String getDayTime(String date){
+		return date.substring(date.indexOf("-")+1,date.lastIndexOf(":"));
+	}
+
 
 }

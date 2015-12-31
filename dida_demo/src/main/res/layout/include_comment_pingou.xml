@@ -31,21 +31,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_pingou_detail_comment_floor"
                 style="@style/black_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="19" />
 
-            <TextView
-                style="@style/black_14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="楼" />
 
             <TextView
                 android:id="@+id/tv_pingou_detail_comment_date"
@@ -63,13 +59,20 @@
             style="@style/gray_14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/selector_transparent2gray"
             android:text="这辆还不错，比起上次我在迪拜那辆限量版保时捷877速度上有些优势。" />
 
+        <com.dida.first.view.AbsListView.MyGridView
 
+            android:id="@+id/mgv_pingou_detail_comment_imgs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="4dp"
+            android:numColumns="5"
+ />
         <com.dida.first.view.AbsListView.MyListView
-
+android:visibility="gone"
             android:id="@+id/mlv_pingou_detail_comment_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

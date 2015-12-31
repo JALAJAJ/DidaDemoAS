@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.adapter.CommentMarketImgGvAdapter;
+import com.dida.first.adapter.ImgAdapter;
 import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
@@ -70,7 +70,9 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
             tv_comment_market_content.setText(feedBackVOsEntity.getDes());
             tv_comment_market_date.setText(feedBackVOsEntity.getCreateTime());
             tv_comment_market_param.setText(feedBackVOsEntity.getOrderAttrValues());
-            mgv_comment_market_image.setAdapter(new CommentMarketImgGvAdapter(feedBackVOsEntity.getImageUrlList(), activity));
+            ImgAdapter commentImgAdapter = new ImgAdapter(feedBackVOsEntity.getImageUrlList(), activity);
+            commentImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
+            mgv_comment_market_image.setAdapter(commentImgAdapter);
             if (feedBackVOsEntity.getAfterComment().size() > 0) {
                 tv_comment_market_after.setVisibility(View.VISIBLE);
                 String afterString="[当天追加]: ";
@@ -79,7 +81,9 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
                    afterString="["+addDays+"天后追加]: ";
                }
                 tv_comment_market_after.setText(afterString+feedBackVOsEntity.getAfterComment().get(0).getDes());
-                mgv_comment_market_afterimage.setAdapter(new CommentMarketImgGvAdapter(feedBackVOsEntity.getAfterComment().get(0).getImageUrlList(), activity));
+                ImgAdapter addImgAdapter = new ImgAdapter(feedBackVOsEntity.getImageUrlList(), activity);
+                addImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
+                mgv_comment_market_afterimage.setAdapter(addImgAdapter);
             }
         }
     }

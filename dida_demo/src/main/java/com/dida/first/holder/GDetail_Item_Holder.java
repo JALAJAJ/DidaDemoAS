@@ -87,9 +87,15 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingouUser> implem
 
 
 			viewHolder.tvitemgroupdetailtitle.setText(list.get(position).getOrderName());
-			viewHolder.tvitemgroupdetailprice.setText(list.get(position).getPrice()+"");
-			viewHolder.tvitemgroupdetailcount.setText(list.get(position).getCount()+"");
+			viewHolder.tvitemgroupdetailprice.setText("¥"+list.get(position).getPrice());
+			viewHolder.tvitemgroupdetailcount.setText("X"+list.get(position).getCount());
 			viewHolder.tvitemgroupdetailparam.setText(list.get(position).getOrderattrvalue());
+			viewHolder.tv_item_group_detail_edit.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+
+				}
+			});
 			UImageLoaderUitl.displayGvMidImage(list.get(position).getProductThumb(),viewHolder.ivitemgroupdetailicon);
 
 			return convertView;
@@ -101,6 +107,7 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingouUser> implem
 			public final TextView tvitemgroupdetailparam;
 			public final TextView tvitemgroupdetailprice;
 			public final TextView tvitemgroupdetailcount;
+			public final TextView tv_item_group_detail_edit;
 			public final View root;
 
 			public ViewHolder(View root) {
@@ -109,6 +116,7 @@ public class GDetail_Item_Holder extends BaseHolder<BeanDetailPingouUser> implem
 				tvitemgroupdetailparam = (TextView) root.findViewById(R.id.tv_item_group_detail_param);
 				tvitemgroupdetailprice = (TextView) root.findViewById(R.id.tv_item_group_detail_price);
 				tvitemgroupdetailcount = (TextView) root.findViewById(R.id.tv_item_group_detail_count);
+				tv_item_group_detail_edit = (TextView) root.findViewById(R.id.tv_item_group_detail_edit);
 				this.root = root;
 			}
 		}

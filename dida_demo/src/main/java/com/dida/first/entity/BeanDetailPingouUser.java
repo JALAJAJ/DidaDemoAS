@@ -8,10 +8,11 @@ import java.util.List;
  */
 public class BeanDetailPingouUser {
 
+
     /**
      * code : 1
      * msg : 详情加载成功
-     * res : {"prepayorders":[{"pId":"1449730580534d0adee0edadc4beb896","userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","orderNo":"1449730580534d0adee0edadc4beb896","productId":"f89e751773af47fda7f3added531c7a4","productType":1,"productThumb":"/upload/image/20151128/20151128102908_576.jpg","count":1,"price":0.01,"totalPrice":0.01,"orderName":"毛衣女2015冬季新款长袖网纱拼接打底衫上衣韩版修身套头针织衫潮","orderattrvalue":"颜色:黑色 尺寸:XL "},{"pId":"1449815622066b0869cc430454b2291e","userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","orderNo":"1449815622066b0869cc430454b2291e","productId":"2534e67cd3ef4437b539b10e7bbc92bb","productType":1,"productThumb":"/upload/image/20151128/20151128100542_966.jpg","count":1,"price":0.01,"totalPrice":0.01,"orderName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫 百搭打底衫毛衣女","orderattrvalue":"尺码:XL 颜色:白色 "}],"userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","pureDes":"市场上的保暖内衣大部分是絮片型，即两层针织布中间填充化纤原料制成絮片，表层轧出花纹。质量不好的洗涤后易变形，中间絮片易滑动。最好选择里外一体的产品，这种保暖","imageJson":["http://121.40.28.206/upload/image/20151225/1451023809275066934.png","http://121.40.28.206/upload/image/20151225/1451023809275036766.jpg","http://121.40.28.206/upload/image/20151225/1451023809281063709.png","http://121.40.28.206/upload/image/20151225/1451023809352069807.png","http://121.40.28.206/upload/image/20151225/1451023809761057499.png"],"sex":1,"comGroupDetail":{"serviceId":2028,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":0,"groupName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫","price":0.02,"oldPrice":0.02,"count":10,"buyCount":7,"taskcount":11,"customDueDate":"2016-08-27 14:10:00","participates":[{"userId":"13","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1}],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":406,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:49:05","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":405,"hasNode":1,"content":"dsfsdfsdfds","createTime":"2015-12-26 17:12:41","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":405,"replyId":407,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:50:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":407,"replyId":409,"hasNode":0,"content":"回复wujie0209:","createTime":"2015-12-28 13:53:29","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":402,"hasNode":1,"content":"地板","createTime":"2015-12-25 14:22:16","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142214_150.png,","replyThumbList":["/upload/image/20151225/20151225142214_150.png"],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":397,"hasNode":1,"content":"沙发","createTime":"2015-12-25 14:21:20","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142113_588.jpg,","replyThumbList":["/upload/image/20151225/20151225142113_588.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":398,"hasNode":1,"content":"呵呵","createTime":"2015-12-25 14:21:30","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":399,"hasNode":0,"content":"回复wujie0209:哈哈","createTime":"2015-12-25 14:21:36","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":401,"hasNode":0,"content":"回复wujie0209:。。。","createTime":"2015-12-25 14:21:53","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":400,"hasNode":1,"content":"嘿嘿","createTime":"2015-12-25 14:21:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]}}
+     * res : {"prepayorders":[{"pId":"1449730580534d0adee0edadc4beb896","userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","orderNo":"1449730580534d0adee0edadc4beb896","productId":"f89e751773af47fda7f3added531c7a4","productType":1,"productThumb":"/upload/image/20151128/20151128102908_576.jpg","count":1,"price":0.01,"totalPrice":0.01,"orderName":"毛衣女2015冬季新款长袖网纱拼接打底衫上衣韩版修身套头针织衫潮","orderattrvalue":"颜色:黑色 尺寸:XL "},{"pId":"1449815622066b0869cc430454b2291e","userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","orderNo":"1449815622066b0869cc430454b2291e","productId":"2534e67cd3ef4437b539b10e7bbc92bb","productType":1,"productThumb":"/upload/image/20151128/20151128100542_966.jpg","count":1,"price":0.01,"totalPrice":0.01,"orderName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫 百搭打底衫毛衣女","orderattrvalue":"尺码:XL 颜色:白色 "}],"userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","pureDes":"市场上的保暖内衣大部分是絮片型，即两层针织布中间填充化纤原料制成絮片，表层轧出花纹。质量不好的洗涤后易变形，中间絮片易滑动。最好选择里外一体的产品，这种保暖","imageJson":["http://121.40.28.206/upload/image/20151225/1451023809275066934.png","http://121.40.28.206/upload/image/20151225/1451023809275036766.jpg","http://121.40.28.206/upload/image/20151225/1451023809281063709.png","http://121.40.28.206/upload/image/20151225/1451023809352069807.png","http://121.40.28.206/upload/image/20151225/1451023809761057499.png"],"sex":1,"userCredits":4,"comGroupDetail":{"serviceId":2028,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":0,"groupName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫","price":0.02,"oldPrice":0.02,"count":10,"buyCount":4,"taskcount":5,"customDueDate":"2016-08-27 14:10:00","participates":[{"userId":"13","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1},{"userId":"b99e6df0f6b1406fad0467b79258e742","userName":"love8510","thumb":"/frontend/images/recommend-head3.jpg","sex":1}],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","floorNo":5,"replyId":410,"hasNode":1,"content":"我是第五楼。","createTime":"2015-12-29 16:43:39","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151229/20151229165401_242.png,/upload/image/20151229/20151229165412_124.png,/upload/image/20151229/20151229165423_206.png,/upload/image/20151229/20151229165435_907.png,/upload/image/20151229/20151229165449_380.png,","replyThumbList":["/upload/image/20151229/20151229165401_242.png","/upload/image/20151229/20151229165412_124.png","/upload/image/20151229/20151229165423_206.png","/upload/image/20151229/20151229165435_907.png","/upload/image/20151229/20151229165449_380.png"],"subReplys":[{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":411,"hasNode":1,"content":"地方郭德纲的非官方","createTime":"2015-12-29 16:47:46","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":411,"replyId":413,"hasNode":0,"content":"啥地方撒打算地方撒","createTime":"2015-12-29 16:48:50","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":411,"replyId":415,"hasNode":0,"content":"啥地方公司大概啥地方","createTime":"2015-12-29 16:50:16","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":412,"hasNode":1,"content":"放大和广泛地和天高地厚","createTime":"2015-12-29 16:48:05","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":412,"replyId":414,"hasNode":0,"content":"啥地方撒打算放","createTime":"2015-12-29 16:48:59","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":412,"replyId":416,"hasNode":0,"content":"旧共和国交换机","createTime":"2015-12-29 16:50:27","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"}]}]}}
      */
 
     private int code;
@@ -23,7 +24,8 @@ public class BeanDetailPingouUser {
      * pureDes : 市场上的保暖内衣大部分是絮片型，即两层针织布中间填充化纤原料制成絮片，表层轧出花纹。质量不好的洗涤后易变形，中间絮片易滑动。最好选择里外一体的产品，这种保暖
      * imageJson : ["http://121.40.28.206/upload/image/20151225/1451023809275066934.png","http://121.40.28.206/upload/image/20151225/1451023809275036766.jpg","http://121.40.28.206/upload/image/20151225/1451023809281063709.png","http://121.40.28.206/upload/image/20151225/1451023809352069807.png","http://121.40.28.206/upload/image/20151225/1451023809761057499.png"]
      * sex : 1
-     * comGroupDetail : {"serviceId":2028,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":0,"groupName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫","price":0.02,"oldPrice":0.02,"count":10,"buyCount":7,"taskcount":11,"customDueDate":"2016-08-27 14:10:00","participates":[{"userId":"13","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1}],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":406,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:49:05","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":405,"hasNode":1,"content":"dsfsdfsdfds","createTime":"2015-12-26 17:12:41","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":405,"replyId":407,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:50:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":407,"replyId":409,"hasNode":0,"content":"回复wujie0209:","createTime":"2015-12-28 13:53:29","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":402,"hasNode":1,"content":"地板","createTime":"2015-12-25 14:22:16","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142214_150.png,","replyThumbList":["/upload/image/20151225/20151225142214_150.png"],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":397,"hasNode":1,"content":"沙发","createTime":"2015-12-25 14:21:20","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142113_588.jpg,","replyThumbList":["/upload/image/20151225/20151225142113_588.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":398,"hasNode":1,"content":"呵呵","createTime":"2015-12-25 14:21:30","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":399,"hasNode":0,"content":"回复wujie0209:哈哈","createTime":"2015-12-25 14:21:36","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":401,"hasNode":0,"content":"回复wujie0209:。。。","createTime":"2015-12-25 14:21:53","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":400,"hasNode":1,"content":"嘿嘿","createTime":"2015-12-25 14:21:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]}
+     * userCredits : 4.0
+     * comGroupDetail : {"serviceId":2028,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":0,"groupName":"梵希蔓2015秋冬新款 淑女气质高领长袖针织衫","price":0.02,"oldPrice":0.02,"count":10,"buyCount":4,"taskcount":5,"customDueDate":"2016-08-27 14:10:00","participates":[{"userId":"13","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1},{"userId":"b99e6df0f6b1406fad0467b79258e742","userName":"love8510","thumb":"/frontend/images/recommend-head3.jpg","sex":1}],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","floorNo":5,"replyId":410,"hasNode":1,"content":"我是第五楼。","createTime":"2015-12-29 16:43:39","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151229/20151229165401_242.png,/upload/image/20151229/20151229165412_124.png,/upload/image/20151229/20151229165423_206.png,/upload/image/20151229/20151229165435_907.png,/upload/image/20151229/20151229165449_380.png,","replyThumbList":["/upload/image/20151229/20151229165401_242.png","/upload/image/20151229/20151229165412_124.png","/upload/image/20151229/20151229165423_206.png","/upload/image/20151229/20151229165435_907.png","/upload/image/20151229/20151229165449_380.png"],"subReplys":[{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":411,"hasNode":1,"content":"地方郭德纲的非官方","createTime":"2015-12-29 16:47:46","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":411,"replyId":413,"hasNode":0,"content":"啥地方撒打算地方撒","createTime":"2015-12-29 16:48:50","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":411,"replyId":415,"hasNode":0,"content":"啥地方公司大概啥地方","createTime":"2015-12-29 16:50:16","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":412,"hasNode":1,"content":"放大和广泛地和天高地厚","createTime":"2015-12-29 16:48:05","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":412,"replyId":414,"hasNode":0,"content":"啥地方撒打算放","createTime":"2015-12-29 16:48:59","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":412,"replyId":416,"hasNode":0,"content":"旧共和国交换机","createTime":"2015-12-29 16:50:27","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"}]}]}
      */
 
     private ResEntity res;
@@ -57,6 +59,7 @@ public class BeanDetailPingouUser {
         private String thumb;
         private String pureDes;
         private int sex;
+        private double userCredits;
         /**
          * serviceId : 2028
          * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
@@ -66,11 +69,11 @@ public class BeanDetailPingouUser {
          * price : 0.02
          * oldPrice : 0.02
          * count : 10
-         * buyCount : 7
-         * taskcount : 11
+         * buyCount : 4
+         * taskcount : 5
          * customDueDate : 2016-08-27 14:10:00
-         * participates : [{"userId":"13","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1}]
-         * replys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":406,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:49:05","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":405,"hasNode":1,"content":"dsfsdfsdfds","createTime":"2015-12-26 17:12:41","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"","replyThumbList":[],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":405,"replyId":407,"hasNode":1,"content":"测试评论","createTime":"2015-12-28 13:50:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":407,"replyId":409,"hasNode":0,"content":"回复wujie0209:","createTime":"2015-12-28 13:53:29","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":402,"hasNode":1,"content":"地板","createTime":"2015-12-25 14:22:16","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142214_150.png,","replyThumbList":["/upload/image/20151225/20151225142214_150.png"],"subReplys":[]},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":397,"hasNode":1,"content":"沙发","createTime":"2015-12-25 14:21:20","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225142113_588.jpg,","replyThumbList":["/upload/image/20151225/20151225142113_588.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":398,"hasNode":1,"content":"呵呵","createTime":"2015-12-25 14:21:30","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":399,"hasNode":0,"content":"回复wujie0209:哈哈","createTime":"2015-12-25 14:21:36","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":398,"replyId":401,"hasNode":0,"content":"回复wujie0209:。。。","createTime":"2015-12-25 14:21:53","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":397,"replyId":400,"hasNode":1,"content":"嘿嘿","createTime":"2015-12-25 14:21:45","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]
+         * participates : [{"userId":"13","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg","sex":1},{"userId":"58","userName":"hhh","thumb":"/upload/1.jpg","sex":1},{"userId":"b99e6df0f6b1406fad0467b79258e742","userName":"love8510","thumb":"/frontend/images/recommend-head3.jpg","sex":1}]
+         * replys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","floorNo":5,"replyId":410,"hasNode":1,"content":"我是第五楼。","createTime":"2015-12-29 16:43:39","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151229/20151229165401_242.png,/upload/image/20151229/20151229165412_124.png,/upload/image/20151229/20151229165423_206.png,/upload/image/20151229/20151229165435_907.png,/upload/image/20151229/20151229165449_380.png,","replyThumbList":["/upload/image/20151229/20151229165401_242.png","/upload/image/20151229/20151229165412_124.png","/upload/image/20151229/20151229165423_206.png","/upload/image/20151229/20151229165435_907.png","/upload/image/20151229/20151229165449_380.png"],"subReplys":[{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":411,"hasNode":1,"content":"地方郭德纲的非官方","createTime":"2015-12-29 16:47:46","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":411,"replyId":413,"hasNode":0,"content":"啥地方撒打算地方撒","createTime":"2015-12-29 16:48:50","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":411,"replyId":415,"hasNode":0,"content":"啥地方公司大概啥地方","createTime":"2015-12-29 16:50:16","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":412,"hasNode":1,"content":"放大和广泛地和天高地厚","createTime":"2015-12-29 16:48:05","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":412,"replyId":414,"hasNode":0,"content":"啥地方撒打算放","createTime":"2015-12-29 16:48:59","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":412,"replyId":416,"hasNode":0,"content":"旧共和国交换机","createTime":"2015-12-29 16:50:27","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"}]}]
          */
 
         private ComGroupDetailEntity comGroupDetail;
@@ -107,6 +110,10 @@ public class BeanDetailPingouUser {
             this.sex = sex;
         }
 
+        public void setUserCredits(double userCredits) {
+            this.userCredits = userCredits;
+        }
+
         public void setComGroupDetail(ComGroupDetailEntity comGroupDetail) {
             this.comGroupDetail = comGroupDetail;
         }
@@ -133,6 +140,10 @@ public class BeanDetailPingouUser {
 
         public int getSex() {
             return sex;
+        }
+
+        public double getUserCredits() {
+            return userCredits;
         }
 
         public ComGroupDetailEntity getComGroupDetail() {
@@ -162,22 +173,23 @@ public class BeanDetailPingouUser {
             /**
              * userId : 13
              * userName : admin
-             * thumb : /frontend/images/recommend-head2.jpg
+             * thumb : /upload/145145917901652e9b4bf7b83.jpg
              * sex : 1
              */
 
             private List<ParticipatesEntity> participates;
             /**
              * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
-             * replyId : 406
+             * floorNo : 5
+             * replyId : 410
              * hasNode : 1
-             * content : 测试评论
-             * createTime : 2015-12-28 13:49:05
+             * content : 我是第五楼。
+             * createTime : 2015-12-29 16:43:39
              * userName : wujie0209
              * thumb : /frontend/images/recommend-head4.jpg
-             * replyThumb :
-             * replyThumbList : []
-             * subReplys : []
+             * replyThumb : /upload/image/20151229/20151229165401_242.png,/upload/image/20151229/20151229165412_124.png,/upload/image/20151229/20151229165423_206.png,/upload/image/20151229/20151229165435_907.png,/upload/image/20151229/20151229165449_380.png,
+             * replyThumbList : ["/upload/image/20151229/20151229165401_242.png","/upload/image/20151229/20151229165412_124.png","/upload/image/20151229/20151229165423_206.png","/upload/image/20151229/20151229165435_907.png","/upload/image/20151229/20151229165449_380.png"]
+             * subReplys : [{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":411,"hasNode":1,"content":"地方郭德纲的非官方","createTime":"2015-12-29 16:47:46","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":411,"replyId":413,"hasNode":0,"content":"啥地方撒打算地方撒","createTime":"2015-12-29 16:48:50","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":411,"replyId":415,"hasNode":0,"content":"啥地方公司大概啥地方","createTime":"2015-12-29 16:50:16","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":410,"replyId":412,"hasNode":1,"content":"放大和广泛地和天高地厚","createTime":"2015-12-29 16:48:05","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"},{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"admin","parentId":412,"replyId":414,"hasNode":0,"content":"啥地方撒打算放","createTime":"2015-12-29 16:48:59","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"},{"userId":"13","replyedUserName":"wujie0209","parentId":412,"replyId":416,"hasNode":0,"content":"旧共和国交换机","createTime":"2015-12-29 16:50:27","userName":"admin","thumb":"/upload/145145917901652e9b4bf7b83.jpg"}]
              */
 
             private List<ReplysEntity> replys;
@@ -327,6 +339,7 @@ public class BeanDetailPingouUser {
 
             public static class ReplysEntity {
                 private String userId;
+                private int floorNo;
                 private int replyId;
                 private int hasNode;
                 private String content;
@@ -334,11 +347,27 @@ public class BeanDetailPingouUser {
                 private String userName;
                 private String thumb;
                 private String replyThumb;
-                private List<?> replyThumbList;
-                private List<?> subReplys;
+                private List<String> replyThumbList;
+                /**
+                 * userId : 13
+                 * replyedUserName : wujie0209
+                 * parentId : 410
+                 * replyId : 411
+                 * hasNode : 1
+                 * content : 地方郭德纲的非官方
+                 * createTime : 2015-12-29 16:47:46
+                 * userName : admin
+                 * thumb : /upload/145145917901652e9b4bf7b83.jpg
+                 */
+
+                private List<SubReplysEntity> subReplys;
 
                 public void setUserId(String userId) {
                     this.userId = userId;
+                }
+
+                public void setFloorNo(int floorNo) {
+                    this.floorNo = floorNo;
                 }
 
                 public void setReplyId(int replyId) {
@@ -369,16 +398,20 @@ public class BeanDetailPingouUser {
                     this.replyThumb = replyThumb;
                 }
 
-                public void setReplyThumbList(List<?> replyThumbList) {
+                public void setReplyThumbList(List<String> replyThumbList) {
                     this.replyThumbList = replyThumbList;
                 }
 
-                public void setSubReplys(List<?> subReplys) {
+                public void setSubReplys(List<SubReplysEntity> subReplys) {
                     this.subReplys = subReplys;
                 }
 
                 public String getUserId() {
                     return userId;
+                }
+
+                public int getFloorNo() {
+                    return floorNo;
                 }
 
                 public int getReplyId() {
@@ -409,12 +442,96 @@ public class BeanDetailPingouUser {
                     return replyThumb;
                 }
 
-                public List<?> getReplyThumbList() {
+                public List<String> getReplyThumbList() {
                     return replyThumbList;
                 }
 
-                public List<?> getSubReplys() {
+                public List<SubReplysEntity> getSubReplys() {
                     return subReplys;
+                }
+
+                public static class SubReplysEntity {
+                    private String userId;
+                    private String replyedUserName;
+                    private int parentId;
+                    private int replyId;
+                    private int hasNode;
+                    private String content;
+                    private String createTime;
+                    private String userName;
+                    private String thumb;
+
+                    public void setUserId(String userId) {
+                        this.userId = userId;
+                    }
+
+                    public void setReplyedUserName(String replyedUserName) {
+                        this.replyedUserName = replyedUserName;
+                    }
+
+                    public void setParentId(int parentId) {
+                        this.parentId = parentId;
+                    }
+
+                    public void setReplyId(int replyId) {
+                        this.replyId = replyId;
+                    }
+
+                    public void setHasNode(int hasNode) {
+                        this.hasNode = hasNode;
+                    }
+
+                    public void setContent(String content) {
+                        this.content = content;
+                    }
+
+                    public void setCreateTime(String createTime) {
+                        this.createTime = createTime;
+                    }
+
+                    public void setUserName(String userName) {
+                        this.userName = userName;
+                    }
+
+                    public void setThumb(String thumb) {
+                        this.thumb = thumb;
+                    }
+
+                    public String getUserId() {
+                        return userId;
+                    }
+
+                    public String getReplyedUserName() {
+                        return replyedUserName;
+                    }
+
+                    public int getParentId() {
+                        return parentId;
+                    }
+
+                    public int getReplyId() {
+                        return replyId;
+                    }
+
+                    public int getHasNode() {
+                        return hasNode;
+                    }
+
+                    public String getContent() {
+                        return content;
+                    }
+
+                    public String getCreateTime() {
+                        return createTime;
+                    }
+
+                    public String getUserName() {
+                        return userName;
+                    }
+
+                    public String getThumb() {
+                        return thumb;
+                    }
                 }
             }
         }

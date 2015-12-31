@@ -14,11 +14,14 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.activity.ZoomImageActivity;
-import com.dida.first.adapter.PingouImgAdapter;
+import com.dida.first.adapter.ImgAdapter;
 import com.dida.first.entity.BeanDetailPingouUser;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.UIUtils;
+import com.dida.first.utils.UImageLoaderUitl;
 import com.dida.first.view.AbsListView.MyListView;
+import com.dida.first.view.KingJA_GradeView;
+import com.meg7.widget.CircleImageView;
 
 /**
  * @author KingJA
@@ -29,6 +32,9 @@ public class GDetail_Des_Holder extends BaseHolder<BeanDetailPingouUser> impleme
 
     private MyListView mlv_group_detail_des;
     private TextView tv_pingou_detail_des_content;
+    private TextView tv_pingou_detail_des_leader;
+    private CircleImageView civ_pingou_detail_des_icon;
+    private KingJA_GradeView kgv_pingou_detail_des_grade;
     protected Activity activity;
 
     public GDetail_Des_Holder(Activity activity) {
@@ -40,6 +46,9 @@ public class GDetail_Des_Holder extends BaseHolder<BeanDetailPingouUser> impleme
         view = UIUtils.inflate(R.layout.group_detail_des);
         mlv_group_detail_des = (MyListView) view.findViewById(R.id.mlv_group_detail_des);
         tv_pingou_detail_des_content = (TextView) view.findViewById(R.id.tv_pingou_detail_des_content);
+        tv_pingou_detail_des_leader = (TextView) view.findViewById(R.id.tv_pingou_detail_des_leader);
+        civ_pingou_detail_des_icon = (CircleImageView) view.findViewById(R.id.civ_pingou_detail_des_icon);
+        kgv_pingou_detail_des_grade = (KingJA_GradeView) view.findViewById(R.id.kgv_pingou_detail_des_grade);
 
         return view;
     }
@@ -47,8 +56,13 @@ public class GDetail_Des_Holder extends BaseHolder<BeanDetailPingouUser> impleme
     @Override
     public void refreshView() {
         BeanDetailPingouUser data = getData();
+        UImageLoaderUitl.displaySmallImage(data.getRes().getThumb(),civ_pingou_detail_des_icon);
+        tv_pingou_detail_des_leader.setText(data.getRes().getUserName());
         tv_pingou_detail_des_content.setText(data.getRes().getPureDes());
-        mlv_group_detail_des.setAdapter(new PingouImgAdapter(data.getRes().getImageJson(),activity));
+        kgv_pingou_detail_des_grade.setGrade(data.getRes().getUserCredits());
+        ImgAdapter imgAdapter = new ImgAdapter(data.getRes().getImageJson(), activity);
+        imgAdapter.setImgSize(UIUtils.getScreenWidth(),UIUtils.getScreenWidth());
+        mlv_group_detail_des.setAdapter(imgAdapter);
         mlv_group_detail_des.setOnItemClickListener(this);
     }
 

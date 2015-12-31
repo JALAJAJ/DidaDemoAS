@@ -1,14 +1,13 @@
 package com.dida.first.utils;
 
 public class UrlUtil {
-
-    public static String getUrl(String url) {
-        if (!url.startsWith("http")) {
-            url = UrlUtil.HOST + url;
-        }
-        return url;
+    public  enum InterfaceName{
+        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS
     }
+
+
     public final static String HOST = "http://121.40.28.206";//主机名
+//    public final static String HOST = "http://192.168.1.178:8080";//主机名
     /*==============================================集市==============================================*/
     public final static String MARKET_LIST = "/commodity/queryAllCommodity.do";//集市列表
     public final static String MARKET_DETAIL = "/commodity/queryDetailCommodity.do";//集市详情
@@ -27,6 +26,61 @@ public class UrlUtil {
     public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
     public final static String SHOW_PUBLISH = "/group/saveGroup.do";//晒单发布
     public final static String REGISTER_SMS = "/collection/deleteProduct.do";
+
+    /**
+     * 获取接口地址
+     * @param interfaceName
+     * @return
+     */
+    public static String getIUrl(InterfaceName interfaceName){
+        String url=HOST;
+        switch (interfaceName){
+            //集市列表
+            case I_MARKET_LIST:
+                url+=MARKET_LIST;
+                break;
+            //集市详情
+            case I_MARKET_DETAIL:
+                url+=MARKET_DETAIL;
+                break;
+            //拼购列表
+            case I_PINGOU_LIST:
+                url+=PINGOU_LIST;
+                break;
+            //拼购详情
+            case I_PINGOU_DETAIL:
+                url+=PINGOU_DETAIL;
+                break;
+            //集市添加删除收藏
+            case I_MARKET_ADD_CANCLE_COLLECT:
+                url+=MARKET_ADD_CANCLE_COLLECT;
+                break;
+            //晒单列表
+            case I_SHOW_LIST:
+                url+=SHOW_LIST;
+                break;
+            //晒单编辑
+            case I_SHOW_EDIT:
+                url += SHOW_EDIT;
+                break;
+            default:
+                break;
+        }
+        return url;
+
+    }
+
+    /**
+     * 给没有域名的Url加上域名
+     * @param url
+     * @return
+     */
+    public static String getUrl(String url) {
+        if (!url.startsWith("http")) {
+            url = UrlUtil.HOST + url;
+        }
+        return url;
+    }
 
 
 }

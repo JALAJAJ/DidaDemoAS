@@ -4,80 +4,55 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardBackgroundColor="#ffffff"
-    card_view:cardElevation="2px" >
+    card_view:cardElevation="2px">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
-  
-        <LinearLayout
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_pingou_comment_commentCount"
+            style="@style/black_14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp" >
+            android:padding="8dp"
+            android:text="评论" />
 
-            <TextView
-                style="@style/black_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="评论(" />
-
-            <TextView
-                style="@style/black_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8" />
-
-            <TextView
-                style="@style/black_18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=")" />
-        </LinearLayout>
-<View
-          style="@style/divider_special_horizontal"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            />
-        <com.dida.first.view.AbsListView.MyListView
-            android:id="@+id/lv_group_detail_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:cacheColorHint="#00000000"
-            android:divider="@color/gray_tip"
-            android:dividerHeight="1px"
-            android:listSelector="#00000000" />
-
-        <View
-            style="@style/divider_special_horizontal"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-          />
+        <View style="@style/divider_special_horizontal" />
 
         <LinearLayout
-            android:background="@drawable/selector_transparent2gray"
-            android:id="@+id/ll_pingou_comment_more"
+            android:visibility="gone"
+            android:id="@+id/ll_pingou_comment_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="8dp" >
+            android:orientation="vertical">
 
-            <TextView
-                style="@style/item_price_black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:text="更多评论" />
+            <include layout="@layout/include_comment_pingou"
+                />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:background="@drawable/right_open" />
+
+
+                <TextView
+                    android:id="@+id/tv_pingou_comment_more"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/red_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_l1red_bwhite_r2"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="8dp"
+                    android:text="查看全部评论" />
+
         </LinearLayout>
+
+        <include layout="@layout/include_comment_empty"
+            android:visibility="gone"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

@@ -1,6 +1,3 @@
-/**
- *
- */
 package com.dida.first.activity;
 
 import android.os.Bundle;
@@ -134,7 +131,6 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
          */
         fl_group_detail_comment = (FrameLayout) view.findViewById(R.id.fl_group_detail_comment);
         commentHolder = new GDetail_Comment_Holder(this);
-//        commentHolder.setList(commentList);
         fl_group_detail_comment.addView(commentHolder.getRootView());
         /**
          * 团长块
@@ -215,6 +211,7 @@ public class Detail_Pingou_User_Activity extends BaseNomalActivity implements On
         titleHolder.setData(bean);
         itemHolder.setData(bean);
         desHolder.setData(bean);
+        commentHolder.setData(bean);
         tv_pingou_detail_team_count.setText(bean.getRes().getComGroupDetail().getParticipates().size()+"");
         showFav(mIfFav);
     }

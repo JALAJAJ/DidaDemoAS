@@ -2479,6 +2479,13 @@
         <item name="android:textColor">@color/blue_light</item>
 
     </style>
+    <style name="btn_red_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@drawable/selector_btn_red2white</item>
+        <item name="android:background">@drawable/selector_white2red</item>
+
+
+    </style>
     <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/btn_style.xml -->
     <eat-comment/>
     <style name="btn_small_red">
@@ -2576,15 +2583,15 @@
         <item name="android:maxLines">2</item>
         <item name="android:ellipsize">end</item>
     </style>
-    <style name="gray_12_line8">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/gray_tip</item>
-        <item name="android:maxLines">8</item>
-        <item name="android:ellipsize">end</item>
-    </style>
     <style name="gray_14">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/gray_tip</item>
+    </style>
+    <style name="gray_14_line8">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_tip</item>
+        <item name="android:maxLines">8</item>
+        <item name="android:ellipsize">end</item>
     </style>
     <style name="gray_content_12">
         <item name="android:textSize">12sp</item>

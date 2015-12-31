@@ -23,10 +23,7 @@ public class PingouGroupAdapter extends BaseLvGvAdapter<BeanDetailPingouUser.Res
         super(list, activity);
     }
 
-    @Override
-    protected int setImgWidth() {
-        return 0;
-    }
+
 
     @Override
     protected View baseGetView(int position, View convertView, ViewGroup parent) {
