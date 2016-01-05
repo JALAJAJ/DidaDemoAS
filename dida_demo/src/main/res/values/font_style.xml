@@ -267,11 +267,5 @@
         <item name="android:textColor">@color/blue_font</item>
     </style>
 
-    <style name="btn_red_14">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@drawable/selector_btn_red2white</item>
-        <item name="android:background">@drawable/selector_white2red</item>
 
-
-    </style>
 </resources>

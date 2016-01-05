@@ -1,5 +1,6 @@
 package com.dida.first.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,16 +11,17 @@ public class BeanDetailPingouStore {
     /**
      * code : 1
      * msg : 详情加载成功
-     * res : {"productImgs":[{"imageURL":"https://gd1.alicdn.com/bao/uploaded/i1/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp","mobileURL":"https://gd1.alicdn.com/bao/uploaded/i1/mobile/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp"},{"imageURL":"https://gd3.alicdn.com/imgextra/i3/2254460095/TB2Q29dgVXXXXXFXXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp","mobileURL":"https://gd3.alicdn.com/imgextra/i3/2254460095/mobile/TB2Q29dgVXXXXXFXXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp"},{"imageURL":"https://gd4.alicdn.com/imgextra/i4/2254460095/TB2tah9gVXXXXa1XXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp","mobileURL":"https://gd4.alicdn.com/imgextra/i4/2254460095/mobile/TB2tah9gVXXXXa1XXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp"}],"comGroupDetail":{"serviceId":2026,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":1,"groupName":"商家发布的拼购  多商品","price":10,"oldPrice":0.01,"count":4,"buyCount":0,"taskcount":7,"customDueDate":"2015-12-31 13:52:00","participates":[],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":403,"hasNode":1,"content":"哈哈","createTime":"2015-12-25 16:56:13","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225165608_401.jpg,","replyThumbList":["/upload/image/20151225/20151225165608_401.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":403,"replyId":404,"hasNode":1,"content":"dfsgf","createTime":"2015-12-25 17:19:00","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"13","replyId":391,"hasNode":1,"content":"qqqq","createTime":"2015-12-18 14:47:14","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","replyThumb":"/upload/image/20151218/20151218144604_317.jpg,","replyThumbList":["/upload/image/20151218/20151218144604_317.jpg"],"subReplys":[]},{"userId":"90","replyId":383,"hasNode":1,"content":"图片1","createTime":"2015-12-18 10:49:36","userName":"12","thumb":"/frontend/images/recommend-head3.jpg","replyThumb":"/upload/image/20151218/20151218104852_191.png,","replyThumbList":["/upload/image/20151218/20151218104852_191.png"],"subReplys":[]},{"userId":"58","replyId":382,"hasNode":1,"content":"阿飞挖","createTime":"2015-12-17 14:59:15","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":381,"hasNode":1,"content":"发二娃发文 ","createTime":"2015-12-17 14:59:06","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":380,"hasNode":1,"content":"挖坟安慰法","createTime":"2015-12-17 14:59:00","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]}]},"customAttrs":[{"attributeName":"是否提供周末服务","attributeValue":"是"},{"attributeName":"是否提供擦玻璃","attributeValue":"否"},{"attributeName":"是否提供清洁剂","attributeValue":"是"},{"attributeName":"是否提供清洁工具","attributeValue":"是"},{"attributeName":"有效期","attributeValue":"90天"},{"attributeName":"服务时长","attributeValue":"4小时"},{"attributeName":"服务时间","attributeValue":" 8:00-18:00"}],"purchaseAttrs":[]}
+     * res : {"productImgs":["/upload/image/20151128/mobile/20151128103132_965.jpg","/upload/image/20151128/mobile/20151128103139_50.jpg","/upload/image/20151128/mobile/20151128103148_384.jpg"],"comGroupDetail":{"serviceId":2013,"userId":"1","isCollection":0,"groupMode":2,"groupName":"圣保罗的医生","price":11,"oldPrice":0.01,"count":6,"buyCount":0,"taskCount":5,"customDueDate":"2015-12-31 11:02:00","participates":[],"replys":[{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]},"customAttrs":[{"attributeName":"品牌","attributeValue":"迪莎衣品"},{"attributeName":"服装版型","attributeValue":"直筒"},{"attributeName":"厚薄","attributeValue":"加厚"},{"attributeName":"风格","attributeValue":"通勤"},{"attributeName":"通勤","attributeValue":"韩版"},{"attributeName":"款式","attributeValue":"套头"},{"attributeName":"组合形式","attributeValue":"单件"},{"attributeName":"衣长","attributeValue":"常规款"},{"attributeName":"袖长","attributeValue":"长袖"},{"attributeName":"领子","attributeValue":"高领"},{"attributeName":"袖型","attributeValue":"常规"},{"attributeName":"衣门襟","attributeValue":"套头"},{"attributeName":"图案","attributeValue":"纯色"},{"attributeName":"流行元素/工艺","attributeValue":"纱网"},{"attributeName":"适用年龄","attributeValue":"25-29周岁"},{"attributeName":"上市年份/季节","attributeValue":"2015年冬季"},{"attributeName":"颜色分类","attributeValue":"黑色 棕色"},{"attributeName":"尺码","attributeValue":"XL L M S"}],"purchaseAttrs":[{"attrId":"7c4ca88612a3475f85d1ef18ff75d88e","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"颜色","attrValues":[{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]},{"attrId":"863e07aa273d4ee9a6b5f86fa411f495","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"尺寸","attrValues":[{"valId":"f5f98f01818c4fc2a2caf410c291ed7c","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"S"},{"valId":"5dd31b2419f54f8fb6b83f46590730e9","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"M"},{"valId":"f4b5d6ee34234f10820f2873f6303ebc","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"L"},{"valId":"9d68d5517b664b03a672a31a844962ab","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"XL"}]}],"sellerThumb":"/upload/145145917901652e9b4bf7b83.jpg"}
      */
 
     private int code;
     private String msg;
     /**
-     * productImgs : [{"imageURL":"https://gd1.alicdn.com/bao/uploaded/i1/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp","mobileURL":"https://gd1.alicdn.com/bao/uploaded/i1/mobile/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp"},{"imageURL":"https://gd3.alicdn.com/imgextra/i3/2254460095/TB2Q29dgVXXXXXFXXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp","mobileURL":"https://gd3.alicdn.com/imgextra/i3/2254460095/mobile/TB2Q29dgVXXXXXFXXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp"},{"imageURL":"https://gd4.alicdn.com/imgextra/i4/2254460095/TB2tah9gVXXXXa1XXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp","mobileURL":"https://gd4.alicdn.com/imgextra/i4/2254460095/mobile/TB2tah9gVXXXXa1XXXXXXXXXXXX_!!2254460095.jpg_400x400.jpg_.webp"}]
-     * comGroupDetail : {"serviceId":2026,"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","isCollection":0,"groupMode":1,"groupName":"商家发布的拼购  多商品","price":10,"oldPrice":0.01,"count":4,"buyCount":0,"taskcount":7,"customDueDate":"2015-12-31 13:52:00","participates":[],"replys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":403,"hasNode":1,"content":"哈哈","createTime":"2015-12-25 16:56:13","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225165608_401.jpg,","replyThumbList":["/upload/image/20151225/20151225165608_401.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":403,"replyId":404,"hasNode":1,"content":"dfsgf","createTime":"2015-12-25 17:19:00","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"13","replyId":391,"hasNode":1,"content":"qqqq","createTime":"2015-12-18 14:47:14","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","replyThumb":"/upload/image/20151218/20151218144604_317.jpg,","replyThumbList":["/upload/image/20151218/20151218144604_317.jpg"],"subReplys":[]},{"userId":"90","replyId":383,"hasNode":1,"content":"图片1","createTime":"2015-12-18 10:49:36","userName":"12","thumb":"/frontend/images/recommend-head3.jpg","replyThumb":"/upload/image/20151218/20151218104852_191.png,","replyThumbList":["/upload/image/20151218/20151218104852_191.png"],"subReplys":[]},{"userId":"58","replyId":382,"hasNode":1,"content":"阿飞挖","createTime":"2015-12-17 14:59:15","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":381,"hasNode":1,"content":"发二娃发文 ","createTime":"2015-12-17 14:59:06","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":380,"hasNode":1,"content":"挖坟安慰法","createTime":"2015-12-17 14:59:00","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]}]}
-     * customAttrs : [{"attributeName":"是否提供周末服务","attributeValue":"是"},{"attributeName":"是否提供擦玻璃","attributeValue":"否"},{"attributeName":"是否提供清洁剂","attributeValue":"是"},{"attributeName":"是否提供清洁工具","attributeValue":"是"},{"attributeName":"有效期","attributeValue":"90天"},{"attributeName":"服务时长","attributeValue":"4小时"},{"attributeName":"服务时间","attributeValue":" 8:00-18:00"}]
-     * purchaseAttrs : []
+     * productImgs : ["/upload/image/20151128/mobile/20151128103132_965.jpg","/upload/image/20151128/mobile/20151128103139_50.jpg","/upload/image/20151128/mobile/20151128103148_384.jpg"]
+     * comGroupDetail : {"serviceId":2013,"userId":"1","isCollection":0,"groupMode":2,"groupName":"圣保罗的医生","price":11,"oldPrice":0.01,"count":6,"buyCount":0,"taskCount":5,"customDueDate":"2015-12-31 11:02:00","participates":[],"replys":[{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]}
+     * customAttrs : [{"attributeName":"品牌","attributeValue":"迪莎衣品"},{"attributeName":"服装版型","attributeValue":"直筒"},{"attributeName":"厚薄","attributeValue":"加厚"},{"attributeName":"风格","attributeValue":"通勤"},{"attributeName":"通勤","attributeValue":"韩版"},{"attributeName":"款式","attributeValue":"套头"},{"attributeName":"组合形式","attributeValue":"单件"},{"attributeName":"衣长","attributeValue":"常规款"},{"attributeName":"袖长","attributeValue":"长袖"},{"attributeName":"领子","attributeValue":"高领"},{"attributeName":"袖型","attributeValue":"常规"},{"attributeName":"衣门襟","attributeValue":"套头"},{"attributeName":"图案","attributeValue":"纯色"},{"attributeName":"流行元素/工艺","attributeValue":"纱网"},{"attributeName":"适用年龄","attributeValue":"25-29周岁"},{"attributeName":"上市年份/季节","attributeValue":"2015年冬季"},{"attributeName":"颜色分类","attributeValue":"黑色 棕色"},{"attributeName":"尺码","attributeValue":"XL L M S"}]
+     * purchaseAttrs : [{"attrId":"7c4ca88612a3475f85d1ef18ff75d88e","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"颜色","attrValues":[{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]},{"attrId":"863e07aa273d4ee9a6b5f86fa411f495","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"尺寸","attrValues":[{"valId":"f5f98f01818c4fc2a2caf410c291ed7c","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"S"},{"valId":"5dd31b2419f54f8fb6b83f46590730e9","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"M"},{"valId":"f4b5d6ee34234f10820f2873f6303ebc","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"L"},{"valId":"9d68d5517b664b03a672a31a844962ab","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"XL"}]}]
+     * sellerThumb : /upload/145145917901652e9b4bf7b83.jpg
      */
 
     private ResEntity res;
@@ -50,41 +52,48 @@ public class BeanDetailPingouStore {
 
     public static class ResEntity {
         /**
-         * serviceId : 2026
-         * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
+         * serviceId : 2013
+         * userId : 1
          * isCollection : 0
-         * groupMode : 1
-         * groupName : 商家发布的拼购  多商品
-         * price : 10.0
+         * groupMode : 2
+         * groupName : 圣保罗的医生
+         * price : 11.0
          * oldPrice : 0.01
-         * count : 4
+         * count : 6
          * buyCount : 0
-         * taskcount : 7
-         * customDueDate : 2015-12-31 13:52:00
+         * taskCount : 5
+         * customDueDate : 2015-12-31 11:02:00
          * participates : []
-         * replys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyId":403,"hasNode":1,"content":"哈哈","createTime":"2015-12-25 16:56:13","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg","replyThumb":"/upload/image/20151225/20151225165608_401.jpg,","replyThumbList":["/upload/image/20151225/20151225165608_401.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":403,"replyId":404,"hasNode":1,"content":"dfsgf","createTime":"2015-12-25 17:19:00","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]},{"userId":"13","replyId":391,"hasNode":1,"content":"qqqq","createTime":"2015-12-18 14:47:14","userName":"admin","thumb":"/frontend/images/recommend-head2.jpg","replyThumb":"/upload/image/20151218/20151218144604_317.jpg,","replyThumbList":["/upload/image/20151218/20151218144604_317.jpg"],"subReplys":[]},{"userId":"90","replyId":383,"hasNode":1,"content":"图片1","createTime":"2015-12-18 10:49:36","userName":"12","thumb":"/frontend/images/recommend-head3.jpg","replyThumb":"/upload/image/20151218/20151218104852_191.png,","replyThumbList":["/upload/image/20151218/20151218104852_191.png"],"subReplys":[]},{"userId":"58","replyId":382,"hasNode":1,"content":"阿飞挖","createTime":"2015-12-17 14:59:15","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":381,"hasNode":1,"content":"发二娃发文 ","createTime":"2015-12-17 14:59:06","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]},{"userId":"58","replyId":380,"hasNode":1,"content":"挖坟安慰法","createTime":"2015-12-17 14:59:00","userName":"hhh","thumb":"/upload/1.jpg","replyThumb":"","replyThumbList":[],"subReplys":[]}]
+         * replys : [{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]
          */
 
         private ComGroupDetailEntity comGroupDetail;
+        private String sellerThumb;
+        private List<String> productImgs;
         /**
-         * imageURL : https://gd1.alicdn.com/bao/uploaded/i1/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp
-         * mobileURL : https://gd1.alicdn.com/bao/uploaded/i1/mobile/TB1C2OcJXXXXXXtXFXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg_.webp
-         */
-
-        private List<ProductImgsEntity> productImgs;
-        /**
-         * attributeName : 是否提供周末服务
-         * attributeValue : 是
+         * attributeName : 品牌
+         * attributeValue : 迪莎衣品
          */
 
         private List<CustomAttrsEntity> customAttrs;
-        private List<?> purchaseAttrs;
+        /**
+         * attrId : 7c4ca88612a3475f85d1ef18ff75d88e
+         * productNo : f89e751773af47fda7f3added531c7a4
+         * attributeName : 颜色
+         * attrValues : [{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]
+         */
+
+        private List<PurchaseAttrsEntity> purchaseAttrs;
 
         public void setComGroupDetail(ComGroupDetailEntity comGroupDetail) {
             this.comGroupDetail = comGroupDetail;
         }
 
-        public void setProductImgs(List<ProductImgsEntity> productImgs) {
+        public void setSellerThumb(String sellerThumb) {
+            this.sellerThumb = sellerThumb;
+        }
+
+        public void setProductImgs(List<String> productImgs) {
             this.productImgs = productImgs;
         }
 
@@ -92,7 +101,7 @@ public class BeanDetailPingouStore {
             this.customAttrs = customAttrs;
         }
 
-        public void setPurchaseAttrs(List<?> purchaseAttrs) {
+        public void setPurchaseAttrs(List<PurchaseAttrsEntity> purchaseAttrs) {
             this.purchaseAttrs = purchaseAttrs;
         }
 
@@ -100,7 +109,11 @@ public class BeanDetailPingouStore {
             return comGroupDetail;
         }
 
-        public List<ProductImgsEntity> getProductImgs() {
+        public String getSellerThumb() {
+            return sellerThumb;
+        }
+
+        public List<String> getProductImgs() {
             return productImgs;
         }
 
@@ -108,7 +121,7 @@ public class BeanDetailPingouStore {
             return customAttrs;
         }
 
-        public List<?> getPurchaseAttrs() {
+        public List<PurchaseAttrsEntity> getPurchaseAttrs() {
             return purchaseAttrs;
         }
 
@@ -122,24 +135,61 @@ public class BeanDetailPingouStore {
             private double oldPrice;
             private int count;
             private int buyCount;
-            private int taskcount;
+            private int taskCount;
             private String customDueDate;
-            private List<?> participates;
+            private List<ParticipatesEntity> participates;
             /**
-             * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
-             * replyId : 403
+             * userId : 58
+             * floorNo : 5
+             * replyId : 365
              * hasNode : 1
-             * content : 哈哈
-             * createTime : 2015-12-25 16:56:13
-             * userName : wujie0209
-             * thumb : /frontend/images/recommend-head4.jpg
-             * replyThumb : /upload/image/20151225/20151225165608_401.jpg,
-             * replyThumbList : ["/upload/image/20151225/20151225165608_401.jpg"]
-             * subReplys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","parentId":403,"replyId":404,"hasNode":1,"content":"dfsgf","createTime":"2015-12-25 17:19:00","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]
+             * content : 二货没交钱
+             * createTime : 2015-12-04 10:01:59
+             * userName : hhh
+             * thumb : /upload/1.jpg
+             * replyThumbList : ["/upload/image/20151204/20151204100105_326.jpg"]
+             * subReplys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]
              */
 
             private List<ReplysEntity> replys;
+            public static class ParticipatesEntity implements Serializable {
+                private String userId;
+                private String userName;
+                private String thumb;
+                private int sex;
 
+                public void setUserId(String userId) {
+                    this.userId = userId;
+                }
+
+                public void setUserName(String userName) {
+                    this.userName = userName;
+                }
+
+                public void setThumb(String thumb) {
+                    this.thumb = thumb;
+                }
+
+                public void setSex(int sex) {
+                    this.sex = sex;
+                }
+
+                public String getUserId() {
+                    return userId;
+                }
+
+                public String getUserName() {
+                    return userName;
+                }
+
+                public String getThumb() {
+                    return thumb;
+                }
+
+                public int getSex() {
+                    return sex;
+                }
+            }
             public void setServiceId(int serviceId) {
                 this.serviceId = serviceId;
             }
@@ -176,15 +226,15 @@ public class BeanDetailPingouStore {
                 this.buyCount = buyCount;
             }
 
-            public void setTaskcount(int taskcount) {
-                this.taskcount = taskcount;
+            public void setTaskCount(int taskCount) {
+                this.taskCount = taskCount;
             }
 
             public void setCustomDueDate(String customDueDate) {
                 this.customDueDate = customDueDate;
             }
 
-            public void setParticipates(List<?> participates) {
+            public void setParticipates(List<ParticipatesEntity> participates) {
                 this.participates = participates;
             }
 
@@ -228,15 +278,15 @@ public class BeanDetailPingouStore {
                 return buyCount;
             }
 
-            public int getTaskcount() {
-                return taskcount;
+            public int getTaskCount() {
+                return taskCount;
             }
 
             public String getCustomDueDate() {
                 return customDueDate;
             }
 
-            public List<?> getParticipates() {
+            public List<ParticipatesEntity> getParticipates() {
                 return participates;
             }
 
@@ -246,21 +296,22 @@ public class BeanDetailPingouStore {
 
             public static class ReplysEntity {
                 private String userId;
+                private int floorNo;
                 private int replyId;
                 private int hasNode;
                 private String content;
                 private String createTime;
                 private String userName;
                 private String thumb;
-                private String replyThumb;
                 private List<String> replyThumbList;
                 /**
                  * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
-                 * parentId : 403
-                 * replyId : 404
+                 * replyedUserName : hhh
+                 * parentId : 365
+                 * replyId : 417
                  * hasNode : 1
-                 * content : dfsgf
-                 * createTime : 2015-12-25 17:19:00
+                 * content : 华盛顿回复
+                 * createTime : 2016-01-04 15:39:46
                  * userName : wujie0209
                  * thumb : /frontend/images/recommend-head4.jpg
                  */
@@ -269,6 +320,10 @@ public class BeanDetailPingouStore {
 
                 public void setUserId(String userId) {
                     this.userId = userId;
+                }
+
+                public void setFloorNo(int floorNo) {
+                    this.floorNo = floorNo;
                 }
 
                 public void setReplyId(int replyId) {
@@ -295,10 +350,6 @@ public class BeanDetailPingouStore {
                     this.thumb = thumb;
                 }
 
-                public void setReplyThumb(String replyThumb) {
-                    this.replyThumb = replyThumb;
-                }
-
                 public void setReplyThumbList(List<String> replyThumbList) {
                     this.replyThumbList = replyThumbList;
                 }
@@ -309,6 +360,10 @@ public class BeanDetailPingouStore {
 
                 public String getUserId() {
                     return userId;
+                }
+
+                public int getFloorNo() {
+                    return floorNo;
                 }
 
                 public int getReplyId() {
@@ -335,10 +390,6 @@ public class BeanDetailPingouStore {
                     return thumb;
                 }
 
-                public String getReplyThumb() {
-                    return replyThumb;
-                }
-
                 public List<String> getReplyThumbList() {
                     return replyThumbList;
                 }
@@ -349,6 +400,7 @@ public class BeanDetailPingouStore {
 
                 public static class SubReplysEntity {
                     private String userId;
+                    private String replyedUserName;
                     private int parentId;
                     private int replyId;
                     private int hasNode;
@@ -359,6 +411,10 @@ public class BeanDetailPingouStore {
 
                     public void setUserId(String userId) {
                         this.userId = userId;
+                    }
+
+                    public void setReplyedUserName(String replyedUserName) {
+                        this.replyedUserName = replyedUserName;
                     }
 
                     public void setParentId(int parentId) {
@@ -393,6 +449,10 @@ public class BeanDetailPingouStore {
                         return userId;
                     }
 
+                    public String getReplyedUserName() {
+                        return replyedUserName;
+                    }
+
                     public int getParentId() {
                         return parentId;
                     }
@@ -424,27 +484,6 @@ public class BeanDetailPingouStore {
             }
         }
 
-        public static class ProductImgsEntity {
-            private String imageURL;
-            private String mobileURL;
-
-            public void setImageURL(String imageURL) {
-                this.imageURL = imageURL;
-            }
-
-            public void setMobileURL(String mobileURL) {
-                this.mobileURL = mobileURL;
-            }
-
-            public String getImageURL() {
-                return imageURL;
-            }
-
-            public String getMobileURL() {
-                return mobileURL;
-            }
-        }
-
         public static class CustomAttrsEntity {
             private String attributeName;
             private String attributeValue;
@@ -463,6 +502,81 @@ public class BeanDetailPingouStore {
 
             public String getAttributeValue() {
                 return attributeValue;
+            }
+        }
+
+        public static class PurchaseAttrsEntity {
+            private String attrId;
+            private String productNo;
+            private String attributeName;
+            /**
+             * valId : d5ff0117d6e0404eb5686ee38ba20b70
+             * attrId : 7c4ca88612a3475f85d1ef18ff75d88e
+             * attrValue : 黑色
+             */
+
+            private List<AttrValuesEntity> attrValues;
+
+            public void setAttrId(String attrId) {
+                this.attrId = attrId;
+            }
+
+            public void setProductNo(String productNo) {
+                this.productNo = productNo;
+            }
+
+            public void setAttributeName(String attributeName) {
+                this.attributeName = attributeName;
+            }
+
+            public void setAttrValues(List<AttrValuesEntity> attrValues) {
+                this.attrValues = attrValues;
+            }
+
+            public String getAttrId() {
+                return attrId;
+            }
+
+            public String getProductNo() {
+                return productNo;
+            }
+
+            public String getAttributeName() {
+                return attributeName;
+            }
+
+            public List<AttrValuesEntity> getAttrValues() {
+                return attrValues;
+            }
+
+            public static class AttrValuesEntity {
+                private String valId;
+                private String attrId;
+                private String attrValue;
+
+                public void setValId(String valId) {
+                    this.valId = valId;
+                }
+
+                public void setAttrId(String attrId) {
+                    this.attrId = attrId;
+                }
+
+                public void setAttrValue(String attrValue) {
+                    this.attrValue = attrValue;
+                }
+
+                public String getValId() {
+                    return valId;
+                }
+
+                public String getAttrId() {
+                    return attrId;
+                }
+
+                public String getAttrValue() {
+                    return attrValue;
+                }
             }
         }
     }

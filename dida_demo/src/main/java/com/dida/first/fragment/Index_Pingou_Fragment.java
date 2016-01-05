@@ -274,6 +274,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
             intent = new Intent(mActivity, Detail_Pingou_Store_Activity.class);
         }
         intent.putExtra("serviceId",queryListEntity.getServiceId()+"");
+        intent.putExtra("serviceType","1");
         mActivity.startActivity(intent);
 
     }

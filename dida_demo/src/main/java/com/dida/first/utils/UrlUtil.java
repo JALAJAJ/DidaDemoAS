@@ -2,11 +2,12 @@ package com.dida.first.utils;
 
 public class UrlUtil {
     public  enum InterfaceName{
-        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS
+        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS
     }
 
 
     public final static String HOST = "http://121.40.28.206";//主机名
+    public final static String IMG = "http://img.aamai.cn";//图片域名
 //    public final static String HOST = "http://192.168.1.178:8080";//主机名
     /*==============================================集市==============================================*/
     public final static String MARKET_LIST = "/commodity/queryAllCommodity.do";//集市列表
@@ -18,9 +19,7 @@ public class UrlUtil {
     public final static String PINGOU_LIST = "/service/queryAllTask.do";//拼购列表
     public final static String PINGOU_DETAIL = "/service/detailSerivce.do";//拼购详情
     public final static String PINGOU_SEARCH = "/service/queryAllTask.do";//拼购搜索
-    public final static String PINGOU_DO_COLLECT = "/collection/addTask.do";//拼购收藏
-    public final static String PINGOU_NO_COLLECT = "/collection/deleteTask.do";//拼购取消收藏
-    public final static String PINGOU_IF_COLLECT = "/collection/isTaskCollection.do";//拼购判断是否收藏
+    public final static String PINGOU_ADD_CANCLE_COLLECT = "/collection/addOrDelCollection.do";//拼购添加删除收藏
     /*==============================================晒单==============================================*/
     public final static String SHOW_LIST = "/prepayorder/getPrepayOrders.do";//晒单列表
     public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
@@ -51,6 +50,10 @@ public class UrlUtil {
             case I_PINGOU_DETAIL:
                 url+=PINGOU_DETAIL;
                 break;
+            //拼购添加删除收藏
+            case I_PINGOU_ADD_CANCLE_COLLECT:
+                url+=PINGOU_ADD_CANCLE_COLLECT;
+                break;
             //集市添加删除收藏
             case I_MARKET_ADD_CANCLE_COLLECT:
                 url+=MARKET_ADD_CANCLE_COLLECT;
@@ -77,7 +80,7 @@ public class UrlUtil {
      */
     public static String getUrl(String url) {
         if (!url.startsWith("http")) {
-            url = UrlUtil.HOST + url;
+            url = IMG+url;
         }
         return url;
     }

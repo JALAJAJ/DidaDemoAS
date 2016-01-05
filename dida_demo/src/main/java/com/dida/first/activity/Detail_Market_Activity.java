@@ -43,9 +43,7 @@ import java.util.Map;
 public class Detail_Market_Activity extends BaseNomalActivity {
 
     private static final String TAG = "Detail_Market_Activity";
-    private static final int RES_OK = 1;
-    private static final int RES_ERR = -1;
-    private static final int RES_COLLECT_RESULT = 2;
+
     private LinearLayout ll_parent_market_detail;
     private ImageView iv_market_detail_back;
     private ImageView iv_market_detail_chat;
@@ -54,11 +52,10 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private MDetail_Store_Holder storeHolder;
     private MDetail_Comment_Holder commentHolder;
     private BeanDetailMarket mDetailMarket = new BeanDetailMarket();
-    private PopupWindowSelect sharePopupWindow;
-    private int mIsCollection;
+    private PopupWindowSelect selectPopupWindow;
+    private PopupWindowParam paramPopupWindow;
     private String mProductNo;
     private String mType;
-    private boolean mIsVisitNet;
     private TextView tv_market_join;
     private TextView tv_market_addcar;
     private ImageView iv_market_addcar;
@@ -69,7 +66,6 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            mIsVisitNet = false;
             switch (msg.what) {
                 case RES_OK:
                     mLoadingAndRetryManager.showContent();
@@ -81,33 +77,33 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                     mLoadingAndRetryManager.showRetry();
                     ToastUtil.showMyToast("服务器君被绑架啦！");
                     break;
-                case RES_COLLECT_RESULT:
+                case RES_COLLECT_OK:
                     dialogProgress.dismiss();
-                    setFav(mIsCollection);
+                    showFav(mIsCollection);
                     break;
 
             }
 
         }
     };
-    private DialogProgress dialogProgress;
+
 
 
     private void initPopupWindow() {
-        sharePopupWindow = new PopupWindowSelect(
+        selectPopupWindow = new PopupWindowSelect(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getPurchaseAttrList());
         paramPopupWindow = new PopupWindowParam(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getProductCustomAttrList());
     }
 
-    private PopupWindowParam paramPopupWindow;
+
 
     @Override
     protected void onChildClick(View v) {
         switch (v.getId()) {
             case R.id.rl_market_detail_param:
                 ToastUtil.showMyToast("选择规格");
-                sharePopupWindow.showPopupWindow();
+                selectPopupWindow.showPopupWindow();
                 break;
             case R.id.rl_market_detail_info:
                 ToastUtil.showMyToast("商品参数");
@@ -227,10 +223,6 @@ public class Detail_Market_Activity extends BaseNomalActivity {
      * @param type
      */
     private void doNetInit(final String productNo, final String type) {
-        if (mIsVisitNet) {
-            return;
-        }
-        mIsVisitNet = true;
         VolleyGsonRequest<BeanDetailMarket> initRequest = new VolleyGsonRequest<BeanDetailMarket>(UrlUtil.HOST + UrlUtil.MARKET_DETAIL, BeanDetailMarket.class, new Response.Listener<BeanDetailMarket>() {
             @Override
             public void onResponse(BeanDetailMarket beanDetailMarket) {
@@ -266,18 +258,12 @@ public class Detail_Market_Activity extends BaseNomalActivity {
      * @param isCollection
      */
     private void doNetCollect(final String productId, final String productType, final String userId, final int isCollection) {
-
-        if (mIsVisitNet) {
-            return;
-        }
-        dialogProgress.show();
-        mIsVisitNet = true;
         VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.HOST + UrlUtil.MARKET_ADD_CANCLE_COLLECT, BeanRes.class, new Response.Listener<BeanRes>() {
             @Override
             public void onResponse(BeanRes res) {
                 mIsCollection = res.getRes();
                 Log.i(TAG, "onResponse: "+mIsCollection);
-                mHandler.sendEmptyMessage(RES_COLLECT_RESULT);
+                mHandler.sendEmptyMessage(RES_COLLECT_OK);
 
             }
         }, new Response.ErrorListener() {
@@ -323,10 +309,10 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         storeHolder.setData(bean);
         commentHolder.setData(bean);
         imageHolder.setData(bean.getRes().getDetailDesUrl());
-        setFav(mIsCollection);
+        showFav(mIsCollection);
     }
 
-    private void setFav(int isCollection) {
+    private void showFav(int isCollection) {
 
         iv_market_addcar.setBackgroundResource(isCollection == 0 ? R.drawable.btn_addcar_sel : R.drawable.btn_canclecar_nor);
         tv_market_addcar.setText(isCollection == 0 ? "加入待购" : "取消待购");

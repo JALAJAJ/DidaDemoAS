@@ -50,6 +50,11 @@ public class Index_Market_Fragment extends Base_First_Fragment implements Market
 
     }
 
+    @Override
+    protected boolean ifLoadPager() {
+        return false;
+    }
+
     /**
      * 选择对应的Fragment
      */

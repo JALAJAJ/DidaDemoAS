@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,15 +66,23 @@ public abstract class Base_First_Fragment extends Fragment implements View.OnCli
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
-		{
-			@Override
-			public void setRetryEvent(View retryView)
+		if (ifLoadPager()){
+			Log.i(TAG, "ifLoadPager: ");
+			mLoadingAndRetryManager = LoadingAndRetryManager.generate(this, new OnLoadingAndRetryListener()
 			{
-				setMyRetryEvent(retryView);
-			}
-		});
-		mLoadingAndRetryManager.showContent();
+				@Override
+				public void setRetryEvent(View retryView)
+				{
+					setMyRetryEvent(retryView);
+				}
+			});
+			mLoadingAndRetryManager.showContent();
+		}
+
+	}
+
+	protected  boolean ifLoadPager(){
+		return true;
 	}
 
 	public abstract View setFragmentView();

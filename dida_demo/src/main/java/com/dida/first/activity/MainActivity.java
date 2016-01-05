@@ -400,6 +400,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
      */
     @Override
     protected void onDestroy() {
+
         Log.i(TAG, "onDestroy: ");
         unregisterReceiver(netChanged);
         super.onDestroy();

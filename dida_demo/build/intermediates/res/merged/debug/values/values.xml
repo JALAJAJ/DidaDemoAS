@@ -2479,15 +2479,20 @@
         <item name="android:textColor">@color/blue_light</item>
 
     </style>
+    <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/btn_style.xml -->
+    <eat-comment/>
     <style name="btn_red_14">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@drawable/selector_btn_red2white</item>
         <item name="android:background">@drawable/selector_white2red</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">4dp</item>
 
 
     </style>
-    <!-- From: file:/E:/wxy/workpace/DidaDemoAS/dida_demo/src/main/res/values/btn_style.xml -->
-    <eat-comment/>
     <style name="btn_small_red">
         <item name="android:paddingTop">4dp</item>
         <item name="android:paddingBottom">4dp</item>

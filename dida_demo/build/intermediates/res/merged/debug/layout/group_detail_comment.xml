@@ -23,7 +23,7 @@
         <View style="@style/divider_special_horizontal" />
 
         <LinearLayout
-            android:visibility="gone"
+
             android:id="@+id/ll_pingou_comment_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,15 +38,9 @@
                     android:id="@+id/tv_pingou_comment_more"
                     android:layout_margin="8dp"
                     android:layout_gravity="center_horizontal"
-                    style="@style/red_14"
+                    style="@style/btn_red_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/shape_l1red_bwhite_r2"
-                    android:orientation="horizontal"
-                    android:paddingBottom="8dp"
-                    android:paddingLeft="12dp"
-                    android:paddingRight="12dp"
-                    android:paddingTop="8dp"
                     android:text="查看全部评论" />
 
         </LinearLayout>

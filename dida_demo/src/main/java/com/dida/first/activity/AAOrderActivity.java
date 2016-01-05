@@ -1,10 +1,10 @@
 package com.dida.first.activity;
 
 
-import com.dida.first.R;
-
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.dida.first.R;
 
 public class AAOrderActivity extends Activity {
 	@Override
@@ -13,5 +13,6 @@ public class AAOrderActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_aa_order);
 	}
+
 
 }

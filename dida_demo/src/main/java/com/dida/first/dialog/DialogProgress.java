@@ -13,7 +13,7 @@ public class DialogProgress extends AlertDialog {
 	 */
 	public DialogProgress(Context context) {
 		super(context,R.style.dialog_progress);
-		this.setCancelable(false);
+		this.setCancelable(true);
 		
 	}
 	@Override

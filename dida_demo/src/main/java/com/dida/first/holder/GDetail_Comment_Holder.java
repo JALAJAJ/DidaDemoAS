@@ -31,7 +31,7 @@ import java.util.List;
  * @use			
  *
  */
-public class GDetail_Comment_Holder extends BaseHolder<BeanDetailPingouUser> implements View.OnClickListener{
+public class GDetail_Comment_Holder extends BaseHolder<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity> implements View.OnClickListener{
 
 	private Activity activity;
 	private LinearLayout ll_comment_empty;
@@ -69,9 +69,9 @@ public class GDetail_Comment_Holder extends BaseHolder<BeanDetailPingouUser> imp
 
 	@Override
 	public void refreshView() {
-		BeanDetailPingouUser data = getData();
-		List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ReplysEntity> replys = data.getRes().getComGroupDetail().getReplys();
-		tv_pingou_comment_commentCount.setText(replys.size()==0?"暂无评论(0)":"评论("+data.getRes().getComGroupDetail().getTaskcount()+")");
+		BeanDetailPingouUser.ResEntity.ComGroupDetailEntity data = getData();
+		List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ReplysEntity> replys = data.getReplys();
+		tv_pingou_comment_commentCount.setText(replys.size()==0?"暂无评论(0)":"评论("+data.getTaskcount()+")");
 		ll_pingou_comment_content.setVisibility(replys.size()==0?View.GONE:View.VISIBLE);
 		ll_comment_empty.setVisibility(replys.size()==0?View.VISIBLE:View.GONE);
 		mlv_pingou_detail_comment_second.setVisibility(View.GONE);
