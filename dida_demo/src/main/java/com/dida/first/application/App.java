@@ -11,6 +11,7 @@ import com.android.volley.toolbox.Volley;
 import com.dida.first.R;
 import com.dida.first.rongyun.RongYunEvent;
 import com.dida.first.utils.CustomConstants;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -37,6 +38,7 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		Fresco.initialize(this);
 		//初始化LoadPager
 		initLoadPager();
 		//初始化Android-Universal-Image-Loader

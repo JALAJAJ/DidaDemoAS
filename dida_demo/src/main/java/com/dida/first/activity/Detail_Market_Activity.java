@@ -25,7 +25,7 @@ import com.dida.first.holder.MDetail_Comment_Holder;
 import com.dida.first.holder.MDetail_Head_Holder;
 import com.dida.first.holder.MDetail_Image_Holder;
 import com.dida.first.holder.MDetail_Store_Holder;
-import com.dida.first.popupwindow.PopupWindowParam;
+import com.dida.first.popupwindow.PopupWindowParamMarket;
 import com.dida.first.popupwindow.PopupWindowSelect;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
@@ -53,7 +53,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private MDetail_Comment_Holder commentHolder;
     private BeanDetailMarket mDetailMarket = new BeanDetailMarket();
     private PopupWindowSelect selectPopupWindow;
-    private PopupWindowParam paramPopupWindow;
+    private PopupWindowParamMarket paramPopupWindow;
     private String mProductNo;
     private String mType;
     private TextView tv_market_join;
@@ -78,7 +78,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
                     ToastUtil.showMyToast("服务器君被绑架啦！");
                     break;
                 case RES_COLLECT_OK:
-                    dialogProgress.dismiss();
+                    mDialogProgress.dismiss();
                     showFav(mIsCollection);
                     break;
 
@@ -92,7 +92,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private void initPopupWindow() {
         selectPopupWindow = new PopupWindowSelect(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getPurchaseAttrList());
-        paramPopupWindow = new PopupWindowParam(
+        paramPopupWindow = new PopupWindowParamMarket(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getProductCustomAttrList());
     }
 
@@ -212,7 +212,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         mProductNo = bundle.getString("productNo");
         mType = bundle.getString("type");
         mLoadingAndRetryManager.showLoading();
-        dialogProgress = new DialogProgress(this);
+        mDialogProgress = new DialogProgress(this);
 
     }
 

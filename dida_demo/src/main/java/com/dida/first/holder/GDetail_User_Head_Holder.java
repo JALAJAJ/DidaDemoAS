@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.entity.BeanDetailPingouUser;
-import com.dida.first.interfaces.OnShareFavListener;
+import com.dida.first.interfaces.OnShareListener;
 import com.dida.first.utils.StringUtil;
 import com.dida.first.utils.TimeUtils;
 import com.dida.first.utils.UIUtils;
@@ -21,7 +21,7 @@ import com.dida.first.utils.UIUtils;
  */
 public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingouUser>  implements View.OnClickListener{
 
-    private OnShareFavListener onShareFavListener;
+    private OnShareListener onShareListener;
     private TextView tv_pingou_user_detail_head_day;
     private TextView tv_pingou_user_detail_head_hour;
     private TextView tv_pingou_user_detail_head_minute;
@@ -69,14 +69,14 @@ public class GDetail_User_Head_Holder extends BaseHolder<BeanDetailPingouUser>  
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.rl_pingou_user_detail_share:
-                if (onShareFavListener!=null){
-                    onShareFavListener.onShare();
+                if (onShareListener !=null){
+                    onShareListener.onShare();
                 }
             break;
         }
     }
-    public void setOnShareFavListener(OnShareFavListener onShareFavListener){
-        this.onShareFavListener=onShareFavListener;
+    public void setOnShareListener(OnShareListener onShareListener){
+        this.onShareListener = onShareListener;
 
     }
 }

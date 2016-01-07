@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/guanbi"
+                android:background="@drawable/btn_pop_close"
                 android:visibility="invisible" />
         </RelativeLayout>
 
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/guanbi"
+                android:background="@drawable/btn_pop_close"
                 android:visibility="invisible" />
         </RelativeLayout>
 

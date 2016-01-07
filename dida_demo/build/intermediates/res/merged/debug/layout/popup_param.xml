@@ -20,7 +20,7 @@
     <ImageView 
         android:id="@+id/iv_market_detail_param_close"
         android:layout_alignParentRight="true"
-        android:background="@drawable/close_popupwindow"
+        android:background="@drawable/btn_pop_close"
         android:layout_width="24dp"
         android:layout_height="24dp" 
         
@@ -35,8 +35,7 @@
         android:id="@+id/mylv_market_detail_param"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+
         android:cacheColorHint="#00000000"
         android:listSelector="#00000000"
         android:overScrollMode="never"

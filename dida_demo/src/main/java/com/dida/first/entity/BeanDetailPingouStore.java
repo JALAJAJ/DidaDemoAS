@@ -553,6 +553,7 @@ public class BeanDetailPingouStore {
                 private String valId;
                 private String attrId;
                 private String attrValue;
+                private boolean isCheck;
 
                 public void setValId(String valId) {
                     this.valId = valId;
@@ -576,6 +577,14 @@ public class BeanDetailPingouStore {
 
                 public String getAttrValue() {
                     return attrValue;
+                }
+
+                public boolean isCheck() {
+                    return isCheck;
+                }
+
+                public void setCheck(boolean check) {
+                    isCheck = check;
                 }
             }
         }

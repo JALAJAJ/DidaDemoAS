@@ -66,10 +66,10 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
     public void refreshView() {
         BeanDetailMarket data = getData();
         tv_market_detail_head_title.setText(data.getRes().getTimeOrPhyProduct().getName());
-        tv_market_detail_head_price.setText(data.getRes().getTimeOrPhyProduct().getPrice() + "");
+        tv_market_detail_head_price.setText("¥ "+data.getRes().getTimeOrPhyProduct().getPrice());
         tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount() + "");
 //        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock() + "");
-//        tv_market_detail_head_address.setText(data.getRes().getShop().getProvince() + " " + data.getRes().getShop().getCity());
+        tv_market_detail_head_address.setText(data.getRes().getShop().getAddress());
         ll_market_detail_head_share.setOnClickListener(this);
         ll_market_detail_head_favorite.setOnClickListener(this);
         List<String> productImgs = data.getRes().getProductImgs();

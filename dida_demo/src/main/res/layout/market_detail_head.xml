@@ -52,14 +52,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        style="@style/item_price_red"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="¥" />
-
-                    <TextView
                         android:id="@+id/tv_market_detail_head_price"
-                        style="@style/item_price_red"
+                        style="@style/red_20"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="668.00" />
