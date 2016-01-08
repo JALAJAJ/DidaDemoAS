@@ -91,6 +91,7 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.6.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.3" level="project" />
     <orderEntry type="library" exported="" name="volley" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.1.1" level="project" />
@@ -107,11 +108,13 @@
     <orderEntry type="library" exported="" name="support-annotations-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="fastjson-1.1.40" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-3.0.0-RC1" level="project" />
     <orderEntry type="module" module-name="image_loader_library" exported="" />
     <orderEntry type="module" module-name="xutillibrary" exported="" />
     <orderEntry type="module" module-name="iconlibrary" exported="" />
     <orderEntry type="module" module-name="loadlibrary" exported="" />
     <orderEntry type="module" module-name="pulltopushlibrary" exported="" />
+    <orderEntry type="module" module-name="okhttputils" exported="" />
     <orderEntry type="module" module-name="iMKit" exported="" />
   </component>
 </module>

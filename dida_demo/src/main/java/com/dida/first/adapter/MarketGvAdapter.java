@@ -1,23 +1,25 @@
 package com.dida.first.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.utils.UImageLoaderUitl;
+import com.dida.first.utils.UrlUtil;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
 public class MarketGvAdapter extends BaseAdapter {
+    private static final String TAG = "MarketGvAdapter";
     private List<MarketBean.ResEntity.ProductsEntity> list;
     private Context context;
     private LinearLayout.LayoutParams param;
@@ -55,36 +57,29 @@ public class MarketGvAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.item_marketlist, null);
             viewHolder=new ViewHolder(convertView);
-            viewHolder.ivmarketitemimg=(ImageView) convertView
-                    .findViewById(R.id.iv_market_item_img);
-            viewHolder.tvmarketitemtitle=(TextView) convertView
-                    .findViewById(R.id.tv_market_item_title);
-            viewHolder.tvmarketitemprice=(TextView) convertView
-                    .findViewById(R.id.tv_market_item_price);
-            viewHolder.tvmarketitemcount=(TextView) convertView
-                    .findViewById(R.id.tv_market_item_count);
             convertView.setTag(viewHolder);
         }else{
             viewHolder= (ViewHolder) convertView.getTag();
         }
-        viewHolder.ivmarketitemimg.setLayoutParams(param);
+//        viewHolder.ivmarketitemimg.setLayoutParams(param);
         viewHolder.tvmarketitemtitle.setText(list.get(position).getName());
         viewHolder.tvmarketitemprice.setText("¥ "+list.get(position).getPrice());
         viewHolder.tvmarketitemcount.setText(list.get(position).getSalesCount()+"");
-        UImageLoaderUitl.displayLvMidImage(list.get(position).getMobileThumb(),viewHolder.ivmarketitemimg);
+        Uri imageUri = Uri.parse(UrlUtil.getUrl(list.get(position).getThumb()));
+        viewHolder.ivmarketitemimg.setImageURI(imageUri);
         return convertView;
     }
 
 
     public class ViewHolder {
-        public ImageView ivmarketitemimg;
+        public SimpleDraweeView ivmarketitemimg;
         public TextView tvmarketitemtitle;
         public TextView tvmarketitemprice;
         public TextView tvmarketitemcount;
         public View root;
 
         public ViewHolder(View root) {
-            ivmarketitemimg = (ImageView) root.findViewById(R.id.iv_market_item_img);
+            ivmarketitemimg = (SimpleDraweeView) root.findViewById(R.id.iv_market_item_img);
             tvmarketitemtitle = (TextView) root.findViewById(R.id.tv_market_item_title);
             tvmarketitemprice = (TextView) root.findViewById(R.id.tv_market_item_price);
             tvmarketitemcount = (TextView) root.findViewById(R.id.tv_market_item_count);

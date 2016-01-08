@@ -6,14 +6,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.popupwindow.PopupWindowShare;
-import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.view.MyLunBoTu;
@@ -37,7 +35,6 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         this.context = activity;
     }
 
-
     private FrameLayout fl_market_head;
     private TextView tv_market_detail_head_title;
     private TextView tv_market_detail_head_count;
@@ -45,8 +42,7 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
     private TextView tv_market_detail_head_stock;
     private TextView tv_market_detail_head_address;
     private PopupWindowShare popupWindowShare;
-    private RelativeLayout ll_market_detail_head_favorite;
-    private RelativeLayout ll_market_detail_head_share;
+    private LinearLayout ll_market_detail_head_share;
 
     @Override
     public View initView() {
@@ -57,8 +53,7 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         tv_market_detail_head_count = (TextView) view.findViewById(R.id.tv_market_detail_head_count);
         tv_market_detail_head_stock = (TextView) view.findViewById(R.id.tv_market_detail_head_stock);
         tv_market_detail_head_address = (TextView) view.findViewById(R.id.tv_market_detail_head_address);
-        ll_market_detail_head_favorite = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_favorite);
-        ll_market_detail_head_share = (RelativeLayout) view.findViewById(R.id.ll_market_detail_head_share);
+        ll_market_detail_head_share = (LinearLayout) view.findViewById(R.id.ll_market_detail_head_share);
         return view;
     }
 
@@ -68,18 +63,14 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         tv_market_detail_head_title.setText(data.getRes().getTimeOrPhyProduct().getName());
         tv_market_detail_head_price.setText("¥ "+data.getRes().getTimeOrPhyProduct().getPrice());
         tv_market_detail_head_count.setText(data.getRes().getTimeOrPhyProduct().getSalesCount() + "");
-//        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock() + "");
+        tv_market_detail_head_stock.setText(data.getRes().getTimeOrPhyProduct().getStock() + "");
         tv_market_detail_head_address.setText(data.getRes().getShop().getAddress());
         ll_market_detail_head_share.setOnClickListener(this);
-        ll_market_detail_head_favorite.setOnClickListener(this);
         List<String> productImgs = data.getRes().getProductImgs();
 
         if(productImgs.size()!=0){
             addLunBoTu(productImgs);
         }
-
-
-
     }
 
     private void addLunBoTu(List<String> productImgs) {
@@ -93,7 +84,6 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
         fl_market_head.addView(adsLunBoTu);
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -102,9 +92,6 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
                     popupWindowShare = new PopupWindowShare(rootView, activity, new ArrayList<String>());
                 }
                 popupWindowShare.showPopupWindow();
-                break;
-            case R.id.ll_market_detail_head_favorite:
-                ToastUtil.showMyToast("收藏");
                 break;
             default:
                 break;

@@ -21,6 +21,7 @@ import com.dida.first.holder.GDetail_Comment_User_Holder;
 import com.dida.first.holder.GDetail_Des_Holder;
 import com.dida.first.holder.GDetail_Item_Holder;
 import com.dida.first.holder.GDetail_User_Head_Holder;
+import com.dida.first.interfaces.OnCollectListener;
 import com.dida.first.interfaces.OnShareListener;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
@@ -38,7 +39,7 @@ import java.util.Map;
  * @data 2015-8-17 下午1:15:10
  * @use
  */
-public class Detail_Pingou_User_Activity extends BasePingouActivity implements OnShareListener {
+public class Detail_Pingou_User_Activity extends BasePingouActivity implements OnShareListener ,OnCollectListener{
 
     private static final String TAG = "Detail_Pingou_User_Activity";
     private FrameLayout fl_group_detail_head;
@@ -64,7 +65,7 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
                     setData(mDetailPingouUser);
                     break;
                 case RES_COLLECT_OK:
-                    onCollect(mIsCollection);
+                    onShowCollect(mIsCollection);
                     break;
                 case RES_COLLECT_ERR:
                     mDialogProgress.dismiss();
@@ -77,24 +78,6 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
     private LinearLayout ll_pingou_user_fav;
     private ImageView iv_pingou_user_fav;
     private TextView tv_pingou_user_fav;
-
-
-
-    /**
-     * 加入拼购
-     */
-    private void onJoin() {
-        ToastUtil.showMyToast("加入拼购");
-        ActivityUtil.goActivity(this, Pingou_Show_Activity.class);
-    }
-
-    /**
-     * 加入订单
-     */
-    private void addOrder() {
-        ToastUtil.showMyToast("成功加入订单！");
-    }
-
 
 
     @Override
@@ -171,18 +154,16 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
     protected void onSonClick(View v) {
         switch (v.getId()) {
             case R.id.rl_pingou_detail_team_more:
-                List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ParticipatesEntity> participates = mDetailPingouUser.getRes().getComGroupDetail().getParticipates();
-                mBundle.putString("TYPE","USER");
-                mBundle.putSerializable("PINGOU_TEAM", (Serializable) participates);
-                ActivityUtil.goActivityWithBundle(Detail_Pingou_User_Activity.this, AttentionActivity.class, mBundle);
+                toTeamActivity();
                 break;
             case R.id.tv_pingou_user_join:
-                onJoin();
+                onEnter();
             case R.id.ll_pingou_user_fav:
-                doNetCollect(serviceId,serviceType, "fb9a38d82cd3405a9b60ec54cdb5ecdf", mIsCollection);
+                onNetCollect(serviceId, serviceType, "fb9a38d82cd3405a9b60ec54cdb5ecdf", mIsCollection);
                 break;
         }
     }
+
 
     /**
      * 访问网络-初始化页面
@@ -196,7 +177,7 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
             public void onResponse(BeanDetailPingouUser bean) {
                 mDetailPingouUser = bean;
                 mTeamCount = bean.getRes().getComGroupDetail().getParticipates().size();
-                mIsCollection=bean.getRes().getComGroupDetail().getIsCollection();
+                mIsCollection = bean.getRes().getComGroupDetail().getIsCollection();
                 mHandler.sendEmptyMessage(RES_OK);
             }
         }, new Response.ErrorListener() {
@@ -216,14 +197,49 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
         };
         mQueue.add(initRequest);
     }
-    /**
-     * 加入/取消    我的拼购
-     * @param serviceId
-     * @param serviceType
-     * @param userId
-     * @param isCollection
-     */
-    private void doNetCollect(final String serviceId, final String serviceType, final String userId, final int isCollection) {
+
+
+
+    private void setData(BeanDetailPingouUser bean) {
+        titleHolder.setData(bean);
+        itemHolder.setData(bean);
+        desHolder.setData(bean);
+        commentHolder.setData(bean);
+        tv_pingou_detail_team_count.setText(mTeamCount + "");
+        onShowCollect(mIsCollection);
+    }
+
+
+    @Override
+    public void onShare() {
+        ToastUtil.showMyToast("分享");
+    }
+
+
+
+    private void onEnter() {
+        ToastUtil.showMyToast("加入拼购");
+        ActivityUtil.goActivity(this, Pingou_Show_Activity.class);
+    }
+
+    private void toTeamActivity() {
+        List<BeanDetailPingouUser.ResEntity.ComGroupDetailEntity.ParticipatesEntity> participates = mDetailPingouUser.getRes().getComGroupDetail().getParticipates();
+        mBundle.putString("TYPE", "USER");
+        mBundle.putSerializable("PINGOU_TEAM", (Serializable) participates);
+        ActivityUtil.goActivityWithBundle(Detail_Pingou_User_Activity.this, AttentionActivity.class, mBundle);
+    }
+
+
+    @Override
+    public void onShowCollect(int hasCollect) {
+        mDialogProgress.dismiss();
+        iv_pingou_user_fav.setBackgroundResource(hasCollect == 0 ? R.drawable.btn_fav_nor : R.drawable.btn_fav_sel);
+        tv_pingou_user_fav.setTextColor(hasCollect == 0 ? ContextCompat.getColor(this, R.color.gray_tip) : ContextCompat.getColor(this, R.color.red));
+        tv_pingou_user_fav.setText(hasCollect == 0 ? "收藏" : "已收藏");
+    }
+
+    @Override
+    public void onNetCollect(final String serviceId, final String serviceType, final String userId, final int isCollection) {
         mDialogProgress.show();
         VolleyGsonRequest<BeanRes> collectRequest = new VolleyGsonRequest<BeanRes>(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_PINGOU_ADD_CANCLE_COLLECT), BeanRes.class, new Response.Listener<BeanRes>() {
             @Override
@@ -252,32 +268,4 @@ public class Detail_Pingou_User_Activity extends BasePingouActivity implements O
         };
         mQueue.add(collectRequest);
     }
-    private void setData(BeanDetailPingouUser bean) {
-        titleHolder.setData(bean);
-        itemHolder.setData(bean);
-        desHolder.setData(bean);
-        commentHolder.setData(bean);
-        tv_pingou_detail_team_count.setText(mTeamCount+"");
-        onCollect(mIsCollection);
-    }
-
-    /**
-     * 分享
-     */
-    @Override
-    public void onShare() {
-        ToastUtil.showMyToast("分享");
-    }
-
-
-    /**
-     * 收藏
-     */
-    private void onCollect(int ifFav) {
-        mDialogProgress.dismiss();
-        iv_pingou_user_fav.setBackgroundResource(ifFav == 0 ? R.drawable.btn_fav_nor : R.drawable.btn_fav_sel);
-        tv_pingou_user_fav.setTextColor(ifFav == 0 ? ContextCompat.getColor(this, R.color.gray_tip) : ContextCompat.getColor(this, R.color.red));
-        tv_pingou_user_fav.setText(ifFav == 0 ? "收藏" : "已收藏");
-    }
-
 }

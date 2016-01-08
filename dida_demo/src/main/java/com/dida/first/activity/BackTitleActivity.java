@@ -1,6 +1,7 @@
 package com.dida.first.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,6 +42,7 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	private OnTextClickListener onTextClickListener;
 	protected RequestQueue mQueue;
 	protected LoadingAndRetryManager mLoadingAndRetryManager;
+	protected Handler mHandler;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

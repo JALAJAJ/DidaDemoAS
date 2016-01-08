@@ -2,7 +2,7 @@ package com.dida.first.utils;
 
 public class UrlUtil {
     public  enum InterfaceName{
-        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS
+        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT
     }
 
 
@@ -20,6 +20,7 @@ public class UrlUtil {
     public final static String PINGOU_DETAIL = "/service/detailSerivce.do";//拼购详情
     public final static String PINGOU_SEARCH = "/service/queryAllTask.do";//拼购搜索
     public final static String PINGOU_ADD_CANCLE_COLLECT = "/collection/addOrDelCollection.do";//拼购添加删除收藏
+    public final static String PINGOU_MORE_COMMENT = "/service/queryAllReply.do";//拼购更多评论
     /*==============================================晒单==============================================*/
     public final static String SHOW_LIST = "/prepayorder/getPrepayOrders.do";//晒单列表
     public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
@@ -53,6 +54,10 @@ public class UrlUtil {
             //拼购添加删除收藏
             case I_PINGOU_ADD_CANCLE_COLLECT:
                 url+=PINGOU_ADD_CANCLE_COLLECT;
+                break;
+            //拼购更多评论
+            case I_PINGOU_MORE_COMMENT:
+                url+=PINGOU_MORE_COMMENT;
                 break;
             //集市添加删除收藏
             case I_MARKET_ADD_CANCLE_COLLECT:
