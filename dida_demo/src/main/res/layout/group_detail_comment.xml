@@ -31,9 +31,6 @@
 
             <include layout="@layout/include_comment_pingou"
                 />
-
-
-
                 <TextView
                     android:id="@+id/tv_pingou_comment_more"
                     android:layout_margin="8dp"

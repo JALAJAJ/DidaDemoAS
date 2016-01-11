@@ -40,8 +40,8 @@ public class MDetail_Image_Holder extends BaseHolder<String> {
 
 		});
 //		wv_market_detail.loadUrl("http://www.baidu.com");
-		Log.i(TAG, "refreshView: "+UrlUtil.getUrl(url));
-		wv_market_detail.loadUrl(UrlUtil.getUrl(url)+"&app=1");
+		Log.i(TAG, "refreshView: "+UrlUtil.getImgUrl(url));
+		wv_market_detail.loadUrl(UrlUtil.getImgUrl(url)+"&app=1");
 
 	}
 

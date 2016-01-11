@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -17,11 +18,12 @@ import com.dida.first.activity.Detail_Pingou_Store_Activity;
 import com.dida.first.activity.Detail_Pingou_User_Activity;
 import com.dida.first.adapter.PingouLvAdapter;
 import com.dida.first.entity.PingouBean;
-import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.VolleyGsonRequest;
+import com.dida.first.view.BaseTitleLunBoTu;
 import com.dida.first.view.MyLunBoTu;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -156,16 +158,36 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     private void addLVHead(List<PingouBean.ResEntity.TaskAdvertiseEntity> adsList) {
 
 
-        adsLunBoTu = new MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity, adsList, new OnShowItemListener<PingouBean.ResEntity.TaskAdvertiseEntity>() {
+//        adsLunBoTu = new MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity, adsList, new OnShowItemListener<PingouBean.ResEntity.TaskAdvertiseEntity>() {
+//            @Override
+//            public String onShowItem(List<PingouBean.ResEntity.TaskAdvertiseEntity> mData, int position) {
+//                return UrlUtil.HOST+mData.get(position % mData.size()).getAdUrl();
+//            }
+//        });
+//        adsLunBoTu.setViewHeight(200);
+//        adsLunBoTu.startRoll();
+//        ListView refreshableView = plv_pingou.getRefreshableView();
+//        refreshableView.addHeaderView(adsLunBoTu, null, false);
+
+        BaseTitleLunBoTu baseTitleLunBoTu=new BaseTitleLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
             @Override
-            public String onShowItem(List<PingouBean.ResEntity.TaskAdvertiseEntity> mData, int position) {
-                return UrlUtil.HOST+mData.get(position % mData.size()).getAdUrl();
+            protected void onTitleShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+                Log.i(TAG, "onTitleShow position: "+position );
+                titleTv.setText(mAdsList.get(position).getAdName());
             }
-        });
-        adsLunBoTu.setViewHeight(200);
-        adsLunBoTu.startRoll();
+
+            @Override
+            protected String setImgUrl(List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+                Log.i(TAG, "setImgUrl "+ mAdsList.get(position).getAdUrl() );
+                return mAdsList.get(position).getAdUrl();
+            }
+        };
+        baseTitleLunBoTu.show(adsList);//显示轮播图
+        baseTitleLunBoTu.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
+//        baseTitleLunBoTu.startRoll();//轮播图自动切换
         ListView refreshableView = plv_pingou.getRefreshableView();
-        refreshableView.addHeaderView(adsLunBoTu, null, false);
+        refreshableView.addHeaderView(baseTitleLunBoTu, null, false);
+
     }
     /**
      * 刷洗·加载 网络操作

@@ -3,10 +3,10 @@ package com.dida.first.adapter;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.dida.first.R;
-import com.dida.first.utils.UImageLoaderUitl;
+import com.dida.first.utils.FrescoManager;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
@@ -32,23 +32,22 @@ public class ImgAdapter extends BaseLvGvAdapter<String> {
     protected View baseGetView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null) {
-            convertView = View.inflate(activity, R.layout.single_imageview, null);
+            convertView = View.inflate(activity, R.layout.single_siv, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.ivsingle.setLayoutParams(layoutParams);
-        UImageLoaderUitl.displayGvMidImage(list.get(position), viewHolder.ivsingle);
+        FrescoManager.display(list.get(position),viewHolder.ivsingle);
         return convertView;
     }
 
     public class ViewHolder {
-        public final ImageView ivsingle;
+        public final SimpleDraweeView ivsingle;
         public final View root;
 
         public ViewHolder(View root) {
-            ivsingle = (ImageView) root.findViewById(R.id.iv_single);
+            ivsingle = (SimpleDraweeView) root.findViewById(R.id.iv_single);
             this.root = root;
         }
     }

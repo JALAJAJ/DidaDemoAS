@@ -65,7 +65,7 @@ public class MarketGvAdapter extends BaseAdapter {
         viewHolder.tvmarketitemtitle.setText(list.get(position).getName());
         viewHolder.tvmarketitemprice.setText("¥ "+list.get(position).getPrice());
         viewHolder.tvmarketitemcount.setText(list.get(position).getSalesCount()+"");
-        Uri imageUri = Uri.parse(UrlUtil.getUrl(list.get(position).getThumb()));
+        Uri imageUri = Uri.parse(UrlUtil.getImgUrl(list.get(position).getThumb()));
         viewHolder.ivmarketitemimg.setImageURI(imageUri);
         return convertView;
     }

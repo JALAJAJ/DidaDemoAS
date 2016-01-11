@@ -7,22 +7,8 @@ import java.util.List;
  * Created by KingJA on 2015-12-28.
  */
 public class BeanDetailPingouStore {
-
-    /**
-     * code : 1
-     * msg : 详情加载成功
-     * res : {"productImgs":["/upload/image/20151128/mobile/20151128103132_965.jpg","/upload/image/20151128/mobile/20151128103139_50.jpg","/upload/image/20151128/mobile/20151128103148_384.jpg"],"comGroupDetail":{"serviceId":2013,"userId":"1","isCollection":0,"groupMode":2,"groupName":"圣保罗的医生","price":11,"oldPrice":0.01,"count":6,"buyCount":0,"taskCount":5,"customDueDate":"2015-12-31 11:02:00","participates":[],"replys":[{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]},"customAttrs":[{"attributeName":"品牌","attributeValue":"迪莎衣品"},{"attributeName":"服装版型","attributeValue":"直筒"},{"attributeName":"厚薄","attributeValue":"加厚"},{"attributeName":"风格","attributeValue":"通勤"},{"attributeName":"通勤","attributeValue":"韩版"},{"attributeName":"款式","attributeValue":"套头"},{"attributeName":"组合形式","attributeValue":"单件"},{"attributeName":"衣长","attributeValue":"常规款"},{"attributeName":"袖长","attributeValue":"长袖"},{"attributeName":"领子","attributeValue":"高领"},{"attributeName":"袖型","attributeValue":"常规"},{"attributeName":"衣门襟","attributeValue":"套头"},{"attributeName":"图案","attributeValue":"纯色"},{"attributeName":"流行元素/工艺","attributeValue":"纱网"},{"attributeName":"适用年龄","attributeValue":"25-29周岁"},{"attributeName":"上市年份/季节","attributeValue":"2015年冬季"},{"attributeName":"颜色分类","attributeValue":"黑色 棕色"},{"attributeName":"尺码","attributeValue":"XL L M S"}],"purchaseAttrs":[{"attrId":"7c4ca88612a3475f85d1ef18ff75d88e","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"颜色","attrValues":[{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]},{"attrId":"863e07aa273d4ee9a6b5f86fa411f495","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"尺寸","attrValues":[{"valId":"f5f98f01818c4fc2a2caf410c291ed7c","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"S"},{"valId":"5dd31b2419f54f8fb6b83f46590730e9","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"M"},{"valId":"f4b5d6ee34234f10820f2873f6303ebc","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"L"},{"valId":"9d68d5517b664b03a672a31a844962ab","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"XL"}]}],"sellerThumb":"/upload/145145917901652e9b4bf7b83.jpg"}
-     */
-
     private int code;
     private String msg;
-    /**
-     * productImgs : ["/upload/image/20151128/mobile/20151128103132_965.jpg","/upload/image/20151128/mobile/20151128103139_50.jpg","/upload/image/20151128/mobile/20151128103148_384.jpg"]
-     * comGroupDetail : {"serviceId":2013,"userId":"1","isCollection":0,"groupMode":2,"groupName":"圣保罗的医生","price":11,"oldPrice":0.01,"count":6,"buyCount":0,"taskCount":5,"customDueDate":"2015-12-31 11:02:00","participates":[],"replys":[{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]}
-     * customAttrs : [{"attributeName":"品牌","attributeValue":"迪莎衣品"},{"attributeName":"服装版型","attributeValue":"直筒"},{"attributeName":"厚薄","attributeValue":"加厚"},{"attributeName":"风格","attributeValue":"通勤"},{"attributeName":"通勤","attributeValue":"韩版"},{"attributeName":"款式","attributeValue":"套头"},{"attributeName":"组合形式","attributeValue":"单件"},{"attributeName":"衣长","attributeValue":"常规款"},{"attributeName":"袖长","attributeValue":"长袖"},{"attributeName":"领子","attributeValue":"高领"},{"attributeName":"袖型","attributeValue":"常规"},{"attributeName":"衣门襟","attributeValue":"套头"},{"attributeName":"图案","attributeValue":"纯色"},{"attributeName":"流行元素/工艺","attributeValue":"纱网"},{"attributeName":"适用年龄","attributeValue":"25-29周岁"},{"attributeName":"上市年份/季节","attributeValue":"2015年冬季"},{"attributeName":"颜色分类","attributeValue":"黑色 棕色"},{"attributeName":"尺码","attributeValue":"XL L M S"}]
-     * purchaseAttrs : [{"attrId":"7c4ca88612a3475f85d1ef18ff75d88e","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"颜色","attrValues":[{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]},{"attrId":"863e07aa273d4ee9a6b5f86fa411f495","productNo":"f89e751773af47fda7f3added531c7a4","attributeName":"尺寸","attrValues":[{"valId":"f5f98f01818c4fc2a2caf410c291ed7c","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"S"},{"valId":"5dd31b2419f54f8fb6b83f46590730e9","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"M"},{"valId":"f4b5d6ee34234f10820f2873f6303ebc","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"L"},{"valId":"9d68d5517b664b03a672a31a844962ab","attrId":"863e07aa273d4ee9a6b5f86fa411f495","attrValue":"XL"}]}]
-     * sellerThumb : /upload/145145917901652e9b4bf7b83.jpg
-     */
 
     private ResEntity res;
 
@@ -51,39 +37,20 @@ public class BeanDetailPingouStore {
     }
 
     public static class ResEntity {
-        /**
-         * serviceId : 2013
-         * userId : 1
-         * isCollection : 0
-         * groupMode : 2
-         * groupName : 圣保罗的医生
-         * price : 11.0
-         * oldPrice : 0.01
-         * count : 6
-         * buyCount : 0
-         * taskCount : 5
-         * customDueDate : 2015-12-31 11:02:00
-         * participates : []
-         * replys : [{"userId":"58","floorNo":5,"replyId":365,"hasNode":1,"content":"二货没交钱","createTime":"2015-12-04 10:01:59","userName":"hhh","thumb":"/upload/1.jpg","replyThumbList":["/upload/image/20151204/20151204100105_326.jpg"],"subReplys":[{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]}]
-         */
+
 
         private ComGroupDetailEntity comGroupDetail;
         private String sellerThumb;
+        private List<String> imageJson;
         private List<String> productImgs;
-        /**
-         * attributeName : 品牌
-         * attributeValue : 迪莎衣品
-         */
-
         private List<CustomAttrsEntity> customAttrs;
-        /**
-         * attrId : 7c4ca88612a3475f85d1ef18ff75d88e
-         * productNo : f89e751773af47fda7f3added531c7a4
-         * attributeName : 颜色
-         * attrValues : [{"valId":"d5ff0117d6e0404eb5686ee38ba20b70","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"黑色"},{"valId":"a38003c8f03c4581ab7fabb6ce83e220","attrId":"7c4ca88612a3475f85d1ef18ff75d88e","attrValue":"棕色"}]
-         */
-
         private List<PurchaseAttrsEntity> purchaseAttrs;
+        public void setImageJson(List<String> imageJson) {
+            this.imageJson = imageJson;
+        }
+        public List<String> getImageJson() {
+            return imageJson;
+        }
 
         public void setComGroupDetail(ComGroupDetailEntity comGroupDetail) {
             this.comGroupDetail = comGroupDetail;
@@ -126,6 +93,9 @@ public class BeanDetailPingouStore {
         }
 
         public static class ComGroupDetailEntity {
+            private String mobileThumb;
+            private String mobileDes;
+            private String shareLink;
             private int serviceId;
             private String userId;
             private int isCollection;
@@ -138,20 +108,32 @@ public class BeanDetailPingouStore {
             private int taskCount;
             private String customDueDate;
             private List<ParticipatesEntity> participates;
-            /**
-             * userId : 58
-             * floorNo : 5
-             * replyId : 365
-             * hasNode : 1
-             * content : 二货没交钱
-             * createTime : 2015-12-04 10:01:59
-             * userName : hhh
-             * thumb : /upload/1.jpg
-             * replyThumbList : ["/upload/image/20151204/20151204100105_326.jpg"]
-             * subReplys : [{"userId":"fb9a38d82cd3405a9b60ec54cdb5ecdf","replyedUserName":"hhh","parentId":365,"replyId":417,"hasNode":1,"content":"华盛顿回复","createTime":"2016-01-04 15:39:46","userName":"wujie0209","thumb":"/frontend/images/recommend-head4.jpg"}]
-             */
-
             private List<ReplysEntity> replys;
+
+            public String getShareLink() {
+                return shareLink;
+            }
+
+            public void setShareLink(String shareLink) {
+                this.shareLink = shareLink;
+            }
+
+            public String getMobileThumb() {
+                return mobileThumb;
+            }
+
+            public void setMobileThumb(String mobileThumb) {
+                this.mobileThumb = mobileThumb;
+            }
+
+            public String getMobileDes() {
+                return mobileDes;
+            }
+
+            public void setMobileDes(String mobileDes) {
+                this.mobileDes = mobileDes;
+            }
+
             public static class ParticipatesEntity implements Serializable {
                 private String userId;
                 private String userName;
@@ -304,18 +286,6 @@ public class BeanDetailPingouStore {
                 private String userName;
                 private String thumb;
                 private List<String> replyThumbList;
-                /**
-                 * userId : fb9a38d82cd3405a9b60ec54cdb5ecdf
-                 * replyedUserName : hhh
-                 * parentId : 365
-                 * replyId : 417
-                 * hasNode : 1
-                 * content : 华盛顿回复
-                 * createTime : 2016-01-04 15:39:46
-                 * userName : wujie0209
-                 * thumb : /frontend/images/recommend-head4.jpg
-                 */
-
                 private List<SubReplysEntity> subReplys;
 
                 public void setUserId(String userId) {
@@ -509,12 +479,6 @@ public class BeanDetailPingouStore {
             private String attrId;
             private String productNo;
             private String attributeName;
-            /**
-             * valId : d5ff0117d6e0404eb5686ee38ba20b70
-             * attrId : 7c4ca88612a3475f85d1ef18ff75d88e
-             * attrValue : 黑色
-             */
-
             private List<AttrValuesEntity> attrValues;
 
             public void setAttrId(String attrId) {

@@ -78,14 +78,15 @@ public class UrlUtil {
 
     }
 
-    /**
-     * 给没有域名的Url加上域名
-     * @param url
-     * @return
-     */
-    public static String getUrl(String url) {
+    public static String getImgUrl(String url) {
         if (!url.startsWith("http")) {
             url = IMG+url;
+        }
+        return url;
+    }
+    public static String getUrl(String url) {
+        if (!url.startsWith("http")) {
+            url = HOST+url;
         }
         return url;
     }

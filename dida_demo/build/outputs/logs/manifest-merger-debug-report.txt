@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-392:12
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-396:12
 	package
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml
@@ -42,6 +42,9 @@ MERGED from [com.facebook.fresco:drawee:0.8.1] E:\wxy\workpace\DidaDemoAS\dida_d
 MERGED from [com.facebook.fresco:fbcore:0.8.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\0.8.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
 MERGED from [com.zhy:okhttputils:2.0.3] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.zhy\okhttputils\2.0.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:10:9-38
 		INJECTED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml
@@ -131,7 +134,7 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:38:
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:38:22-66
 application
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:40:5-390:19
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:40:5-394:19
 MERGED from [DidaDemoAS:xutillibrary:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\xutillibrary\unspecified\AndroidManifest.xml:11:5-20
 MERGED from [DidaDemoAS:iMKit:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\iMKit\unspecified\AndroidManifest.xml:31:5-35:19
 MERGED from [DidaDemoAS:pulltopushlibrary:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\pulltopushlibrary\unspecified\AndroidManifest.xml:11:5-20
@@ -151,6 +154,9 @@ MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\d
 MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.zhy:okhttputils:2.0.3] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.zhy\okhttputils\2.0.3\AndroidManifest.xml:14:5-17:19
+MERGED from [com.google.android.gms:play-services-appindexing:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.1.0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.1.1] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\AndroidManifest.xml:22:5-20
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:46:9-45
 	android:label
@@ -739,5 +745,12 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:386
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:388:13-42
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:387:13-46
+meta-data#com.google.android.gms.version
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:390:9-392:69
+MERGED from [com.google.android.gms:play-services-basement:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:392:13-66
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:391:13-58
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-392:12 reason: io.rong.imkit requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-396:12 reason: io.rong.imkit requested WRITE_EXTERNAL_STORAGE
