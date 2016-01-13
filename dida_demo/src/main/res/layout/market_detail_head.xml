@@ -17,7 +17,10 @@
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:padding="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -74,7 +77,12 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:paddingTop="6dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+
+            >
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -88,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:text="库存:" />
 
-                <com.dida.first.view.DeadlineTextView
+                <TextView
                     android:id="@+id/tv_market_detail_head_stock"
                     style="@style/red_12"
                     android:layout_width="wrap_content"
@@ -109,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:text="销量:" />
 
-                <com.dida.first.view.DeadlineTextView
+                <TextView
                     android:id="@+id/tv_market_detail_head_count"
                     style="@style/red_12"
                     android:layout_width="wrap_content"

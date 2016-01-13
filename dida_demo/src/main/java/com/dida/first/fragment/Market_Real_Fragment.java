@@ -1,9 +1,11 @@
 package com.dida.first.fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -12,9 +14,10 @@ import com.dida.first.R;
 import com.dida.first.adapter.MarketLvAdapter;
 import com.dida.first.entity.MarketBean;
 import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.VolleyGsonRequest;
-import com.dida.first.view.AutoLunBoTu;
+import com.dida.first.view.TitleMoveImgView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -64,6 +67,7 @@ public class Market_Real_Fragment extends Base_First_Fragment {
             }
         }
     };
+    private TitleMoveImgView adsLunBoTu;
 
 
     @Override
@@ -132,11 +136,34 @@ public class Market_Real_Fragment extends Base_First_Fragment {
      * @param adsList
      */
     private void addLVHead(List<MarketBean.ResEntity.ProductAdsEntity> adsList) {
-        AutoLunBoTu mLunBo = (AutoLunBoTu) View.inflate(context, R.layout.view_vp_xml, null);
-        mLunBo.show(adsList);//显示轮播图
-        mLunBo.startRoll();//轮播图自动切换
+        adsLunBoTu = new TitleMoveImgView<MarketBean.ResEntity.ProductAdsEntity>(mActivity) {
+            @Override
+            protected void onInitShow(TextView titleTv, List<MarketBean.ResEntity.ProductAdsEntity> list) {
+                titleTv.setText(mAdsList.get(0).getAdName());
+            }
+
+            @Override
+            protected void onItemClick(List<MarketBean.ResEntity.ProductAdsEntity> mAdsList, int position) {
+
+            }
+
+            @Override
+            protected void onTitleShow(TextView titleTv, List<MarketBean.ResEntity.ProductAdsEntity> mAdsList, int position) {
+                Log.i(TAG, "onTitleShow position: "+position );
+                titleTv.setText(mAdsList.get(position).getAdName());
+            }
+
+            @Override
+            protected String setImgUrl(List<MarketBean.ResEntity.ProductAdsEntity> mAdsList, int position) {
+                Log.i(TAG, "setImgUrl "+ mAdsList.get(position).getAdUrl() );
+                return mAdsList.get(position).getAdUrl();
+            }
+        };
+        adsLunBoTu.show(adsList);//显示轮播图
+        adsLunBoTu.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
+        adsLunBoTu.startRoll();//轮播图自动切换
         ListView refreshableView = plv.getRefreshableView();
-        refreshableView.addHeaderView(mLunBo, null, false);
+        refreshableView.addHeaderView(adsLunBoTu, null, false);
     }
 
 
@@ -187,5 +214,17 @@ public class Market_Real_Fragment extends Base_First_Fragment {
             }
         };
         mQueue.add(pingouRequest);
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (adsLunBoTu!=null){
+            if (hidden){
+                adsLunBoTu.stopRoll();
+            }else{
+                adsLunBoTu.startRoll();
+            }
+        }
     }
 }

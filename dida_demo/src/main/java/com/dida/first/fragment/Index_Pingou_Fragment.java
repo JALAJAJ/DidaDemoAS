@@ -16,15 +16,17 @@ import com.android.volley.VolleyError;
 import com.dida.first.R;
 import com.dida.first.activity.Detail_Pingou_Store_Activity;
 import com.dida.first.activity.Detail_Pingou_User_Activity;
+import com.dida.first.activity.Search_Pingou_Activity;
 import com.dida.first.adapter.PingouLvAdapter;
 import com.dida.first.entity.PingouBean;
+import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.VolleyGsonRequest;
-import com.dida.first.view.BaseTitleLunBoTu;
-import com.dida.first.view.MyLunBoTu;
+import com.dida.first.view.NoTitleMoveImgView;
+import com.dida.first.view.TitleMoveImgView;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -75,8 +77,9 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
             }
         }
     };
-    private MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
+    private NoTitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
     private Intent intent;
+    private RelativeLayout rl_search;
 
 
     @Override
@@ -88,6 +91,8 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     @Override
     public void initFragmentView() {
         plv_pingou = (PullToRefreshListView) view.findViewById(R.id.plv_pingou);
+        rl_search = (RelativeLayout) view.findViewById(R.id.rl_search);
+
     }
 
     @Override
@@ -102,6 +107,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
         plv_pingou.setOnRefreshListener(onRefreshListener);
         plv_pingou.setOnScrollListener(new PauseOnScrollListener(UImageLoaderUitl.getImageLoader(), true, false));
         plv_pingou.setOnItemClickListener(this);
+        rl_search.setOnClickListener(this);
 
     }
 
@@ -112,7 +118,13 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
 
     @Override
     public void onChildClick(View v) {
-
+        switch (v.getId()){
+            case R.id.rl_search:
+                ActivityUtil.goActivity(mActivity, Search_Pingou_Activity.class);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -158,18 +170,17 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     private void addLVHead(List<PingouBean.ResEntity.TaskAdvertiseEntity> adsList) {
 
 
-//        adsLunBoTu = new MyLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity, adsList, new OnShowItemListener<PingouBean.ResEntity.TaskAdvertiseEntity>() {
-//            @Override
-//            public String onShowItem(List<PingouBean.ResEntity.TaskAdvertiseEntity> mData, int position) {
-//                return UrlUtil.HOST+mData.get(position % mData.size()).getAdUrl();
-//            }
-//        });
-//        adsLunBoTu.setViewHeight(200);
-//        adsLunBoTu.startRoll();
-//        ListView refreshableView = plv_pingou.getRefreshableView();
-//        refreshableView.addHeaderView(adsLunBoTu, null, false);
+        TitleMoveImgView titleMoveImgView =new TitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
+            @Override
+            protected void onInitShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> list) {
+                titleTv.setText(mAdsList.get(0).getAdName());
+            }
 
-        BaseTitleLunBoTu baseTitleLunBoTu=new BaseTitleLunBoTu<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
+            @Override
+            protected void onItemClick(List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+                ToastUtil.showMyToast(mAdsList.get(position).getAdName());
+            }
+
             @Override
             protected void onTitleShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
                 Log.i(TAG, "onTitleShow position: "+position );
@@ -182,11 +193,11 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
                 return mAdsList.get(position).getAdUrl();
             }
         };
-        baseTitleLunBoTu.show(adsList);//显示轮播图
-        baseTitleLunBoTu.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
-//        baseTitleLunBoTu.startRoll();//轮播图自动切换
+        titleMoveImgView.show(adsList);//显示轮播图
+        titleMoveImgView.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
+        titleMoveImgView.startRoll();//轮播图自动切换
         ListView refreshableView = plv_pingou.getRefreshableView();
-        refreshableView.addHeaderView(baseTitleLunBoTu, null, false);
+        refreshableView.addHeaderView(titleMoveImgView, null, false);
 
     }
     /**

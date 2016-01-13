@@ -162,7 +162,7 @@ public class Store_Sort_Fr extends Base_First_Fragment implements OnClickSortLis
             layoutParams.height=expandHeight;
             valueAnimator = ValueAnimator.ofInt(0, expandHeight);
         }
-        iv_sort_open.setBackgroundResource(isOpen?R.drawable.down_open:R.drawable.up_open);
+        iv_sort_open.setBackgroundResource(isOpen?R.drawable.open_down_nor :R.drawable.open_up_nor);
         isOpen=!isOpen;
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

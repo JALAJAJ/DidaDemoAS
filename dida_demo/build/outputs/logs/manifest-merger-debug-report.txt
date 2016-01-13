@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-396:12
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-401:12
 	package
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml
@@ -134,7 +134,7 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:38:
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:38:22-66
 application
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:40:5-394:19
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:40:5-399:19
 MERGED from [DidaDemoAS:xutillibrary:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\xutillibrary\unspecified\AndroidManifest.xml:11:5-20
 MERGED from [DidaDemoAS:iMKit:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\iMKit\unspecified\AndroidManifest.xml:31:5-35:19
 MERGED from [DidaDemoAS:pulltopushlibrary:unspecified] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\DidaDemoAS\pulltopushlibrary\unspecified\AndroidManifest.xml:11:5-20
@@ -577,180 +577,188 @@ ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:250
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:254:13-67
 	android:name
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:251:13-60
-activity#com.dida.first.rongyun.ConversationListActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:258:9-271:20
+activity#com.dida.first.activity.Search_Pingou_Activity
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:255:9-259:15
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:260:13-49
-	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:259:13-75
-intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:261:13-270:29
-action#android.intent.action.VIEW
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:262:17-69
-	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:262:25-66
-category#android.intent.category.DEFAULT
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:264:17-76
-	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:264:27-73
-data
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:266:17-269:45
-	android:host
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:267:21-50
-	android:scheme
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:269:21-42
-	android:pathPrefix
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:268:21-59
-activity#com.dida.first.rongyun.ConversationActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:274:9-289:20
-	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:277:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:258:13-49
 	android:launchMode
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:276:13-44
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:257:13-42
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:256:13-60
+activity#com.dida.first.rongyun.ConversationListActivity
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:263:9-276:20
+	android:screenOrientation
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:265:13-49
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:264:13-75
+intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:266:13-275:29
+action#android.intent.action.VIEW
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:267:17-69
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:267:25-66
+category#android.intent.category.DEFAULT
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:269:17-76
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:269:27-73
+data
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:271:17-274:45
+	android:host
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:272:21-50
+	android:scheme
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:274:21-42
+	android:pathPrefix
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:273:21-59
+activity#com.dida.first.rongyun.ConversationActivity
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:279:9-294:20
+	android:screenOrientation
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:282:13-49
+	android:launchMode
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:281:13-44
 	android:windowSoftInputMode
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:278:13-67
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:283:13-67
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:275:13-71
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:280:13-71
 activity#io.rong.voipkit.activity.CallSideActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:290:9-303:20
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:295:9-308:20
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:292:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:297:13-49
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:291:13-69
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:296:13-69
 activity#io.rong.voipkit.activity.CalledSideActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:304:9-318:20
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:309:9-323:20
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:307:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:312:13-49
 	android:excludeFromRecents
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:306:13-46
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:311:13-46
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:305:13-71
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:310:13-71
 service#io.rong.imlib.ipc.RongService
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:320:9-322:46
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:325:9-327:46
 	android:process
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:322:13-35
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:327:13-35
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:321:13-57
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:326:13-57
 service#io.rong.imlib.ReConnectService
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:323:9-66
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:328:9-66
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:323:18-63
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:328:18-63
 receiver#io.rong.imlib.ConnectChangeReceiver
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:325:9-72
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:330:9-72
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:325:19-69
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:330:19-69
 receiver#io.rong.imlib.ipc.PushMessageReceiver
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:326:9-330:20
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:331:9-335:20
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:326:19-71
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:331:19-71
 intent-filter#io.rong.push.message
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:327:13-329:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:332:13-334:29
 action#io.rong.push.message
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:328:17-63
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:333:17-63
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:328:25-60
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:333:25-60
 activity#io.rong.imkit.tools.SelectPictureActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:332:9-334:52
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:337:9-339:52
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:334:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:339:13-49
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:333:13-69
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:338:13-69
 activity#io.rong.imkit.tools.PreviewPictureActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:335:9-337:52
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:340:9-342:52
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:337:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:342:13-49
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:336:13-70
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:341:13-70
 activity#io.rong.imkit.tools.RongWebviewActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:338:9-340:52
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:343:9-345:52
 	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:340:13-49
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:345:13-49
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:339:13-67
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:344:13-67
 activity#io.rong.imkit.widget.provider.TakingPicturesActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:341:9-343:52
-	android:screenOrientation
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:343:13-49
-	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:342:13-80
-activity#com.dida.first.rongyun.PhotoActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:344:9-73
-	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:344:19-70
-activity#com.dida.first.rongyun.RongSelectActivity
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:345:9-348:52
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:346:9-348:52
 	android:screenOrientation
 		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:348:13-49
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:347:13-80
+activity#com.dida.first.rongyun.PhotoActivity
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:349:9-73
+	android:name
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:349:19-70
+activity#com.dida.first.rongyun.RongSelectActivity
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:350:9-353:52
+	android:screenOrientation
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:353:13-49
 	android:launchMode
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:347:13-42
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:352:13-42
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:346:13-69
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:351:13-69
 service#io.rong.push.PushService
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:350:9-358:19
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:355:9-363:19
 	android:process
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:352:13-43
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:357:13-43
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:351:13-52
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:356:13-52
 intent-filter#android.intent.category.DEFAULT+io.rong.push
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:353:13-357:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:358:13-362:29
 action#io.rong.push
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:356:17-55
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:361:17-55
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:356:25-52
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:361:25-52
 service#io.rong.push.CommandService
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:359:9-367:19
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:364:9-372:19
 	android:process
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:361:13-43
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:366:13-43
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:360:13-55
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:365:13-55
 intent-filter#android.intent.category.DEFAULT+io.rong.command
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:362:13-366:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:367:13-371:29
 action#io.rong.command
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:365:17-58
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:370:17-58
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:365:25-55
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:370:25-55
 receiver#io.rong.push.PushReceiver
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:369:9-381:20
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:374:9-386:20
 	android:process
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:371:13-43
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:376:13-43
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:370:13-53
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:375:13-53
 intent-filter#io.rong.imlib.action.push.heartbeat
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:372:13-374:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:377:13-379:29
 action#io.rong.imlib.action.push.heartbeat
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:373:17-78
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:378:17-78
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:373:25-75
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:378:25-75
 intent-filter#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:375:13-377:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:380:13-382:29
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:376:17-79
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:381:17-79
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:376:25-76
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:381:25-76
 intent-filter#android.intent.action.BOOT_COMPLETED
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:378:13-380:29
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:383:13-385:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:379:17-79
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:384:17-79
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:379:25-76
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:384:25-76
 receiver#io.rong.imlib.HeartbeatReceiver
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:382:9-384:38
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:387:9-389:38
 	android:process
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:384:13-35
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:389:13-35
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:383:13-59
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:388:13-59
 meta-data#RONG_CLOUD_APP_KEY
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:386:9-388:45
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:391:9-393:45
 	android:value
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:388:13-42
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:393:13-42
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:387:13-46
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:392:13-46
 meta-data#com.google.android.gms.version
-ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:390:9-392:69
+ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:395:9-397:69
 MERGED from [com.google.android.gms:play-services-basement:8.1.0] E:\wxy\workpace\DidaDemoAS\dida_demo\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:21:9-23:69
 	android:value
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:392:13-66
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:397:13-66
 	android:name
-		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:391:13-58
+		ADDED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:396:13-58
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-396:12 reason: io.rong.imkit requested WRITE_EXTERNAL_STORAGE
+IMPLIED from E:\wxy\workpace\DidaDemoAS\dida_demo\src\main\AndroidManifest.xml:2:1-401:12 reason: io.rong.imkit requested WRITE_EXTERNAL_STORAGE

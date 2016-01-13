@@ -22,11 +22,11 @@ import com.dida.first.dialog.DialogProgress;
 import com.dida.first.entity.BeanDetailMarket;
 import com.dida.first.entity.BeanRes;
 import com.dida.first.holder.MDetail_Comment_Holder;
+import com.dida.first.holder.MDetail_Des_Holder;
 import com.dida.first.holder.MDetail_Head_Holder;
-import com.dida.first.holder.MDetail_Image_Holder;
 import com.dida.first.holder.MDetail_Store_Holder;
 import com.dida.first.popupwindow.PopupWindowParamMarket;
-import com.dida.first.popupwindow.PopupWindowSelect;
+import com.dida.first.popupwindow.PopupWindowSelectMarket;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UrlUtil;
@@ -48,11 +48,11 @@ public class Detail_Market_Activity extends BaseNomalActivity {
     private ImageView iv_market_detail_back;
     private ImageView iv_market_detail_chat;
     private MDetail_Head_Holder headHolder;
-    private MDetail_Image_Holder imageHolder;
+    private MDetail_Des_Holder desHolder;
     private MDetail_Store_Holder storeHolder;
     private MDetail_Comment_Holder commentHolder;
     private BeanDetailMarket mDetailMarket = new BeanDetailMarket();
-    private PopupWindowSelect selectPopupWindow;
+    private PopupWindowSelectMarket selectPopupWindow;
     private PopupWindowParamMarket paramPopupWindow;
     private String mProductNo;
     private String mType;
@@ -90,7 +90,7 @@ public class Detail_Market_Activity extends BaseNomalActivity {
 
 
     private void initPopupWindow() {
-        selectPopupWindow = new PopupWindowSelect(
+        selectPopupWindow = new PopupWindowSelectMarket(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getPurchaseAttrList());
         paramPopupWindow = new PopupWindowParamMarket(
                 ll_parent_market_detail, Detail_Market_Activity.this, mDetailMarket.getRes().getProductCustomAttrList());
@@ -184,8 +184,8 @@ public class Detail_Market_Activity extends BaseNomalActivity {
          */
         FrameLayout fl_market_detail_image = (FrameLayout) view
                 .findViewById(R.id.fl_market_detail_image);
-        imageHolder = new MDetail_Image_Holder();
-        fl_market_detail_image.addView(imageHolder.getRootView());
+        desHolder = new MDetail_Des_Holder(this);
+        fl_market_detail_image.addView(desHolder.getRootView());
         return view;
     }
 
@@ -308,7 +308,8 @@ public class Detail_Market_Activity extends BaseNomalActivity {
         headHolder.setData(bean);
         storeHolder.setData(bean);
         commentHolder.setData(bean);
-        imageHolder.setData(bean.getRes().getDetailDesUrl());
+        commentHolder.setData(bean);
+        desHolder.setData(bean);
         showFav(mIsCollection);
     }
 

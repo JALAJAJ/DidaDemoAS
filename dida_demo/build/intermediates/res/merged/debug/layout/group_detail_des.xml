@@ -59,7 +59,7 @@
                 android:background="@drawable/bg_leader_said" />
         </RelativeLayout>
 
-        <View style="@style/divider_special_horizontal"></View>
+        <View style="@style/divider_special_horizontal"/>
 
 
         <LinearLayout

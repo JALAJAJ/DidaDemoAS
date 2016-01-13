@@ -82,7 +82,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:layout_marginRight="8dp"
-                            android:background="@drawable/down_open" />
+                            android:background="@drawable/open_down_nor" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -110,7 +110,7 @@
                     <EditText
                          android:id="@+id/tv_refundm_step3_number"
                         android:imeOptions="actionSend"
-                        android:textCursorDrawable="@drawable/shape_lnull_bred_rnull_s2"
+                        android:textCursorDrawable="@drawable/cursor_et"
                         android:inputType="number"
                         android:background="@null"
                         android:layout_centerVertical="true"

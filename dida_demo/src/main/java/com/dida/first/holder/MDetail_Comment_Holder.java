@@ -35,7 +35,6 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
     private TextView tv_comment_market_date;
     private TextView tv_comment_market_param;
     private TextView tv_market_detail_comment_count;
-    private TextView tv_market_detail_comment_countDes;
 
     private CircleImageView civ_comment_market_icon;
     private MyGridView mgv_comment_market_image;
@@ -53,17 +52,18 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
     @Override
     public View initView() {
         view = UIUtils.inflate(R.layout.market_detail_comment);
+        init();
         return view;
     }
 
     @Override
     public void refreshView() {
+        int evaluationCount = getData().getRes().getEvaluationCount();
         List<BeanDetailMarket.ResEntity.FeedBackVOsEntity> feedBackVOs = getData().getRes().getFeedBackVOs();
-        init();
+
         tv_comment_market_after.setVisibility(View.GONE);
-        tv_market_detail_comment_count.setText(feedBackVOs.size() + "");
-        tv_market_detail_comment_countDes.setText(feedBackVOs.size() == 0 ? "暂无评价(" : "评价(");
-        ll_item_market_commentContent.setVisibility(feedBackVOs.size() == 0 ? View.GONE : View.VISIBLE);
+        tv_market_detail_comment_count.setText(evaluationCount==0?"暂无评价":"评价("+evaluationCount+")");
+        ll_item_market_commentContent.setVisibility(evaluationCount== 0 ? View.GONE : View.VISIBLE);
         if (feedBackVOs.size() > 0) {
             BeanDetailMarket.ResEntity.FeedBackVOsEntity feedBackVOsEntity = feedBackVOs.get(0);
             tv_comment_market_name.setText(feedBackVOsEntity.getUserName());
@@ -71,7 +71,7 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
             tv_comment_market_date.setText(feedBackVOsEntity.getCreateTime());
             tv_comment_market_param.setText(feedBackVOsEntity.getOrderAttrValues());
             ImgAdapter commentImgAdapter = new ImgAdapter(feedBackVOsEntity.getImageUrlList(), activity);
-            commentImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
+//            commentImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
             mgv_comment_market_image.setAdapter(commentImgAdapter);
             if (feedBackVOsEntity.getAfterComment().size() > 0) {
                 tv_comment_market_after.setVisibility(View.VISIBLE);
@@ -82,14 +82,13 @@ public class MDetail_Comment_Holder extends BaseHolder<BeanDetailMarket> impleme
                }
                 tv_comment_market_after.setText(afterString+feedBackVOsEntity.getAfterComment().get(0).getDes());
                 ImgAdapter addImgAdapter = new ImgAdapter(feedBackVOsEntity.getImageUrlList(), activity);
-                addImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
+//                addImgAdapter.setImgSize((UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5,(UIUtils.getScreenWidth() - UIUtils.dip2px(8) * 6) / 5);
                 mgv_comment_market_afterimage.setAdapter(addImgAdapter);
             }
         }
     }
 
     private void init() {
-        tv_market_detail_comment_countDes = (TextView) view.findViewById(R.id.tv_market_detail_comment_countDes);
         tv_comment_market_name = (TextView) view.findViewById(R.id.tv_comment_market_name);
         tv_comment_market_content = (TextView) view.findViewById(R.id.tv_comment_market_content);
         tv_comment_market_after = (TextView) view.findViewById(R.id.tv_comment_market_after);

@@ -10,11 +10,9 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.entity.BeanDetailMarket;
-import com.dida.first.interfaces.OnShowItemListener;
 import com.dida.first.popupwindow.PopupWindowShare;
 import com.dida.first.utils.UIUtils;
-import com.dida.first.utils.UrlUtil;
-import com.dida.first.view.MyLunBoTu;
+import com.dida.first.view.NoTitleMoveImgView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,13 +72,19 @@ public class MDetail_Head_Holder extends BaseHolder<BeanDetailMarket> implements
     }
 
     private void addLunBoTu(List<String> productImgs) {
-        MyLunBoTu<String> adsLunBoTu = new MyLunBoTu<String>(context, productImgs, new OnShowItemListener<String>() {
+        NoTitleMoveImgView<String> adsLunBoTu = new NoTitleMoveImgView<String>(context) {
             @Override
-            public String onShowItem(List<String> mData, int position) {
-                return UrlUtil.HOST + mData.get(position % mData.size());
+            protected void onItemClick(List<String> mAdsList, int position) {
+
             }
-        });
-        adsLunBoTu.setViewHeight(300);
+
+            @Override
+            protected String setImgUrl(List<String> mAdsList, int position) {
+                return mAdsList.get(position);
+            }
+        };
+        adsLunBoTu.show(productImgs);
+        adsLunBoTu.setViewHeight(UIUtils.getScreenWidth());
         fl_market_head.addView(adsLunBoTu);
     }
 

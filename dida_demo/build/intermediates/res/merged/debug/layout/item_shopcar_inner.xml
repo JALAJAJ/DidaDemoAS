@@ -173,7 +173,7 @@
             
             />
         <ImageView 
-            android:background="@drawable/down_open"
+            android:background="@drawable/open_down_nor"
               android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
             

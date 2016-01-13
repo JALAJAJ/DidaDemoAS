@@ -514,33 +514,16 @@ public class BeanDetailPingouStore {
             }
 
             public static class AttrValuesEntity {
-                private String valId;
-                private String attrId;
                 private String attrValue;
                 private boolean isCheck;
 
-                public void setValId(String valId) {
-                    this.valId = valId;
-                }
 
-                public void setAttrId(String attrId) {
-                    this.attrId = attrId;
+                public String getAttrValue() {
+                    return attrValue;
                 }
 
                 public void setAttrValue(String attrValue) {
                     this.attrValue = attrValue;
-                }
-
-                public String getValId() {
-                    return valId;
-                }
-
-                public String getAttrId() {
-                    return attrId;
-                }
-
-                public String getAttrValue() {
-                    return attrValue;
                 }
 
                 public boolean isCheck() {

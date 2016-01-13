@@ -56,7 +56,7 @@ public class Store_All_Fr extends Base_First_Fragment {
         ll_sort_new =(LinearLayout) view.findViewById(R.id.ll_sort_new);
         ll_sort_price =(LinearLayout) view.findViewById(R.id.ll_sort_price);
 
-        tv_sort_all =(TextView) view.findViewById(R.id.tv_sort_all);
+        tv_sort_all =(TextView) view.findViewById(R.id.tv_sort_main);
         tv_sort_count =(TextView) view.findViewById(R.id.tv_sort_count);
         tv_sort_new =(TextView) view.findViewById(R.id.tv_sort_new);
         tv_sort_price =(TextView) view.findViewById(R.id.tv_sort_price);

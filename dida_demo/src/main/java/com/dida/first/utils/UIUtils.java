@@ -1,7 +1,5 @@
 package com.dida.first.utils;
 
-import com.dida.first.application.App;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -9,10 +7,13 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.dida.first.application.App;
 
 public class UIUtils {
 
@@ -82,7 +83,11 @@ public class UIUtils {
 	public static float getScreenRatio() { 
 		return getScreenHeight()*1.0f/getScreenWidth(); 
 	}
-	
+
+	//设定颜色
+	public static int getTextColor( int color) {
+		return ContextCompat.getColor(getContext(), color);
+	}
 	// 判断是否是主线的方法
 	public static boolean isRunInMainThread() {
 		return getMainThreadId() == android.os.Process.myTid();

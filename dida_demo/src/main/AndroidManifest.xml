@@ -252,6 +252,11 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".activity.Search_Pingou_Activity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            />
 
         <!-- 融云 -->
         <!-- 会话列表 Activity -->
