@@ -25,7 +25,7 @@
           android:id="@+id/iv_info_group"
            android:layout_centerVertical="true"
           android:layout_alignParentRight="true"
-          android:background="@drawable/yes_selected"
+          android:background="@drawable/bg_seled"
            android:layout_width="wrap_content"
     android:layout_height="wrap_content"
           />
@@ -56,7 +56,7 @@
           android:visibility="gone"
            android:layout_centerVertical="true"
           android:layout_alignParentRight="true"
-          android:background="@drawable/yes_selected"
+          android:background="@drawable/bg_seled"
            android:layout_width="wrap_content"
     android:layout_height="wrap_content"
           />

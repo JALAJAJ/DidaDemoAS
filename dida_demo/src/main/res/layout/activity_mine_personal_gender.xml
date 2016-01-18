@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray_tip"
+    android:background="@color/gray_light"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/yes_selected" />
+            android:background="@drawable/bg_seled" />
     </RelativeLayout>
 
     <View style="@style/divider_nomal_horizontal" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/yes_selected"
+            android:background="@drawable/bg_seled"
             android:visibility="gone" />
     </RelativeLayout>
 

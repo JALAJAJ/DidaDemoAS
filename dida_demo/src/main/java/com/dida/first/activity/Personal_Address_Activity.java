@@ -1,111 +1,118 @@
 package com.dida.first.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.dida.first.R;
-import com.dida.first.adapter.MyBaseAdapter;
-import com.dida.first.entity.BeanAddress;
-import com.dida.first.holder.BaseHolder;
-import com.dida.first.holder.HolderAddress;
-import com.dida.first.utils.ToastUtil;
-
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.dida.first.R;
+import com.dida.first.adapter.AddressAdapter;
+import com.dida.first.callback.JsonCallBack;
+import com.dida.first.entity.BeanAddressList;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Request;
+
 /**
- * @author		KingJA 
- * @data		2015-9-21 下午2:30:35 
- * @use			
- *
+ * @author KingJA
+ * @data 2015-9-21 下午2:30:35
+ * @use
  */
 public class Personal_Address_Activity extends BackTitleActivity implements OnItemClickListener {
 
-	private ListView lv_mine_personal_address;
-	private List<BeanAddress> addressesList=new ArrayList<BeanAddress>();
+    private ListView lv_single;
+    private List<BeanAddressList.ResEntity.DeliveryAdressListEntity> deliveryAdressList = new ArrayList<>();
+    private AddressAdapter addressAdapter;
 
-	@Override
-	public View setView() {
-		view=View.inflate(this, R.layout.activity_mine_personal_address, null);
-		return view;
-	}
+    @Override
+    public View setView() {
+        view = View.inflate(this, R.layout.single_lv, null);
+        return view;
+    }
 
-	@Override
-	public void initView() {
-		lv_mine_personal_address = (ListView) view.findViewById(R.id.lv_mine_personal_address);
-	
-	}
+    @Override
+    public void initView() {
+        lv_single = (ListView) view.findViewById(R.id.lv_single);
 
-	@Override
-	public void initDoNet() {
-		for (int i = 0; i < 10; i++) {
-			if (i==1) {
-				addressesList.add(new BeanAddress(true,"马云"+i,"18888886688","浙江省","温州市","龙湾区","农业开发区文昌路209号红连文创园811"));	
-			}else {
-				addressesList.add(new BeanAddress(false,"马云"+i,"18888886688","浙江省","温州市","龙湾","农业开发区文昌路209号红连文创园811"));	
-			}
-		}
+    }
 
-	}
+    @Override
+    public void initDoNet() {
+        doNetAddress("fb9a38d82cd3405a9b60ec54cdb5ecdf", 1);
 
-	@Override
-	public void initEvent() {
-		lv_mine_personal_address.setAdapter(new AddressAdapter(addressesList));
-		lv_mine_personal_address.setOnItemClickListener(this);
+    }
 
-	}
+    private void doNetAddress(String userId, int page) {
+        OkHttpUtils
+                .post()
+                .url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_ADDRESS_LIST))
+                .addParams("userId", userId)
+                .addParams("page", String.valueOf(page))
+                .addParams("app", "1")
+                .build()
+                .execute(new JsonCallBack<BeanAddressList>(BeanAddressList.class) {
+                    @Override
+                    public void onError(Request request, Exception e) {
+                        ToastUtil.showMyToast("服务器君在开小差！");
+                    }
 
-	@Override
-	public void initData() {
-		setBackTitle("收货地址管理");
-		setOnTextClickListener("添加", new OnTextClickListener() {
+                    @Override
+                    public void onResponse(BeanAddressList bean) {
+                        deliveryAdressList = bean.getRes().getDeliveryAdressList();
+                        addressAdapter.setData(deliveryAdressList);
+                    }
+                });
+    }
 
-			@Override
-			public void onTextClick() {
-				ToastUtil.showMyToast("添加");
-				Intent intent=new Intent(Personal_Address_Activity.this,Personal_AddAddress_Activity.class);
-				startActivity(intent);
+    @Override
+    public void initEvent() {
+        addressAdapter = new AddressAdapter(deliveryAdressList, this);
+        lv_single.setOnItemClickListener(this);
 
-			}
-		});
-	}
+    }
 
-	@Override
-	public void onChildClick(View v) {
-		
-	}
+    @Override
+    public void initData() {
+        lv_single.setAdapter(addressAdapter);
+        setBackTitle("收货地址管理");
+        setOnTextClickListener("添加", new OnTextClickListener() {
 
-	@Override
-	public void setBackClick() {
-		finish();
+            @Override
+            public void onTextClick() {
+                ToastUtil.showMyToast("添加");
+                Intent intent = new Intent(Personal_Address_Activity.this, Personal_AddAddress_Activity.class);
+                startActivity(intent);
 
-	}
+            }
+        });
+    }
 
-	class AddressAdapter extends MyBaseAdapter<BeanAddress>{
+    @Override
+    public void onChildClick(View v) {
 
-		/**
-		 * @param list
-		 */
-		public AddressAdapter(List<BeanAddress> list) {
-			super(list);
-			// TODO Auto-generated constructor stub
-		}
+    }
 
-		@Override
-		public BaseHolder<BeanAddress> getHolder() {
-			return new HolderAddress();
-		}
-		
-	}
+    @Override
+    public void setBackClick() {
+        finish();
 
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
-		Intent intent=new Intent(Personal_Address_Activity.this,Detail_Address_Activity.class);
-		startActivity(intent);
-		
-	}
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,
+                            long id) {
+        BeanAddressList.ResEntity.DeliveryAdressListEntity itemAtPosition = (BeanAddressList.ResEntity.DeliveryAdressListEntity) parent.getItemAtPosition(position);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("ADDRESS_DETAIL",itemAtPosition);
+        ActivityUtil.goActivityWithBundle(Personal_Address_Activity.this, Detail_Address_Activity.class,bundle);
+    }
 }

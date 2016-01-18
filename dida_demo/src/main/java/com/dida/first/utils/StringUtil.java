@@ -8,6 +8,7 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.UUID;
 
 
@@ -30,4 +31,10 @@ public class StringUtil {
 		spanString.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 		textView.setText(spanString);
 	}
+
+	public static String getDoubleNum(int num){
+		DecimalFormat df = new DecimalFormat("00");
+		return df.format(num);
+	}
+
 }

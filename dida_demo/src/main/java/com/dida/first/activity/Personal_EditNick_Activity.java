@@ -3,10 +3,6 @@
  */
 package com.dida.first.activity;
 
-import com.dida.first.R;
-import com.dida.first.utils.StringUtil;
-import com.dida.first.utils.ToastUtil;
-
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -15,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.dida.first.R;
+import com.dida.first.utils.ToastUtil;
 
 /**
  * @author KingJA
@@ -26,6 +25,8 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 
 	private EditText et_personal_editnick_nick;
 	private ImageView iv_personal_editnick_delete;
+	private String nick;
+	private Button btn_personal_editnick_confirm;
 
 	@Override
 	public View setView() {
@@ -70,9 +71,7 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 			iv_personal_editnick_delete.setVisibility(View.GONE);
 			break;
 		case R.id.btn_personal_editnick_confirm:
-			
 			upLoadNick();
-			
 			break;
 
 		default:
@@ -86,13 +85,18 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 	 */
 	private void upLoadNick() {
 	if (checkNick(nick)) {
-		
+		upDate("fb9a38d82cd3405a9b60ec54cdb5ecdf",nick);
 		resultNick();
 	}
 		
 	}
+
+	private void upDate(String userId, String nickName) {
+
+	}
+
 	/**
-	 * @param nick2
+	 * @param nick
 	 * @return
 	 */
 	private boolean checkNick(String nick) {
@@ -144,7 +148,5 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 
 		}
 	};
-	private String nick;
-	private Button btn_personal_editnick_confirm;
 
 }

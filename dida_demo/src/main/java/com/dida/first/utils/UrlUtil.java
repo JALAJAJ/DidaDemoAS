@@ -2,7 +2,7 @@ package com.dida.first.utils;
 
 public class UrlUtil {
     public  enum InterfaceName{
-        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT
+        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,I_ADDRESS_LIST,I_STORE_LIST
     }
 
 
@@ -26,6 +26,9 @@ public class UrlUtil {
     public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
     public final static String SHOW_PUBLISH = "/group/saveGroup.do";//晒单发布
     public final static String REGISTER_SMS = "/collection/deleteProduct.do";
+    /*==============================================设置==============================================*/
+    public final static String ADDRESS_LIST = "/information/queryMyDeliveryAddress.do";
+    public final static String STORE_LIST = "/collection/getShopCollectionList.do";
 
     /**
      * 获取接口地址
@@ -70,6 +73,14 @@ public class UrlUtil {
             //晒单编辑
             case I_SHOW_EDIT:
                 url += SHOW_EDIT;
+                break;
+            //地址列表
+            case I_ADDRESS_LIST:
+                url += ADDRESS_LIST;
+                break;
+            //收藏店铺列表
+            case I_STORE_LIST:
+                url += STORE_LIST;
                 break;
             default:
                 break;

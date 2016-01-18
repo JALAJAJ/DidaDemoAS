@@ -41,14 +41,14 @@ public class Personal_EditGenderk_Activity extends BackTitleActivity {
 
 	@Override
 	public void initDoNet() {
-		rl_personal_gender_man.setOnClickListener(this);
-		rl_personal_gender_woman.setOnClickListener(this);
-		btn_personal_editgender_confirm.setOnClickListener(this);
+
 	}
 
 	@Override
 	public void initEvent() {
-		
+		rl_personal_gender_man.setOnClickListener(this);
+		rl_personal_gender_woman.setOnClickListener(this);
+		btn_personal_editgender_confirm.setOnClickListener(this);
 	}
 
 	@Override

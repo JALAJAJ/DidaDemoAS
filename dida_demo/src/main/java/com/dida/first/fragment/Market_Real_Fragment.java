@@ -67,7 +67,7 @@ public class Market_Real_Fragment extends Base_First_Fragment {
             }
         }
     };
-    private TitleMoveImgView adsLunBoTu;
+
 
 
     @Override
@@ -216,15 +216,19 @@ public class Market_Real_Fragment extends Base_First_Fragment {
         mQueue.add(pingouRequest);
     }
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (adsLunBoTu!=null){
-            if (hidden){
-                adsLunBoTu.stopRoll();
-            }else{
-                adsLunBoTu.startRoll();
-            }
-        }
-    }
+//    @Override
+//    public void onHiddenChanged(boolean hidden) {
+//        super.onHiddenChanged(hidden);
+//        setMoveImg(hidden);
+//    }
+//
+//    private void setMoveImg(boolean hidden) {
+//        if (adsLunBoTu!=null){
+//            if (hidden){
+//                adsLunBoTu.stopRoll();
+//            }else{
+//                adsLunBoTu.startRoll();
+//            }
+//        }
+//    }
 }

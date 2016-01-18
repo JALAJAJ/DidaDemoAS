@@ -70,6 +70,13 @@ public abstract class PopupWindowBaseDown<T> extends PopupWindow implements OnDi
 		}
 
 	}
+	public void showPopupWindowDown() {
+		if (!this.isShowing()) {
+			setAlpha(activity, 0.7f);
+			this.showAsDropDown(parentView);
+		}
+
+	}
 
 	public void closePopupWindow(Activity activity) {
 		if (this.isShowing()) {

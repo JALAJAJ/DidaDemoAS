@@ -25,7 +25,6 @@ import com.dida.first.utils.UIUtils;
 import com.dida.first.utils.UImageLoaderUitl;
 import com.dida.first.utils.UrlUtil;
 import com.dida.first.utils.VolleyGsonRequest;
-import com.dida.first.view.NoTitleMoveImgView;
 import com.dida.first.view.TitleMoveImgView;
 import com.handmark.pulltorefresh.library.ILoadingLayout;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -77,9 +76,10 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
             }
         }
     };
-    private NoTitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
+//    private NoTitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
     private Intent intent;
     private RelativeLayout rl_search;
+//    private TitleMoveImgView adsLunBoTu1;
 
 
     @Override
@@ -170,7 +170,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     private void addLVHead(List<PingouBean.ResEntity.TaskAdvertiseEntity> adsList) {
 
 
-        TitleMoveImgView titleMoveImgView =new TitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
+        adsLunBoTu = new TitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
             @Override
             protected void onInitShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> list) {
                 titleTv.setText(mAdsList.get(0).getAdName());
@@ -193,11 +193,11 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
                 return mAdsList.get(position).getAdUrl();
             }
         };
-        titleMoveImgView.show(adsList);//显示轮播图
-        titleMoveImgView.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
-        titleMoveImgView.startRoll();//轮播图自动切换
+        adsLunBoTu.show(adsList);//显示轮播图
+        adsLunBoTu.setViewHeight((int) (UIUtils.getScreenWidth()/2.0f));
+        adsLunBoTu.startRoll();//轮播图自动切换
         ListView refreshableView = plv_pingou.getRefreshableView();
-        refreshableView.addHeaderView(titleMoveImgView, null, false);
+        refreshableView.addHeaderView(adsLunBoTu, null, false);
 
     }
     /**
@@ -253,46 +253,6 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
         upLabels.setReleaseLabel("释放加载...");// 上来达到一定距离时，显示的提示
     }
 
-    /**
-     * 根据Fragment隐藏和显示来启动和停止轮播图。
-     * @param hidden
-     */
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (adsLunBoTu!=null){
-            if (hidden){
-                adsLunBoTu.stopRoll();
-            }else{
-                adsLunBoTu.startRoll();
-            }
-        }
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (adsLunBoTu!=null){
-                adsLunBoTu.startRoll();
-        }
-    }
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (adsLunBoTu!=null){
-            adsLunBoTu.stopRoll();
-        }
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -1,32 +1,34 @@
 package com.dida.first.fragment;
 
-import com.dida.first.R;
-import com.dida.first.activity.LoginActivity;
-import com.dida.first.activity.Mine_FootPrint_Activity;
-import com.dida.first.activity.Mine_Personal_Activity;
-import com.dida.first.activity.Mine_MyOrder_Activity;
-import com.dida.first.activity.Mine_MyPingou_Activity;
-import com.dida.first.activity.Mine_FavPingou_Activity;
-import com.dida.first.activity.Mine_Refund_Activity;
-import com.dida.first.activity.Mine_Setting_Activity;
-import com.dida.first.activity.Mine_ShopCar_Activity;
-import com.dida.first.activity.Mine_FavStore_Activity;
-import com.dida.first.utils.CustomConstants;
-import com.dida.first.utils.SharedPreferencesUtils;
-import com.meg7.widget.CircleImageView;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.dida.first.R;
+import com.dida.first.activity.LoginActivity;
+import com.dida.first.activity.Mine_FavPingou_Activity;
+import com.dida.first.activity.Mine_FavStore_Activity;
+import com.dida.first.activity.Mine_FootPrint_Activity;
+import com.dida.first.activity.Mine_MyOrder_Activity;
+import com.dida.first.activity.Mine_MyPingou_Activity;
+import com.dida.first.activity.Mine_Personal_Activity;
+import com.dida.first.activity.Mine_Refund_Activity;
+import com.dida.first.activity.Mine_Setting_Activity;
+import com.dida.first.activity.Mine_ShopCar_Activity;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.CustomConstants;
+import com.dida.first.utils.SharedPreferencesUtils;
+import com.meg7.widget.CircleImageView;
 
 public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 	private View view;
@@ -39,10 +41,16 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 	private LinearLayout ll_mine_tuikuan;
 	private RelativeLayout rl_mine_myorder;
 	private RelativeLayout rl_mine_shoporder;
-//	private RelativeLayout rl_mine_myfriends;
 	private RelativeLayout rl_mine_myyaoyue;
 	private RelativeLayout rl_mine_personial;
 	private RelativeLayout rl_mine_setting;
+	private FragmentActivity mActivity;
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mActivity = getActivity();
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -72,8 +80,6 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 				.findViewById(R.id.rl_mine_myorder);
 		rl_mine_shoporder = (RelativeLayout) view
 				.findViewById(R.id.rl_mine_shoporder);
-//		rl_mine_myfriends = (RelativeLayout) view
-//				.findViewById(R.id.rl_mine_myfriends);
 		rl_mine_myyaoyue = (RelativeLayout) view
 				.findViewById(R.id.rl_mine_myyaoyue);
 		rl_mine_personial = (RelativeLayout) view
@@ -95,7 +101,6 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 
 		rl_mine_myorder.setOnClickListener(this);
 		rl_mine_shoporder.setOnClickListener(this);
-//		rl_mine_myfriends.setOnClickListener(this);
 		rl_mine_myyaoyue.setOnClickListener(this);
 		rl_mine_personial.setOnClickListener(this);
 		rl_mine_setting.setOnClickListener(this);
@@ -137,9 +142,8 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 	private void checkIfLogin() {
 		if (!SharedPreferencesUtils.getBooleanData(CustomConstants.HASLOGIN,
 				false)) {
-			goActivity(LoginActivity.class);
+			ActivityUtil.goActivity(mActivity,LoginActivity.class);
 		}
-
 	}
 
 	@Override
@@ -147,57 +151,47 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 		checkIfLogin();
 		switch (v.getId()) {
 		case R.id.tv_mine_login:
-			goActivity(LoginActivity.class);
+			ActivityUtil.goActivity(mActivity,LoginActivity.class);
 			break;
 			//我的订单
 		case R.id.rl_mine_myorder:
-			goActivity(Mine_MyOrder_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_MyOrder_Activity.class);
 			break;
 			//待购订单
 		case R.id.rl_mine_shoporder:
-			goActivity(Mine_ShopCar_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_ShopCar_Activity.class);
 			break;
-			//我的好友
-//		case R.id.rl_mine_myfriends:
-//			
-//			break;
 			//我的拼购
 		case R.id.rl_mine_myyaoyue:
-			goActivity(Mine_MyPingou_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_MyPingou_Activity.class);
 			break;
 			//个人中心
 		case R.id.rl_mine_personial:
-			goActivity(Mine_Personal_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_Personal_Activity.class);
 			break;
 			//我的足迹
 		case R.id.ll_mine_zuji:
-			goActivity(Mine_FootPrint_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_FootPrint_Activity.class);
 			break;
 			//收藏的店铺
 		case R.id.ll_mine_dianpu:
-			goActivity(Mine_FavStore_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_FavStore_Activity.class);
 			break;
 			//收藏的商品
 		case R.id.ll_mine_product:
-			goActivity(Mine_FavPingou_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_FavPingou_Activity.class);
 			break;
 			//退款退货
 		case R.id.ll_mine_tuikuan:
-			goActivity(Mine_Refund_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_Refund_Activity.class);
 			break;
 			//设置
 		case R.id.rl_mine_setting:
-			goActivity(Mine_Setting_Activity.class);
+			ActivityUtil.goActivity(mActivity,Mine_Setting_Activity.class);
 			break;
-
 		default:
 			break;
 		}
-
 	}
 
-	private void goActivity(Class clazz) {
-		Intent intent = new Intent(getActivity(), clazz);
-		startActivity(intent);
-	}
 }

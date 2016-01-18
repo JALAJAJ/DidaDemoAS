@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_tip"
+        android:background="@color/gray_light"
         android:orientation="vertical"
         android:paddingTop="16dp" >
 
@@ -101,7 +101,6 @@
             android:background="@color/white"
             android:orientation="horizontal"
             android:paddingBottom="12dp"
-            android:paddingLeft="8dp"
             android:paddingRight="12dp"
             android:paddingTop="12dp" >
 
@@ -114,13 +113,16 @@
                 android:text="详细地址:" />
 
             <EditText
+               android:padding="4dp"
+                android:gravity="top|left"
+                android:lines="2"
                  style="@style/black_14"
                 android:id="@+id/et_mine_personal_add_address_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="7"
-                android:background="@null" />
+                android:background="@drawable/shape_l1gray_bwhite_r4" />
         </LinearLayout>
 
         <View style="@style/divider_nomal_horizontal" />

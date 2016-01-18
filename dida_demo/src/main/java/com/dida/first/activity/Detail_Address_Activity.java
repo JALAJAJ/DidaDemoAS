@@ -1,128 +1,151 @@
 /**
- * 
+ *
  */
 package com.dida.first.activity;
 
-import android.content.Context;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dida.first.R;
+import com.dida.first.entity.BeanAddressList;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.wheelview.ChangeAddressDialog;
 import com.dida.first.wheelview.ChangeAddressDialog.OnAddressCListener;
 
 /**
- * @author		KingJA 
- * @data		2015-9-21 下午3:49:44 
- * @use			
- *
+ * @author KingJA
+ * @data 2015-9-21 下午3:49:44
+ * @use
  */
 public class Detail_Address_Activity extends BackTitleActivity {
 
-	private LinearLayout ll_mine_personal_address_province;
-	private LinearLayout ll_mine_personal_address_edit_name;
-	private LinearLayout ll_mine_personal_address_edit_name_des;
-	private EditText et_mine_personal_address_edit_name;
-	private TextView tv_mine_personal_address_edit_name;
+    private LinearLayout ll_address_update_area;
 
-	private LinearLayout ll_mine_personal_address_edit_phone;
-	private LinearLayout ll_mine_personal_address_edit_phone_des;
-	private EditText et_mine_personal_address_edit_phone;
-	private TextView tv_mine_personal_address_edit_phone;
-	@Override
-	public View setView() {
-		view=View.inflate(this, R.layout.activity_mine_personal_address_edit, null);
-		return view;
-	}
+    private TextView tv_address_update_area;
+    private EditText et_address_update_address;
+    private EditText et_address_update_name;
+    private EditText et_address_update_phone;
 
-	@Override
-	public void initView() {
-		
-		
-		ll_mine_personal_address_province = (LinearLayout) view.findViewById(R.id.ll_mine_personal_address_province);
-		ll_mine_personal_address_edit_name_des = (LinearLayout) view.findViewById(R.id.ll_mine_personal_address_edit_name_des);
-		ll_mine_personal_address_edit_name = (LinearLayout) view.findViewById(R.id.ll_mine_personal_address_edit_name);
-		et_mine_personal_address_edit_name = (EditText) view.findViewById(R.id.et_mine_personal_address_edit_name);
-		tv_mine_personal_address_edit_name = (TextView) view.findViewById(R.id.tv_mine_personal_address_edit_name);
+    private BeanAddressList.ResEntity.DeliveryAdressListEntity address_detail;
+    private CheckBox cb_address_update_default;
+    private String area;
+    private String address;
+    private String name;
+    private String phone;
+    private boolean ifDefault;
+    private Button btn_address_update_delete;
+    private Button btn_address_update_confirm;
 
-		ll_mine_personal_address_edit_name_des = (LinearLayout) view.findViewById(R.id.ll_mine_personal_address_edit_name_des);
-		ll_mine_personal_address_edit_phone = (LinearLayout) view.findViewById(R.id.ll_mine_personal_address_edit_phone);
-		et_mine_personal_address_edit_phone = (EditText) view.findViewById(R.id.et_mine_personal_address_edit_phone);
-		tv_mine_personal_address_edit_phone = (TextView) view.findViewById(R.id.tv_mine_personal_address_edit_phone);
-	}
 
-	@Override
-	public void initDoNet() {
+    @Override
+    public View setView() {
+        view = View.inflate(this, R.layout.activity_mine_personal_address_edit, null);
+        return view;
+    }
 
-	}
+    @Override
+    public void initView() {
 
-	@Override
-	public void initEvent() {
-		ll_mine_personal_address_province.setOnClickListener(this);
-		ll_mine_personal_address_edit_name.setOnClickListener(this);
-		ll_mine_personal_address_edit_phone.setOnClickListener(this);
 
-	}
+        btn_address_update_delete = (Button) view.findViewById(R.id.btn_address_update_delete);
+        btn_address_update_confirm = (Button) view.findViewById(R.id.btn_address_update_confirm);
 
-	@Override
-	public void initData() {
-		setBackTitle("修改地址");
+        ll_address_update_area = (LinearLayout) view.findViewById(R.id.ll_address_update_area);
 
-	}
 
-	@Override
-	public void onChildClick(View v) {
-		switch (v.getId()) {
-		case R.id.ll_mine_personal_address_edit_name:
-			ll_mine_personal_address_edit_name_des.setVisibility(View.GONE);
-			edit(et_mine_personal_address_edit_name,tv_mine_personal_address_edit_name);
-			break;
-		case R.id.ll_mine_personal_address_edit_phone:
-			ll_mine_personal_address_edit_phone_des.setVisibility(View.GONE);
-			edit(et_mine_personal_address_edit_phone,tv_mine_personal_address_edit_phone);
-			break;
-		case R.id.ll_mine_personal_address_province:
-			ChangeAddressDialog mChangeAddressDialog = new ChangeAddressDialog(
-					this);
-			mChangeAddressDialog.setAddress("浙江", "温州","鹿城区");
-			mChangeAddressDialog.show();
-			mChangeAddressDialog
-					.setAddresskListener(new OnAddressCListener() {
+        tv_address_update_area = (TextView) view.findViewById(R.id.tv_address_update_area);
+        et_address_update_address = (EditText) view.findViewById(R.id.et_address_update_address);
+        et_address_update_name = (EditText) view.findViewById(R.id.et_address_update_name);
+        et_address_update_phone = (EditText) view.findViewById(R.id.et_address_update_phone);
 
-						@Override
-						public void onClick(String province, String city, String area) {
-							ToastUtil.showMyToast(province + "-" + city+ "-" + area);
-						}
-					});
-		
-			break;
-		default:
-			break;
-		}
+        cb_address_update_default = (CheckBox) view.findViewById(R.id.cb_address_update_default);
 
-	}
+    }
 
-	private void edit(EditText editText,TextView textView) {
-		editText.setVisibility(View.VISIBLE);
-		editText.setFocusable(true);
-		editText.setFocusableInTouchMode(true);
-		editText.requestFocus();
-		editText.setText(textView.getText());
-		editText.setSelection(textView.getText().length());
-		//打开软键盘
-		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-	}
+    @Override
+    public void initDoNet() {
+        address_detail = (BeanAddressList.ResEntity.DeliveryAdressListEntity) getIntent().getSerializableExtra("ADDRESS_DETAIL");
+        ToastUtil.showMyToast(address_detail.getArea());
 
-	@Override
-	public void setBackClick() {
-	finish();
+    }
 
-	}
+    @Override
+    public void initEvent() {
+        ll_address_update_area.setOnClickListener(this);
+        btn_address_update_delete.setOnClickListener(this);
+        btn_address_update_confirm.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void initData() {
+        tv_address_update_area.setText(address_detail.getArea());
+        et_address_update_address.setText(address_detail.getDetailAddress());
+        et_address_update_name.setText(address_detail.getReceiverName());
+        et_address_update_phone.setText(address_detail.getMobileNo());
+        cb_address_update_default.setChecked(address_detail.getIsDefault()==1?true:false);
+        setBackTitle("修改地址");
+
+    }
+
+    @Override
+    public void onChildClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_address_update_area:
+                ChangeAddressDialog mChangeAddressDialog = new ChangeAddressDialog(
+                        this);
+                mChangeAddressDialog.setAddress("浙江", "温州", "鹿城区");
+                mChangeAddressDialog.show();
+                mChangeAddressDialog
+                        .setAddresskListener(new OnAddressCListener() {
+
+                            @Override
+                            public void onClick(String province, String city, String area) {
+                                tv_address_update_area.setText(province + "省" + city + "市" + area);
+                                area=province + "," + city + "," + area;
+                            }
+                        });
+
+                break;
+            case R.id.btn_address_update_delete:
+                break;
+            case R.id.btn_address_update_confirm:
+                address=et_address_update_address.getText().toString().trim();
+                 name=et_address_update_name.getText().toString().trim();
+                phone=et_address_update_phone.getText().toString().trim();
+                ifDefault=cb_address_update_default.isChecked();
+                updateAddress( address_detail.getDeliveryAddressId(),area ,address ,name ,phone, ifDefault);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void updateAddress(String deliveryAddressId, String area, String detailAddress, String receiverName, String mobileNo, boolean isDefault) {
+
+    }
+
+//    private void edit(EditText editText, TextView textView) {
+//        editText.setVisibility(View.VISIBLE);
+//        editText.setFocusable(true);
+//        editText.setFocusableInTouchMode(true);
+//        editText.requestFocus();
+//        editText.setText(textView.getText());
+//        editText.setSelection(textView.getText().length());
+//        //打开软键盘
+//        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//        imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+//    }
+
+    @Override
+    public void setBackClick() {
+        finish();
+
+    }
 
 }

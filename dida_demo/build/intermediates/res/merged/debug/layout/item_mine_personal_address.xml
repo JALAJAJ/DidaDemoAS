@@ -26,7 +26,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/tv_mine_personal_item_name"
+                    android:id="@+id/tv_address_name"
                     style="@style/black_18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -34,16 +34,17 @@
 
                 <TextView
                     android:visibility="gone"
-                     android:id="@+id/tv_mine_personal_item_default"
+                     android:id="@+id/tv_address_default"
                     style="@style/red_18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_mine_personal_item_name"
+                    android:layout_toRightOf="@id/tv_address_name"
                     android:text="[默认]" />
 
                 <TextView
-                       android:id="@+id/tv_mine_personal_item_phone"
-                    style="@style/black_18"
+                    android:layout_centerVertical="true"
+                       android:id="@+id/tv_address_phone"
+                    style="@style/black_14"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -51,7 +52,7 @@
             </RelativeLayout>
 
             <TextView
-                   android:id="@+id/tv_mine_personal_item_address"
+                   android:id="@+id/tv_address_address"
                 style="@style/black_14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

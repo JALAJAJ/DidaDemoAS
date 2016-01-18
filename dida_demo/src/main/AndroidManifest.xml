@@ -257,6 +257,11 @@
             android:launchMode="standard"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".activity.Search_Market_Activity"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            />
 
         <!-- 融云 -->
         <!-- 会话列表 Activity -->

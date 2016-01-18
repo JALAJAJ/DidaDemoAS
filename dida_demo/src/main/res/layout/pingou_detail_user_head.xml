@@ -82,7 +82,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="468.00" />
 
-                <com.dida.first.wheelview.DeleteTextView
+                <com.dida.first.view.DeleteTextView
                     android:id="@+id/tv_pingou_user_detail_head_oldPrice"
                     style="@style/gray_12"
                     android:layout_width="wrap_content"
