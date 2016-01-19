@@ -7,25 +7,31 @@
     card_view:cardElevation="2px">
 
     <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="12dp">
 
-        <com.meg7.widget.CircleImageView
-            android:id="@+id/civ_mine_fav_store_icon"
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/sdv_store_icon"
             android:layout_width="58dp"
             android:layout_height="58dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/collection_shop" />
+            fresco:placeholderImage="@color/gray_light"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:roundAsCircle="true"
+            />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
-            android:padding="4dp">
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_store_name"
                 style="@style/black_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -33,18 +39,21 @@
                 android:text="北极圈专卖" />
 
             <TextView
+                android:id="@+id/tv_store_fance"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
                 style="@style/gray_14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:text="255 粉丝" />
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="8dp"
+            <com.dida.first.view.KingJA_GradeView
+                android:id="@+id/kgv_store_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/store_grade" />
-        </RelativeLayout>
+                />
+        </LinearLayout>
 
 
     </LinearLayout>

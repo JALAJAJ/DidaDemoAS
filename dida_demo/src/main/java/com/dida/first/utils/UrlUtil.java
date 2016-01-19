@@ -1,8 +1,11 @@
 package com.dida.first.utils;
 
+import android.net.Uri;
+
 public class UrlUtil {
     public  enum InterfaceName{
-        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,I_ADDRESS_LIST,I_STORE_LIST
+        I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,
+        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL
     }
 
 
@@ -29,6 +32,7 @@ public class UrlUtil {
     /*==============================================设置==============================================*/
     public final static String ADDRESS_LIST = "/information/queryMyDeliveryAddress.do";
     public final static String STORE_LIST = "/collection/getShopCollectionList.do";
+    public final static String STORE_DETAIL = "/shop/getShopIntroduce.do";
 
     /**
      * 获取接口地址
@@ -82,6 +86,10 @@ public class UrlUtil {
             case I_STORE_LIST:
                 url += STORE_LIST;
                 break;
+            //店铺详情
+            case I_STORE_DETAIL:
+                url += STORE_DETAIL;
+                break;
             default:
                 break;
         }
@@ -100,6 +108,11 @@ public class UrlUtil {
             url = HOST+url;
         }
         return url;
+    } public static Uri getUri(String url) {
+        if (!url.startsWith("http")) {
+            url = IMG+url;
+        }
+        return Uri.parse(url);
     }
 
 

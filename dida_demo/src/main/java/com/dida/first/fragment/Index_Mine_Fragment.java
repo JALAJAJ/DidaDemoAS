@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.dida.first.R;
 import com.dida.first.activity.LoginActivity;
 import com.dida.first.activity.Mine_FavPingou_Activity;
-import com.dida.first.activity.Mine_FavStore_Activity;
 import com.dida.first.activity.Mine_FootPrint_Activity;
 import com.dida.first.activity.Mine_MyOrder_Activity;
 import com.dida.first.activity.Mine_MyPingou_Activity;
@@ -25,6 +24,7 @@ import com.dida.first.activity.Mine_Personal_Activity;
 import com.dida.first.activity.Mine_Refund_Activity;
 import com.dida.first.activity.Mine_Setting_Activity;
 import com.dida.first.activity.Mine_ShopCar_Activity;
+import com.dida.first.activity.StoreListActivity;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.SharedPreferencesUtils;
@@ -175,7 +175,7 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 			break;
 			//收藏的店铺
 		case R.id.ll_mine_dianpu:
-			ActivityUtil.goActivity(mActivity,Mine_FavStore_Activity.class);
+			ActivityUtil.goActivity(mActivity,StoreListActivity.class);
 			break;
 			//收藏的商品
 		case R.id.ll_mine_product:
