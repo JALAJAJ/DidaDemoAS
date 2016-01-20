@@ -1,12 +1,13 @@
 package com.dida.first.activity;
 
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import com.dida.first.R;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.wheelview.ChangeAddressDialog;
 import com.dida.first.wheelview.ChangeAddressDialog.OnAddressCListener;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 /**
  * @author KingJA
@@ -78,10 +79,10 @@ public class Personal_AddAddress_Activity extends BackTitleActivity {
 			mChangeAddressDialog.show();
 			mChangeAddressDialog.setAddresskListener(new OnAddressCListener() {
 
+
 				@Override
-				public void onClick(String province, String city, String area) {
-					tv_mine_personal_add_address_province.setText(province
-							+ "省  " + city + "市  " + area);
+				public void onClick(String province, String city, String area, String provinceId, String cityId, String areaId) {
+					tv_mine_personal_add_address_province.setText(province+ city + area);
 				}
 			});
 			break;

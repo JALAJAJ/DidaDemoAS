@@ -3829,7 +3829,7 @@ containing a value of this type.
         public static final int iv_sort_main=0x7f0e0266;
         public static final int iv_sort_open=0x7f0e0209;
         public static final int iv_sort_select=0x7f0e0268;
-        public static final int iv_storeDetail_icon=0x7f0e0199;
+        public static final int iv_storeDetail_chat=0x7f0e0199;
         public static final int iv_store_logo=0x7f0e03cb;
         public static final int iv_store_sort=0x7f0e03c9;
         public static final int iv_store_star=0x7f0e0194;
@@ -3936,8 +3936,8 @@ containing a value of this type.
         public static final int ll_sort_dots=0x7f0e00f2;
         public static final int ll_sort_new=0x7f0e03c4;
         public static final int ll_sort_price=0x7f0e03c7;
+        public static final int ll_store_collect=0x7f0e0193;
         public static final int ll_store_des=0x7f0e031c;
-        public static final int ll_store_favorite=0x7f0e0193;
         public static final int ll_tab_market=0x7f0e01a6;
         public static final int ll_tab_mine=0x7f0e01ac;
         public static final int ll_tab_pingou=0x7f0e01a3;

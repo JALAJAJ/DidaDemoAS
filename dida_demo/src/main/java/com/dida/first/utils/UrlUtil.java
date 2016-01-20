@@ -5,13 +5,13 @@ import android.net.Uri;
 public class UrlUtil {
     public  enum InterfaceName{
         I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,
-        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL
+        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT
     }
 
 
-    public final static String HOST = "http://121.40.28.206";//主机名
+//    public final static String HOST = "http://121.40.28.206";//主机名
     public final static String IMG = "http://img.aamai.cn";//图片域名
-//    public final static String HOST = "http://192.168.1.178:8080";//主机名
+    public final static String HOST = "http://192.168.1.178:8080";//主机名
     /*==============================================集市==============================================*/
     public final static String MARKET_LIST = "/commodity/queryAllCommodity.do";//集市列表
     public final static String MARKET_DETAIL = "/commodity/queryDetailCommodity.do";//集市详情
@@ -33,6 +33,7 @@ public class UrlUtil {
     public final static String ADDRESS_LIST = "/information/queryMyDeliveryAddress.do";
     public final static String STORE_LIST = "/collection/getShopCollectionList.do";
     public final static String STORE_DETAIL = "/shop/getShopIntroduce.do";
+    public final static String STORE_COLLECT = "/collection/addOrDelShop.do";
 
     /**
      * 获取接口地址
@@ -89,6 +90,10 @@ public class UrlUtil {
             //店铺详情
             case I_STORE_DETAIL:
                 url += STORE_DETAIL;
+                break;
+            //店铺添加/删除收藏
+            case I_STORE_COLLECT:
+                url += STORE_COLLECT;
                 break;
             default:
                 break;

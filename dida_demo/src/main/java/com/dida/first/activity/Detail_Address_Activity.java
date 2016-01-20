@@ -104,10 +104,11 @@ public class Detail_Address_Activity extends BackTitleActivity {
                         .setAddresskListener(new OnAddressCListener() {
 
                             @Override
-                            public void onClick(String province, String city, String area) {
-                                tv_address_update_area.setText(province + "省" + city + "市" + area);
-                                area=province + "," + city + "," + area;
+                            public void onClick(String province, String city, String area, String provinceId, String cityId, String areaId) {
+                                tv_address_update_area.setText(province + city  + area);
+                                area=provinceId + "," + cityId + "," + areaId;
                             }
+
                         });
 
                 break;
