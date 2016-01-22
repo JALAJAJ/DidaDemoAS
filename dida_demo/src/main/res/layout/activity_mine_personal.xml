@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_light"
@@ -30,14 +32,17 @@
             android:layout_centerVertical="true"
             android:background="@drawable/right_open" />
 
-        <com.meg7.widget.CircleImageView
-            android:id="@+id/civ_market_detail_head_icon"
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_toLeftOf="@id/iv_touxiang_open"
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/sdv_userInfo_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginRight="16dp"
-            android:layout_toLeftOf="@id/iv_touxiang_open"
-            android:scaleType="centerCrop"
-            android:src="@drawable/shopcar_item" />
+            fresco:placeholderImage="@color/gray_light"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:roundAsCircle="true"
+            />
     </RelativeLayout>
 
     <View style="@style/divider_nomal_horizontal" />
@@ -75,7 +80,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/iv_nicheng_open"
-            android:text="雨一直下" />
+            android:text="" />
     </RelativeLayout>
 
     <View style="@style/divider_nomal_horizontal" />
@@ -113,6 +118,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/iv_xingbie_open"
+            android:text=""
            />
     </RelativeLayout>
 

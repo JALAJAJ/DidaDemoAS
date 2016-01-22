@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.dida.first.R;
+import com.dida.first.dialog.DialogProgress;
 import com.dida.first.utils.ToastUtil;
 import com.zhy.base.loadandretry.LoadingAndRetryManager;
 import com.zhy.base.loadandretry.OnLoadingAndRetryListener;
@@ -43,6 +44,7 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 	protected RequestQueue mQueue;
 	protected LoadingAndRetryManager mLoadingAndRetryManager;
 	protected Handler mHandler;
+	protected DialogProgress mDialogProgress;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public abstract class BackTitleActivity extends FragmentActivity  implements
 		mQueue = Volley.newRequestQueue(this);
 		doBeforeSetContentView();
 		setContentView(R.layout.top_back);
+		mDialogProgress = new DialogProgress(this);
 		initLoadPager();
 		view = setView();
 		initTopView();

@@ -27,7 +27,7 @@
 
             <EditText
                  style="@style/black_14"
-                android:id="@+id/et_mine_personal_add_address_name"
+                android:id="@+id/et_add_address_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -56,8 +56,9 @@
 
             <EditText
                 android:inputType="number"
+                android:maxLength="11"
                  style="@style/black_14"
-                android:id="@+id/et_mine_personal_add_address_phone"
+                android:id="@+id/et_add_address_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -85,7 +86,7 @@
                 android:text="省市区:" />
 
             <TextView
-                android:id="@+id/tv_mine_personal_add_address_province"
+                android:id="@+id/tv_add_address_province"
                 style="@style/black_14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -116,9 +117,9 @@
             <EditText
                android:padding="4dp"
                 android:gravity="top|left"
-                android:lines="2"
+                android:lines="3"
                  style="@style/black_14"
-                android:id="@+id/et_mine_personal_add_address_address"
+                android:id="@+id/et_add_address_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -128,6 +129,34 @@
 
         <View style="@style/divider_nomal_horizontal" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp" >
+
+        <TextView
+            style="@style/black_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="right"
+            android:text="默认地址:" />
+
+        <CheckBox
+            android:id="@+id/cb_add_address_default"
+            style="@style/black_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="7"
+             />
+    </LinearLayout>
+    <View style="@style/divider_nomal_horizontal" />
         
     </LinearLayout>
 

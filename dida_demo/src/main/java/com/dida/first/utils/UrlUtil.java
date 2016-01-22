@@ -5,9 +5,8 @@ import android.net.Uri;
 public class UrlUtil {
     public  enum InterfaceName{
         I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,
-        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT
+        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT,I_EDIT_USERINFO,I_UPDATE_ADDRESS
     }
-
 
 //    public final static String HOST = "http://121.40.28.206";//主机名
     public final static String IMG = "http://img.aamai.cn";//图片域名
@@ -34,6 +33,8 @@ public class UrlUtil {
     public final static String STORE_LIST = "/collection/getShopCollectionList.do";
     public final static String STORE_DETAIL = "/shop/getShopIntroduce.do";
     public final static String STORE_COLLECT = "/collection/addOrDelShop.do";
+    public final static String EDIT_USERINFO = "/usercenter/updateUserInfomation.do";
+    public final static String UPDATE_ADDRESS = "/information/updateDeliveryAddress.do";
 
     /**
      * 获取接口地址
@@ -94,6 +95,14 @@ public class UrlUtil {
             //店铺添加/删除收藏
             case I_STORE_COLLECT:
                 url += STORE_COLLECT;
+                break;
+            //修改个人信息
+            case I_EDIT_USERINFO:
+                url += EDIT_USERINFO;
+                break;
+            //修改地址
+            case I_UPDATE_ADDRESS:
+                url += UPDATE_ADDRESS;
                 break;
             default:
                 break;

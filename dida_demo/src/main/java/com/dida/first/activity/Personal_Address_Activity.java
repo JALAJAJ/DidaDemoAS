@@ -31,6 +31,7 @@ public class Personal_Address_Activity extends BackTitleActivity implements OnIt
     private ListView lv_single;
     private List<BeanAddressList.ResEntity.DeliveryAdressListEntity> deliveryAdressList = new ArrayList<>();
     private AddressAdapter addressAdapter;
+    private static int RES_EDIT_ADDRESS=1;
 
     @Override
     public View setView() {
@@ -113,6 +114,18 @@ public class Personal_Address_Activity extends BackTitleActivity implements OnIt
         BeanAddressList.ResEntity.DeliveryAdressListEntity itemAtPosition = (BeanAddressList.ResEntity.DeliveryAdressListEntity) parent.getItemAtPosition(position);
         Bundle bundle = new Bundle();
         bundle.putSerializable("ADDRESS_DETAIL",itemAtPosition);
-        ActivityUtil.goActivityWithBundle(Personal_Address_Activity.this, Detail_Address_Activity.class,bundle);
+        ActivityUtil.goActivityForResultWithBundle(Personal_Address_Activity.this, Detail_Address_Activity.class,bundle,RES_EDIT_ADDRESS);
+//        ActivityUtil.goActivityWithBundle(Personal_Address_Activity.this, Detail_Address_Activity.class,bundle);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (data!=null){
+            if (requestCode==RES_EDIT_ADDRESS){
+//                BeanAddressList.ResEntity.DeliveryAdressListEntity result_address = (BeanAddressList.ResEntity.DeliveryAdressListEntity) data.getSerializableExtra("ADDRESS_DETAIL");
+//                addressAdapter.updateAddress(result_address);
+                doNetAddress("fb9a38d82cd3405a9b60ec54cdb5ecdf", 1);
+            }
+//        }
     }
 }

@@ -1412,7 +1412,6 @@ int id chronometer 0x7f0e032f
 int id circle 0x7f0e004d
 int id civ_comment_market_icon 0x7f0e0257
 int id civ_comment_pingou_in_icon 0x7f0e0245
-int id civ_market_detail_head_icon 0x7f0e0123
 int id civ_market_detail_store_name 0x7f0e031d
 int id civ_pingou_detail_comment_icon 0x7f0e024c
 int id civ_pingou_detail_des_icon 0x7f0e0223
@@ -1977,6 +1976,7 @@ int id scrollable 0x7f0e008b
 int id scrollview 0x7f0e0039
 int id sdv_storeDetail_icon 0x7f0e018f
 int id sdv_store_icon 0x7f0e02b5
+int id sdv_userInfo_icon 0x7f0e0123
 int id search_badge 0x7f0e00b1
 int id search_bar 0x7f0e00b0
 int id search_button 0x7f0e00b2

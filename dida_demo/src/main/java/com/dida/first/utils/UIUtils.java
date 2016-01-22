@@ -9,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -71,14 +72,26 @@ public class UIUtils {
 	public static int getScreenWidth() { 
 	    WindowManager manager = (WindowManager) getContext() 
 	            .getSystemService(Context.WINDOW_SERVICE); 
-	    Display display = manager.getDefaultDisplay(); 
-	    return display.getWidth(); 
+	    Display display = manager.getDefaultDisplay();
+
+
+	    return display.getWidth();
 	}
 	public static int getScreenHeight() { 
 		WindowManager manager = (WindowManager) getContext() 
 				.getSystemService(Context.WINDOW_SERVICE); 
 		Display display = manager.getDefaultDisplay(); 
 		return display.getHeight(); 
+	}
+
+	public static int getScreenWidth(Context context) {
+		DisplayMetrics dm = context.getResources().getDisplayMetrics();
+		return dm.widthPixels;
+	}
+
+	public static int getScreenHeight(Context context) {
+		DisplayMetrics dm = context.getResources().getDisplayMetrics();
+		return dm.heightPixels;
 	}
 	public static float getScreenRatio() { 
 		return getScreenHeight()*1.0f/getScreenWidth(); 

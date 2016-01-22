@@ -1,13 +1,20 @@
 package com.dida.first.activity;
 
-import com.dida.first.R;
-import com.dida.first.utils.SharedPreferencesUtils;
-
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.dida.first.R;
+import com.dida.first.callback.JsonCallBack;
+import com.dida.first.entity.BeanSimple;
+import com.dida.first.utils.SharedPreferencesUtils;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import okhttp3.Request;
 
 /**
  * @author KingJA
@@ -22,7 +29,7 @@ public class Personal_EditGenderk_Activity extends BackTitleActivity {
 	private ImageView iv_personal_gender_man;
 	private ImageView iv_personal_gender_woman;
 	private Button btn_personal_editgender_confirm;
-	private String gender="男";
+	private int gender=1;
 
 	@Override
 	public View setView() {
@@ -58,13 +65,8 @@ public class Personal_EditGenderk_Activity extends BackTitleActivity {
 	}
 
 	private void initGender() {
-		String gender = SharedPreferencesUtils.getStringData("gender", "");
-		if (gender=="男") {
-			setGender(0);
-		}
-		if(gender=="女"){
-			setGender(1);
-		}
+		gender =  SharedPreferencesUtils.getIntData("gender", 1);
+		setGender(gender);
 	}
 
 	@Override
@@ -72,55 +74,60 @@ public class Personal_EditGenderk_Activity extends BackTitleActivity {
 		reSet();
 		switch (v.getId()) {
 		case R.id.rl_personal_gender_man:
-			setGender(0);
-			break;
-		case R.id.rl_personal_gender_woman:
 			setGender(1);
 			break;
-		case R.id.btn_personal_editgender_confirm:
-			upLoadGender(gender);
-			resultGender();
+		case R.id.rl_personal_gender_woman:
+			setGender(0);
 			break;
-
+		case R.id.btn_personal_editgender_confirm:
+			updataGender("fb9a38d82cd3405a9b60ec54cdb5ecdf",gender);
+			break;
 		default:
 			break;
 		}
 		
 	}
 
-	private void setGender(int position) {
-		switch (position) {
-		case 0:
-			iv_personal_gender_man.setVisibility(View.VISIBLE);
-			gender="男";
-			break;
-		case 1:
-			iv_personal_gender_woman.setVisibility(View.VISIBLE);
-			gender="女";
-			break;
-
-		default:
-			break;
-		}
-		SharedPreferencesUtils.saveStringData("gender", gender);
+	private void setGender(int gender) {
+		iv_personal_gender_man.setVisibility(gender==1?View.VISIBLE:View.GONE);
+		iv_personal_gender_woman.setVisibility(gender==0?View.VISIBLE:View.GONE);
+		SharedPreferencesUtils.saveIntData("gender", gender);
+		this.gender=gender;
 	}
 
 	/**
 	 * 返回性别
 	 */
 	private void resultGender() {
-		
 		Intent intent=new Intent();
 		intent.putExtra("gender", gender);
 		setResult(20, intent);
 		finish();
 	}
 
-	/**
-	 * @param 上传性别
-	 */
-	private void upLoadGender(String gender) {
-		// TODO Auto-generated method stub
+
+	private void updataGender(String userId, int sex) {
+		mDialogProgress.show();
+		OkHttpUtils
+				.post()
+				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_EDIT_USERINFO))
+				.addParams("userId", userId)
+				.addParams("sex", String.valueOf(sex))
+				.addParams("app", "1")
+				.build()
+				.execute(new JsonCallBack<BeanSimple>(BeanSimple.class) {
+					@Override
+					public void onError(Request request, Exception e) {
+						mDialogProgress.dismiss();
+						ToastUtil.showMyToast("艾玛，别改来改去了！");
+					}
+
+					@Override
+					public void onResponse(BeanSimple bean) {
+						mDialogProgress.dismiss();
+						resultGender();
+					}
+				});
 		
 	}
 

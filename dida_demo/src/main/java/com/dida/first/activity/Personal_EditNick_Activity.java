@@ -13,7 +13,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.dida.first.R;
+import com.dida.first.callback.JsonCallBack;
+import com.dida.first.entity.BeanSimple;
 import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import okhttp3.Request;
 
 /**
  * @author KingJA
@@ -27,6 +33,7 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 	private ImageView iv_personal_editnick_delete;
 	private String nick;
 	private Button btn_personal_editnick_confirm;
+
 
 	@Override
 	public View setView() {
@@ -85,14 +92,36 @@ public class Personal_EditNick_Activity extends BackTitleActivity {
 	 */
 	private void upLoadNick() {
 	if (checkNick(nick)) {
+
 		upDate("fb9a38d82cd3405a9b60ec54cdb5ecdf",nick);
-		resultNick();
+
 	}
 		
 	}
 
 	private void upDate(String userId, String nickName) {
 
+		mDialogProgress.show();
+		OkHttpUtils
+				.post()
+				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_EDIT_USERINFO))
+				.addParams("userId", userId)
+				.addParams("nickName", nickName)
+				.addParams("app", "1")
+				.build()
+				.execute(new JsonCallBack<BeanSimple>(BeanSimple.class) {
+					@Override
+					public void onError(Request request, Exception e) {
+						mDialogProgress.dismiss();
+						ToastUtil.showMyToast("艾玛，有问题了！");
+					}
+
+					@Override
+					public void onResponse(BeanSimple bean) {
+						mDialogProgress.dismiss();
+						resultNick();
+					}
+				});
 	}
 
 	/**

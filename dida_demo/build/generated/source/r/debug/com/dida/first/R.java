@@ -3615,7 +3615,6 @@ containing a value of this type.
         public static final int circle=0x7f0e004d;
         public static final int civ_comment_market_icon=0x7f0e0257;
         public static final int civ_comment_pingou_in_icon=0x7f0e0245;
-        public static final int civ_market_detail_head_icon=0x7f0e0123;
         public static final int civ_market_detail_store_name=0x7f0e031d;
         public static final int civ_pingou_detail_comment_icon=0x7f0e024c;
         public static final int civ_pingou_detail_des_icon=0x7f0e0223;
@@ -3658,9 +3657,9 @@ containing a value of this type.
         public static final int et_friend=0x7f0e017d;
         public static final int et_login_name=0x7f0e010a;
         public static final int et_login_password=0x7f0e010b;
-        public static final int et_mine_personal_add_address_address=0x7f0e0130;
-        public static final int et_mine_personal_add_address_name=0x7f0e012d;
-        public static final int et_mine_personal_add_address_phone=0x7f0e012e;
+        public static final int et_add_address_address =0x7f0e0130;
+        public static final int et_add_address_name =0x7f0e012d;
+        public static final int et_add_address_phone =0x7f0e012e;
         public static final int et_name_name=0x7f0e0162;
         public static final int et_personal_editnick_nick=0x7f0e0140;
         public static final int et_pingou_comment_content=0x7f0e00be;
@@ -4180,6 +4179,7 @@ containing a value of this type.
         public static final int scrollview=0x7f0e0039;
         public static final int sdv_storeDetail_icon=0x7f0e018f;
         public static final int sdv_store_icon=0x7f0e02b5;
+        public static final int sdv_userInfo_icon=0x7f0e0123;
         public static final int search_badge=0x7f0e00b1;
         public static final int search_bar=0x7f0e00b0;
         public static final int search_button=0x7f0e00b2;
@@ -4341,7 +4341,7 @@ containing a value of this type.
         public static final int tv_market_store=0x7f0e01b4;
         public static final int tv_message=0x7f0e0327;
         public static final int tv_mine_login=0x7f0e020e;
-        public static final int tv_mine_personal_add_address_province=0x7f0e012f;
+        public static final int tvl_add_address_province =0x7f0e012f;
         public static final int tv_mine_personal_gender=0x7f0e0129;
         public static final int tv_mine_personal_nick=0x7f0e0126;
         public static final int tv_mine_refund_deal=0x7f0e02ae;

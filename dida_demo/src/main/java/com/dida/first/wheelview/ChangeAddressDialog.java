@@ -72,12 +72,11 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
         this.context = context;
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        strProvince = "浙江省";
-        strCity = "温州市";
-        strArea = "鹿城区";
         setContentView(R.layout.dialog_myinfo_changeaddress);
 
         wvProvince = (WheelView) findViewById(R.id.wv_address_province);
@@ -104,7 +103,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
         initCitys(mCitisDatasMap.get(strProvince));
         initCityIds(mCitisIdsMap.get(strProvince));
         cityAdapter = new AddressTextAdapter(context, arrCitys, getCityItem(strCity), maxsize, minsize);
-        Log.i(TAG, "cityAdapter: " + strCity);
         wvCitys.setVisibleItems(5);
         wvCitys.setViewAdapter(cityAdapter);
         wvCitys.setCurrentItem(getCityItem(strCity));
@@ -131,7 +129,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
                 wvCitys.setVisibleItems(5);
                 wvCitys.setViewAdapter(cityAdapter);
                 wvCitys.setCurrentItem(0);
-                Log.i(TAG, "wvProvince onChanged: " + strCity);
                 initAreas(mAreaDatasMap.get(strCity));
                 initAreaIds(mAreaIdsMap.get(strCity));
                 areaAdapter = new AddressTextAdapter(context, arrAreas, 0, maxsize, minsize);
@@ -174,7 +171,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
                 wvAreas.setViewAdapter(areaAdapter);
                 wvAreas.setCurrentItem(0);
 
-                Log.i(TAG, "wvCitys onChanged: ");
             }
         });
 
@@ -281,7 +277,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
         if (v == btnSure) {
             if (onAddressCListener != null) {
                 onAddressCListener.onClick(strProvince, strCity, strArea, strProvinceId, strCityId, strAreaId);
-                Log.i(TAG, "strProvinceId: " + strProvinceId + " strCityId: " + strCityId + " strAreaId: " + strAreaId);
             }
         } else if (v == btnCancel) {
 
@@ -335,7 +330,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
                 JSONObject jsonP = jsonArray.getJSONObject(i);
                 String province = jsonP.getString("p");
                 String provinceId = jsonP.getString("pid");
-                Log.i(TAG, "province: " + province);
                 mProvinceDatas[i] = province;
                 mProvinceIds[i] = provinceId;
                 JSONArray jsonCs = null;
@@ -348,7 +342,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
                 } catch (Exception e1) {
                     continue;
                 }
-                Log.i(TAG, "jsonCs: " + jsonCs.length());
                 String[] mCitiesDatas = new String[jsonCs.length()];
                 String[] mCitiesIds = new String[jsonCs.length()];
                 for (int j = 0; j < jsonCs.length(); j++) {
@@ -367,7 +360,6 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
                     } catch (Exception e) {
                         continue;
                     }
-                    Log.i(TAG, "jsonAreas: " + jsonAreas.length());
                     String[] mAreasDatas = new String[jsonAreas.length()];
                     String[] mAreasIds = new String[jsonAreas.length()];
                     for (int k = 0; k < jsonAreas.length(); k++) {
@@ -492,7 +484,7 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
      * @param province
      * @param city
      */
-    public void setAddress(String province, String city, String area) {
+    public void setAddress(String province, String city, String area,String provinceId, String cityId, String areaId) {
         if (province != null && province.length() > 0) {
             this.strProvince = province;
         }
@@ -500,7 +492,16 @@ public class ChangeAddressDialog extends Dialog implements android.view.View.OnC
             this.strCity = city;
         }
         if (area != null && city.length() > 0) {
-            this.strArea = city;
+            this.strArea = area;
+        }
+        if (area != null && city.length() > 0) {
+            this.strProvinceId = provinceId;
+        }
+        if (area != null && city.length() > 0) {
+            this.strCityId = cityId;
+        }
+        if (area != null && city.length() > 0) {
+            this.strAreaId = areaId;
         }
     }
 

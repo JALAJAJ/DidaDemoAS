@@ -1,11 +1,5 @@
 package com.dida.first.activity;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,17 +12,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.dida.first.R;
+import com.dida.first.dialog.DialogUploadIcon;
+import com.dida.first.dialog.DialogUploadIcon.OnUploadHeadListener;
 import com.dida.first.factory.ActivityFactory;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.ToastUtil;
-import com.dida.first.dialog.DialogUploadIcon;
-import com.dida.first.dialog.DialogUploadIcon.OnUploadHeadListener;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.meg7.widget.CircleImageView;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @author KingJA
@@ -45,7 +46,7 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 	private RelativeLayout rl_mine_personal_gender;
 	private RelativeLayout rl_mine_personal_safe;
 	private RelativeLayout rl_mine_personal_address;
-	private CircleImageView civ_market_detail_head_icon;
+	private SimpleDraweeView sdv_userInfo_icon;
 	private final int REQUEST_NICK = 10;
 	private final int REQUEST_GENDER = 20;
 	private final int REQUEST_PHOTO = 30;
@@ -74,8 +75,8 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 				.findViewById(R.id.rl_mine_personal_safe);
 		rl_mine_personal_address = (RelativeLayout) view
 				.findViewById(R.id.rl_mine_personal_address);
-		civ_market_detail_head_icon = (CircleImageView) view
-				.findViewById(R.id.civ_market_detail_head_icon);
+		sdv_userInfo_icon = (SimpleDraweeView) view
+				.findViewById(R.id.sdv_userInfo_icon);
 	}
 
 	@Override
@@ -171,13 +172,13 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 			if (data == null) {
 				return;
 			}
-			String gender = data.getStringExtra("gender");
-			tv_mine_personal_gender.setText(gender);
+			int gender = data.getIntExtra("gender",1);
+			tv_mine_personal_gender.setText(gender==1?"男":"女");
 			break;
 		case REQUEST_PHOTO:
 			bmp = BitmapFactory.decodeFile(selectPhontFile.getAbsolutePath());
 
-			civ_market_detail_head_icon.setImageBitmap(bmp);
+			sdv_userInfo_icon.setImageBitmap(bmp);
 			uploadImage(selectPhontFile);
 			break;
 		case REQUEST_ZOOM:
@@ -227,7 +228,7 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 			});
 
 		} else {
-			Toast.makeText(this, "文件不存在", 1).show();
+			ToastUtil.showMyToast("文件不存在");
 		}
 
 	}
@@ -295,7 +296,7 @@ public class Mine_Personal_Activity extends BackTitleActivity {
 		if (bundle != null) {
 			Bitmap photo = bundle.getParcelable("data");
 			if (photo != null) {
-				civ_market_detail_head_icon.setImageBitmap(photo);
+				sdv_userInfo_icon.setImageBitmap(photo);
 			}
 
 		}
