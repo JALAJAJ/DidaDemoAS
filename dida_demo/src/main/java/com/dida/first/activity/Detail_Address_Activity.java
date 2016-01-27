@@ -4,18 +4,16 @@
 package com.dida.first.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.callback.JsonCallBack;
-import com.dida.first.dialog.DialogProgress;
 import com.dida.first.entity.BeanAddressList;
 import com.dida.first.entity.BeanSimple;
 import com.dida.first.utils.UrlUtil;
@@ -33,12 +31,12 @@ import okhttp3.Request;
 public class Detail_Address_Activity extends BackTitleActivity {
 
     private static final String TAG = "Detail_Address_Activity";
-    private LinearLayout ll_address_update_area;
 
     private TextView tv_address_update_area;
     private EditText et_address_update_address;
     private EditText et_address_update_name;
     private EditText et_address_update_phone;
+    private RelativeLayout rl_address_update_area;
 
     private BeanAddressList.ResEntity.DeliveryAdressListEntity address_detail;
     private CheckBox cb_address_update_default;
@@ -56,8 +54,6 @@ public class Detail_Address_Activity extends BackTitleActivity {
     private String cityId;
     private String strictId;
     private ChangeAddressDialog mChangeAddressDialog;
-    private DialogProgress mDialogProgress;
-    private Bundle bundle;
 
 
     @Override
@@ -70,12 +66,12 @@ public class Detail_Address_Activity extends BackTitleActivity {
     public void initView() {
         btn_address_update_delete = (Button) view.findViewById(R.id.btn_address_update_delete);
         btn_address_update_confirm = (Button) view.findViewById(R.id.btn_address_update_confirm);
-        ll_address_update_area = (LinearLayout) view.findViewById(R.id.ll_address_update_area);
         tv_address_update_area = (TextView) view.findViewById(R.id.tv_address_update_area);
         et_address_update_address = (EditText) view.findViewById(R.id.et_address_update_address);
         et_address_update_name = (EditText) view.findViewById(R.id.et_address_update_name);
         et_address_update_phone = (EditText) view.findViewById(R.id.et_address_update_phone);
         cb_address_update_default = (CheckBox) view.findViewById(R.id.cb_address_update_default);
+        rl_address_update_area = (RelativeLayout) view.findViewById(R.id.rl_address_update_area);
 
     }
 
@@ -87,7 +83,7 @@ public class Detail_Address_Activity extends BackTitleActivity {
 
     @Override
     public void initEvent() {
-        ll_address_update_area.setOnClickListener(this);
+        rl_address_update_area.setOnClickListener(this);
         btn_address_update_delete.setOnClickListener(this);
         btn_address_update_confirm.setOnClickListener(this);
 
@@ -107,6 +103,8 @@ public class Detail_Address_Activity extends BackTitleActivity {
         et_address_update_phone.setText(address_detail.getMobileNo());
         cb_address_update_default.setChecked(address_detail.getIsDefault()==1?true:false);
         totelArea = provinceId + "*" + cityId + "*" + strictId;
+
+        et_address_update_address.setSelection(et_address_update_address.getText().length());
         setBackTitle("修改地址");
 
     }
@@ -114,7 +112,7 @@ public class Detail_Address_Activity extends BackTitleActivity {
     @Override
     public void onChildClick(View v) {
         switch (v.getId()) {
-            case R.id.ll_address_update_area:
+            case R.id.rl_address_update_area:
                 mChangeAddressDialog = new ChangeAddressDialog(this);
                 mChangeAddressDialog.setAddress(provinceName, cityName, strictName, provinceId, cityId, strictId);
                 mChangeAddressDialog.show();
@@ -190,18 +188,6 @@ public class Detail_Address_Activity extends BackTitleActivity {
 
     private void resultUpdate() {
         Intent intent = new Intent();
-//        address_detail.setProvinceName(provinceName);
-//        address_detail.setCityName(cityName);
-//        address_detail.setStrictName(strictName);
-//        address_detail.setProvinceId(provinceId);
-//        address_detail.setCityId(cityId);
-//        address_detail.setStrictId(strictId);
-//        address_detail.setMobileNo(phone);
-//        address_detail.setDetailAddress(address);
-//        address_detail.setIsDefault(ifDefault=="1"?1:0);
-//        bundle = getIntent().getExtras();
-//        bundle.putSerializable("ADDRESS_DETAIL",address_detail);
-//        intent.putExtras(bundle);
         setResult(10, intent);
         finish();
     }

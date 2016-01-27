@@ -2,11 +2,8 @@ package com.dida.first.activity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -14,24 +11,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.Response.Listener;
-import com.android.volley.VolleyError;
 import com.dida.first.R;
-import com.dida.first.application.App;
-import com.dida.first.entity.BeanSms;
-import com.dida.first.textwatcher.MyTextWatcher;
-import com.dida.first.utils.ActivityUtil;
-import com.dida.first.utils.UrlUtil;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.VolleyStringRequest;
+import com.dida.first.callback.JsonCallBack;
 import com.dida.first.dialog.DialogDouble;
 import com.dida.first.dialog.DialogDouble.OnDoubleClickListener;
+import com.dida.first.entity.BeanSimple;
+import com.dida.first.textwatcher.MyTextWatcher;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Pattern;
+
+import okhttp3.Request;
 
 /**
  * @author KingJA
@@ -52,18 +45,9 @@ public class RegisterActivity extends BackTitleActivity {
 	private LinearLayout ll_register_focus;
 	private Button btn_register;
 	private String code;
-	private String receivedCode;
-	private Handler handler=new Handler(){
-		public void handleMessage(android.os.Message msg) {
-			BeanSms beanSms=(BeanSms) msg.obj;
-			if (beanSms.getCode()==1) {
-				receivedCode=beanSms.getRes();
-				
-			}else {
-				 showDoubleDialog();
-			}
-		};
-	};
+	private String receivedCode="";
+	private boolean mOnce=true;
+
 
 	/**
 	 * 验证所有：手机格式，验证码，密码
@@ -135,7 +119,7 @@ public class RegisterActivity extends BackTitleActivity {
 			ToastUtil.showMyToast("请输入验证码");
 			return false;
 		}
-		if (!receivedCode.equals(code)) {
+		if (!code.equals(receivedCode)) {
 			ToastUtil.showMyToast("验证码错误");
 			return false;
 		}
@@ -291,9 +275,9 @@ public class RegisterActivity extends BackTitleActivity {
 		switch (v.getId()) {
 		case R.id.btn_register_get_code:
 			if (checkPhone()) {
-				postByVolley();
+				loadNet(phone);
 				 btn_register_get_code.setBackgroundResource(R.drawable.shape_lnull_bgray_r4);
-				 timeCount = new TimeCount(60 * 1000, 1000);
+				 timeCount = new TimeCount(10 * 1000, 1000);
 				 timeCount.start();
 				 // 截取输入框焦点
 				 ll_register_focus.setFocusable(true);
@@ -308,8 +292,8 @@ public class RegisterActivity extends BackTitleActivity {
 		case R.id.btn_register:
 			if (checkAll()) {
 				Bundle bundle = new Bundle();
-				bundle.putString("phone", phone);
-				bundle.putString("password",password);
+				bundle.putString("USER_PHONE", phone);
+				bundle.putString("USER_PASSWORD",password);
 				ToastUtil.showMyToast("开始取名字");
 				ActivityUtil.goActivityWithBundle(RegisterActivity.this, NameActivity.class, bundle);
 				finish();
@@ -320,32 +304,31 @@ public class RegisterActivity extends BackTitleActivity {
 
 	}
 
-	private void postByVolley(){
-        VolleyStringRequest<BeanSms> userRequest = new VolleyStringRequest<BeanSms>(UrlUtil.REGISTER_SMS, BeanSms.class,null, new Listener<BeanSms>()
-        {  
-            @Override  
-            public void onResponse(BeanSms beanSms)  
-            {  
-            	Message msg = handler.obtainMessage();
-            	msg.obj=beanSms;
-            	handler.sendMessage(msg);
-                Log.e("onResponse", beanSms.toString());  
-            }  
-        },  new ErrorListener() {
+	private void loadNet(String phone){
+		mDialogProgress.show();
+		OkHttpUtils
+				.post()
+				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_REGISTER_CODE))
+				.addParams("phone", phone)
+				.addParams("app", "1")
+				.build()
+				.execute(new JsonCallBack<BeanSimple>(BeanSimple.class) {
+					@Override
+					public void onError(Request request, Exception e) {
+						mDialogProgress.dismiss();
+					}
 
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				 Log.e("onErrorResponse", error.toString());  
-				
-			}
-		}){@Override
-		protected Map<String, String> getParams() throws AuthFailureError {
-			Map<String, String> map = new HashMap<String, String>();  
-			map.put("mobile", "18868269007");  
-			return map;
-		}};  
-  
-        App.getQueue().add(userRequest); 
+					@Override
+					public void onResponse(BeanSimple bean) {
+						mDialogProgress.dismiss();
+						if (bean.getRes()==0){
+							ToastUtil.showMyToast("对不起，该手机号码已经被注册！");
+						}
+
+						receivedCode=String.valueOf(bean.getRes());
+						ToastUtil.showMyToast(receivedCode);
+					}
+				});
 	}
 
 	
@@ -354,8 +337,12 @@ public class RegisterActivity extends BackTitleActivity {
 	 * 关闭键盘
 	 */
 	private void closeKeyBoard() {
-		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+		if (mOnce) {
+			InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+			imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+			mOnce=false;
+		}
+
 	}
 
 	@Override

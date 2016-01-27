@@ -26,7 +26,7 @@
         <item name="android:windowBackground">@drawable/sharp_progress_dialog</item>
     </style>
     <!-- 分享对话框样式 -->
-    <style name="ShareDialog" parent="@android:Theme.Dialog">
+    <style name="ShareDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
@@ -108,5 +108,9 @@
         <item name="colorPrimaryDark">#0ba823</item>
         <item name="colorAccent">#FF4081</item>
         <item name="android:windowBackground">@color/window_background</item>
+    </style>
+
+    <style name="KingJaEditText" parent="@android:style/Widget.EditText">
+        <item name="android:textCursorDrawable">@drawable/cursor_et</item>
     </style>
 </resources>

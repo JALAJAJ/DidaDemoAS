@@ -1,8 +1,8 @@
 package com.dida.first.utils;
 
-import com.dida.first.application.App;
-
 import android.os.Environment;
+
+import com.dida.first.application.App;
 
 public class CustomConstants {
 
@@ -12,8 +12,6 @@ public class CustomConstants {
 	public static final String RANDOMNAMES_FILE = "name.txt";
 	// 敏感词汇文件名
 	public static final String MINGANWORDS_FILE = "mingan.txt";
-	// SP中标题标记
-	public static final String TITLE = "TITLE";
 	// SP中是否登录标记
 	public static final String HASLOGIN = "HASLOGIN";
 	// 单次最多发送图片数

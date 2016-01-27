@@ -5,7 +5,7 @@ import android.net.Uri;
 public class UrlUtil {
     public  enum InterfaceName{
         I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,
-        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT,I_EDIT_USERINFO,I_UPDATE_ADDRESS
+        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT,I_EDIT_USERINFO,I_UPDATE_ADDRESS,I_REGISTER_CODE,I_REGISTER,I_MINE_PINGOU
     }
 
 //    public final static String HOST = "http://121.40.28.206";//主机名
@@ -28,13 +28,17 @@ public class UrlUtil {
     public final static String SHOW_EDIT = "/prepayorder/selectPrepayOrder.do";//晒单编辑
     public final static String SHOW_PUBLISH = "/group/saveGroup.do";//晒单发布
     public final static String REGISTER_SMS = "/collection/deleteProduct.do";
-    /*==============================================设置==============================================*/
+    /*==============================================我的==============================================*/
     public final static String ADDRESS_LIST = "/information/queryMyDeliveryAddress.do";
     public final static String STORE_LIST = "/collection/getShopCollectionList.do";
     public final static String STORE_DETAIL = "/shop/getShopIntroduce.do";
     public final static String STORE_COLLECT = "/collection/addOrDelShop.do";
     public final static String EDIT_USERINFO = "/usercenter/updateUserInfomation.do";
     public final static String UPDATE_ADDRESS = "/information/updateDeliveryAddress.do";
+    public final static String MINE_PINGOU = "/service/myGroup.do";
+    /*==============================================注册登录==============================================*/
+    public final static String REGISTER_CODE = "/user/getMobileCode.do";
+    public final static String REGISTER = "/user/appRegist.do";
 
     /**
      * 获取接口地址
@@ -104,6 +108,18 @@ public class UrlUtil {
             case I_UPDATE_ADDRESS:
                 url += UPDATE_ADDRESS;
                 break;
+            //获取验证码
+            case I_REGISTER_CODE:
+                url += REGISTER_CODE;
+                break;
+            //注册
+            case I_REGISTER:
+                url += REGISTER;
+                break;
+            //我的拼购
+            case I_MINE_PINGOU:
+                url += MINE_PINGOU;
+                break;
             default:
                 break;
         }
@@ -128,6 +144,9 @@ public class UrlUtil {
         }
         return Uri.parse(url);
     }
-
+    public static  Uri getResourceUri(int resId,String packageName)
+    {
+        return Uri.parse("android.resource://"+AppInfoUtil.getPackageName()+"/"+resId);
+    }
 
 }

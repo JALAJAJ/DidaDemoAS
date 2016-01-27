@@ -101,7 +101,7 @@
             android:background="@drawable/shape_lnull_bgray_r4"
             android:minHeight="0dp"
             android:padding="8dp"
-            android:text="立即注册"
+            android:text="下一步"
             android:textColor="#ffffff" />
     </LinearLayout>
 

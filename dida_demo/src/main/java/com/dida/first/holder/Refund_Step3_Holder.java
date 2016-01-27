@@ -3,12 +3,9 @@
  */
 package com.dida.first.holder;
 
-import android.app.Activity;
 import android.view.View;
-
 import com.dida.first.R;
 import com.dida.first.factory.ActivityFactory;
-import com.dida.first.utils.UIUtils;
 
 /**
  * @author		KingJA 

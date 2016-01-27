@@ -2002,7 +2002,9 @@
         <item name="android:windowExitAnimation">@anim/menu_down</item>
     </style><style name="CustomDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@drawable/shape_lnull_bwhite_r8</item>
-    </style><style name="ShareDialog" parent="@android:Theme.Dialog">
+    </style><style name="KingJaEditText" parent="@android:style/Widget.EditText">
+        <item name="android:textCursorDrawable">@drawable/cursor_et</item>
+    </style><style name="ShareDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>

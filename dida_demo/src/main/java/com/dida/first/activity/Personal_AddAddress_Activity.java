@@ -103,7 +103,7 @@ public class Personal_AddAddress_Activity extends BackTitleActivity {
 	@Override
 	public void onChildClick(View v) {
 		switch (v.getId()) {
-			case R.id.tvl_add_address_province:
+			case R.id.tv_add_address_province:
 			ChangeAddressDialog mChangeAddressDialog = new ChangeAddressDialog(
 					this);
 				mChangeAddressDialog.setAddress("浙江", "温州", "鹿城区", "330000", "330300", "330302");

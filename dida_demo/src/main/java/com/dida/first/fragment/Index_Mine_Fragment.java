@@ -26,14 +26,16 @@ import com.dida.first.activity.Mine_Setting_Activity;
 import com.dida.first.activity.Mine_ShopCar_Activity;
 import com.dida.first.activity.StoreListActivity;
 import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.AppInfoUtil;
 import com.dida.first.utils.CustomConstants;
 import com.dida.first.utils.SharedPreferencesUtils;
-import com.meg7.widget.CircleImageView;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 public class Index_Mine_Fragment extends Fragment implements OnClickListener {
+	private static final String TAG = "Index_Mine_Fragment";
 	private View view;
 	private ImageView iv_mine_chat;
-	private CircleImageView iv_mine_icon;
+	private SimpleDraweeView iv_mine_icon;
 	private TextView tv_mine_login;
 	private LinearLayout ll_mine_dianpu;
 	private LinearLayout ll_mine_product;
@@ -69,7 +71,7 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 
 	private void initView() {
 		iv_mine_chat = (ImageView) view.findViewById(R.id.iv_mine_chat);
-		iv_mine_icon = (CircleImageView) view.findViewById(R.id.iv_mine_icon);
+		iv_mine_icon = (SimpleDraweeView) view.findViewById(R.id.iv_mine_icon);
 		tv_mine_login = (TextView) view.findViewById(R.id.tv_mine_login);
 		ll_mine_dianpu = (LinearLayout) view.findViewById(R.id.ll_mine_dianpu);
 		ll_mine_product = (LinearLayout) view.findViewById(R.id.ll_mine_product);
@@ -151,6 +153,9 @@ public class Index_Mine_Fragment extends Fragment implements OnClickListener {
 		checkIfLogin();
 		switch (v.getId()) {
 		case R.id.tv_mine_login:
+			Log.i(TAG, "getPackageName: "+ AppInfoUtil.getPackageName());
+			Log.i(TAG, "getVersionName: "+ AppInfoUtil.getVersionName());
+			Log.i(TAG, "getVersionCode: "+ AppInfoUtil.getVersionCode());
 			ActivityUtil.goActivity(mActivity,LoginActivity.class);
 			break;
 			//我的订单

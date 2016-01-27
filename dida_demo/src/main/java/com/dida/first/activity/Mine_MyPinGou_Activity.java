@@ -15,8 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.fragment.MyPingou_Invate_Fragment;
-import com.dida.first.fragment.MyPingou_Join_Fragment;
 import com.dida.first.fragment.MyPingou_Mine_Fragment;
 import com.dida.first.utils.UIUtils;
 
@@ -58,10 +56,13 @@ public class Mine_MyPingou_Activity extends BackTitleActivity {
         tv__mypingou_mime = (TextView) view.findViewById(R.id.tv__mypingou_mime);
         tv__mypingou_join = (TextView) view.findViewById(R.id.tv__mypingou_join);
         tv__mypingou_invate = (TextView) view.findViewById(R.id.tv__mypingou_invate);
-
-        fragmentList.add(new MyPingou_Mine_Fragment());
-        fragmentList.add(new MyPingou_Join_Fragment());
-        fragmentList.add(new MyPingou_Invate_Fragment());
+//
+//        fragmentList.add(new MyPingou_Mine_Fragment());
+//        fragmentList.add(new MyPingou_Join_Fragment());
+//        fragmentList.add(new MyPingou_Invate_Fragment());
+        fragmentList.add( MyPingou_Mine_Fragment.getInstance(1));
+        fragmentList.add( MyPingou_Mine_Fragment.getInstance(2));
+        fragmentList.add( MyPingou_Mine_Fragment.getInstance(3));
 
     }
 

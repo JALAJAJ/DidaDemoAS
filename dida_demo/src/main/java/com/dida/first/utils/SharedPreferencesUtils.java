@@ -7,7 +7,7 @@ import com.dida.first.application.App;
 
 public class SharedPreferencesUtils {
 	private static SharedPreferences sharedPreferences=App.getSP();
-	//存储
+	//sava
 	public static void saveStringData(String key,String value){
 		sharedPreferences.edit().putString(key, value).commit();
 	}
@@ -18,7 +18,7 @@ public class SharedPreferencesUtils {
 		sharedPreferences.edit().putBoolean(key, value).commit();
 	}
 	
-	//读取
+	//get
 	public static String getStringData(String key,String defValue){
 		return sharedPreferences.getString(key, defValue);
 	}
@@ -27,5 +27,13 @@ public class SharedPreferencesUtils {
 	}
 	public static boolean getBooleanData(String key,boolean defValue){
 		return sharedPreferences.getBoolean(key, defValue);
+	}
+	//delete
+	public static boolean removeData(String key){
+		return sharedPreferences.edit().remove(key).commit();
+	}
+	//clear
+	public static boolean clearData(String key){
+		return sharedPreferences.edit().clear().commit();
 	}
 }

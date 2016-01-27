@@ -1,22 +1,5 @@
 package com.dida.first.activity;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import com.dida.first.R;
-import com.dida.first.utils.ActivityUtil;
-import com.dida.first.utils.CustomConstants;
-import com.dida.first.utils.StringUtil;
-import com.dida.first.utils.ToastUtil;
-import com.dida.first.utils.UIUtils;
-
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,8 +8,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.dida.first.R;
+import com.dida.first.callback.JsonCallBack;
+import com.dida.first.entity.BeanUserInfo;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.CustomConstants;
+import com.dida.first.utils.SharedPreferencesUtils;
+import com.dida.first.utils.StringUtil;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import okhttp3.Request;
 
 /**
  * @author KingJA
@@ -36,12 +38,16 @@ import android.widget.Toast;
  */
 public class NameActivity extends BackTitleActivity {
 
+	private static final String TAG = "NameActivity";
 	private ImageView iv_suiji;
 	private EditText et_name_name;
 	private Button btn_name;
 	private List<String> list;
-	private String name;
+	private String userName;
 	private List<String> minganList;
+	private String userPhone;
+	private String userPassword;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -73,18 +79,18 @@ public class NameActivity extends BackTitleActivity {
 	 * 检查是否可以注册
 	 */
 	private boolean checkName() {
-		name = et_name_name.getText().toString().trim();
+		userName = et_name_name.getText().toString().trim();
 		/**
 		 * 非空判断
 		 */
-		if (TextUtils.isEmpty(name)) {
+		if (TextUtils.isEmpty(userName)) {
 			ToastUtil.showMyToast("请输入大名");
 			return false;
 		}
 		/**
 		 * 超长判断(<=15个字符)
 		 */
-		if (name.length() > 15) {
+		if (userName.length() > 15) {
 			ToastUtil.showMyToast( "亲，整个短点名字成不");
 			return false;
 		}
@@ -92,8 +98,8 @@ public class NameActivity extends BackTitleActivity {
 		 * 检查名字是否包含敏感字符
 		 */
 		for (String s : minganList) {
-			if (s.contains(name)) {
-				ToastUtil.showMyToast("包含敏感词:"+name);
+			if (s.contains(userName)) {
+				ToastUtil.showMyToast("包含敏感词:"+ userName);
 				return false;
 			}
 		}
@@ -102,7 +108,7 @@ public class NameActivity extends BackTitleActivity {
 		 * TODO 检查名字是否已经注册过
 		 */
 
-		ToastUtil.showMyToast("你的名字:" + name);
+		ToastUtil.showMyToast("你的名字:" + userName);
 		return true;
 
 	}
@@ -116,7 +122,10 @@ public class NameActivity extends BackTitleActivity {
 
 	@Override
 	public void initDoNet() {
-
+		Bundle bundle = getIntent().getExtras();
+		userPhone = bundle.getString("USER_PHONE");
+		userPassword = bundle.getString("USER_PASSWORD");
+		Log.i(TAG, "userPhone: "+userPhone+"userPassword: "+userPassword);
 	}
 
 	@Override
@@ -218,26 +227,47 @@ public class NameActivity extends BackTitleActivity {
 
 		switch (v.getId()) {
 		case R.id.iv_suiji:
-			/**
-			 * 点击更换随机名字
-			 */
 			setRandomName();
 			break;
-
 		case R.id.btn_name:
-			/**
-			 * 检查是否可以注册
-			 */
-			Bundle bundle = getIntent().getExtras();
-			String phone = bundle.getString("phone");
-			String password = bundle.getString("password");
 			if (checkName()) {
-				ActivityUtil.goActivityAndFinish(NameActivity.this, MainActivity.class);
-				ToastUtil.showMyToast(phone+"\n"+password+"\n"+name);
+				Log.i(TAG, "checkName: ");
+				loadNet(userName,userPassword,userPhone);
 			}
 			break;
 		}
 
 	
+	}
+
+	private void loadNet(String userName, String userPassword, String userPhone) {
+		mDialogProgress.show();
+		OkHttpUtils
+				.post()
+				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_REGISTER))
+				.addParams("nickName", userName)
+				.addParams("passWord", userPassword)
+				.addParams("phone", userPhone)
+				.addParams("app", "1")
+				.build()
+				.execute(new JsonCallBack<BeanUserInfo>(BeanUserInfo.class) {
+					@Override
+					public void onError(Request request, Exception e) {
+						mDialogProgress.dismiss();
+					}
+
+					@Override
+					public void onResponse(BeanUserInfo bean) {
+						Log.i(TAG, "USER_NAME: "+bean.getRes().getUserInfo().getNickName());
+						SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getUserInfo().getNickName());
+						SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserInfo().getUserId());
+						SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getUserInfo().getSex());
+						SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getUserInfo().getThumb());
+						SharedPreferencesUtils.saveStringData("USER_TOKEN",bean.getRes().getToken());
+						mDialogProgress.dismiss();
+						ActivityUtil.goActivityAndFinish(NameActivity.this, MainActivity.class);
+						ToastUtil.showMyToast("Welcome AAMAI！");
+					}
+				});
 	}
 }
