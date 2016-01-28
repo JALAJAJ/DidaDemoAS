@@ -5,7 +5,7 @@ import android.net.Uri;
 public class UrlUtil {
     public  enum InterfaceName{
         I_MARKET_LIST,I_MARKET_DETAIL,I_MARKET_ADD_CANCLE_COLLECT,I_PINGOU_LIST,I_PINGOU_ADD_CANCLE_COLLECT,I_PINGOU_DETAIL,I_SHOW_LIST,I_SHOW_EDIT,I_REGISTER_SMS,I_PINGOU_MORE_COMMENT,
-        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT,I_EDIT_USERINFO,I_UPDATE_ADDRESS,I_REGISTER_CODE,I_REGISTER,I_MINE_PINGOU
+        I_ADDRESS_LIST,I_STORE_LIST,I_STORE_DETAIL,I_STORE_COLLECT,I_EDIT_USERINFO,I_UPDATE_ADDRESS,I_REGISTER_CODE,I_REGISTER,I_MINE_PINGOU,I_FAV_PINGOU,I_LOGIN
     }
 
 //    public final static String HOST = "http://121.40.28.206";//主机名
@@ -39,6 +39,8 @@ public class UrlUtil {
     /*==============================================注册登录==============================================*/
     public final static String REGISTER_CODE = "/user/getMobileCode.do";
     public final static String REGISTER = "/user/appRegist.do";
+    public final static String LOGIN = "/user/appLogin.do";
+    public final static String FAV_PINGOU = "/collection/getGroupCollection.do";
 
     /**
      * 获取接口地址
@@ -119,6 +121,14 @@ public class UrlUtil {
             //我的拼购
             case I_MINE_PINGOU:
                 url += MINE_PINGOU;
+                break;
+            //收藏的拼购
+            case I_FAV_PINGOU:
+                url += FAV_PINGOU;
+                break;
+            //登录
+            case I_LOGIN:
+                url += LOGIN;
                 break;
             default:
                 break;

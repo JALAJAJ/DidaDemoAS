@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.fragment.MyPingou_Mine_Fragment;
+import com.dida.first.fragment.MyPingou_Fragment;
 import com.dida.first.utils.UIUtils;
 
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class Mine_FootPrint_Activity extends BackTitleActivity {
 		tv_myfootprint_service = (TextView) view.findViewById(R.id.tv_myfootprint_service);
 		tv_myfootprint_pingou = (TextView) view.findViewById(R.id.tv_myfootprint_pingou);
 
-		fragmentList.add(new MyPingou_Mine_Fragment());
+		fragmentList.add(new MyPingou_Fragment());
 //		fragmentList.add(new MyPingou_Join_Fragment());
 //		fragmentList.add(new MyPingou_Invate_Fragment());
 

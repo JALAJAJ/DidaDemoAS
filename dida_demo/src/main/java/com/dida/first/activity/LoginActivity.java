@@ -1,13 +1,5 @@
 package com.dida.first.activity;
 
-import java.util.regex.Pattern;
-
-import com.dida.first.R;
-import com.dida.first.textwatcher.MyTextWatcher;
-import com.dida.first.utils.CustomConstants;
-import com.dida.first.utils.SharedPreferencesUtils;
-import com.dida.first.utils.ToastUtil;
-
 import android.content.Intent;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -18,6 +10,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.dida.first.R;
+import com.dida.first.callback.JsonCallBack;
+import com.dida.first.entity.BeanLogin;
+import com.dida.first.textwatcher.MyTextWatcher;
+import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.SharedPreferencesUtils;
+import com.dida.first.utils.ToastUtil;
+import com.dida.first.utils.UrlUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+
+import java.util.regex.Pattern;
+
+import okhttp3.Request;
 
 /**
  * 
@@ -162,14 +168,45 @@ public class LoginActivity extends BackTitleActivity {
 	 */
 	private void checkLogin() {
 		if (checkPhone() && checkPassword()) {
-			SharedPreferencesUtils.saveStringData(CustomConstants.USER_NAME,
-					"GM账号");
-			SharedPreferencesUtils.saveBooleanData(CustomConstants.HASLOGIN,
-					true);
-			ToastUtil.showMyToast("登录成功");
-			finish();
+//			SharedPreferencesUtils.saveStringData(CustomConstants.USER_NAME,
+//					"GM账号");
+//			SharedPreferencesUtils.saveBooleanData(CustomConstants.HASLOGIN,
+//					true);
+//			ToastUtil.showMyToast("登录成功");
+//			finish();
+			loadNet(phone,password);
 		}
 
+	}
+	public void loadNet(String nickName,String passWord ){
+		OkHttpUtils
+				.post()
+				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_LOGIN))
+				.addParams("nickName", nickName)
+				.addParams("passWord ",passWord )
+				.addParams("app", "1")
+				.build()
+				.execute(new JsonCallBack<BeanLogin>(BeanLogin.class) {
+					@Override
+					public void onError(Request request, Exception e) {
+
+					}
+
+					@Override
+					public void onResponse(BeanLogin bean) {
+						if (bean.getCode()==1){
+							SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getUserInfo().getNickName());
+							SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserInfo().getUserId());
+							SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getUserInfo().getSex());
+							SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getUserInfo().getThumb());
+							SharedPreferencesUtils.saveStringData("USER_TOKEN",bean.getRes().getToken());
+							ActivityUtil.goActivityAndFinish(LoginActivity.this, MainActivity.class);
+						}else{
+							ToastUtil.showMyToast("账号或密码错误！");
+						}
+
+					}
+				});
 	}
 
 	/**

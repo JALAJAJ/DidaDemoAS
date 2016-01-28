@@ -186,7 +186,7 @@ public class Detail_Store_Activity extends BackTitleActivity implements StoreDes
     }
 
     @Override
-    public void ShowData(BeanStoreDes data) {
+    public void setData(BeanStoreDes data) {
         ToastUtil.showMyToast(data.getRes().getShopImformation().getAddress());
         ifCollected= data.getRes().getIsCollection();
         showCollect(ifCollected);
@@ -199,6 +199,11 @@ public class Detail_Store_Activity extends BackTitleActivity implements StoreDes
         tv_storeDetail_address.setText(shopImformation.getAddress());
         tv_storeDetail_boss.setText(shopImformation.getSellerName());
         kgv_storeDetail_grade.setGrade(shopImformation.getSellercredits());
+
+    }
+
+    @Override
+    public void addData(BeanStoreDes data) {
 
     }
 

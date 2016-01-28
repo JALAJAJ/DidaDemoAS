@@ -16,10 +16,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.dida.first.R;
-import com.dida.first.fragment.Fav_Product_AA_Bak;
-import com.dida.first.fragment.Fav_Product_Group;
-import com.dida.first.fragment.Fav_Product_Real;
-import com.dida.first.fragment.Fav_Product_Service;
+import com.dida.first.fragment.FavPingou_Fragment;
 import com.dida.first.utils.UIUtils;
 
 import java.util.ArrayList;
@@ -38,9 +35,8 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 	private TextView tv__product_real;
 	private TextView tv__product_service;
 	private TextView tv__product_group;
-	private TextView tv__product_aa;
 	private List<Fragment> fragmentList = new ArrayList<Fragment>();
-	private static final int TAB_COUNT = 4;
+	private static final int TAB_COUNT = 3;
 
 	@Override
 	public View setView() {
@@ -58,7 +54,6 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 				.findViewById(R.id.tv__product_service);
 		tv__product_group = (TextView) view
 				.findViewById(R.id.tv__product_group);
-		tv__product_aa = (TextView) view.findViewById(R.id.tv__product_aa);
 		myAdapter = new MyAdapter(getSupportFragmentManager());
 
 	}
@@ -66,10 +61,9 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 	@Override
 	public void initDoNet() {
 		initTab();
-		fragmentList.add(new Fav_Product_Real());
-		fragmentList.add(new Fav_Product_Service());
-		fragmentList.add(new Fav_Product_Group());
-		fragmentList.add(new Fav_Product_AA_Bak());
+		fragmentList.add( FavPingou_Fragment.getInstance(99));
+		fragmentList.add( FavPingou_Fragment.getInstance(4));
+		fragmentList.add( FavPingou_Fragment.getInstance(2));
 
 	}
 
@@ -87,11 +81,10 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 	public void initEvent() {
 		
 		vp_mine_product.setAdapter(myAdapter);
-		vp_mine_product.setOnPageChangeListener(onPageChangeListener);
+		vp_mine_product.addOnPageChangeListener(onPageChangeListener);
 		tv__product_real.setOnClickListener(this);
 		tv__product_service.setOnClickListener(this);
 		tv__product_group.setOnClickListener(this);
-		tv__product_aa.setOnClickListener(this);
 
 	}
 
@@ -113,9 +106,6 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 			break;
 		case R.id.tv__product_group:
 			select(2);
-			break;
-		case R.id.tv__product_aa:
-			select(3);
 			break;
 
 		default:
@@ -167,9 +157,6 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 				tv__product_group.setTextColor(getResources().getColor(R.color.red));
 				
 				break;
-			case 3:
-				tv__product_aa.setTextColor(getResources().getColor(R.color.red));
-				break;
 
 			default:
 				break;
@@ -206,7 +193,6 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 		tv__product_real.setTextColor(getResources().getColor(R.color.black));
 		tv__product_service.setTextColor(getResources().getColor(R.color.black));
 		tv__product_group.setTextColor(getResources().getColor(R.color.black));
-		tv__product_aa.setTextColor(getResources().getColor(R.color.black));
 	}
 	private void select(int position){
 		reSet();
@@ -222,10 +208,6 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 		case 2:
 			tv__product_group.setTextColor(getResources().getColor(R.color.red));
 			vp_mine_product.setCurrentItem(2);
-			break;
-		case 3:
-			tv__product_aa.setTextColor(getResources().getColor(R.color.red));
-			vp_mine_product.setCurrentItem(3);
 			break;
 
 		default:

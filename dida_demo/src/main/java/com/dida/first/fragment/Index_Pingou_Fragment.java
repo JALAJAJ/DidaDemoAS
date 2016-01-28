@@ -18,7 +18,7 @@ import com.dida.first.activity.Detail_Pingou_Store_Activity;
 import com.dida.first.activity.Detail_Pingou_User_Activity;
 import com.dida.first.activity.Search_Pingou_Activity;
 import com.dida.first.adapter.PingouLvAdapter;
-import com.dida.first.entity.PingouBean;
+import com.dida.first.entity.BeanPingou;
 import com.dida.first.utils.ActivityUtil;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UIUtils;
@@ -40,8 +40,8 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     private boolean hasInitHead;//初始化轮播图
 //    private int mInitPager = 1;//初始化页面Position
     private static final String TAG = "Index_Pingou_Fragment";
-    private List<PingouBean.ResEntity.QueryListEntity> queryList = new ArrayList<PingouBean.ResEntity.QueryListEntity>();
-    private List<PingouBean.ResEntity.TaskAdvertiseEntity> taskAdvertise = new ArrayList<PingouBean.ResEntity.TaskAdvertiseEntity>();
+    private List<BeanPingou.ResEntity.QueryListEntity> queryList = new ArrayList<BeanPingou.ResEntity.QueryListEntity>();
+    private List<BeanPingou.ResEntity.TaskAdvertiseEntity> taskAdvertise = new ArrayList<BeanPingou.ResEntity.TaskAdvertiseEntity>();
     private PullToRefreshListView plv_pingou;
     private PingouLvAdapter pingouLvAdapter;
     private RelativeLayout rl_loading;
@@ -76,7 +76,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
             }
         }
     };
-//    private NoTitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
+//    private NoTitleMoveImgView<BeanPingou.ResEntity.TaskAdvertiseEntity> adsLunBoTu;
     private Intent intent;
     private RelativeLayout rl_search;
 //    private TitleMoveImgView adsLunBoTu1;
@@ -167,28 +167,28 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
      *
      * @param adsList
      */
-    private void addLVHead(List<PingouBean.ResEntity.TaskAdvertiseEntity> adsList) {
+    private void addLVHead(List<BeanPingou.ResEntity.TaskAdvertiseEntity> adsList) {
 
 
-        adsLunBoTu = new TitleMoveImgView<PingouBean.ResEntity.TaskAdvertiseEntity>(mActivity) {
+        adsLunBoTu = new TitleMoveImgView<BeanPingou.ResEntity.TaskAdvertiseEntity>(mActivity) {
             @Override
-            protected void onInitShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> list) {
+            protected void onInitShow(TextView titleTv, List<BeanPingou.ResEntity.TaskAdvertiseEntity> list) {
                 titleTv.setText(mAdsList.get(0).getAdName());
             }
 
             @Override
-            protected void onItemClick(List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+            protected void onItemClick(List<BeanPingou.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
                 ToastUtil.showMyToast(mAdsList.get(position).getAdName());
             }
 
             @Override
-            protected void onTitleShow(TextView titleTv, List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+            protected void onTitleShow(TextView titleTv, List<BeanPingou.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
                 Log.i(TAG, "onTitleShow position: "+position );
                 titleTv.setText(mAdsList.get(position).getAdName());
             }
 
             @Override
-            protected String setImgUrl(List<PingouBean.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
+            protected String setImgUrl(List<BeanPingou.ResEntity.TaskAdvertiseEntity> mAdsList, int position) {
                 Log.i(TAG, "setImgUrl "+ mAdsList.get(position).getAdUrl() );
                 return mAdsList.get(position).getAdUrl();
             }
@@ -207,9 +207,9 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
      * @param requestCode
      */
     private void refresh(final int page, final int requestCode) {
-        VolleyGsonRequest<PingouBean> pingouRequest = new VolleyGsonRequest<PingouBean>(UrlUtil.HOST + UrlUtil.PINGOU_LIST, PingouBean.class, new Response.Listener<PingouBean>() {
+        VolleyGsonRequest<BeanPingou> pingouRequest = new VolleyGsonRequest<BeanPingou>(UrlUtil.HOST + UrlUtil.PINGOU_LIST, BeanPingou.class, new Response.Listener<BeanPingou>() {
             @Override
-            public void onResponse(PingouBean res) {
+            public void onResponse(BeanPingou res) {
                 queryList=res.getRes().getQueryList();
                 taskAdvertise=res.getRes().getTaskAdvertise();
                 if (requestCode == RES_MORE && queryList.isEmpty()) {
@@ -258,7 +258,7 @@ public class Index_Pingou_Fragment extends Base_First_Fragment implements Adapte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //position从2开始
         int mPosition=position-2;
-        PingouBean.ResEntity.QueryListEntity queryListEntity = pingouLvAdapter.getData().get(mPosition);
+        BeanPingou.ResEntity.QueryListEntity queryListEntity = pingouLvAdapter.getData().get(mPosition);
         //0用户拼购  1商家拼购
         if (queryListEntity.getGroupMode()==0){
             intent = new Intent(mActivity, Detail_Pingou_User_Activity.class);

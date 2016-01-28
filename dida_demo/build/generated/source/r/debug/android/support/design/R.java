@@ -564,9 +564,9 @@ public final class R {
 		public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f020043;
 		public static final int abc_textfield_search_default_mtrl_alpha = 0x7f020044;
 		public static final int abc_textfield_search_material = 0x7f020045;
-		public static final int design_fab_background = 0x7f020094;
-		public static final int design_snackbar_background = 0x7f020095;
-		public static final int notification_template_icon_bg = 0x7f02028e;
+		public static final int design_fab_background = 0x7f020095;
+		public static final int design_snackbar_background = 0x7f020096;
+		public static final int notification_template_icon_bg = 0x7f02028f;
 	}
 	public static final class id {
 		public static final int action0 = 0x7f0e032a;
@@ -604,10 +604,10 @@ public final class R {
 		public static final int customPanel = 0x7f0e00a2;
 		public static final int decor_content_parent = 0x7f0e00ab;
 		public static final int default_activity_button = 0x7f0e0093;
-		public static final int design_menu_item_action_area = 0x7f0e01d2;
-		public static final int design_menu_item_action_area_stub = 0x7f0e01d1;
-		public static final int design_menu_item_text = 0x7f0e01d0;
-		public static final int design_navigation_view = 0x7f0e01cf;
+		public static final int design_menu_item_action_area = 0x7f0e01d1;
+		public static final int design_menu_item_action_area_stub = 0x7f0e01d0;
+		public static final int design_menu_item_text = 0x7f0e01cf;
+		public static final int design_navigation_view = 0x7f0e01ce;
 		public static final int disableHome = 0x7f0e0041;
 		public static final int edit_query = 0x7f0e00af;
 		public static final int end = 0x7f0e0057;
@@ -637,7 +637,7 @@ public final class R {
 		public static final int middle = 0x7f0e0079;
 		public static final int mini = 0x7f0e0067;
 		public static final int multiply = 0x7f0e005d;
-		public static final int navigation_header_container = 0x7f0e01ce;
+		public static final int navigation_header_container = 0x7f0e01cd;
 		public static final int never = 0x7f0e007f;
 		public static final int none = 0x7f0e0043;
 		public static final int normal = 0x7f0e003f;
@@ -669,8 +669,8 @@ public final class R {
 		public static final int showCustom = 0x7f0e0044;
 		public static final int showHome = 0x7f0e0045;
 		public static final int showTitle = 0x7f0e0046;
-		public static final int snackbar_action = 0x7f0e01cd;
-		public static final int snackbar_text = 0x7f0e01cc;
+		public static final int snackbar_action = 0x7f0e01cc;
+		public static final int snackbar_text = 0x7f0e01cb;
 		public static final int snap = 0x7f0e004c;
 		public static final int spacer = 0x7f0e0098;
 		public static final int split_action_bar = 0x7f0e003a;
