@@ -64,6 +64,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "onCreate: ");
         setContentView(R.layout.fragment_main);
         mFragmentManager = getSupportFragmentManager();
         if (savedInstanceState != null) {

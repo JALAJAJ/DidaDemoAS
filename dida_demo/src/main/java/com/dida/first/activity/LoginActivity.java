@@ -1,8 +1,8 @@
 package com.dida.first.activity;
 
 import android.content.Intent;
-import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -13,9 +13,10 @@ import android.widget.TextView;
 
 import com.dida.first.R;
 import com.dida.first.callback.JsonCallBack;
-import com.dida.first.entity.BeanLogin;
+import com.dida.first.entity.BeanUserInfo;
 import com.dida.first.textwatcher.MyTextWatcher;
 import com.dida.first.utils.ActivityUtil;
+import com.dida.first.utils.CheckUtil;
 import com.dida.first.utils.SharedPreferencesUtils;
 import com.dida.first.utils.ToastUtil;
 import com.dida.first.utils.UrlUtil;
@@ -34,6 +35,7 @@ import okhttp3.Request;
  */
 public class LoginActivity extends BackTitleActivity {
 
+	private static final String TAG = "LoginActivity";
 	private EditText et_login_name;
 	private EditText et_login_password;
 	private String phone = "";
@@ -167,46 +169,46 @@ public class LoginActivity extends BackTitleActivity {
 	 * 验证登录
 	 */
 	private void checkLogin() {
-		if (checkPhone() && checkPassword()) {
-//			SharedPreferencesUtils.saveStringData(CustomConstants.USER_NAME,
-//					"GM账号");
-//			SharedPreferencesUtils.saveBooleanData(CustomConstants.HASLOGIN,
-//					true);
-//			ToastUtil.showMyToast("登录成功");
-//			finish();
+		if (CheckUtil.checkPhoneFormat(phone)&& CheckUtil.checkPasswordFormat(password)) {
 			loadNet(phone,password);
 		}
 
 	}
-	public void loadNet(String nickName,String passWord ){
+	public void loadNet(String userName,String passWord ){
+		Log.i(TAG, "userName: "+userName+"passWord: "+passWord);
+		Log.i(TAG, "url: "+UrlUtil.getIUrl(UrlUtil.InterfaceName.I_LOGIN));
 		OkHttpUtils
 				.post()
 				.url(UrlUtil.getIUrl(UrlUtil.InterfaceName.I_LOGIN))
-				.addParams("nickName", nickName)
-				.addParams("passWord ",passWord )
+				.addParams("userName", userName)
+				.addParams("passWord",passWord)
 				.addParams("app", "1")
 				.build()
-				.execute(new JsonCallBack<BeanLogin>(BeanLogin.class) {
+				.execute(new JsonCallBack<BeanUserInfo>(BeanUserInfo.class) {
 					@Override
 					public void onError(Request request, Exception e) {
 
 					}
 
 					@Override
-					public void onResponse(BeanLogin bean) {
+					public void onResponse(BeanUserInfo bean) {
 						if (bean.getCode()==1){
-							SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getUserInfo().getNickName());
-							SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserInfo().getUserId());
-							SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getUserInfo().getSex());
-							SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getUserInfo().getThumb());
-							SharedPreferencesUtils.saveStringData("USER_TOKEN",bean.getRes().getToken());
+							saveSharedPreferences(bean);
 							ActivityUtil.goActivityAndFinish(LoginActivity.this, MainActivity.class);
+							ToastUtil.showMyToast("登录成功！");
 						}else{
 							ToastUtil.showMyToast("账号或密码错误！");
 						}
-
 					}
 				});
+	}
+
+	private void saveSharedPreferences(BeanUserInfo bean) {
+		SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserId());
+		SharedPreferencesUtils.saveStringData("USER_TOKEN",bean.getRes().getToken());
+		SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getNickName());
+		SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getSex());
+		SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getThumb());
 	}
 
 	/**
@@ -225,41 +227,4 @@ public class LoginActivity extends BackTitleActivity {
 		finish();
 	}
 
-	/**
-	 * 验证手机号码
-	 */
-	private boolean checkPhone() {
-		// 判断非空
-		if (TextUtils.isEmpty(phone)) {
-			ToastUtil.showMyToast("手机号码不能为空");
-			return false;
-		}
-
-		// 判断手机号格式
-		if (!Pattern.matches(
-				"^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\\d{8}$", phone)) {
-			ToastUtil.showMyToast( "手机号码格式不对");
-			return false;
-		}
-		// 判断手机号是否注册过
-		return true;
-
-	}
-
-	/**
-	 * 验证密码
-	 */
-	private boolean checkPassword() {
-		// 判断非空
-		if (TextUtils.isEmpty(password)) {
-			ToastUtil.showMyToast("密码不能为空");
-			return false;
-		}
-		if (!Pattern.matches("[a-zA-Z0-9]{6,12}", password)) {
-			ToastUtil.showMyToast("密码须为6-12位字母或数字组合");
-			return false;
-		} else {
-			return true;
-		}
-	}
 }

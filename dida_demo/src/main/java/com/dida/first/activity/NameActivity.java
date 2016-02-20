@@ -258,11 +258,11 @@ public class NameActivity extends BackTitleActivity {
 
 					@Override
 					public void onResponse(BeanUserInfo bean) {
-						Log.i(TAG, "USER_NAME: "+bean.getRes().getUserInfo().getNickName());
-						SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getUserInfo().getNickName());
-						SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserInfo().getUserId());
-						SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getUserInfo().getSex());
-						SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getUserInfo().getThumb());
+						Log.i(TAG, "USER_NAME: "+bean.getRes().getNickName());
+						SharedPreferencesUtils.saveStringData("USER_NAME",bean.getRes().getNickName());
+						SharedPreferencesUtils.saveStringData("USER_ID",bean.getRes().getUserId());
+						SharedPreferencesUtils.saveIntData("USER_GENDER",bean.getRes().getSex());
+						SharedPreferencesUtils.saveStringData("USER_ICON",bean.getRes().getThumb());
 						SharedPreferencesUtils.saveStringData("USER_TOKEN",bean.getRes().getToken());
 						mDialogProgress.dismiss();
 						ActivityUtil.goActivityAndFinish(NameActivity.this, MainActivity.class);

@@ -8,14 +8,19 @@ import com.dida.first.application.App;
 public class SharedPreferencesUtils {
 	private static SharedPreferences sharedPreferences=App.getSP();
 	//sava
-	public static void saveStringData(String key,String value){
+	public static SharedPreferences saveStringData(String key, String value) {
 		sharedPreferences.edit().putString(key, value).commit();
+		return sharedPreferences;
 	}
-	public static void saveIntData(String key,int value){
+
+	public static SharedPreferences saveIntData(String key, int value) {
 		sharedPreferences.edit().putInt(key, value).commit();
+		return sharedPreferences;
 	}
-	public static void saveBooleanData(String key,boolean value){
+
+	public static SharedPreferences saveBooleanData(String key, boolean value) {
 		sharedPreferences.edit().putBoolean(key, value).commit();
+		return sharedPreferences;
 	}
 	
 	//get

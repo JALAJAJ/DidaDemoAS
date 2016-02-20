@@ -39,8 +39,8 @@ public class UrlUtil {
     /*==============================================注册登录==============================================*/
     public final static String REGISTER_CODE = "/user/getMobileCode.do";
     public final static String REGISTER = "/user/appRegist.do";
-    public final static String LOGIN = "/user/appLogin.do";
     public final static String FAV_PINGOU = "/collection/getGroupCollection.do";
+    public final static String LOGIN = "/user/appLogin.do";
 
     /**
      * 获取接口地址

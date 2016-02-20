@@ -8,8 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -73,8 +73,8 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 		LinearLayout.LayoutParams layoutParam = (LayoutParams) iv_product_tab.getLayoutParams();
 		layoutParam.width = tabWidth;
 		iv_product_tab.setLayoutParams(layoutParam);
-		Log.i("screenWidth", screenWidth+"");
-		Log.i("tabWidth", tabWidth+"");
+//		Log.i("screenWidth", screenWidth+"");
+//		Log.i("tabWidth", tabWidth+"");
 	}
 
 	@Override
@@ -82,6 +82,7 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 		
 		vp_mine_product.setAdapter(myAdapter);
 		vp_mine_product.addOnPageChangeListener(onPageChangeListener);
+		vp_mine_product.setOffscreenPageLimit(TAB_COUNT-1);
 		tv__product_real.setOnClickListener(this);
 		tv__product_service.setOnClickListener(this);
 		tv__product_group.setOnClickListener(this);
@@ -135,6 +136,15 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 			return fragmentList.size();
 		}
 
+		@Override
+		public Object instantiateItem(ViewGroup container, int position) {
+			return super.instantiateItem(container, position);
+		}
+
+		@Override
+		public void destroyItem(ViewGroup container, int position, Object object) {
+			super.destroyItem(container, position, object);
+		}
 	}
 
 	private int currentPosition;
@@ -167,7 +177,7 @@ public class Mine_FavPingou_Activity extends BackTitleActivity {
 		@Override
 		public void onPageScrolled(int position, float positionOffset,
 				int positionOffsetPixels) {
-			Log.i("onPageScrolled", "currentPosition="+currentPosition+"  position="+position+"  偏移百分比="+positionOffset+"  偏移像素="+positionOffsetPixels);
+//			Log.i("onPageScrolled", "currentPosition="+currentPosition+"  position="+position+"  偏移百分比="+positionOffset+"  偏移像素="+positionOffsetPixels);
 			// 向右滑动
 			if (currentPosition == position) {
 				LinearLayout.LayoutParams layoutParam =(LayoutParams) iv_product_tab.getLayoutParams();
